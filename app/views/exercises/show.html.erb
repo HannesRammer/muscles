@@ -1,0 +1,6 @@
+<% if params[:admin] == 'true' %>
+    <%= render('exercises/admin_show') %>
+<% else %>
+    <%= render('exercises/show') %>
+
+<% end %>

@@ -1,0 +1,37 @@
+<%= form_with(model: exercise_to_muscle, local: true) do |form| %>
+  <% if exercise_to_muscle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exercise_to_muscle.errors.count, "error") %> prohibited this exercise_to_muscle from being saved:</h2>
+
+      <ul>
+      <% exercise_to_muscle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :muscle_id %>
+    <%= form.number_field :muscle_id, id: :exercise_to_muscle_muscle_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exercise_id %>
+    <%= form.number_field :exercise_id, id: :exercise_to_muscle_exercise_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body_part_id %>
+    <%= form.number_field :body_part_id, id: :exercise_to_muscle_body_part_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :muscle_type %>
+    <%= form.text_field :muscle_type, id: :exercise_to_muscle_muscle_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

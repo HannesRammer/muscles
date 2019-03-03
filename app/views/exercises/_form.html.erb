@@ -1,0 +1,62 @@
+<%= form_with(model: exercise, local: true) do |form| %>
+  <% if exercise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
+
+      <ul>
+      <% exercise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :exercise_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image1 %>
+    <%= form.text_field :image1, id: :exercise_image1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :exercise_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image2 %>
+    <%= form.text_field :image2, id: :exercise_image2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :main_description %>
+    <%= form.text_area :main_description, id: :exercise_main_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :how_to %>
+    <%= form.text_area :how_to, id: :exercise_how_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :how_not_to %>
+    <%= form.text_area :how_not_to, id: :exercise_how_not_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :info %>
+    <%= form.text_area :info, id: :exercise_info %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exercise_type %>
+    <%= form.text_field :exercise_type, id: :exercise_exercise_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

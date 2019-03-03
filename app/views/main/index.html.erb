@@ -1,0 +1,116 @@
+<script type="text/javascript">
+    function cleanName(name) {
+        return name.gsub("ß", "ss").gsub(" ", "_").gsub('ä', 'ae').gsub('ö', 'oe').gsub('ü', 'ue').gsub('Ä', 'ae').gsub('Ö', 'oe').gsub('Ü', 'ue').toLowerCase();
+    }
+
+    function hover(name) {
+        setClass(document.querySelector("#hover"), "" + cleanName(name) + "_hover");
+        let last_hover = document.querySelector("#muscle_text_hover").value;
+        if (name === "") {
+            //$("muscle_hover").innerHTML = "";//
+            if (last_hover !== "" && document.querySelector("#" + last_hover + "_hover")) {
+                setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_pic");
+            }
+        } else {
+            let p = cleanName(name);
+            let s = p.toLowerCase();
+
+            if (last_hover !== "" && document.querySelector('#' + last_hover + '_hover')) {
+                setClass(document.querySelector('#' + last_hover + "_hover"), "hidden_muscle_pic");
+            }
+            if (document.querySelector('#' + s + '_hover')) {
+                setClass(document.querySelector('#' + s + '_hover'), "multi_pic");
+            }
+
+            document.querySelector("#muscle_text_hover").innerHTML = name;
+        }
+    }
+
+    function selected(name) {
+        document.querySelector("#muscle_name").value = name;
+        //document.querySelector("#muscle_text_selected").innerHTML = name;
+
+        $('#muscle_form').click();
+        //document.forms.namedItem("muscle_form").click();
+    }
+
+    function selected_exercise(name) {
+        document.querySelector("#exercise_name").value = name;
+        //document.querySelector("#exercise_text_selected").innerHTML = name;
+        $("#exercise_form").click();
+    }
+
+</script>
+<div class="nav nice_outer_tab">
+  Wähle den Körperbereich den du Trainieren willst.
+  <% @body_parts.each do |part| %>
+    <%= link_to(part.name, {:controller => "main", :action => "body_part", :name => part.name}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
+
+  <% end %>   <br/>
+  Oder wähle ein Stichwort.
+  <% %w{Liegen Sitzen Bank Stab Gerät Seilzug Multipresse Kurzhantel Langhantel Gerät Freigewicht}.each do |part| %>
+    <%= link_to(part, {:controller => "main", :action => "search_string", :name => part}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
+
+  <% end %>         <br/>
+
+  Oder klicke auf einen Muskel im Bild.
+</div>
+<br/>                 <br/>
+
+<div style="position:relative">
+  <%= render :partial => "main/body_area" %>
+
+  <%= render :partial => "main/muscle" %>
+
+  <%= image_tag("muskelman.png", :class => 'multi_pic') %>
+
+
+  <%= render :partial => "main/body_part_selected" %>
+  <%= render partial: "main/muscle_selected", locals:{muscles:@muscles}%>
+  <%= render :partial => "main/exercise_selected" %>
+  <%#= render :partial => "main/muscle_hover" %>
+  <%= render :partial => "main/exercise" %>
+  <div id="hover"></div>
+  <%= image_tag("blank.png", :class => 'multi_pic', :usemap => "#body_area", :style => "width:463px;height:460px;") %>
+</div>
+
+
+
+
+<input type="hidden" value="" id="selected_value">
+
+
+
+  <%= form_tag('/main/muscle', :id => "muscle_form" ) do %>
+  <div><%= hidden_field(:muscle, :name) %></div>
+<% end %>
+
+
+
+<%= form_tag('/main/exercise', :id => "exercise_form", method: 'post', remote: true) do %>
+  <div><%= hidden_field(:exercise, :name) %></div>
+<% end %>
+<script> $('#muscle_form').click(function(){
+
+    let name = document.querySelector("#muscle_name").value;
+    $.ajax({
+        type : 'POST',
+        url : '/main/muscle/'+name,
+        dataType : 'script'
+    });
+    return false;
+});
+$('#exercise_form').click(function(){
+
+    let name = document.querySelector("#exercise_name").value;
+    $.ajax({
+        type : 'POST',
+        url : '/main/exercise/'+name,
+        dataType : 'script'
+    });
+    return false;
+});
+</script>
+<div class="box nice_outer_tab">
+  <%= render "muscles" %>
+</div>
