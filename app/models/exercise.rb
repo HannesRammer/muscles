@@ -1,7 +1,7 @@
 class Exercise < ApplicationRecord
   has_many :exercise_to_muscles, -> { where(active: true).order("name") }
   has_many :muscles, :through => :exercise_to_muscles
-
+include Muscles
   has_many :user_to_exercises,  -> { order 'id asc' }
   has_many :users, :through => :user_to_exercises
 
@@ -22,7 +22,9 @@ class Exercise < ApplicationRecord
   end
 
   def x_muscles(m_type)
-    ExerciseToMuscle.find_all_by_exercise_id_and_muscle_type(self.id,m_type).collect { |x| x.muscle }.sort!{|t1,t2|t1.name <=> t2.name}
+    muscleIds = ExerciseToMuscle.find_all_by_exercise_id_and_muscle_type(self.id,m_type).collect { |x| x.muscle_id }
+  muscles = Muscle.where('id in (?)',muscleIds)
+    muscles
   end
 
   def self.free_exercise

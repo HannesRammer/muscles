@@ -140,11 +140,10 @@ function toggle_tab(id) {
     /*$(factor + '_antagonist').style.display = 'none';*/
 
     setClass($("#"+factor + '_primary_tab')[0], '' + $("#"+factor + '_primary_tab')[0].className.gsub(' underline', '') + ' underline');
-    setClass($("#"+factor + '_secondary_tab')[0], '' + $("#"+factor + '_secondary_tab')[0].className.gsub(' underline', '') + ' underline');
+    setClass($("#"+factor + '_secondary_tab')[0], '' + $("#"+factor + '_secondary_tab')[0].className.gsub(' dunderline', '') + ' underline');
     /*setClass($(factor + '_antagonist_tab'), '' + $(factor + '_antagonist_tab').className.gsub('underline', '') + ' underline');*/
 
     if (id === (factor + '_primary')) {
-debugger;
         $("#"+factor + '_primary')[0].style.display = 'block';
         setClass($("#"+factor + '_primary_tab')[0], $("#"+factor + '_primary_tab')[0].className.gsub('underline', ''));
 

@@ -5,7 +5,7 @@ class MainController < ApplicationController
 
   def index
     @liste = []
-    @muscles = Muscle.all_with_pic
+    #@muscles = Muscle.all_with_pic
     @body_parts = BodyPart.all.to_a
     @muscles = []
     @p_muscles = []
@@ -27,8 +27,9 @@ class MainController < ApplicationController
   def body_part
     @name = params[:name]
     body_part = BodyPart.where("name = ?",@name).first
-    @p_muscles = BodyPart.primary_muscles(body_part.id).uniq
-    @s_muscles = BodyPart.secondary_muscles(body_part.id).uniq
+    @muscleList = BodyPart.muscle_list(body_part.id)
+    @p_muscles = @muscleList[0]#.uniq
+    @s_muscles = @muscleList[1]
     # @a_muscles = body_part.antagonist_muscles
     @exercises = body_part.x_ercise
 

@@ -59,17 +59,25 @@
 
 <div style="position:relative">
   <%= render :partial => "main/body_area" %>
-
+  <div id="muscles" class="nice_outer_tab">
   <%= render :partial => "main/muscle" %>
-
+  </div>
   <%= image_tag("muskelman.png", :class => 'multi_pic') %>
 
+  <div id="body_part_selected" style="border:1px solid black;">
+    <%= render :partial => "main/body_part_selected" %>
+  </div>
+  <div id="muscle_selected">
+    <%= render partial: "main/muscle_selected", locals: {muscles: @muscles} %>
+  </div>
 
-  <%= render :partial => "main/body_part_selected" %>
-  <%= render partial: "main/muscle_selected", locals:{muscles:@muscles}%>
-  <%= render :partial => "main/exercise_selected" %>
+  <div id="exercise_selected">
+    <%= render :partial => "main/exercise_selected" %>
+  </div>
   <%#= render :partial => "main/muscle_hover" %>
-  <%= render :partial => "main/exercise" %>
+  <div id="exercises" class="nice_outer_tab" style="">
+    <%= render :partial => "main/exercise" %>
+  </div>
   <div id="hover"></div>
   <%= image_tag("blank.png", :class => 'multi_pic', :usemap => "#body_area", :style => "width:463px;height:460px;") %>
 </div>
@@ -81,7 +89,7 @@
 
 
 
-  <%= form_tag('/main/muscle', :id => "muscle_form" ) do %>
+<%= form_tag('/main/muscle', :id => "muscle_form") do %>
   <div><%= hidden_field(:muscle, :name) %></div>
 <% end %>
 
@@ -90,23 +98,23 @@
 <%= form_tag('/main/exercise', :id => "exercise_form", method: 'post', remote: true) do %>
   <div><%= hidden_field(:exercise, :name) %></div>
 <% end %>
-<script> $('#muscle_form').click(function(){
+<script> $('#muscle_form').click(function () {
 
     let name = document.querySelector("#muscle_name").value;
     $.ajax({
-        type : 'POST',
-        url : '/main/muscle/'+name,
-        dataType : 'script'
+        type: 'POST',
+        url: '/main/muscle/' + name,
+        dataType: 'script'
     });
     return false;
 });
-$('#exercise_form').click(function(){
+$('#exercise_form').click(function () {
 
     let name = document.querySelector("#exercise_name").value;
     $.ajax({
-        type : 'POST',
-        url : '/main/exercise/'+name,
-        dataType : 'script'
+        type: 'POST',
+        url: '/main/exercise/' + name,
+        dataType: 'script'
     });
     return false;
 });
