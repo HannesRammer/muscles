@@ -15,19 +15,6 @@
       <change afterPath="$PROJECT_DIR$/doc/muscles_development_user_to_exercises.sql" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/muscles_development_users.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/main_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/main_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/body_part.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/body_part.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/exercise.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/exercise.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/exercise_to_muscle.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/exercise_to_muscle.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/main/_body_part_selected.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main/_body_part_selected.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/main/_exercise.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main/_exercise.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/main/_exercise_selected.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main/_exercise_selected.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/main/_muscle.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main/_muscle.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/main/_muscle_selected.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main/_muscle_selected.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/main/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/main/muscle.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main/muscle.js.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +71,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/main/_exercise.html.erb">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="136">
@@ -93,11 +80,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/models/body_part.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="365">
-                  <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+                <state relative-caret-position="525">
+                  <caret line="72" selection-start-line="72" selection-end-line="72" />
                 </state>
               </provider>
             </entry>
@@ -160,11 +147,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/models/exercise.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="314">
-                  <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+                <state relative-caret-position="420">
+                  <caret line="26" selection-start-line="26" selection-end-line="26" />
                 </state>
               </provider>
             </entry>
@@ -178,7 +165,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/models/exercise_to_muscle.rb">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="102">
@@ -625,12 +612,20 @@
       <workItem from="1551618568639" duration="22344000" />
       <workItem from="1551657228633" duration="770000" />
       <workItem from="1551739256231" duration="3923000" />
-      <workItem from="1551910949247" duration="5690000" />
+      <workItem from="1551910949247" duration="6009000" />
     </task>
+    <task id="LOCAL-00001" summary="reduced sql calls by changing from 3000ms to 5000ms to 500ms&#10;&#10;.collect { |x| x.muscle } &#10;&#10;to &#10;&#10;.collect { |x| x.muscle_id }&#10;&#10;and then single statement with &#10;&#10;Muscle.where('id in(?)',muscle_id)">
+      <created>1551919018019</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551919018019</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121804000" />
+    <option name="totallyTimeSpent" value="122123000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -643,18 +638,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="1072" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.13752665" />
       <window_info id="Structure" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="0" visible="true" weight="0.33922997" />
+      <window_info anchor="bottom" id="Debug" order="0" weight="0.33922997" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32778355" />
       <window_info anchor="bottom" id="Run" order="4" weight="0.27575442" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.3298647" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32882413" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="6" visible="true" weight="0.32882413" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.3298647" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" order="9" weight="0.33090532" />
@@ -705,6 +699,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="reduced sql calls by changing from 3000ms to 5000ms to 500ms&#10;&#10;.collect { |x| x.muscle } &#10;&#10;to &#10;&#10;.collect { |x| x.muscle_id }&#10;&#10;and then single statement with &#10;&#10;Muscle.where('id in(?)',muscle_id)" />
+    <option name="LAST_COMMIT_MESSAGE" value="reduced sql calls by changing from 3000ms to 5000ms to 500ms&#10;&#10;.collect { |x| x.muscle } &#10;&#10;to &#10;&#10;.collect { |x| x.muscle_id }&#10;&#10;and then single statement with &#10;&#10;Muscle.where('id in(?)',muscle_id)" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -717,16 +715,6 @@
           <url>file://$PROJECT_DIR$/app/controllers/main_controller.rb</url>
           <line>96</line>
           <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/models/exercise.rb</url>
-          <line>26</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/models/body_part.rb</url>
-          <line>70</line>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1059,13 +1047,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main/_exercise.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/main/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1077,13 +1058,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/exercise.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1101,10 +1075,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/exercise.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/body_part.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+        <state relative-caret-position="525">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/main/_exercise.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
