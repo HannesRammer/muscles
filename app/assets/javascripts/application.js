@@ -27,15 +27,15 @@ function setClass(elem, className1) {
 
 
 function toggleExercise() {
-    let exercise= $('#exercise');
+    let exercise= document.querySelector('#exercise');
     if (exercise.innerHTML !== '') {
 
-        let open_exercise= $('#open_exercise');
+        let open_exercise= document.querySelector('#open_exercise');
         if (open_exercise.className === 'open_exercise') {
             open_exercise.className = 'close_exercise';
             open_exercise.innerHTML = 'V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N'
 
-            $('#exercise').className = 'show_exercise';
+            document.querySelector('#exercise').className = 'show_exercise';
             window.scrollBy(2000, 0);
             setTimeout(toggleImage, 1000);
         } else if (open_exercise.className === 'close_exercise') {
@@ -49,34 +49,34 @@ function toggleExercise() {
 }
 
 function toggleTraining() {
-    if ($('#training').innerHTML !== '') {
+    if (document.querySelector('#training').innerHTML !== '') {
 
 
-        if ($('#open_training').className === 'open_training') {
-            $('#open_training').className = 'close_training';
-            $('#open_training').innerHTML = 'V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N'
+        if (document.querySelector('#open_training').className === 'open_training') {
+            document.querySelector('#open_training').className = 'close_training';
+            document.querySelector('#open_training').innerHTML = 'V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N'
 
-            $('#training').className = 'show_training';
+            document.querySelector('#training').className = 'show_training';
             window.scrollBy(2000, 0);
             setTimeout(toggleImage, 1000);
-        } else if ($('#open_training').className === 'close_training') {
+        } else if (document.querySelector('#open_training').className === 'close_training') {
             window.scrollBy(-2000, 0);
-            $('#open_training').innerHTML = 'A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N'
-            $('#training').className = 'hidden_training';
-            $('#open_training').className = 'open_training';
+            document.querySelector('#open_training').innerHTML = 'A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N'
+            document.querySelector('#training').className = 'hidden_training';
+            document.querySelector('#open_training').className = 'open_training';
 
         }
     }
 }
 
 function toggleImage() {
-    if ($('#open_exercise').className === 'close_exercise') {
-        s = $('#exercise_picture').src.split('/images')[1];
+    if (document.querySelector('#open_exercise').className === 'close_exercise') {
+        s = document.querySelector('#exercise_picture').src.split('/images')[1];
         q = s.split('.jpg');
         if (s.include('1.jpg')) {
-            $('#exercise_picture').src = '/images' + s.gsub('1.jpg', '.jpg');
+            document.querySelector('#exercise_picture').src = '/images' + s.gsub('1.jpg', '.jpg');
         } else {
-            $('#exercise_picture').src = '/images' + q[0] + '1.jpg' + q[1];
+            document.querySelector('#exercise_picture').src = '/images' + q[0] + '1.jpg' + q[1];
 
         }
         setTimeout(toggleImage, 1000);
@@ -86,10 +86,10 @@ function toggleImage() {
 function change_style() {
     drop_down = document.style_form.style_options;
     color = drop_down.options[drop_down.selectedIndex].value;
-    setClass($('body'), 'theme_' + color);
+    setClass(document.querySelector('body'), 'theme_' + color);
 
-    var exp = new Date();
-    var numdays = 7;
+    let exp = new Date();
+    let numdays = 7;
     exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * numdays));
     document.cookie = 'style=' + color + '; path=; expires=' + exp.toGMTString();
 
@@ -105,7 +105,8 @@ function next_style() {
 
 function new_style(x) {
 
-    drop_down = document.style_form.style_options;
+    let drop_down = document.style_form.style_options;
+    let new_index, color;
     if (x === '+') {
         new_index = drop_down.selectedIndex + 1;
     } else if (x === '-') {
@@ -122,7 +123,7 @@ function new_style(x) {
     }
     color = drop_down.options[new_index].value;
     drop_down.selectedIndex = new_index;
-    setClass($('body'), 'theme_' + color);
+    setClass(document.querySelector('body'), 'theme_' + color);
 
     var exp = new Date();
     var numdays = 7;
@@ -132,43 +133,37 @@ function new_style(x) {
 }
 
 function toggle_tab(id) {
+    let factor = id.split('_')[0];
 
-    factor = id.split('_')[0];
+    let primary = document.querySelector("#"+factor + '_primary');
+    let secondary = document.querySelector("#"+factor + '_secondary');
 
-    $("#"+factor + '_primary')[0].style.display = 'none';
-    $("#"+factor + '_secondary')[0].style.display = 'none';
-    /*$(factor + '_antagonist').style.display = 'none';*/
-
-    setClass($("#"+factor + '_primary_tab')[0], '' + $("#"+factor + '_primary_tab')[0].className.gsub(' underline', '') + ' underline');
-    setClass($("#"+factor + '_secondary_tab')[0], '' + $("#"+factor + '_secondary_tab')[0].className.gsub(' dunderline', '') + ' underline');
-    /*setClass($(factor + '_antagonist_tab'), '' + $(factor + '_antagonist_tab').className.gsub('underline', '') + ' underline');*/
-
+    let primaryTab = document.querySelector("#"+factor + '_primary_tab');
+    let secondaryTab = document.querySelector("#"+factor + '_secondary_tab');
     if (id === (factor + '_primary')) {
-        $("#"+factor + '_primary')[0].style.display = 'block';
-        setClass($("#"+factor + '_primary_tab')[0], $("#"+factor + '_primary_tab')[0].className.gsub('underline', ''));
+        primary.classList.toggle( "hide" );
+        primaryTab.classList.toggle( "activeTab" );
 
     }
     else if (id === (factor + '_secondary')) {
-        $("#"+factor + '_secondary')[0].style.display = 'block';
-        setClass($("#"+factor + '_secondary_tab')[0], $("#"+factor + '_secondary_tab')[0].className.gsub('underline', ''));
-
+        secondary.classList.toggle( "hide" );
+        secondaryTab.classList.toggle( "activeTab" );
     }
     /* else if (id == (factor + '_antagonist')) {
-     $(factor + '_antagonist').style.display = 'block';
-     setClass($(factor + '_antagonist_tab'), $(factor + '_antagonist_tab').className.gsub('underline', ''));
+     document.querySelector(factor + '_antagonist').style.display = 'block';
+     setClass(document.querySelector(factor + '_antagonist_tab'), document.querySelector(factor + '_antagonist_tab').className.gsub('underline', ''));
 
      }   */
-
 }
 
 
 function set_level(percent, id, way) {             //called
     if (way === 'down') {
-        $('#' + id + '_e').style.height = (100 - percent) + 'px';
-        $('#' + id + '_f').style.height = percent + 'px';
+        document.querySelector('#' + id + '_e').style.height = (100 - percent) + 'px';
+        document.querySelector('#' + id + '_f').style.height = percent + 'px';
     }
     if (way === 'left') {
-        $('#' + id + '_f').style.width = (100 - percent) + 'px';
+        document.querySelector('#' + id + '_f').style.width = (100 - percent) + 'px';
 
     }
 }
@@ -176,22 +171,22 @@ function set_level(percent, id, way) {             //called
 function toggle_running(elem) {
     if (elem.value === 'false') {
         elem.value = 'true';
-        $('#pause_training')[0].innerHTML = '<b>pause training</b>';
+        document.querySelector('#pause_training').innerHTML = '<b>pause training</b>';
     } else {
         elem.value = 'false';
-        $('#pause_training')[0].innerHTML = '<b>resume training</b>';
+        document.querySelector('#pause_training').innerHTML = '<b>resume training</b>';
     }
 
 
 }
 
 function startExercise(i) {
-    $('#running').value = 'true';
-    $('#allow_pause').value = 'true';
-    $('#start_training')[0].innerHTML = '';
-    /*$('pause_training').innerHTML = '<b>pause training</b>';*/
-    reps = $('#reps').value;
-    single_rep = $('#single_rep').value * 1000;
+    document.querySelector('#running').value = 'true';
+    document.querySelector('#allow_pause').value = 'true';
+    document.querySelector('#start_training').innerHTML = '';
+    /*document.querySelector('pause_training').innerHTML = '<b>pause training</b>';*/
+    reps = document.querySelector('#reps').value;
+    single_rep = document.querySelector('#single_rep').value * 1000;
     perc = 100;
     set_level(perc, 'reps_div', 'left');
     set_level(perc, 'single_rep_div', 'left');
@@ -202,28 +197,28 @@ function do_rep(single_rep, counter, reps, new_reps, i) {
 
     if (counter > 0) {
 
-        if ($('#hold_div_f')[0].innerHTML === 0) {
+        if (document.querySelector('#hold_div_f').innerHTML === 0) {
             drown_to_null(single_rep, counter, 'single_rep_div');
             //set_timeline(single_rep, counter) ;
-            $('#single_rep_div_f')[0].innerHTML = (counter / 1000);
+            document.querySelector('#single_rep_div_f').innerHTML = (counter / 1000);
 
             if (counter > (single_rep / 2)) {
                 extention = '.jpg';
                 do_it = 'push it!!';
             }
             else if (counter === (single_rep / 2)) {
-                hold = $('#hold').value * 1000;
+                hold = document.querySelector('#hold').value * 1000;
                 extention = '1.jpg';
-                $('#hold_div_f')[0].innerHTML = hold;
+                document.querySelector('#hold_div_f').innerHTML = hold;
                 do_it = 'Halten';
             }
             else if (counter < (single_rep / 2)) {
                 extention = '1.jpg';
                 do_it = 'release';
             }
-            $('#training_pic')[0].src = '/images/exercises/' + trainingsArray[i] + extention;
+            document.querySelector('#training_pic').src = '/images/exercises/' + trainingsArray[i] + extention;
 
-            $('#training_text')[0].innerHTML = do_it;
+            document.querySelector('#training_text').innerHTML = do_it;
 
             counter = counter - 100;
             setTimeout('do_rep(' + single_rep + ',' + counter + ',' + reps + ',' + new_reps + ',' + i + ')', 100);
@@ -233,26 +228,26 @@ function do_rep(single_rep, counter, reps, new_reps, i) {
         }
     } else {
         fill('single_rep_div', 0);
-        $('#single_rep_div_f')[0].innerHTML = 0;
+        document.querySelector('#single_rep_div_f').innerHTML = 0;
         new_reps = new_reps - 1;
         if (new_reps > 0) {
             drown_to_null(reps, new_reps, 'reps_div');
-            $('#reps_div_f')[0].innerHTML = new_reps;
+            document.querySelector('#reps_div_f').innerHTML = new_reps;
             full('single_rep_div');
             do_rep(single_rep, single_rep, reps, new_reps, i);
         } else {
             fill('reps_div', 0);
-            $('#reps_div_f')[0].innerHTML = 0;
+            document.querySelector('#reps_div_f').innerHTML = 0;
 
             i = i + 1;
             if (i < trainingsArray.length) {
-                pause = $('#pause').value * 1000;
+                pause = document.querySelector('#pause').value * 1000;
                 pause_c(pause, pause, i)
             } else {
-                $('#running').value = 'false';
-                $('#allow_pause').value = 'false';
-                $('#start_training')[0].innerHTML = '<b>start</b>';
-                /*$('#pause_training').innerHTML = '';*/
+                document.querySelector('#running').value = 'false';
+                document.querySelector('#allow_pause').value = 'false';
+                document.querySelector('#start_training').innerHTML = '<b>start</b>';
+                /*document.querySelector('#pause_training').innerHTML = '';*/
             }
         }
 
@@ -270,7 +265,7 @@ function pause_for(milliseconds) {
 
 
 function pause_c(x, y, i) {
-    $('#training_text')[0].innerHTML = 'noch ' + (x / 1000) + ' s pause';
+    document.querySelector('#training_text').innerHTML = 'noch ' + (x / 1000) + ' s pause';
     if (x > 0) {
         x = x - 100;
         drown_to_null(y, x, 'pause_div');
@@ -280,11 +275,11 @@ function pause_c(x, y, i) {
     }
 }
 function hold_on(max, counter, single_rep, counter_1, reps, new_reps, i) {
-    $('#training_text')[0].innerHTML = 'noch ' + (counter / 1000) + ' s halten';
+    document.querySelector('#training_text').innerHTML = 'noch ' + (counter / 1000) + ' s halten';
     if (counter > 0) {
         counter = counter - 100;
         drown_to_null(max, counter, 'hold_div');
-        $('#hold_div_f')[0].innerHTML = counter;
+        document.querySelector('#hold_div_f').innerHTML = counter;
         setTimeout('hold_on(' + max + ',' + counter + ',' + single_rep + ',' + counter_1 + ',' + reps + ',' + new_reps + ',' + i + ')', 100);
     } else {
         fill('hold_div', 0);
@@ -310,17 +305,17 @@ function drown_to_null(counter_max, counter, id) {             //called
 
 function set_timeline(counter_max, counter) {             //called
     var usertime_percent = ((100 / counter_max ) * counter);
-    duration = $('#htmlPlayer')[0].duration;
+    duration = document.querySelector('#htmlPlayer').duration;
     x = (duration / 100) * usertime_percent;
-    $('#htmlPlayer').currentTime = duration - x;
-    $('#vid').value = (duration - x)/60;
+    document.querySelector('#htmlPlayer').currentTime = duration - x;
+    document.querySelector('#vid').value = (duration - x)/60;
 
 }
 
 function set_training(r, s, h, p) {
-    $('#reps').value = r;
-    $('#single_rep').value = s;
-    $('#hold').value = h;
-    $('#pause').value = p;
+    document.querySelector('#reps').value = r;
+    document.querySelector('#single_rep').value = s;
+    document.querySelector('#hold').value = h;
+    document.querySelector('#pause').value = p;
 
 }

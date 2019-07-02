@@ -148,7 +148,7 @@ a:active {
 
 #muscles {
     min-height: 6px;
-    position: relative;
+    position: absolute;
     top: 0;
     width: 250px;
 }
@@ -368,5 +368,13 @@ li {
     position: absolute;
     right: 200px;
     top: 25px;
+}
+
+.hide{
+    display: none !important;
+}
+
+.show{
+    display: block;
 }
 

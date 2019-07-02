@@ -64,21 +64,21 @@
   </div>
   <%= image_tag("muskelman.png", :class => 'multi_pic') %>
 
-  <div id="body_part_selected" style="border:1px solid black;">
+  <div id="body_part_selected" style="position:absolute;">
     <%= render :partial => "main/body_part_selected" %>
   </div>
-  <div id="muscle_selected">
+  <div id="muscle_selected" style="position:absolute;">
     <%= render partial: "main/muscle_selected", locals: {muscles: @muscles} %>
   </div>
 
-  <div id="exercise_selected">
+  <div id="exercise_selected" style="position:absolute;">
     <%= render :partial => "main/exercise_selected" %>
   </div>
   <%#= render :partial => "main/muscle_hover" %>
-  <div id="exercises" class="nice_outer_tab" style="">
+  <div id="exercises" class="nice_outer_tab" style="position:absolute;">
     <%= render :partial => "main/exercise" %>
   </div>
-  <div id="hover"></div>
+  <div id="hover" style="position:absolute;"></div>
   <%= image_tag("blank.png", :class => 'multi_pic', :usemap => "#body_area", :style => "width:463px;height:460px;") %>
 </div>
 

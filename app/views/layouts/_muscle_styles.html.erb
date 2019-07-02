@@ -11,7 +11,7 @@
 <%muscles = Muscle.all_with_pic%>
 <%length = muscles.length%>
 <%muscles.each do |m|%>
-
+<%#pure awesomeness: gets the picture id and finds the position going from top left  to right %>
         <% i = m.picture_id - 1
         x = ((i % 10) )
         y = 0
