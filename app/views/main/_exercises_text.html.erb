@@ -18,7 +18,7 @@
   <% p_exercises.each do |s| %>
       <div class="exercises_text" onclick="selected_exercise('<%=s.name%>');" onmouseover="this.style.cursor='pointer';" title="<%= s.name %> anzeigen">
         <%= s.name %>
-        <%= link_to(image_tag("icons/add.png"),:html=>{:title => "Zum Trainingsplan hinzufügen"}, :url=>{:controller=>"main", :action=>"add_exercise", :exercise=>s.id}, :remote=>true) %>
+        <%= link_to(image_tag("icons/add.png"),{:controller=>"main", :action=>"add_exercise", :exercise=>s.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote=>true, :method=>:post} ) %>
         <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
       </div>
 
@@ -32,7 +32,8 @@
       <div class="exercises_text" onclick="selected_exercise('<%=s.name%>');" onmouseover="this.style.cursor='pointer';" title="<%= s.name %> anzeigen">
 
         <%= s.name %>
-        <%= link_to(image_tag('icons/add.png'),:html=>{:title => 'Zum Trainingsplan hinzufügen'}, :url=>{:controller=> 'main', :action=> 'add_exercise', :exercise=>s.id}, :remote=>true) %>
+        <%= link_to(image_tag("icons/add.png"),{:controller=>"main", :action=>"add_exercise", :exercise=>s.id}, {:remote=>true, :method=>:post} ) %>
+        <%#= link_to(image_tag("icons/add.png"),{:controller=>"main", :action=>"add_exercise", :exercise=>s.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote=>true, :method=>:post} ) %>
         <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
       </div>
 
@@ -60,7 +61,7 @@
 
             <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
           </span>
-            <%= link_to(image_tag("icons/add.png"),:html=>{:title => "Zum Trainingsplan hinzufügen"}, :url=>{:controller=>"main", :action=>"add_exercise", :exercise=>s.id}, :remote=>true) %>
+            <%= link_to(image_tag("icons/add.png"),{:controller=>"main", :action=>"add_exercise", :exercise=>s.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote=>true, :method=>:post} ) %>
           </div>
 
       <% end %>

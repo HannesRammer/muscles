@@ -15,12 +15,15 @@
 
             <% @x << "#{clean_name(exercise.name).capitalize}" %>
             <%= exercise.name %>
-            <%= link_to(image_tag('icons/remove.png'),:html=>{:title => 'Vom Trainingsplan entfernen'}, :url=>{:controller=>'main', :action=>'remove_exercise', :ute_id=>ute.id}, :confirm => 'Are you sure?', :remote=>true) %>
+          <%= link_to(image_tag('icons/remove.png'),{:controller=>'main', :action=>'remove_exercise', :ute_id=>ute.id}, {:confirm => 'Are you sure?',:remote=>true, :method=>:post}) %>
+          <%#= link_to(image_tag('icons/remove.png'),:html=>{:title => 'Vom Trainingsplan entfernen'}, :url=>{:controller=>'main', :action=>'remove_exercise', :ute_id=>ute.id}, :confirm => 'Are you sure?', :remote=>true) %>
             <% if i != 0 %>
-                <%= link_to(image_tag('icons/up.png'),:html=>{:title => 'In Liste nach oben verschieben'}, :url=>{:controller=>'main', :action=>'switch_exercise', :ute_id_1 =>ute.id, :ute_id_2 =>utes[i - 1].id, :user_id=>@current_user.id}, :remote=>true) %>
+            <%#= link_to(image_tag('icons/up.png'),:html=>{:title => 'In Liste nach oben verschieben'}, :url=>{:controller=>'main', :action=>'switch_exercise', :ute_id_1 =>ute.id, :ute_id_2 =>utes[i - 1].id, :user_id=>@current_user.id}, :remote=>true) %>
+            <%= link_to(image_tag('icons/up.png'),{:controller=>'main', :action=>'switch_exercise', :ute_id_1 =>ute.id, :ute_id_2 =>utes[i - 1].id, :user_id=>@current_user.id}, {:remote=>true, :method=>:post}) %>
             <% end %>
             <% unless utes[i + 1].blank? %>
-        <%=  link_to(image_tag('icons/down.png'),:html=>{:title => 'In Liste nach unten verschieben'}, :url => {:controller => 'main', :action => 'switch_exercise', :ute_id_1 => ute.id, :ute_id_2 => utes[i + 1].id, :user_id => @current_user.id}, :remote => true) %>
+            <%=  link_to(image_tag('icons/down.png'),{:controller => 'main', :action => 'switch_exercise', :ute_id_1 => ute.id, :ute_id_2 => utes[i + 1].id, :user_id => @current_user.id}, {:remote=>true, :method=>:post}) %>
+            <%#=  link_to(image_tag('icons/down.png'),:html=>{:title => 'In Liste nach unten verschieben'}, :url => {:controller => 'main', :action => 'switch_exercise', :ute_id_1 => ute.id, :ute_id_2 => utes[i + 1].id, :user_id => @current_user.id}, :remote => true) %>
           <% end %>
             <br/>
       <% end %>

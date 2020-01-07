@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  #before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string]
+  before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string]
   include ApplicationHelper
   #respond_to :html, :js
 
@@ -60,6 +60,7 @@ class MainController < ApplicationController
     @exercise = Exercise.find_by_name(@name)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
+    respond_to :js
     # @a_muscles = @exercise.antagonist_muscles
 
     #render :update do |page|
@@ -73,9 +74,10 @@ class MainController < ApplicationController
 
   def add_exercise
     @current_user.exercises << Exercise.find_by_id(params[:exercise])
-    render :update do |page|
-      page["user_selected"].replace :partial=>"main/user_selected"
-    end
+    respond_to :js
+    #render :update do |page|
+    #  page["user_selected"].replace :partial=>"main/user_selected"
+    #end
   end
 
 
@@ -88,15 +90,17 @@ class MainController < ApplicationController
   def remove_exercise
     ute = UserToExercise.find_by_id(params[:ute_id])
     ute.destroy if @current_user.id == ute.user_id
-    render :update do |page|
-      page["user_selected"].replace :partial=>"main/user_selected"
-    end
+    respond_to :js
+    #render :update do |page|
+    #  page["user_selected"].replace :partial=>"main/user_selected"
+    #end
   end
 
   def switch_exercise
     return unless UserToExercise.switch_exercise(params[:ute_id_1], params[:ute_id_2], @current_user)
-    render :update do |page|
-      page["user_selected"].replace :partial=>"main/user_selected"
-    end
+    respond_to :js
+      #render :update do |page|
+      #  page["user_selected"].replace :partial=>"main/user_selected"
+      #end
   end
 end
