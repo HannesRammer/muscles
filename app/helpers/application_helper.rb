@@ -39,7 +39,7 @@ module ApplicationHelper
     i.times do |it|
       nt << "#{text[(it)..(it)]}<br/>"
     end
-    nt
+    nt.html_safe
   end
 
   def hex_to_rgb(hex)

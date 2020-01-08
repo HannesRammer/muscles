@@ -33,14 +33,14 @@ function toggleExercise() {
         let open_exercise= document.querySelector('#open_exercise');
         if (open_exercise.className === 'open_exercise') {
             open_exercise.className = 'close_exercise';
-            open_exercise.innerHTML = 'V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N'
+            open_exercise.innerHTML = 'V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N';
 
             document.querySelector('#exercise').className = 'show_exercise';
             window.scrollBy(2000, 0);
             setTimeout(toggleImage, 1000);
         } else if (open_exercise.className === 'close_exercise') {
             window.scrollBy(-2000, 0);
-            open_exercise.innerHTML = 'A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N'
+            open_exercise.innerHTML = 'A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N';
             exercise.className = 'hidden_exercise';
             open_exercise.className = 'open_exercise';
 
@@ -54,14 +54,14 @@ function toggleTraining() {
 
         if (document.querySelector('#open_training').className === 'open_training') {
             document.querySelector('#open_training').className = 'close_training';
-            document.querySelector('#open_training').innerHTML = 'V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N'
+            document.querySelector('#open_training').innerHTML = 'V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N';
 
             document.querySelector('#training').className = 'show_training';
             window.scrollBy(2000, 0);
             setTimeout(toggleImage, 1000);
         } else if (document.querySelector('#open_training').className === 'close_training') {
             window.scrollBy(-2000, 0);
-            document.querySelector('#open_training').innerHTML = 'A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N'
+            document.querySelector('#open_training').innerHTML = 'A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N';
             document.querySelector('#training').className = 'hidden_training';
             document.querySelector('#open_training').className = 'open_training';
 
@@ -71,12 +71,19 @@ function toggleTraining() {
 
 function toggleImage() {
     if (document.querySelector('#open_exercise').className === 'close_exercise') {
-        s = document.querySelector('#exercise_picture').src.split('/images')[1];
-        q = s.split('.jpg');
-        if (s.include('1.jpg')) {
-            document.querySelector('#exercise_picture').src = '/images' + s.gsub('1.jpg', '.jpg');
+        var imagePath = document.querySelector('#exercise_picture').src;
+        var splitPath = imagePath.split('/exercises/');
+        var prePath = splitPath[0];
+        var fileName = splitPath[1];
+
+        var splitFileName= fileName.split('-')[0];
+        splitFileName = splitFileName.split('1.jpg')[0];
+        var cleanFileName = splitFileName.split('.jpg')[0];
+
+        if (fileName.include('1.jpg')) {
+            document.querySelector('#exercise_picture').src = prePath + '/exercises/' + cleanFileName + '.jpg'
         } else {
-            document.querySelector('#exercise_picture').src = '/images' + q[0] + '1.jpg' + q[1];
+            document.querySelector('#exercise_picture').src = prePath + '/exercises/' + cleanFileName + '1.jpg';
 
         }
         setTimeout(toggleImage, 1000);
@@ -134,7 +141,7 @@ function new_style(x) {
 
 function toggle_tab(id) {
     let factor = id.split('_')[0];
-
+debugger;
     let primary = document.querySelector("#"+factor + '_primary');
     let secondary = document.querySelector("#"+factor + '_secondary');
 

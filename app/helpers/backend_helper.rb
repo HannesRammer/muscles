@@ -5,7 +5,7 @@ module BackendHelper
 #{options_for_select(@exercise_types,nil)}
 </select> other
    <input type='text' name='info[exercise_type1]'>
-      <br/>"
+      <br/>".html_safe
   end
 
   def backend_tag(type)
@@ -15,7 +15,7 @@ module BackendHelper
                                      :id,
                                      :name, {:prompt => true})"}  other
    <input type='text' name='#{type}[name]'>
-      <br/>"
+      <br/>".html_safe
     end
 
   def muscle_part_backend_tag(type ,num = 1)
@@ -30,7 +30,7 @@ module BackendHelper
 <div id='#{type}_muscles_button'>
   #{link_to "add #{type} muscle select", :url =>{:controller=>:backend, :action=>:add_muscle_select, :muscle_type=>type, :select_id=>(num + 1)}, :remote=>true}
 </div>
-"
+".html_safe
   end
 
 
