@@ -1,0 +1,17 @@
+<%= form_with(model: exercise_to_trainingsplan, local: true) do |form| %>
+  <% if exercise_to_trainingsplan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exercise_to_trainingsplan.errors.count, "error") %> prohibited this exercise_to_trainingsplan from being saved:</h2>
+
+      <ul>
+      <% exercise_to_trainingsplan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
