@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :sessions
   #resources :users
   get 'main/index'
-  #resources :exercises
 
   #sign_up 'users#new'
 
@@ -32,7 +31,7 @@ Rails.application.routes.draw do
   post 'main/search_string/:name', to: 'main#search_string', format: 'js', as: :main_search_string
   post 'main/exercise/:name', to: 'main#exercise', format: 'js', as: :main_exercise
 
-  get 'exercises/all', to: 'exercises#all', format: 'js', as: :exercises_all
+  get 'exercises/all', to: 'exercises#all',  as: :exercises_all
 
   post 'main/add_exercise/:exercise', to: 'main#add_exercise', format: 'js', as: :main_add_exercise
   post 'main/remove_exercise/:ute_id', to: 'main#remove_exercise', format: 'js', as: :main_remove_exercise
@@ -40,6 +39,7 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
+  resources :exercises
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

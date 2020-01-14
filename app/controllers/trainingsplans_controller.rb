@@ -1,6 +1,6 @@
 class TrainingsplansController < ApplicationController
   before_action :set_trainingsplan, only: [:show, :edit, :update, :destroy]
-
+  before_action :login_required
   # GET /trainingsplans
   # GET /trainingsplans.json
   def index
