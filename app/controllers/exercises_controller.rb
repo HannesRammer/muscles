@@ -1,15 +1,28 @@
 class ExercisesController < ApplicationController
   #before_action :set_exercise, only: [:show, :edit, :update, :destroy]
-
+  before_action :login_required#, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string]
   # GET /exercises
   # GET /exercises.json
+  #
+  helper :all
   def index
     @exercises = Exercise.all
   end
 
+  def all
+    @exercises = Exercise.all
+  end
+
+  def update_selected_exercise
+    @exercise = Exercise.find_by_id(params[:id])
+    @p_muscles = @exercise.primary_muscles
+    @s_muscles = @exercise.secondary_muscles
+    respond_to :js
+  end
   # GET /exercises/1
   # GET /exercises/1.json
   def show
+    @exercise = Exercise.find_by_id(params[:id])
   end
 
   # GET /exercises/new

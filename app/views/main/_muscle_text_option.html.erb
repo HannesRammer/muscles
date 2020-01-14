@@ -1,0 +1,30 @@
+<div id="muscle_text_option">
+
+  <div id="m_primary">
+    primary muscles
+    <% @p_muscles.each do |s| %>
+      <div class="muscle_text_option" onclick="selected('<%=s.name%>');"
+           onmouseover="this.style.cursor='pointer';hover('<%=s.clean_name%>')">
+        <%= s.name %>
+      </div>
+    <% end %>          </div>
+<br>
+  <div id="m_secondary">
+    secondary muscles
+    <% @s_muscles.each do |s| %>
+      <div class="muscle_text_option" onclick="selected('<%=s.name%>');"
+           onmouseover="this.style.cursor='pointer';hover('<%=s.clean_name%>')">
+        <%= s.name %>
+      </div>
+    <% end %>
+  </div>
+  <%#<div id="m_antagonist" <%= @p_muscles.blank? && @s_muscles.blank? ? "" : 'style="display:none"'%><%#>
+      <% @a_muscles.each do |s| %>
+  <%#<div class="muscle_text_option" onclick="selected('<%=s.name%><%#');"
+               onmouseover="this.style.cursor='pointer';hover('<%=s.clean_name%><%#')">
+            <%= s.name %>
+  <%# </div>
+      <% end %>
+  <%#</div> %>
+</div>
+<%= render 'main/muscle_text' %>
