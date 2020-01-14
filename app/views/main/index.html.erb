@@ -43,6 +43,7 @@
 </script>
 <div class="nav nice_outer_tab">
   Wähle den Körperbereich den du Trainieren willst.
+  <%= link_to("Alle", {:controller => "main", :action => "body_part", :name => "Alle"}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
   <% @body_parts.each do |part| %>
     <%= link_to(part.name, {:controller => "main", :action => "body_part", :name => part.name}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
 

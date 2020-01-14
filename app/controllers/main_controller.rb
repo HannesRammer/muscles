@@ -26,12 +26,20 @@ class MainController < ApplicationController
 
   def body_part
     @name = params[:name]
-    body_part = BodyPart.where("name = ?",@name).first
-    @muscleList = BodyPart.muscle_list(body_part.id)
-    @p_muscles = @muscleList[0]#.uniq
-    @s_muscles = @muscleList[1]
+    if @name == "Alle"
+      @p_muscles = Muscle.all
+      @exercises = Exercise.all
+      @s_muscles = []
+    else
+      body_part = BodyPart.where("name = ?",@name).first
+      @muscleList = BodyPart.muscle_list(body_part.id)
+      @exercises = body_part.x_ercise
+      @p_muscles = @muscleList[0]#.uniq
+      @s_muscles = @muscleList[1]
+    end
+
     # @a_muscles = body_part.antagonist_muscles
-    @exercises = body_part.x_ercise
+
 
     respond_to :js
 #    render :update do |page|

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :body_parts
   resources :muscles
   resources :sessions
-  resources :users
+  #resources :users
   get 'main/index'
   #resources :exercises
 
@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new', as: :sign_up
 
   get 'backend', to: 'backend#index', as: :backend
+
+  get 'users/trainingsplans', to: 'users#trainingsplans', as: :user_trainingsplans
+  post 'users/save_trainingsplan',to: 'users#save_trainingsplan', format: 'js',as: :user_save_trainingsplan
 
   post 'main/muscle/:name',to: 'main#muscle', format: 'js',as: :main_muscle
 

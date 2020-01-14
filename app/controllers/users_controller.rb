@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  ##before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :login_required
 
   # GET /users
   # GET /users.json
@@ -22,6 +23,20 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def trainingsplans
+    @trainingsplan = Trainingsplan.new
+    @trainingsplans = @current_user.trainingsplans
+
+  end
+
+  def save_trainingsplan
+    @trainingsplan = Trainingsplan.new
+    @trainingsplan.name = params[:trainingsplan][:name]
+    @trainingsplan.save
+    @current_user.trainingsplans << @trainingsplan
+    @trainingsplans = @current_user.trainingsplans
+    respond_to :js
+  end
   # POST /users
   # POST /users.json
   def create

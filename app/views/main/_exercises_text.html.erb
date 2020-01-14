@@ -7,8 +7,8 @@
 <div >
    <ul>
 
-      <li id='e_primary_tab' <%= p_exercises.blank? ? "class='first grey'" :"onclick='toggle_tab(\"e_primary\")' class='first '"  %> >primary</li>
-      <li id='e_secondary_tab' <%= s_exercises.blank? ? "class='grey'" : "class='#{'underline' unless p_exercises.blank? }' onclick='toggle_tab(\"e_secondary\")'"  %> >secondary</li>
+      <li id='e_primary_tab'>primary</li>
+      <%#=<li id='e_secondary_tab' >secondary</li>%>
      <%# <li id='e_antagonist_tab' <%#= a_exercises.blank? ? "class='grey'" : "class='#{'underline' if !p_exercises.blank? || !s_exercises.blank? }' onclick='toggle_tab(\"e_antagonist\")'"  %> <%#>antagonist</li> %>
 
        </ul>
@@ -25,6 +25,15 @@
   <% end %>
 </div>
 
+  <div >
+    <ul>
+
+      <%#=<li id='e_primary_tab'>primary</li>%>
+      <li id='e_secondary_tab' >secondary</li>
+      <%# <li id='e_antagonist_tab' <%#= a_exercises.blank? ? "class='grey'" : "class='#{'underline' if !p_exercises.blank? || !s_exercises.blank? }' onclick='toggle_tab(\"e_antagonist\")'"  %> <%#>antagonist</li> %>
+
+    </ul>
+  </div>
 
 <div id="e_secondary" <%= p_exercises.blank? && !s_exercises.blank? ? '' : 'style="display:none"'%>>
   <% s_exercises.each do |s| %>
