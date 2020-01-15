@@ -1,0 +1,15 @@
+
+  <strong>Deine Traingspläne:</strong>
+
+  <table>
+  <% @trainingsplans.each do |trainingsplan| %>
+
+  <tr>
+    <td><%= trainingsplan.name %>
+      <%= link_to(image_tag("icons/add.png"),{:controller=>"main", :action=>"add_exercise", :exercise=>@exercise_id, :trainingsplan=>trainingsplan.id}, {:remote=>true, :method=>:post} ) %>
+    </td>
+
+  </tr>
+  <% end %>
+  </table>
+

@@ -18,7 +18,7 @@
     <tr>
       <td>
         <%= link_to(exercise.name, {:controller => "exercises", :action => "update_selected_exercise", :id => exercise.id}, {:remote => true, :method => :post}) %>
-
+        <%= link_to(image_tag("icons/add.png"),{:controller=>"trainingsplans", :action=>"load_trainingsplans", :exercise=>exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote=>true, :method=>:post} ) %>
       </td>
       <td><%=h exercise.exercise_type %></td>
 

@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get 'users/trainingsplans', to: 'users#trainingsplans', as: :user_trainingsplans
   post 'users/save_trainingsplan',to: 'users#save_trainingsplan', format: 'js',as: :user_save_trainingsplan
 
+  post 'trainingsplans/load_trainingsplans',to: 'trainingsplans#load_trainingsplans', format: 'js',as: :trainingsplans_load_trainingsplans
+  post 'trainingsplans/get_exercises',to: 'trainingsplans#get_exercises', format: 'js',as: :trainingsplans_get_exercises
+
   post 'main/muscle/:name',to: 'main#muscle', format: 'js',as: :main_muscle
 
   post 'main/body_part/:name', to: 'main#body_part', format: 'js', as: :main_body_part
@@ -33,9 +36,9 @@ Rails.application.routes.draw do
 
   get 'exercises/all', to: 'exercises#all',  as: :exercises_all
 
-  post 'main/add_exercise/:exercise', to: 'main#add_exercise', format: 'js', as: :main_add_exercise
-  post 'main/remove_exercise/:ute_id', to: 'main#remove_exercise', format: 'js', as: :main_remove_exercise
-  post 'main/switch_exercise/:ute_id_1/:ute_id_2', to: 'main#switch_exercise', format: 'js', as: :main_switch_exercise
+  post 'main/add_exercise/:exercise/trainingsplan/:trainingsplan', to: 'main#add_exercise', format: 'js', as: :main_add_exercise
+  post 'main/remove_exercise/:ettp_id', to: 'main#remove_exercise', format: 'js', as: :main_remove_exercise
+  post 'main/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'main#switch_exercise', format: 'js', as: :main_switch_exercise
 
   root 'main#index'
 

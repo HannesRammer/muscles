@@ -3,13 +3,16 @@ class ExercisesController < ApplicationController
   before_action :login_required#, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string]
   # GET /exercises
   # GET /exercises.json
-  
+
   def index
     @exercises = Exercise.all
   end
 
   def all
     @exercises = Exercise.all
+    @current_user if logged_in?
+    @trainingsplans = @current_user.trainingsplans if @current_user
+    @trainingsplan = @trainingsplans.first
   end
 
   def update_selected_exercise

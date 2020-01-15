@@ -12,6 +12,8 @@ class MainController < ApplicationController
     @s_muscles = []
     #@a_muscles = []
     @current_user if logged_in?
+    @trainingsplans = @current_user.trainingsplans if @current_user
+    @trainingsplan = @trainingsplans.first
   end
 
   def muscle
@@ -20,7 +22,7 @@ class MainController < ApplicationController
     p @name
     @muscles = Muscle.where("name = ?",@name).to_a.uniq
     p @muscles
-    @exercises
+    @exercises = @muscles.first.exercises
     respond_to :js
   end
 
@@ -81,7 +83,9 @@ class MainController < ApplicationController
   end
 
   def add_exercise
-    @current_user.exercises << Exercise.find_by_id(params[:exercise])
+    @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan])
+    @trainingsplan.exercises << Exercise.find_by_id(params[:exercise])
+    #@current_user.exercises << Exercise.find_by_id(params[:exercise])
     respond_to :js
     #render :update do |page|
     #  page["user_selected"].replace :partial=>"main/user_selected"
@@ -96,8 +100,11 @@ class MainController < ApplicationController
   end
 
   def remove_exercise
-    ute = UserToExercise.find_by_id(params[:ute_id])
-    ute.destroy if @current_user.id == ute.user_id
+    @ett = ExerciseToTrainingsplan.find_by_id(params[:ettp_id])
+    @trainingsplan = @ett.trainingsplan
+    user_id = Trainingsplan.user(@ett.id).id
+
+    ExerciseToTrainingsplan.destroy(@ett.id) if @current_user.id == user_id
     respond_to :js
     #render :update do |page|
     #  page["user_selected"].replace :partial=>"main/user_selected"
@@ -105,7 +112,9 @@ class MainController < ApplicationController
   end
 
   def switch_exercise
-    return unless UserToExercise.switch_exercise(params[:ute_id_1], params[:ute_id_2], @current_user)
+
+    return unless ExerciseToTrainingsplan.switch_exercise(params[:ettp_id_1], params[:ettp_id_2], @current_user.id)
+    @trainingsplan = ExerciseToTrainingsplan.find_by_id(params[:ettp_id_1]).trainingsplan
     respond_to :js
       #render :update do |page|
       #  page["user_selected"].replace :partial=>"main/user_selected"

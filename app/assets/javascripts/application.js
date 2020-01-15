@@ -26,6 +26,7 @@ function setClass(elem, className1) {
 }
 
 
+
 function toggleExercise() {
     let exercise= document.querySelector('#exercise');
     if (exercise.innerHTML !== '') {

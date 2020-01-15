@@ -25,7 +25,15 @@
 <%= link_to 'Eigene Trainingspläne', user_trainingsplans_path %>
 <%= link_to 'Alle Übungen', exercises_all_path %>
 <%= link_to 'Start', root_path %>
-
+<script>
+  $( document ).on( "mousemove", function( event ) {
+      $( "#mouseX" ).attr('value',event.pageX);
+      $( "#mouseY" ).attr('value',event.pageY);
+      //$( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+  });
+</script>
+<input type="hidden" id="mouseX" value=""/>
+<input type="hidden" id="mouseY" value=""/>
 <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
 <div id='outer_container' class='nice_outer_tab'>
   <div id='login_box'>
@@ -47,10 +55,20 @@
     <%#= render('shared/header', :locals => {:cont_name => 'contact'}) %>
     <div id='muscle'></div>
     <div id='notice'><%= flash[:notice] %></div>
+
+
     <%= yield :layout %>
 
     <%#= render 'layouts/donation' %>
+    <div id='trainingsplanlist' style="display: none;
+        top: 318px;
+        left: 1015px;
+        position: absolute;
+        border: 1px solid black;
+        padding: 5px;
+        background: lightgrey;">
 
+    </div>
   </div>
 </div>
 <!--table width='100%' cellspacing='0' cellpadding='0' border='0'>

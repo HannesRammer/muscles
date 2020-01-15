@@ -1,0 +1,38 @@
+<% exercises = @trainingsplan.exercises %>
+<% ettps = @trainingsplan.exercise_to_trainingsplans %>
+
+<% exercises.each_with_index do |exercise, i| %>
+
+  <%= user_muscle_pics(exercise.primary_muscles, '', 4) %>
+  <%= user_muscle_pics(exercise.secondary_muscles, '', 1) %>
+<% end %>
+<div class='user_text'>
+  Trainingsplan id: <%=@trainingsplan.id %>
+  <br>
+  <% ettps.each_with_index do |ettp, i| %>
+
+    <% exercise = ettp.exercise %>
+    <% @x << "#{clean_name(exercise.name).capitalize}" %>
+    <%= exercise.name %>
+
+
+    <%= link_to(image_tag('icons/remove.png'), {:controller => 'main', :action => 'remove_exercise', :ettp_id => ettp.id}, {:confirm => 'Are you sure?', :remote => true, :method => :post}) %>
+    <%#= link_to(image_tag('icons/remove.png'),:html=>{:title => 'Vom Trainingsplan entfernen'}, :url=>{:controller=>'main', :action=>'remove_exercise', :ute_id=>ute.id}, :confirm => 'Are you sure?', :remote=>true) %>
+    <% if i != 0 %>
+      <%= link_to(image_tag('icons/up.png'), {:controller => 'main', :action => 'switch_exercise', :ettp_id_1 => ettp.id, :ettp_id_2 => ettps[i - 1].id}, {:remote => true, :method => :post}) %>
+    <% end %>
+    <% unless ettps[i + 1].blank? %>
+      <%= link_to(image_tag('icons/down.png'), {:controller => 'main', :action => 'switch_exercise', :ettp_id_1 => ettp.id, :ettp_id_2 => ettps[i + 1].id}, {:remote => true, :method => :post}) %>
+
+    <% end %>
+    <br/>
+  <% end %>
+</div>
+
+
+<script type='text/javascript'>
+    var trainingsArray = new Array();
+    <% @x.each_with_index do |x,i| %>
+    <%="trainingsArray[#{i}]='#{x}';".html_safe%>
+    <% end %>
+</script>

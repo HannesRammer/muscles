@@ -21,6 +21,19 @@ class TrainingsplansController < ApplicationController
   def edit
   end
 
+  def get_exercises
+    @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])
+    @exercises = @trainingsplan.exercises
+    respond_to :js
+  end
+
+  def load_trainingsplans
+    @trainingsplans= @current_user.trainingsplans
+    @exercise_id = params[:exercise]
+    #@exerciseId = params
+    respond_to :js
+  end
+
   # POST /trainingsplans
   # POST /trainingsplans.json
   def create

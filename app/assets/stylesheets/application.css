@@ -122,7 +122,7 @@ a:active {
 .user_text {
     top: 500px;
     position: relative;
-    padding-bottom: 500px;
+    /*padding-bottom: 500px;*/
 }
 
 #user_selected {
