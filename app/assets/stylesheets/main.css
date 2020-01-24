@@ -1,5 +1,5 @@
 @import "themes.css";
-
+/*
 body {
 
 }
@@ -107,7 +107,7 @@ a:active {
 .user_text {
     top: 500px;
     position: relative;
-    /*padding-bottom: 500px;*/
+
 }
 
 #user_selected {
@@ -160,7 +160,6 @@ table {
 }
 
 #ex {
-/* background-color: #333333;*/
 
     position: relative;
 
@@ -357,3 +356,4 @@ li {
     top: 25px;
 }
 
+*/

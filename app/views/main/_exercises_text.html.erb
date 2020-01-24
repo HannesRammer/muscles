@@ -1,26 +1,18 @@
-
-
 <%# p_exercises = @muscles.blank? ? [] : @muscles[0].primary_exercises %>
 <%# s_exercises = @muscles.blank? ? [] : @muscles[0].secondary_exercises %>
 <%# a_exercises = @muscles.blank? ? [] : @muscles[0].antagonist_exercises %>
 
-<%if @exercises%>
-    <div >
-      <% @exercises.each do |s| %>
-          <div>
-
-          <span class="exercises_text" onclick="selected_exercise('<%=s.name%>');" onmouseover="this.style.cursor='pointer';" title="<%= s.name %> anzeigen">
-            <%= s.name %>
-
-            <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
-          </span>
-
-
-
-            <%= link_to(image_tag("icons/add.png"),{:controller=>"trainingsplans", :action=>"load_trainingsplans", :exercise=>s.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote=>true, :method=>:post} ) %>
-          </div>
-
-      <% end %>
-    </div>
-
-<% end%>
+<% if @exercises %>
+  <div>
+    <% @exercises.each do |exercise| %>
+      <div>
+        <span class="exercises_text" onclick="selected_exercise('<%=exercise.name%>');" onmouseover="this.style.cursor='pointer';" title="<%= exercise.name %> anzeigen">
+          <%= exercise.name %>
+          <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
+        </span>
+        <%= link_to('<i class="material-icons" style="position: relative;top: 6px;">playlist_add</i>'.html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+        <%#= link_to(image_tag("icons/add.png"), {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

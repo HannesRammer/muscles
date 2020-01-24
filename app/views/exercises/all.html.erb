@@ -1,36 +1,69 @@
+<div id="exercises" class="nice_outer_tab" style="position: absolute;
+    left: 40px;
+    top: 100px;
+    width:320px">
 
+  <div id="exercises_text_header" class="nice_inner_tab_js_hover"
+       onclick="toggleClass(this,'nice_inner_tab_js_hover','nice_inner_tab')">
+    Alle Übungen
+  </div>
 
-<div style="position: relative;
-    width: 1000px;
-    margin: auto;">
+  <div id="exercice_text" style="height: 400px;
+      overflow: auto;">
+    <% @exercises.each do |exercise| %>
+      <div>
+        <span class="exercises_text" title="<%= exercise.name %> anzeigen">
+          <%= link_to(exercise.name, {:controller => "exercises", :action => "update_selected_exercise", :id => exercise.id}, {:remote => true, :method => :post}) %>
+        </span>
+        <%= link_to('<i class="material-icons" style="position: relative;top: 6px;">playlist_add</i>'.html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+      </div>
+    <% end %>
+  </div>
+  <script>
+      function hover(name) {
+          setClass(document.querySelector("#hover"), "" + cleanName(name) + "_hover");
+          let last_hover = document.querySelector("#muscle_text_hover").value;
+          if (name === "") {
+              //$("muscle_hover").innerHTML = "";//
+              if (last_hover !== "" && document.querySelector("#" + last_hover + "_hover")) {
+                  setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_pic");
+              }
+          } else {
+              let p = cleanName(name);
+              let s = p.toLowerCase();
 
-<div id="exercice_table" style="width: 300px;
-    position: absolute;
-    height: 400px;
-    overflow: auto;">
-<table style="width:300px;">
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-  </tr>
+              if (last_hover !== "" && document.querySelector('#' + last_hover + '_hover')) {
+                  setClass(document.querySelector('#' + last_hover + "_hover"), "hidden_muscle_tirpic");
+              }
+              if (document.querySelector('#' + s + '_hover')) {
+                  setClass(document.querySelector('#' + s + '_hover'), "multi_pic");
+              }
 
-  <% @exercises.each do |exercise| %>
-    <tr>
-      <td>
-        <%= link_to(exercise.name, {:controller => "exercises", :action => "update_selected_exercise", :id => exercise.id}, {:remote => true, :method => :post}) %>
-        <%= link_to(image_tag("icons/add.png"),{:controller=>"trainingsplans", :action=>"load_trainingsplans", :exercise=>exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote=>true, :method=>:post} ) %>
-      </td>
-      <td><%=h exercise.exercise_type %></td>
+              document.querySelector("#muscle_text_hover").innerHTML = name;
+          }
+      }
 
-    </tr>
-  <% end %>
-</table>
+      function cleanName(name) {
+          return name.gsub("ß", "ss").gsub(" ", "_").gsub('ä', 'ae').gsub('ö', 'oe').gsub('ü', 'ue').gsub('Ä', 'ae').gsub('Ö', 'oe').gsub('Ü', 'ue').toLowerCase();
+      }
+
+      function selected(name) {
+          document.querySelector("#muscle_name").value = name;
+          //document.querySelector("#muscle_text_selected").innerHTML = name;
+
+          $('#muscle_form').click();
+          //document.forms.namedItem("muscle_form").click();
+      }
+
+      function selected_exercise(name) {
+          document.querySelector("#exercise_name").value = name;
+          //document.querySelector("#exercise_text_selected").innerHTML = name;
+          $("#exercise_form").click();
+      }
+  </script>
+
 </div>
 
-
-<div id='selected_exercise' style="    position: relative;left: 350px;top: 20px;">
-
+<div id='selected_exercise' style="position: absolute;left: 350px;top: 20px;">
   <%= render 'exercises/selected_exercise' %>
-</div>
-
 </div>

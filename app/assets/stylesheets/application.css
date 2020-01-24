@@ -139,18 +139,21 @@ a:active {
 }
 
 #exercises {
-    left: 771px;
+    left: -72px;
     min-height: 6px;
     position: absolute;
-    top: 0;
-    width: 300px;
+    top: 30px;
+    width: 350px;
 }
 
 #muscles {
     min-height: 6px;
     position: absolute;
     top: 0;
+    left:770px;
     width: 250px;
+    height:425px;
+    overflow: auto;
 }
 
 table {

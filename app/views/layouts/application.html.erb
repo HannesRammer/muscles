@@ -34,6 +34,8 @@
 </script>
 <input type="hidden" id="mouseX" value=""/>
 <input type="hidden" id="mouseY" value=""/>
+<%= render 'layouts/drop_style' %>  <br/>
+
 <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
 <div id='outer_container' class='nice_outer_tab'>
   <div id='login_box'>
@@ -42,7 +44,6 @@
     <%= link_to('Log Out', logout_path, :class=>'nice_inset_tab') if logged_in? %>
   </div>
   <div id='container'><br/>
-    <%= render 'layouts/drop_style' %>  <br/>
 
     <% if logged_in? %>
       <div id='open_training' class='open_training' onclick='toggleTraining()'><%= vertical_text('Training') %></div>
