@@ -15,7 +15,7 @@
         <span class="exercises_text" title="<%= exercise.name %> anzeigen">
           <%= link_to(exercise.name, {:controller => "exercises", :action => "update_selected_exercise", :id => exercise.id}, {:remote => true, :method => :post}) %>
         </span>
-        <%= link_to('<i class="material-icons" style="position: relative;top: 6px;">playlist_add</i>'.html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+        <%= link_to("<i class='material-icons' style='position: relative;top: 6px;'>playlist_add</i>".html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
       </div>
     <% end %>
   </div>
@@ -32,11 +32,11 @@
               let p = cleanName(name);
               let s = p.toLowerCase();
 
-              if (last_hover !== "" && document.querySelector('#' + last_hover + '_hover')) {
-                  setClass(document.querySelector('#' + last_hover + "_hover"), "hidden_muscle_tirpic");
+              if (last_hover !== "" && document.querySelector("#" + last_hover + "_hover")) {
+                  setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_tirpic");
               }
-              if (document.querySelector('#' + s + '_hover')) {
-                  setClass(document.querySelector('#' + s + '_hover'), "multi_pic");
+              if (document.querySelector("#" + s + "_hover")) {
+                  setClass(document.querySelector("#" + s + "_hover"), "multi_pic");
               }
 
               document.querySelector("#muscle_text_hover").innerHTML = name;
@@ -44,14 +44,14 @@
       }
 
       function cleanName(name) {
-          return name.gsub("ß", "ss").gsub(" ", "_").gsub('ä', 'ae').gsub('ö', 'oe').gsub('ü', 'ue').gsub('Ä', 'ae').gsub('Ö', 'oe').gsub('Ü', 'ue').toLowerCase();
+          return name.gsub("ß", "ss").gsub(" ", "_").gsub("ä", "ae").gsub("ö", "oe").gsub("ü", "ue").gsub("Ä", "ae").gsub("Ö", "oe").gsub("Ü", "ue").toLowerCase();
       }
 
       function selected(name) {
           document.querySelector("#muscle_name").value = name;
           //document.querySelector("#muscle_text_selected").innerHTML = name;
 
-          $('#muscle_form').click();
+          $("#muscle_form").click();
           //document.forms.namedItem("muscle_form").click();
       }
 
@@ -64,6 +64,6 @@
 
 </div>
 
-<div id='selected_exercise' style="position: absolute;left: 350px;top: 20px;">
-  <%= render 'exercises/selected_exercise' %>
+<div id="selected_exercise" style="position: absolute;left: 350px;top: 20px;">
+  <%= render "exercises/selected_exercise" %>
 </div>

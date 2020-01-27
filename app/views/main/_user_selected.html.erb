@@ -1,11 +1,11 @@
-<div id='user_selected'>
-  <%= image_tag('muskelman.png', :class => 'multi_pic2') %>
+<div id="user_selected">
+  <%= image_tag("muskelman.png", :class => "multi_pic2") %>
   <% if logged_in? %>
     <% @x = [] %>
 
 
-    <%= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: 'post', remote: true,:style => "position: relative;top: 500px;"}) do %>
-      <%= select_tag 'trainingsplan_id', options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }), {:multiple => false} %>
+    <%= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: "post", remote: true,:style => "position: relative;top: 500px;"}) do %>
+      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }), {:multiple => false} %>
       <%= submit_tag("select Trainingsplan") %>
     <% end %>
 
@@ -16,7 +16,7 @@
 
   <% end %>
 </div>
-<%= render('exercises/training') %>
+<%= render("exercises/training") %>
 
 
 

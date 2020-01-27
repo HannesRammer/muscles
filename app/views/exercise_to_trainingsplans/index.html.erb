@@ -12,9 +12,9 @@
   <tbody>
     <% @exercise_to_trainingsplans.each do |exercise_to_trainingsplan| %>
       <tr>
-        <td><%= link_to 'Show', exercise_to_trainingsplan %></td>
-        <td><%= link_to 'Edit', edit_exercise_to_trainingsplan_path(exercise_to_trainingsplan) %></td>
-        <td><%= link_to 'Destroy', exercise_to_trainingsplan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Show", exercise_to_trainingsplan %></td>
+        <td><%= link_to "Edit", edit_exercise_to_trainingsplan_path(exercise_to_trainingsplan) %></td>
+        <td><%= link_to "Destroy", exercise_to_trainingsplan, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Exercise To Trainingsplan', new_exercise_to_trainingsplan_path %>
+<%= link_to "New Exercise To Trainingsplan", new_exercise_to_trainingsplan_path %>

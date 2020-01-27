@@ -12,14 +12,11 @@
   <input type="hidden" id="allow_pause" value="false"> <br/>
   <span onclick="set_training(10,6,0,120)">10-6-0-120</span>
   <span onclick="set_training(12,10,2,150)">12-10-2-150</span> <br/>
-
   wiederholungen
   <div id="reps_div_e" style="background-color:#00ff00;height:20px;width:100px;">
     <div id="reps_div_f" style="background-color:#ff0000;height:20px;width:0;position:relative;">
     </div>
-
   </div>
-
   sekunden
   <div id="single_rep_div_e" style="background-color:#00ff00;height:20px;width:100px;">
     <div id="single_rep_div_f" style="background-color:#ff0000;height:20px;width:0;position:relative;">
@@ -43,7 +40,7 @@
     </div>
   </div>
 
-  <div id="start_training" onclick="if($('running').value == 'true' && $('training_text').innerHTML == ''){$('running').value = 'false';}if($('running').value == 'false'){startExercise(0)}">
+  <div id="start_training" onclick="if($('#running')[0].value === 'true' && $('#training_text')[0].innerHTML == ''){$('#running')[0].value = 'false';}if($('#running')[0].value === 'false'){startExercise(0);}">
     <b>start</b>
 
   </div>

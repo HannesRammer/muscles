@@ -1,10 +1,10 @@
-<% 'Log in' %>
+<% "Log in" %>
 
-<p>Don't have an account? <%= link_to 'Sign up!', sign_up_path %></p>
+<p>Don't have an account? <%= link_to "Sign up!", sign_up_path %></p>
 
 <%= form_tag sessions_path do |form|%>
   <p>
-    <%= label_tag :email, 'Email Address' %><br />
+    <%= label_tag :email, "Email Address" %><br />
     <%= text_field_tag :email, params[:email] %>
   </p>
   <p>

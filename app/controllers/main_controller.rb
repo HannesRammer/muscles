@@ -17,8 +17,8 @@ class MainController < ApplicationController
   end
 
   def muscle
-    p '##################################'
-    @name = params['name']
+    p "##################################"
+    @name = params["name"]
     p @name
     @muscles = Muscle.where("name = ?",@name).to_a.uniq
     p @muscles
@@ -50,9 +50,9 @@ class MainController < ApplicationController
 #      page["body_part_text_selected"].replace_html params[:name]
 #
 #      page["muscle_text_header"].replace_html "Muskeln aller #{params[:name]}übungen"
-#      page["muscle_selected"].replace '<div id="muscle_selected"></div>'
+#      page["muscle_selected"].replace "<div id="muscle_selected"></div>"
 #
-#      page["exercise_selected"].replace '<div id="exercise_selected"></div>'
+#      page["exercise_selected"].replace "<div id="exercise_selected"></div>"
 #      page["exercises_text_header"].replace_html "Alle #{params[:name]}übungen"
 #
 #      page["exercises_text"].replace_html :partial=>"main/exercises_text"
@@ -66,7 +66,7 @@ class MainController < ApplicationController
   end
 
   def exercise
-    @name = params['name']
+    @name = params["name"]
     @exercise = Exercise.find_by_name(@name)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
@@ -76,8 +76,8 @@ class MainController < ApplicationController
     #render :update do |page|
     #  page["body_part_selected"].replace_html ""
     #  page["exercise_selected"].replace :partial=>"main/exercise_selected"
-    #  page["exercise_text_selected"].replace_html params[:exercise]['name']
-    #  page["open_exercise"].replace_html vertical_text(params[:exercise]['name'])
+    #  page["exercise_text_selected"].replace_html params[:exercise]["name"]
+    #  page["open_exercise"].replace_html vertical_text(params[:exercise]["name"])
     #  page["exercise"].replace_html :partial=>"exercises/show"
     #end
   end

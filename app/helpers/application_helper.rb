@@ -25,16 +25,16 @@ module ApplicationHelper
   end
 
   def clean_name(name)
-    name.downcase.gsub("ß", "ss").gsub(" ", "_").gsub('ä', 'ae').gsub('ö', 'oe').gsub('ü', 'ue').gsub('Ä', 'ae')
+    name.downcase.gsub("ß", "ss").gsub(" ", "_").gsub("ä", "ae").gsub("ö", "oe").gsub("ü", "ue").gsub("Ä", "ae")
   end
 
   def normal_name(name)
-    name.downcase.gsub('ss', 'ß').gsub('_', ' ').gsub('ae', 'ä').gsub('oe', 'ö').gsub('ue', 'ü').gsub('ae','Ä')
+    name.downcase.gsub("ss", "ß").gsub("_", " ").gsub("ae", "ä").gsub("oe", "ö").gsub("ue", "ü").gsub("ae","Ä")
   end
 
   def vertical_text(text)
     text = clean_name(text)
-    nt = ''
+    nt = ""
     i = text.length
     i.times do |it|
       nt << "#{text[(it)..(it)]}<br/>"

@@ -27,7 +27,7 @@ class MusclesController < ApplicationController
 
     respond_to do |format|
       if @muscle.save
-        format.html { redirect_to @muscle, notice: 'Muscle was successfully created.' }
+        format.html { redirect_to @muscle, notice: "Muscle was successfully created." }
         format.json { render :show, status: :created, location: @muscle }
       else
         format.html { render :new }
@@ -41,7 +41,7 @@ class MusclesController < ApplicationController
   def update
     respond_to do |format|
       if @muscle.update(muscle_params)
-        format.html { redirect_to @muscle, notice: 'Muscle was successfully updated.' }
+        format.html { redirect_to @muscle, notice: "Muscle was successfully updated." }
         format.json { render :show, status: :ok, location: @muscle }
       else
         format.html { render :edit }
@@ -55,7 +55,7 @@ class MusclesController < ApplicationController
   def destroy
     @muscle.destroy
     respond_to do |format|
-      format.html { redirect_to muscles_url, notice: 'Muscle was successfully destroyed.' }
+      format.html { redirect_to muscles_url, notice: "Muscle was successfully destroyed." }
       format.json { head :no_content }
     end
   end

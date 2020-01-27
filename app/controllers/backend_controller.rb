@@ -4,7 +4,7 @@ class BackendController < ApplicationController
     @body_parts = BodyPart.all
     @muscles = Muscle.all.sort!{|t1,t2|t1.name <=> t2.name}
     @exercises = Exercise.all
-    exercise_types = [['Please select',nil]]
+    exercise_types = [["Please select",nil]]
     @exercises.each do |x|
       exercise_types  << [x.exercise_type,x.exercise_type]
     end
@@ -28,7 +28,7 @@ class BackendController < ApplicationController
         @ex.exercise_type = ext if ext
         @ex.save
       end
-      @bp = get_or_save('body_part', 'BodyPart')
+      @bp = get_or_save("body_part", "BodyPart")
       get_or_save_muscles
 
     end

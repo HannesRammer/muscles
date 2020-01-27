@@ -28,7 +28,7 @@ class BodyPartsController < ApplicationController
 
     respond_to do |format|
       if @body_part.save
-        format.html { redirect_to @body_part, notice: 'Body part was successfully created.' }
+        format.html { redirect_to @body_part, notice: "Body part was successfully created." }
         format.json { render :show, status: :created, location: @body_part }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BodyPartsController < ApplicationController
   def update
     respond_to do |format|
       if @body_part.update(body_part_params)
-        format.html { redirect_to @body_part, notice: 'Body part was successfully updated.' }
+        format.html { redirect_to @body_part, notice: "Body part was successfully updated." }
         format.json { render :show, status: :ok, location: @body_part }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class BodyPartsController < ApplicationController
   def destroy
     @body_part.destroy
     respond_to do |format|
-      format.html { redirect_to body_parts_url, notice: 'Body part was successfully destroyed.' }
+      format.html { redirect_to body_parts_url, notice: "Body part was successfully destroyed." }
       format.json { head :no_content }
     end
   end

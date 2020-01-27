@@ -18,9 +18,9 @@
   <% Muscle.sort_by_name.each do |muscle| %>
       <tr>
         <td><%= h muscle.name %></td>
-        <td><%= link_to 'Show', muscle %></td>
-        <td><%= link_to 'Edit', edit_muscle_path(muscle) %></td>
-        <td><%= link_to 'Destroy', muscle, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to "Show", muscle %></td>
+        <td><%= link_to "Edit", edit_muscle_path(muscle) %></td>
+        <td><%= link_to "Destroy", muscle, :confirm => "Are you sure?", :method => :delete %></td>
         <td><%= muscle.picture_id %></td>
         <td><%#= muscle.exercises.length %></td>
         <td><%#= if muscle.exercises.length == 1
@@ -46,4 +46,4 @@
 
 <br/>
 
-<%= link_to 'New muscle', new_muscle_path %>
+<%= link_to "New muscle", new_muscle_path %>

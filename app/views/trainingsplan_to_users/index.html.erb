@@ -12,9 +12,9 @@
   <tbody>
     <% @trainingsplan_to_users.each do |trainingsplan_to_user| %>
       <tr>
-        <td><%= link_to 'Show', trainingsplan_to_user %></td>
-        <td><%= link_to 'Edit', edit_trainingsplan_to_user_path(trainingsplan_to_user) %></td>
-        <td><%= link_to 'Destroy', trainingsplan_to_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Show", trainingsplan_to_user %></td>
+        <td><%= link_to "Edit", edit_trainingsplan_to_user_path(trainingsplan_to_user) %></td>
+        <td><%= link_to "Destroy", trainingsplan_to_user, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Trainingsplan To User', new_trainingsplan_to_user_path %>
+<%= link_to "New Trainingsplan To User", new_trainingsplan_to_user_path %>

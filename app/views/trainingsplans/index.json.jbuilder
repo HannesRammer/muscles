@@ -1,1 +1,1 @@
-json.array! @trainingsplans, partial: 'trainingsplans/trainingsplan', as: :trainingsplan
+json.array! @trainingsplans, partial: "trainingsplans/trainingsplan", as: :trainingsplan

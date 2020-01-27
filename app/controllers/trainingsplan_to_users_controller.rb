@@ -28,7 +28,7 @@ class TrainingsplanToUsersController < ApplicationController
 
     respond_to do |format|
       if @trainingsplan_to_user.save
-        format.html { redirect_to @trainingsplan_to_user, notice: 'Trainingsplan to user was successfully created.' }
+        format.html { redirect_to @trainingsplan_to_user, notice: "Trainingsplan to user was successfully created." }
         format.json { render :show, status: :created, location: @trainingsplan_to_user }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TrainingsplanToUsersController < ApplicationController
   def update
     respond_to do |format|
       if @trainingsplan_to_user.update(trainingsplan_to_user_params)
-        format.html { redirect_to @trainingsplan_to_user, notice: 'Trainingsplan to user was successfully updated.' }
+        format.html { redirect_to @trainingsplan_to_user, notice: "Trainingsplan to user was successfully updated." }
         format.json { render :show, status: :ok, location: @trainingsplan_to_user }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TrainingsplanToUsersController < ApplicationController
   def destroy
     @trainingsplan_to_user.destroy
     respond_to do |format|
-      format.html { redirect_to trainingsplan_to_users_url, notice: 'Trainingsplan to user was successfully destroyed.' }
+      format.html { redirect_to trainingsplan_to_users_url, notice: "Trainingsplan to user was successfully destroyed." }
       format.json { head :no_content }
     end
   end
