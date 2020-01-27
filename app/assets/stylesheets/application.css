@@ -359,7 +359,7 @@ li {
 #user_training {
     position: absolute;
     right: 200px;
-    top: 0px
+    top: 0px;
 }
 
 #training_text {
@@ -381,3 +381,6 @@ li {
     display: block;
 }
 
+#muscle_selected{
+    opacity: 1 !important;
+}

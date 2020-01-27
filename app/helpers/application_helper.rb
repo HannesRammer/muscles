@@ -5,7 +5,7 @@ module ApplicationHelper
     x=[]
     muscles.each do |muscle|
       #x.push(tag(:div, class: "multi_pic #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}", style:"opacity:#{0.25 * strength};position:absolute;"))
-      x << "<div class='multi_pic #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.25 * strength};position:absolute;'></div>"
+      x << "<div class='multi_pic #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.20 * strength};position:absolute;'></div>"
       #x << image_tag("/assets/muscles/#{muscle.picture_id}_#{muscle.clean_name}#{"_#{effect}" if !effect.blank?}.png", :style=>"opacity:#{0.25*strength}", :id=>"#{muscle.clean_name}_#{effect}", :class=>"multi_pic")
     end
   x.join.html_safe

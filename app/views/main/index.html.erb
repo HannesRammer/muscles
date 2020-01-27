@@ -49,7 +49,7 @@
 
   <% end %>   <br/>
   Oder wähle ein Stichwort.
-  <% %w{Liegen Sitzen Bank Stab Gerät Seilzug Multipresse Kurzhantel Langhantel Gerät Freigewicht}.each do |part| %>
+  <% %w{Liegen Sitzen Bank Gerät Kurzhantel Langhantel Freigewicht}.each do |part| %>
     <%= link_to(part, {:controller => "main", :action => "search_string", :name => part}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
 
   <% end %>         <br/>
@@ -68,14 +68,14 @@
   <div id="body_part_selected" style="position:absolute;">
     <%= render :partial => "main/body_part_selected" %>
   </div>
-  <div id="muscle_selected" style="position:absolute;">
-    <%= render partial: "main/muscle_selected", locals: {muscles: @muscles} %>
-  </div>
 
   <div id="exercise_selected" style="position:absolute;">
     <%= render :partial => "main/exercise_selected" %>
   </div>
-  <%#= render :partial => "main/muscle_hover" %>
+  <div id="muscle_selected" style="position:absolute;">
+    <%= render partial: "main/muscle_selected", locals: {muscles: @muscles} %>
+  </div>
+<%#= render :partial => "main/muscle_hover" %>
   <div id="exercises" class="nice_outer_tab" style="position:absolute;">
     <%= render :partial => "main/exercise" %>
   </div>

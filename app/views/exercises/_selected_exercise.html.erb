@@ -1,8 +1,16 @@
 
 <%= render :partial => "main/body_area" %>
 <%= image_tag("muskelman.png", :class=>"multi_pic2") %>
+<style>
+  #muscle_text {
+    left: -500px !important;
+    position: absolute !important;
+    width: 500px !important;
+    top: -115px !important;
+  }
+</style>
 
-  <% if @exercise%>
+<% if @exercise%>
   <div>Name: <%=h @exercise.name %></div>
 
     <%= user_muscle_pics(@exercise.primary_muscles, "",4) %>
@@ -12,14 +20,6 @@
   <div style="width: 600px;
        position: absolute;
        left: 500px;">
-    <style>
-      #muscle_text {
-        left: -500px !important;
-        position: absolute !important;
-        width: 500px !important;
-        top: -115px !important;
-      }
-    </style>
     <div id="muscles" class="nice_outer_tab" style="left:0px;">
   <%= render("main/muscle_text_option") %>
     </div>
