@@ -21,17 +21,17 @@
 function toggleClass(elem, className1, className2) {
     elem.className = (elem.className === className1) ? className2 : className1;
 }
+
 function setClass(elem, className1) {
     elem.className = className1;
 }
 
 
-
 function toggleExercise() {
-    let exercise= document.querySelector("#exercise");
+    let exercise = document.querySelector("#exercise");
     if (exercise.innerHTML !== "") {
 
-        let open_exercise= document.querySelector("#open_exercise");
+        let open_exercise = document.querySelector("#open_exercise");
         if (open_exercise.className === "open_exercise") {
             open_exercise.className = "close_exercise";
             open_exercise.innerHTML = "V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N";
@@ -77,7 +77,7 @@ function toggleImage() {
         var prePath = splitPath[0];
         var fileName = splitPath[1];
 
-        var splitFileName= fileName.split("-")[0];
+        var splitFileName = fileName.split("-")[0];
         splitFileName = splitFileName.split("1.jpg")[0];
         var cleanFileName = splitFileName.split(".jpg")[0];
 
@@ -143,19 +143,18 @@ function new_style(x) {
 function toggle_tab(id) {
     let factor = id.split("_")[0];
     debugger;
-    let primary = document.querySelector("#"+factor + "_primary");
-    let secondary = document.querySelector("#"+factor + "_secondary");
+    let primary = document.querySelector("#" + factor + "_primary");
+    let secondary = document.querySelector("#" + factor + "_secondary");
 
-    let primaryTab = document.querySelector("#"+factor + "_primary_tab");
-    let secondaryTab = document.querySelector("#"+factor + "_secondary_tab");
+    let primaryTab = document.querySelector("#" + factor + "_primary_tab");
+    let secondaryTab = document.querySelector("#" + factor + "_secondary_tab");
     if (id === (factor + "_primary")) {
-        primary.classList.toggle( "hide" );
-        primaryTab.classList.toggle( "activeTab" );
+        primary.classList.toggle("hide");
+        primaryTab.classList.toggle("activeTab");
 
-    }
-    else if (id === (factor + "_secondary")) {
-        secondary.classList.toggle( "hide" );
-        secondaryTab.classList.toggle( "activeTab" );
+    } else if (id === (factor + "_secondary")) {
+        secondary.classList.toggle("hide");
+        secondaryTab.classList.toggle("activeTab");
     }
     /* else if (id == (factor + "_antagonist")) {
      document.querySelector(factor + "_antagonist").style.display = "block";
@@ -201,6 +200,7 @@ function startExercise(i) {
     set_level(0, "pause_div", "left");
     do_rep(single_rep, single_rep, reps, reps, i);
 }
+
 function do_rep(single_rep, counter, reps, new_reps, i) {
 
     if (counter > 0) {
@@ -213,14 +213,12 @@ function do_rep(single_rep, counter, reps, new_reps, i) {
             if (counter > (single_rep / 2)) {
                 extention = ".jpg";
                 do_it = "push it!!";
-            }
-            else if (counter === (single_rep / 2)) {
+            } else if (counter === (single_rep / 2)) {
                 hold = document.querySelector("#hold").value * 1000;
                 extention = "1.jpg";
                 document.querySelector("#hold_div_f").innerHTML = hold;
                 do_it = "Halten";
-            }
-            else if (counter < (single_rep / 2)) {
+            } else if (counter < (single_rep / 2)) {
                 extention = "1.jpg";
                 do_it = "release";
             }
@@ -230,8 +228,7 @@ function do_rep(single_rep, counter, reps, new_reps, i) {
 
             counter = counter - 100;
             setTimeout("do_rep(" + single_rep + "," + counter + "," + reps + "," + new_reps + "," + i + ")", 100);
-        }
-        else {
+        } else {
             hold_on(hold, hold, single_rep, counter, reps, new_reps, i);
         }
     } else {
@@ -282,6 +279,7 @@ function pause_c(x, y, i) {
         startExercise(i);
     }
 }
+
 function hold_on(max, counter, single_rep, counter_1, reps, new_reps, i) {
     document.querySelector("#training_text").innerHTML = "noch " + (counter / 1000) + " s halten";
     if (counter > 0) {
@@ -294,6 +292,7 @@ function hold_on(max, counter, single_rep, counter_1, reps, new_reps, i) {
         do_rep(single_rep, counter_1, reps, new_reps, i);
     }
 }
+
 //set_level id to 100%
 function full(id) {               //inject
     set_level(100, id, "left");
@@ -305,18 +304,18 @@ function fill(id, perc) {               //inject
 
 //calles set_level function with max val and current val
 function drown_to_null(counter_max, counter, id) {             //called
-    var percent = ((100 / counter_max ) * counter);
+    var percent = ((100 / counter_max) * counter);
     if (percent > 0) {
         set_level(percent, id, "left")
     }
 }
 
 function set_timeline(counter_max, counter) {             //called
-    var usertime_percent = ((100 / counter_max ) * counter);
+    var usertime_percent = ((100 / counter_max) * counter);
     duration = document.querySelector("#htmlPlayer").duration;
     x = (duration / 100) * usertime_percent;
     document.querySelector("#htmlPlayer").currentTime = duration - x;
-    document.querySelector("#vid").value = (duration - x)/60;
+    document.querySelector("#vid").value = (duration - x) / 60;
 
 }
 
@@ -326,4 +325,45 @@ function set_training(r, s, h, p) {
     document.querySelector("#hold").value = h;
     document.querySelector("#pause").value = p;
 
+}
+
+
+/*---*/
+function hover(name) {
+    setClass(document.querySelector("#hover"), "" + cleanName(name) + "_hover");
+    let last_hover = document.querySelector("#muscle_text_hover").value;
+    if (name === "") {
+        //$("muscle_hover").innerHTML = "";//
+        if (last_hover !== "" && document.querySelector("#" + last_hover + "_hover")) {
+            setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_pic");
+        }
+    } else {
+        let p = cleanName(name);
+        let s = p.toLowerCase();
+
+        if (last_hover !== "" && document.querySelector("#" + last_hover + "_hover")) {
+            setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_tirpic");
+        }
+        if (document.querySelector("#" + s + "_hover")) {
+            setClass(document.querySelector("#" + s + "_hover"), "multi_pic");
+        }
+
+        document.querySelector("#muscle_text_hover").innerHTML = name;
+    }
+}
+
+
+function cleanName(name) {
+    return name.gsub("ß", "ss").gsub(" ", "_").gsub("ä", "ae").gsub("ö", "oe").gsub("ü", "ue").gsub("Ä", "ae").gsub("Ö", "oe").gsub("Ü", "ue").toLowerCase();
+}
+
+
+function selected (name) {
+
+    $.ajax({
+        type: "POST",
+        url: "/main/muscle/" + name,
+        dataType: "script"
+    });
+    return false;
 }

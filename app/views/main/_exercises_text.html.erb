@@ -6,10 +6,10 @@
   <div>
     <% @exercises.each do |exercise| %>
       <div>
-        <span class="exercises_text" onclick="selected_exercise('<%=exercise.name%>');"
-              onmouseover="this.style.cursor='pointer';"
+        <span class="exercises_text"
               title="<%= exercise.name %> anzeigen">
-          <%= exercise.name %>
+          <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen"}, {:remote => true, :method => :post}) %>
+
           <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
         </span>
         <%= link_to("<i class='material-icons' style='position: relative;top: 6px;'>playlist_add</i>".html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>

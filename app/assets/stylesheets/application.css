@@ -40,9 +40,10 @@ img {
 }
 
 #body_part_text_selected_div {
-    left: 235px;
-    position: relative;
-    width: 230px;
+    left: 600px;
+    position: absolute;
+    width: 150px;
+    top: 5px;
 }
 
 #muscle_text_selected_div {
@@ -52,7 +53,7 @@ img {
 }
 
 #exercise_text_selected_div {
-    left: 235px;
+
     position: absolute;
 
     width: 230px;
@@ -140,9 +141,9 @@ a:active {
 
 #exercises {
     left: -72px;
-    min-height: 6px;
+    height: 425px;
     position: absolute;
-    top: 30px;
+    /* top: 30px; */
     width: 350px;
 }
 
@@ -150,9 +151,9 @@ a:active {
     min-height: 6px;
     position: absolute;
     top: 0;
-    left:770px;
-    width: 250px;
-    height:425px;
+    left: 770px;
+    width: 300px;
+    height: 425px;
     overflow: auto;
 }
 
@@ -295,7 +296,7 @@ table {
 
 .show_exercise {
     border: 1px solid #FFFFFF;
-    top:0;
+    top: 0;
     left: 1218px;
     position: absolute;
     z-index: 10;
@@ -373,14 +374,22 @@ li {
     top: 25px;
 }
 
-.hide{
+.hide {
     display: none !important;
 }
 
-.show{
+.show {
     display: block;
 }
 
-#muscle_selected{
+#muscle_selected {
     opacity: 1 !important;
+}
+
+.muscle_text_option {
+    cursor: pointer;
+}
+
+#body_area area{
+    cursor: pointer;
 }

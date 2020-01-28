@@ -10,6 +10,11 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans/1
   # GET /trainingsplans/1.json
   def show
+    @trainingsplan = Trainingsplan.find_by_id(params[:id])
+    @exercises = @trainingsplan.exercises
+    @muscles = @exercises.first.muscles
+    @p_muscles = @exercises.first.primary_muscles
+    @s_muscles = @exercises.first.secondary_muscles
   end
 
   # GET /trainingsplans/new

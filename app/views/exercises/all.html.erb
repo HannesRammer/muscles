@@ -19,48 +19,6 @@
       </div>
     <% end %>
   </div>
-  <script>
-      function hover(name) {
-          setClass(document.querySelector("#hover"), "" + cleanName(name) + "_hover");
-          let last_hover = document.querySelector("#muscle_text_hover").value;
-          if (name === "") {
-              //$("muscle_hover").innerHTML = "";//
-              if (last_hover !== "" && document.querySelector("#" + last_hover + "_hover")) {
-                  setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_pic");
-              }
-          } else {
-              let p = cleanName(name);
-              let s = p.toLowerCase();
-
-              if (last_hover !== "" && document.querySelector("#" + last_hover + "_hover")) {
-                  setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_tirpic");
-              }
-              if (document.querySelector("#" + s + "_hover")) {
-                  setClass(document.querySelector("#" + s + "_hover"), "multi_pic");
-              }
-
-              document.querySelector("#muscle_text_hover").innerHTML = name;
-          }
-      }
-
-      function cleanName(name) {
-          return name.gsub("ß", "ss").gsub(" ", "_").gsub("ä", "ae").gsub("ö", "oe").gsub("ü", "ue").gsub("Ä", "ae").gsub("Ö", "oe").gsub("Ü", "ue").toLowerCase();
-      }
-
-      function selected(name) {
-          document.querySelector("#muscle_name").value = name;
-          //document.querySelector("#muscle_text_selected").innerHTML = name;
-
-          $("#muscle_form").click();
-          //document.forms.namedItem("muscle_form").click();
-      }
-
-      function selected_exercise(name) {
-          document.querySelector("#exercise_name").value = name;
-          //document.querySelector("#exercise_text_selected").innerHTML = name;
-          $("#exercise_form").click();
-      }
-  </script>
 
 </div>
 
