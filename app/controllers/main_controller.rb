@@ -6,9 +6,11 @@ class MainController < ApplicationController
   def index
     @liste = []
     #@muscles = Muscle.all_with_pic
+    @muscles = Muscle.all
+    @muscles_selected = []
     @body_parts = BodyPart.all.to_a
-    @muscles = []
-    @p_muscles = []
+    @p_muscles = @muscles
+    @exercises = Exercise.all
     @s_muscles = []
     #@a_muscles = []
     @current_user if logged_in?
@@ -17,11 +19,11 @@ class MainController < ApplicationController
   end
 
   def muscle
-    p "##################################"
+    #p "##################################"
     @name = params["name"]
-    p @name
+    #p @name
     @muscles = Muscle.where("name = ?",@name).to_a.uniq
-    p @muscles
+    @muscles_selected = @muscles
     @exercises = @muscles.first.exercises
     respond_to :js
   end

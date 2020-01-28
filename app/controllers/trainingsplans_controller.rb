@@ -13,6 +13,7 @@ class TrainingsplansController < ApplicationController
     @trainingsplan = Trainingsplan.find_by_id(params[:id])
     @exercises = @trainingsplan.exercises
     @muscles = @exercises.first.muscles
+    @muscles_selected = []
     @p_muscles = @exercises.first.primary_muscles
     @s_muscles = @exercises.first.secondary_muscles
   end
