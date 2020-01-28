@@ -68,14 +68,14 @@ div {
     border-radius: 8px 8px 7px 7px;
 }
 a{
-    -webkit-border-radius: 5px;
+   /* -webkit-border-radius: 5px;
     -khtml-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px;*/
 }
 a:link, a:visited {
-	-webkit-transition: all 1s ease;
-	transition: all 1s ease;
+	-webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
 
 	}
 a:hover, a:active {
