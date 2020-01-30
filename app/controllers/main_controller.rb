@@ -15,7 +15,7 @@ class MainController < ApplicationController
     #@a_muscles = []
     @current_user if logged_in?
     @trainingsplans = @current_user.trainingsplans if @current_user
-    @trainingsplan = @trainingsplans.first
+    @trainingsplan = @trainingsplans.first if @trainingsplans
   end
 
   def muscle
@@ -118,8 +118,8 @@ class MainController < ApplicationController
     return unless ExerciseToTrainingsplan.switch_exercise(params[:ettp_id_1], params[:ettp_id_2], @current_user.id)
     @trainingsplan = ExerciseToTrainingsplan.find_by_id(params[:ettp_id_1]).trainingsplan
     respond_to :js
-      #render :update do |page|
-      #  page["user_selected"].replace :partial=>"main/user_selected"
-      #end
+    #render :update do |page|
+    #  page["user_selected"].replace :partial=>"main/user_selected"
+    #end
   end
 end

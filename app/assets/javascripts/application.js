@@ -367,3 +367,24 @@ function selected (name) {
     });
     return false;
 }
+
+function setExerciseActive(trainingsplanPosition){
+    var exerciseContainer = document.querySelector("#trainings_exercises_text");
+    // Get all buttons with class="btn" inside the container
+    var exercises = exerciseContainer.querySelectorAll(".exercises_text");
+
+// Loop through the buttons and add the active class to the current/clicked button
+    for (var i = 0; i < exercises.length; i++) {
+
+        if(i === trainingsplanPosition){
+            $(exercises[i]).addClass("active_exercise");
+        }else{
+            $(exercises[i]).removeClass("active_exercise");
+        }
+        exercises[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+}

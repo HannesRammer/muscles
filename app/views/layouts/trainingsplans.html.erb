@@ -1,0 +1,86 @@
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+  <title>ITone <%= params[:controller] %>/<%= controller.action_name %></title>
+
+</head>
+<%#= csrf_meta_tags %>
+
+<%#= stylesheet_link_tag :application %>
+<%= stylesheet_link_tag("trainingsplans.css") %>
+
+<%#= stylesheet_link_tag "dev/screen", :media => "all" %>
+<%= render "layouts/muscle_styles" %>
+<%#= javascript_include_tag :application  %>
+<%#= stylesheet_link_tag    "trainingsplans", media: "all", "data-turbolinks-track": "reload" %>
+<%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--link rel="stylesheet" href="trainingsplans.css"-->
+<%#= javascript_include_tag "modernizr-1.6.min" %>
+<% cookies["style"] ? style = cookies["style"] : style = "dark" %>
+<body id="body" class="theme_<%= style %>">
+<%= link_to "Eigene Trainingspläne", user_trainingsplans_path %>
+<%= link_to "Alle Übungen", exercises_all_path %>
+<%= link_to "Start", root_path %>
+<script>
+  $( document ).on( "mousemove", function( event ) {
+      $( "#mouseX" ).attr("value",event.pageX);
+      $( "#mouseY" ).attr("value",event.pageY);
+      //$( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+  });
+</script>
+<input type="hidden" id="mouseX" value=""/>
+<input type="hidden" id="mouseY" value=""/>
+<%= render "layouts/drop_style" %>  <br/>
+
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
+<div id="outer_container" class="nice_outer_tab" style="width:100%;">
+  <div id="login_box">
+    <%= link_to("Log In", login_path, :class => "nice_inset_tab") unless logged_in? %>
+    <%= link_to("Sign Up", sign_up_path, :class => "nice_inset_tab") unless logged_in? %>
+    <%= link_to("Log Out", logout_path, :class=>"nice_inset_tab") if logged_in? %>
+  </div>
+  <div id="container" style="width:100%"><br/>
+
+    <div id="exercise" class="hidden_exercise"></div>
+
+    <%#= render("shared/header", :locals => {:cont_name => "contact"}) %>
+    <div id="muscle"></div>
+    <div id="notice"><%= flash[:notice] %></div>
+
+
+    <%= yield :layout %>
+
+    <%#= render "layouts/donation" %>
+    <div id="trainingsplanlist" style="display: none;
+        top: 318px;
+        left: 1015px;
+        position: absolute;
+        border: 1px solid black;
+        padding: 5px;
+        background: lightgrey;">
+
+    </div>
+  </div>
+</div>
+<!--table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tbody>
+  <tr>
+    <td width="100%" align="center" style="padding:10px;">Copyright &copy; INC-M99.</td>
+  </tr>
+  <tr>
+    <td width="100%" align="center" style="">
+      <% if params[:controller] != "backend" %>
+        <a href="http://s05.flagcounter.com/more/bQy"><img src="http://s05.flagcounter.com/count/bQy/bg=FFFFFF/txt=000000/border=CCCCCC/columns=4/maxflags=12/viewers=3/labels=1/pageviews=1/" alt="free counters" border="0"></a>
+      <% end %>
+    </td>
+  </tr>
+  </tbody>
+</table-->
+
+</body>
+</html>

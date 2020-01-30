@@ -12,6 +12,7 @@ class TrainingsplansController < ApplicationController
   def show
     @trainingsplan = Trainingsplan.find_by_id(params[:id])
     @exercises = @trainingsplan.exercises
+    @exercise = @exercises.first
     @muscles = @exercises.first.muscles
     @muscles_selected = []
     @p_muscles = @exercises.first.primary_muscles
@@ -25,6 +26,46 @@ class TrainingsplansController < ApplicationController
 
   # GET /trainingsplans/1/edit
   def edit
+  end
+
+  def exercise
+    @name = params["name"]
+    @exercise = Exercise.find_by_name(@name)
+    @p_muscles = @exercise.primary_muscles
+    @s_muscles = @exercise.secondary_muscles
+    respond_to :js
+    # @a_muscles = @exercise.antagonist_muscles
+
+    #render :update do |page|
+    #  page["body_part_selected"].replace_html ""
+    #  page["exercise_selected"].replace :partial=>"main/exercise_selected"
+    #  page["exercise_text_selected"].replace_html params[:exercise]["name"]
+    #  page["open_exercise"].replace_html vertical_text(params[:exercise]["name"])
+    #  page["exercise"].replace_html :partial=>"exercises/show"
+    #end
+  end
+
+  def remove_exercise
+    @ett = ExerciseToTrainingsplan.find_by_id(params[:ettp_id])
+    @trainingsplan = @ett.trainingsplan
+    user_id = Trainingsplan.user(@ett.id).id
+    @exercises = @trainingsplan.exercises
+    ExerciseToTrainingsplan.destroy(@ett.id) if @current_user.id == user_id
+    respond_to :js
+    #render :update do |page|
+    #  page["user_selected"].replace :partial=>"main/user_selected"
+    #end
+  end
+
+  def switch_exercise
+
+    return unless ExerciseToTrainingsplan.switch_exercise(params[:ettp_id_1], params[:ettp_id_2], @current_user.id)
+    @trainingsplan = ExerciseToTrainingsplan.find_by_id(params[:ettp_id_1]).trainingsplan
+    @exercises = @trainingsplan.exercises
+    respond_to :js
+    #render :update do |page|
+    #  page["user_selected"].replace :partial=>"main/user_selected"
+    #end
   end
 
   def get_exercises

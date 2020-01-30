@@ -1,0 +1,51 @@
+<%# p_exercises = @muscles.blank? ? [] : @muscles[0].primary_exercises %>
+<%# s_exercises = @muscles.blank? ? [] : @muscles[0].secondary_exercises %>
+<%# a_exercises = @muscles.blank? ? [] : @muscles[0].antagonist_exercises %>
+
+<% if @exercises %>
+  <div>
+
+
+    <% ettps = @trainingsplan.exercise_to_trainingsplans %>
+    <br>
+    <% ettps.each_with_index do |ettp, i| %>
+      <% exercise = ettp.exercise %>
+      <span class="exercises_text nice_outer_tab" title="<%= exercise.name %> anzeigen" onclick="setExerciseActive(<%= i %>);">
+        <%= i+1 %>
+          <%# @x << "#{clean_name(exercise.name).capitalize}" %>
+
+        <%= link_to(exercise.name, {:controller => "trainingsplans", :action => "exercise", :name => exercise.name}, {:remote => true, :method => :post, :title => "#{exercise.name} auswählen",:class=>"exercise_selection_link"}) %>
+
+
+        <%= link_to("<i class='material-icons'>remove_circle_outline</i>".html_safe,
+                    {:controller => "trainingsplans", :action => "remove_exercise", :ettp_id => ettp.id},
+                    {:confirm => "Are you sure?", :remote => true, :method => :post,:class=>'remove_exercise', :title => "Remove #{exercise.name} from Trainingsplan #{@trainingsplan.name}"}) %>
+
+         <%#= link_to(image_tag('icons/remove.png'),:html=>{:title => 'Vom Trainingsplan entfernen'}, :url=>{:controller=>'main', :action=>'remove_exercise', :ute_id=>ute.id}, :confirm => 'Are you sure?', :remote=>true) %>
+        <% if i != 0 %>
+            <%= link_to("<i class='material-icons move_exercise'>arrow_drop_up</i>".html_safe,
+                        {:controller => "trainingsplans", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => ettps[i - 1].id},
+                        {:remote => true, :method => :post,:class=>'move_exercise_up', :title => "Move Up"}) %>
+          <% end %>
+        <% unless ettps[i + 1].blank? %>
+            <%= link_to("<i class='material-icons'>arrow_drop_down</i>".html_safe,
+                        {:controller => "trainingsplans", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => ettps[i + 1].id},
+                        {:remote => true, :method => :post,:class=>'move_exercise_down', :title => "Move Down"}) %>
+          <% end %>
+        <br/>
+      </span>
+
+
+    <% end %>
+
+
+
+
+
+
+    <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
+
+    <%#= link_to(image_tag("icons/add.png"), {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+  </div>
+
+<% end %>

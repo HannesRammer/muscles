@@ -14,3 +14,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( material.min.css )
 Rails.application.config.assets.precompile += %w( material.min.js )
+Rails.application.config.assets.precompile += %w( trainingsplans.css )
+Rails.application.config.assets.paths << "#{Rails.root}/app/assets/videos"
+Rails.application.config.assets.unknown_asset_fallback = true
+#Rails.application.config.assets.precompile += %w( benchpress.mp4 )

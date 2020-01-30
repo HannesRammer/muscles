@@ -2,33 +2,40 @@
 
 <p>
   <strong>Traingsplan:</strong>
-  <%= @trainingsplan.name %>
+  Name: <%= @trainingsplan.name %>
+  Id: <%= @trainingsplan.id %>
 </p>
 
 
 <div style="position:relative">
-  <div id="muscles" class="nice_outer_tab">
-    <%= render :partial => "main/muscle" %>
-  </div>
 
+
+  <div id="trainings_exercises" class="nice_outer_tab">
+    <%= render :partial => "trainingsplans/exercise" %>
+  </div>
 
   <%= image_tag("muskelman.png", :class => "multi_pic") %>
 
   <div id="exercise_selected">
-    <%= render :partial => "main/exercise_selected" %>
+    <%= render :partial => "trainingsplans/exercise_selected" %>
   </div>
   <div id="muscle_selected">
-    <%= render partial: "main/muscle_selected"%>
+    <%= render partial: "trainingsplans/muscle_selected" %>
   </div>
 <%#= render :partial => "main/muscle_hover" %>
-  <div id="exercises" class="nice_outer_tab">
-    <%= render :partial => "main/exercise" %>
+  <div id="muscles" class="nice_outer_tab">
+    <%= render :partial => "trainingsplans/muscle" %>
   </div>
   <div id="hover"></div>
   <%= image_tag("blank.png", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
 
 
+  <div id="exercise_video" >
+    <%= render :partial => "trainingsplans/video" %>
+  </div>
 
-  <%= link_to "Edit", edit_trainingsplan_path(@trainingsplan) %> |
-  <%= link_to "Back", user_trainingsplans_path %>
+  <div style="position: relative;top: -155px;">
+    <%= link_to "Edit", edit_trainingsplan_path(@trainingsplan) %> |
+    <%= link_to "Back", user_trainingsplans_path %>
+  </div>
 </div>

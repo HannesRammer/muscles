@@ -1,9 +1,10 @@
-<div id="muscle_text_option" class="exercise_page">
+<div id="muscle_text_option" class="training_page" style="height: 352px;">
   <div id="m_primary">
     primary muscles
     <% @p_muscles.each do |muscle| %>
       <div class="muscle_text_option" onmouseover="hover('<%=muscle.clean_name%>');">
-        <%= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
+        <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
+        <%= muscle.name %>
       </div>
     <% end %>
   </div>
@@ -12,7 +13,8 @@
     secondary muscles
     <% @s_muscles.each do |muscle| %>
       <div class="muscle_text_option" onmouseover="hover('<%=muscle.clean_name%>');">
-        <%= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
+        <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
+        <%= muscle.name %>
       </div>
     <% end %>
   </div>

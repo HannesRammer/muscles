@@ -34,11 +34,16 @@ Rails.application.routes.draw do
   post 'main/search_string/:name', to: 'main#search_string', format: 'js', as: :main_search_string
   post 'main/exercise/:name', to: 'main#exercise', format: 'js', as: :main_exercise
 
+  post 'trainingsplans/exercise/:name', to: 'trainingsplans#exercise', format: 'js', as: :trainingsplans_exercise
+
   get 'exercises/all', to: 'exercises#all',  as: :exercises_all
 
   post 'main/add_exercise/:exercise/trainingsplan/:trainingsplan', to: 'main#add_exercise', format: 'js', as: :main_add_exercise
   post 'main/remove_exercise/:ettp_id', to: 'main#remove_exercise', format: 'js', as: :main_remove_exercise
   post 'main/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'main#switch_exercise', format: 'js', as: :main_switch_exercise
+
+  post 'trainingsplans/remove_exercise/:ettp_id', to: 'trainingsplans#remove_exercise', format: 'js', as: :trainingsplans_remove_exercise
+  post 'trainingsplans/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'trainingsplans#switch_exercise', format: 'js', as: :trainingsplans_switch_exercise
 
   root 'main#index'
 
