@@ -1,0 +1,16 @@
+
+  <strong>Deine Übungen:</strong>
+
+  <table>
+  <% @exercises.each do |exercise| %>
+
+  <tr>
+    <td><%= exercise.name %></td>
+    <td><%= link_to "Show", exercise %> |
+      <%= link_to "Edit", edit_exercise_path(exercise) %> |
+      <%#= link_to "Destroy", exercise, method: :delete, data: { confirm: "Are you sure?" } %>
+    </td>
+  </tr>
+  <% end %>
+  </table>
+

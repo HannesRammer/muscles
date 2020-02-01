@@ -1,18 +1,18 @@
 <h1>Editing exercise</h1>
 
 <%= form_for(@exercise, :html => { :multipart => true }) do |f| %>
-  <%= f.error_messages %>
+
 
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
-    <%= file_column_field "exercise", "image1" %>
+    <%#= file_column_field "exercise", "image1" %>
     <p>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </p>
-    <%= file_column_field "exercise", "image2" %>
+    <%#= file_column_field "exercise", "image2" %>
 
     <p>
       <%= f.label :how_to %><br />
@@ -27,9 +27,13 @@
     <%= f.label :info %><br />
     <%= f.text_area :info%>
   </p>
-      <p>
+  <p>
     <%= f.label :exercise_type%><br />
     <%= f.text_field :exercise_type%>
+  </p>
+  <p>
+    <%= f.label :visible%><br />
+    <%= f.text_field :visible%>
   </p>
   <p>
     <%= f.submit "Update" %>

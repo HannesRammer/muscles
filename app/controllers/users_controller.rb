@@ -29,6 +29,14 @@ class UsersController < ApplicationController
 
   end
 
+  def exercises
+    @exercise = Exercise.new
+    @exercises = @current_user.exercises
+    @trainingsplans = @current_user.trainingsplans
+    @trainingsplan = Trainingsplan.new
+
+  end
+
   def save_trainingsplan
     @trainingsplan = Trainingsplan.new
     @trainingsplan.name = params[:trainingsplan][:name]

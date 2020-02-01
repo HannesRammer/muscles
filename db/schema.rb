@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200108193104) do
+ActiveRecord::Schema.define(version: 20200201201131) do
 
   create_table "body_parts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20200108193104) do
     t.text "how_not_to"
     t.text "info"
     t.string "exercise_type"
+    t.boolean "visible", default: true
   end
 
   create_table "muscles", id: :integer, force: :cascade, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8" do |t|

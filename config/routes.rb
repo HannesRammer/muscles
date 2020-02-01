@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get 'users/trainingsplans', to: 'users#trainingsplans', as: :user_trainingsplans
   post 'users/save_trainingsplan',to: 'users#save_trainingsplan', format: 'js',as: :user_save_trainingsplan
 
+  get 'users/exercises', to: 'users#exercises', as: :user_exercises
+  post 'users/save_exercise',to: 'users#save_exercise', format: 'js',as: :user_save_exercise
+
   post 'trainingsplans/load_trainingsplans',to: 'trainingsplans#load_trainingsplans', format: 'js',as: :trainingsplans_load_trainingsplans
   post 'trainingsplans/get_exercises',to: 'trainingsplans#get_exercises', format: 'js',as: :trainingsplans_get_exercises
 

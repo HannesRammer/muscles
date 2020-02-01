@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  #before_action :set_exercise, only: [:show, :edit, :update, :destroy]
+  before_action :set_exercise, only: [:show, :edit, :update, :destroy]
   before_action :login_required#, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string]
   # GET /exercises
   # GET /exercises.json
@@ -34,6 +34,7 @@ class ExercisesController < ApplicationController
 
   # GET /exercises/1/edit
   def edit
+    #@exercise = Exercise.find_by_id(params[:id])
   end
 
   # POST /exercises
@@ -55,6 +56,7 @@ class ExercisesController < ApplicationController
   # PATCH/PUT /exercises/1
   # PATCH/PUT /exercises/1.json
   def update
+    @exercise = Exercise.find_by_id(params[:id])
     respond_to do |format|
       if @exercise.update(exercise_params)
         format.html { redirect_to @exercise, notice: "Exercise was successfully updated." }
