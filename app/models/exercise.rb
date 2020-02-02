@@ -2,12 +2,13 @@ class Exercise < ApplicationRecord
   has_many :exercise_to_muscles, -> { where(active: true).order("name") }
   has_many :muscles, :through => :exercise_to_muscles
 #include Muscles
-  has_many :user_to_exercises,  -> { order "id asc" }
+  has_many :user_to_exercises,  -> { where(visible: true).order("id asc")  }
   has_many :users, :through => :user_to_exercises
 
   has_many :exercise_to_trainingsplans, -> { order "id asc" }
   has_many :trainingsplans, :through => :exercise_to_trainingsplans
 
+  scope :visibleExercises, ->  { where(visible: true) }
 
   def primary_muscles
     self.x_muscles("primary")

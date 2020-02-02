@@ -31,10 +31,11 @@ class UsersController < ApplicationController
 
   def exercises
     @exercise = Exercise.new
-    @exercises = @current_user.exercises
+    @exercises = Exercise.where({ :visible => true }).all
+#    @exercises = @current_user.exercises
     @trainingsplans = @current_user.trainingsplans
     @trainingsplan = Trainingsplan.new
-
+  
   end
 
   def save_trainingsplan

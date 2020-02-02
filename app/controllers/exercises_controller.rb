@@ -9,7 +9,7 @@ class ExercisesController < ApplicationController
   end
 
   def all
-    @exercises = Exercise.all
+    @exercises = Exercise.visibleExercises
     @current_user if logged_in?
     @trainingsplans = @current_user.trainingsplans if @current_user
     @trainingsplan = @trainingsplans.first
