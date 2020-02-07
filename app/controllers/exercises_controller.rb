@@ -5,7 +5,7 @@ class ExercisesController < ApplicationController
   # GET /exercises.json
 
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.where(visible: true).order("id asc").all
   end
 
   def all

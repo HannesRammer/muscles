@@ -394,6 +394,12 @@ li {
 #body_area area{
     cursor: pointer;
 }
-#exercise_selected, #muscle_selected, #body_part_selected, #hover{
- position: absolute;
+#exercise_selected, #muscle_selected, #body_part_selected{
+    position: absolute;
+}
+#hover{
+    position: absolute;
+    left: 282px;
+    top: -20px;
+
 }

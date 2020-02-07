@@ -28,7 +28,14 @@
   </div>
   <div id="hover"></div>
   <%= image_tag("blank.png", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
-
+<div style="    position: relative;
+    left: 900px;
+    height: 20px;
+    width: 30px;">
+  <%=text_field_tag("reps", value = nil, options = { placeholder: 'reps'}) %>
+  <%=text_field_tag("sec", value = nil, options = { placeholder: 'sekunden'}) %>
+  <%=text_field_tag("pause", value = nil, options = { placeholder: 'pause'}) %>
+</div>
 
   <div id="exercise_video" >
     <%= render :partial => "trainingsplans/video" %>

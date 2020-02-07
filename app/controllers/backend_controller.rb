@@ -3,7 +3,7 @@ class BackendController < ApplicationController
   def load
     @body_parts = BodyPart.all
     @muscles = Muscle.all.sort!{|t1,t2|t1.name <=> t2.name}
-    @exercises = Exercise.all
+    @exercises = Exercise.where(visible: true).order("id asc").all
     exercise_types = [["Please select",nil]]
     @exercises.each do |x|
       exercise_types  << [x.exercise_type,x.exercise_type]
