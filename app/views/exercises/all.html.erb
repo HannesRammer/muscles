@@ -12,7 +12,7 @@
       overflow: auto;">
     <% @exercises.each do |exercise| %>
       <div>
-        <span class="exercises_text" title="<%= exercise.name %> anzeigen">
+        <span class="all_exercises_text" title="<%= exercise.name %> anzeigen">
           <%= link_to(exercise.name, {:controller => "exercises", :action => "update_selected_exercise", :id => exercise.id}, {:remote => true, :method => :post}) %>
         </span>
         <%= link_to("<i class='material-icons' style='position: relative;top: 6px;'>playlist_add</i>".html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>

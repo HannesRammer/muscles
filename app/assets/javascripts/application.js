@@ -38,7 +38,7 @@ function toggleExercise() {
 
             document.querySelector("#exercise").className = "show_exercise";
             window.scrollBy(2000, 0);
-            setTimeout(toggleImage, 1000);
+
         } else if (open_exercise.className === "close_exercise") {
             window.scrollBy(-2000, 0);
             open_exercise.innerHTML = "A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N";
@@ -59,7 +59,7 @@ function toggleTraining() {
 
             document.querySelector("#training").className = "show_training";
             window.scrollBy(2000, 0);
-            setTimeout(toggleImage, 1000);
+
         } else if (document.querySelector("#open_training").className === "close_training") {
             window.scrollBy(-2000, 0);
             document.querySelector("#open_training").innerHTML = "A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N";
@@ -67,27 +67,6 @@ function toggleTraining() {
             document.querySelector("#open_training").className = "open_training";
 
         }
-    }
-}
-
-function toggleImage() {
-    if (document.querySelector("#open_exercise").className === "close_exercise") {
-        var imagePath = document.querySelector("#exercise_picture").src;
-        var splitPath = imagePath.split("/exercises/");
-        var prePath = splitPath[0];
-        var fileName = splitPath[1];
-
-        var splitFileName = fileName.split("-")[0];
-        splitFileName = splitFileName.split("1.jpg")[0];
-        var cleanFileName = splitFileName.split(".jpg")[0];
-
-        if (fileName.include("1.jpg")) {
-            document.querySelector("#exercise_picture").src = prePath + "/exercises/" + cleanFileName + ".jpg"
-        } else {
-            document.querySelector("#exercise_picture").src = prePath + "/exercises/" + cleanFileName + "1.jpg";
-
-        }
-        setTimeout(toggleImage, 1000);
     }
 }
 
@@ -368,10 +347,24 @@ function selected (name) {
     return false;
 }
 
+function toggleMuscleToExercise (eid, name) {
+    let muscleType = "primary";
+    if(document.querySelector("#muscletype_Sekund_rmuskel").checked){
+        muscleType = "secondary";
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "/exercise/"+eid+"/"+muscleType+"/muscle/" + name,
+        dataType: "script"
+    });
+    return false;
+}
+
 function setExerciseActive(trainingsplanPosition){
     var exerciseContainer = document.querySelector("#trainings_exercises_text");
     // Get all buttons with class="btn" inside the container
-    var exercises = exerciseContainer.querySelectorAll(".exercises_text");
+    var exercises = exerciseContainer.querySelectorAll(".trainingsplans_exercises_text");
 
 // Loop through the buttons and add the active class to the current/clicked button
     for (var i = 0; i < exercises.length; i++) {

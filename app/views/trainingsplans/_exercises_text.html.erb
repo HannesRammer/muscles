@@ -10,7 +10,7 @@
     <br>
     <% ettps.each_with_index do |ettp, i| %>
       <% exercise = ettp.exercise %>
-      <span class="exercises_text nice_outer_tab" title="<%= exercise.name %> anzeigen" onclick="setExerciseActive(<%= i %>);">
+      <span class="trainingsplans_exercises_text nice_outer_tab" title="<%= exercise.name %> anzeigen" onclick="setExerciseActive(<%= i %>);">
         <%= i+1 %>
           <%# @x << "#{clean_name(exercise.name).capitalize}" %>
 

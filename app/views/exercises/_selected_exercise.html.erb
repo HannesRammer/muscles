@@ -15,16 +15,24 @@
 
     <%= user_muscle_pics(@exercise.primary_muscles, "",4) %>
     <%= user_muscle_pics(@exercise.secondary_muscles, "",1) %>
-  <div id="hover" style="position:absolute;top: 20px;left: 20px;"></div>
+  <div id="hover" style="position:absolute;top: 0;left: 0;"></div>
   <%= image_tag("blank.png", :class => "multi_pic2", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
-  <div style="width: 600px;
+  <div style="width: 230px;
        position: absolute;
        left: 500px;">
-    <div id="muscles" class="nice_outer_tab" style="left:0px;">
-  <%= render("main/muscle_text_option") %>
+
+    <div id="selected_exercises_muscles" class="nice_outer_tab">
+      <%= render :partial => "exercises/muscle" %>
     </div>
+
+
+
+
   </div>
-    <div class="exercise_content" style="width:1000px;height:300px;position:relative;top:500px;right:350px;">
+  <div id="trainingsplans_exercise_video" >
+    <%= render :partial => "trainingsplans/video" %>
+  </div>
+    <div class="exercise_content" style="width:1000px;height:300px;position:relative;top:500px;">
 <table>
 
         <tr>
@@ -42,9 +50,9 @@
           <tr>
 
             <td height="100"><%=h @exercise.description && @exercise.description[0..30] %></td>
-            <td><%= image_tag("exercises/#{clean_name(@exercise.name).capitalize}.jpg" ,:size => "100x100") %> </td>
+            <td><%#= image_tag("exercises/#{clean_name(@exercise.name).capitalize}.jpg" ,:size => "100x100") %> </td>
             <td height="100"><%=h @exercise.how_to %></td>
-            <td ><%= image_tag("exercises/#{clean_name(@exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td>
+            <td ><%#= image_tag("exercises/#{clean_name(@exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td>
 
             <td height="100"><%=h @exercise.how_not_to && @exercise.how_not_to[0..30] %></td>
             <td height="100"><%=h @exercise.info && @exercise.info[0..30] %></td>

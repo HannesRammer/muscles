@@ -107,17 +107,17 @@ a:active {
     left: 40px;
 }
 
-.multi_pic {
-    left: 282px;
+.multi_pic ,#hover{
+    left: 350px;
     position: absolute;
     top: -20px;
 }
 
 .multi_pic2 {
 
-    left: 20px;
     position: absolute;
-    top: 20px;
+    top: 0;
+    left: 0;
 
 }
 
@@ -141,23 +141,62 @@ a:active {
 }
 
 #exercises {
-    left: -72px;
-    height: 425px;
-    position: absolute;
-    /* top: 30px; */
-    width: 350px;
+    left: 20px;
+    min-height: 6px;
+    max-height: 620px;
+    position: relative;
+    top: 0;
+    width: 300px;
 }
 
+#trainings_exercises {
+    left: 20px;
+    height: 100px;
+    position: relative;
+    top: 500px;
+    width: 1200px;
+}
+
+#trainingsplans_muscles {
+    min-height: 6px;
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 250px;
+    height: 425px;
+    overflow: auto;
+}
+#exercises_muscles {
+    min-height: 6px;
+    position: absolute;
+    top: 70px;
+    left: 785px;
+    width: 250px;
+    height: 425px;
+    overflow: auto;
+}
+#selected_exercises_muscles {
+    min-height: 6px;
+    position: absolute;
+    top: 70px;
+    left: 280px;
+    width: 250px;
+    height: 425px;
+    overflow: auto;
+}
 #muscles {
     min-height: 6px;
     position: absolute;
     top: 0;
-    left: 770px;
-    width: 300px;
-    height: 425px;
+    left: 815px;
+    width: 250px;
+    max-height: 620px;
     overflow: auto;
 }
-
+textarea {
+    width: 230px;
+    height: 60px;
+}
 table {
     width: 100%;
 }
@@ -305,18 +344,18 @@ table {
 }
 
 .hidden_exercise {
-    height: 0px;
+    height: 0;
     position: absolute;
     left: 1105px;
-    width: 0px;
+    width: 0;
     overflow: hidden;
 }
 
 .hidden_training {
-    height: 0px;
+    height: 0;
     position: absolute;
     left: 1105px;
-    width: 0px;
+    width: 0;
     overflow: hidden;
 }
 
@@ -361,7 +400,7 @@ li {
 #user_training {
     position: absolute;
     right: 200px;
-    top: 0px;
+    top: 0;
 }
 
 #training_text {
@@ -394,12 +433,238 @@ li {
 #body_area area{
     cursor: pointer;
 }
-#exercise_selected, #muscle_selected, #body_part_selected{
+#exercise_selected, #muscle_selected{
+    left: 0;
     position: absolute;
+    top: 0;
 }
-#hover{
-    position: absolute;
-    left: 282px;
-    top: -20px;
+
+
+* {
+    word-wrap: break-word;
+}
+
+.rgb_shadow {
+    color: rgb(254, 255, 255);
+    text-shadow: 0 6px 4px rgb(51, 51, 255), -5px -3px 4px rgb(255, 0, 0), 5px -3px 4px rgb(0, 255, 0);
+}
+
+.fire {
+
+    color: rgb(50, 50, 50);
+    text-shadow: 0 -1px 2px rgb(255, 255, 0), 0 -3px 3px rgb(255, 204, 0), 0 -5px 4px rgb(255, 153, 0), -2px -7px 5px rgb(255, 102, 0), 4px -9px 6px rgb(255, 51, 0), -3px -11px 7px rgb(255, 0, 0);
+}
+
+.red_glow {
+    text-shadow: 0 0 24px #C00, 0 0 4px #C00, 1px 1px 2px #333;
+}
+
+.green_glow {
+    text-shadow: 0 0 24px #0C0, 0 0 4px #0C0, 1px 1px 2px #333;
+}
+
+.yellow_glow {
+    text-shadow: 0 0 24px #Cc0, 0 0 4px #cC0, 1px 1px 2px #333;
+}
+
+.blue_glow {
+    text-shadow: 0 0 24px #00C, 0 0 4px #00C, 1px 1px 2px #333;
+}
+
+.red_shadow {
+    text-shadow: 0 3px 11px #f00;
+}
+
+.green_shadow {
+    text-shadow: 0 3px 11px #0f0;
+}
+
+.yellow_shadow {
+    text-shadow: 0 3px 11px #ff0;
+}
+
+.blue_shadow {
+    text-shadow: 0 3px 11px #00f;
+}
+
+.red_glow_for_same_color_text {
+    text-shadow: 0 0 11px #F00;
+}
+
+.green_glow_for_same_color_text {
+    text-shadow: 0 0 11px #0F0;
+}
+
+.yellow_glow_for_same_color_text {
+    text-shadow: 0 0 11px #FF0;
+}
+
+.blue_glow_for_same_color_text {
+    text-shadow: 0 0 11px #00F;
+}
+
+div {
+    -webkit-border-radius: 8px 8px 7px 7px;
+
+    -moz-border-radius: 8px 8px 7px 7px;
+    border-radius: 8px 8px 7px 7px;
+}
+a{
+    /* -webkit-border-radius: 5px;
+     -khtml-border-radius: 5px;
+     -moz-border-radius: 5px;
+     border-radius: 5px;*/
+}
+a:link, a:visited {
+  /*  -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;*/
 
 }
+a:hover, a:active {
+    color: red;
+}
+
+
+
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size:   13px;
+    line-height: 18px;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #6c5234; }
+
+.fieldWithErrors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+
+#errorExplanation {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px 7px 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff;
+}
+
+#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+#errorExplanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+
+span.trainingsplans_exercises_text {
+    display: inline-block;
+/*    text-align: center;*/
+    padding: 14px;
+    text-decoration: none;
+}
+
+div#trainings_exercises_text {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.remove_exercise {
+    position: relative;
+    top: -30px;
+    left: 0;
+    color: red;
+}
+
+.move_exercise_up {
+    position: relative;
+    top: -10px;
+    left: 175px;
+    color: #2646e6;
+}
+.move_exercise_down {
+    position: relative;
+    top: 15px;
+    left: 147px;
+    color: #2646e6;
+}
+
+span.trainingsplans_exercises_text {
+    height: 60px;
+    width: 240px;
+    position: relative;
+    font-weight: bold;
+}
+
+span.trainingsplans_exercises_text.active_exercise {
+    height: 60px;
+    position: relative;
+    top: -25px;
+    font-weight: bold;
+}
+
+.exercise_selection_link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    text-align: center;
+}
+input {
+    /*float: left;*/
+}
+
+#users_exercise_video{
+    position: absolute;
+    left: 900px;
+}
+
+#trainingsplans_exercise_video{
+    position: absolute;
+    left: 900px;
+}
+#exercise_exercise_video{
+    position: absolute;
+    left: 1060px;
+}
+#exercises__exercise_video{
+    position: absolute;
+    left: 900px;
+}
+
+#rep_sec_pause{
+    position: absolute;
+    left: 900px;
+    top:0;
+}
+
+#exercises_show{
+    position: relative;
+}
+#exercises_show video{
+    width: 300px;
+}
+

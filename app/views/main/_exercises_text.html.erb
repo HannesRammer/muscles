@@ -6,7 +6,7 @@
   <div>
     <% @exercises.each do |exercise| %>
       <div>
-        <span class="exercises_text"
+        <span class="main_exercises_text"
               title="<%= exercise.name %> anzeigen">
           <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen"}, {:remote => true, :method => :post}) %>
 

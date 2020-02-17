@@ -8,6 +8,31 @@ class ExercisesController < ApplicationController
     @exercises = Exercise.where(visible: true).order("id asc").all
   end
 
+
+  def toggle_muscle
+    @muscle = Muscle.find_by_name(params[:name])
+    @exercise = Exercise.find_by_id(params[:eid])
+    @muscle_type = params[:muscle_type]
+    @exercise_to_muscles = @exercise.exercise_to_muscles
+    @exercise_to_muscle = ExerciseToMuscle.find_by_exercise_id_and_muscle_id(params[:eid],@muscle.id)
+
+
+    if @exercise_to_muscle == nil
+      @exercise_to_muscle = @exercise_to_muscles.first.dup
+      @exercise_to_muscle.exercise_id = @exercise.id
+      @exercise_to_muscle.muscle_id=@muscle.id
+      @exercise_to_muscle.muscle_type = @muscle_type
+      @exercise_to_muscle.save
+    else
+      @exercise_to_muscle.destroy
+    end
+    @exercise = Exercise.find_by_id(params[:eid])
+    @p_muscles = @exercise.primary_muscles
+    @s_muscles = @exercise.secondary_muscles
+
+    respond_to :js
+  end
+
   def all
     @exercises = Exercise.visibleExercises
     @current_user if logged_in?
@@ -25,6 +50,8 @@ class ExercisesController < ApplicationController
   # GET /exercises/1.json
   def show
     @exercise = Exercise.find_by_id(params[:id])
+    @p_muscles = @exercise.primary_muscles
+    @s_muscles = @exercise.secondary_muscles
   end
 
   # GET /exercises/new
@@ -34,7 +61,9 @@ class ExercisesController < ApplicationController
 
   # GET /exercises/1/edit
   def edit
-    #@exercise = Exercise.find_by_id(params[:id])
+    @exercise = Exercise.find_by_id(params[:id])
+    @p_muscles= @exercise.primary_muscles
+    @s_muscles= @exercise.secondary_muscles
   end
 
   # POST /exercises

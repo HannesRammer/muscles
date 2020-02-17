@@ -1,0 +1,89 @@
+
+
+<%= render :partial => "exercises/body_area" %>
+
+<div class="exercise_content nice_outer_tab" style="    position: absolute;
+    left: 25px;
+    top: 70px;
+    padding: 12px;">
+
+  <%= form_for(@exercise, :html => {:multipart => true}) do |f| %>
+
+
+    <%#= f.label :primary_muscle_names %>
+    <%= f.hidden_field :primary_muscle_names %>
+    <%#= f.label :secondary_muscle_names %>
+    <%= f.hidden_field :secondary_muscle_names %>
+
+    <p>
+      <%= f.label :name %><br/>
+      <%= f.text_field :name %>
+    </p>
+    <%#= file_column_field "exercise", "image1" %>
+    <p>
+      <%= f.label :description %><br/>
+      <%= f.text_area :description %>
+    </p>
+    <%#= file_column_field "exercise", "image2" %>
+
+    <p>
+      <%= f.label :how_to %><br/>
+      <%= f.text_area :how_to %>
+    </p>
+
+    <p>
+      <%= f.label :how_not_to %><br/>
+      <%= f.text_area :how_not_to %>
+    </p>
+    <p>
+      <%= f.label :info %><br/>
+      <%= f.text_area :info %>
+    </p>
+    <p>
+      <%= f.label :exercise_type %><br/>
+      <%= f.text_field :exercise_type %>
+    </p>
+    <p>
+      <%= f.label :visible %><br/>
+      <%= f.text_field :visible %>
+    </p>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+
+</div>
+<div id="exercise_muscles" style="position: absolute;
+    top: 55px;left:300px;">
+  <%= image_tag("muskelman.png", :class => "multi_pic2") %>
+
+
+  <% if @exercise %>
+
+    <div class="exercise_muscles" style="height: 300px;
+        position: absolute;
+        left: 0;">
+
+      <%= user_muscle_pics(@exercise.primary_muscles, "", 4) %>
+      <%= user_muscle_pics(@exercise.secondary_muscles, "", 1) %>
+      <div id="hover" style="position:absolute;top: 0;left: 0;"></div>
+      <%= image_tag("blank.png", :class => "multi_pic2", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
+      <div style="width: 230px;
+          position: absolute;
+          left: 500px;">
+      </div>
+
+
+    </div>
+
+
+  <% end %>
+
+</div>
+
+<div id="exercises_muscles" class="nice_outer_tab">
+  <%= render :partial => "exercises/muscle" %>
+</div>
+<div id="exercise_exercise_video">
+  <%= render :partial => "trainingsplans/video" %>
+</div>

@@ -1,5 +1,5 @@
 class Exercise < ApplicationRecord
-  has_many :exercise_to_muscles, -> { where(active: true).order("name") }
+  has_many :exercise_to_muscles, -> { where(active: true).order("id") }
   has_many :muscles, :through => :exercise_to_muscles
 #include Muscles
   has_many :user_to_exercises,  -> { where(visible: true).order("id asc")  }
@@ -9,6 +9,44 @@ class Exercise < ApplicationRecord
   has_many :trainingsplans, :through => :exercise_to_trainingsplans
 
   scope :visibleExercises, ->  { where(visible: true) }
+
+
+  def primary_muscle_ids
+    list = []
+    self.x_muscles("primary").each do |muscle|
+      list.append(muscle.id)
+
+    end
+    list.join(",")
+  end
+
+  def secondary_muscle_ids
+    list = []
+    self.x_muscles("secondary").each do |muscle|
+      list.append(muscle.id)
+
+    end
+    list.join(",")
+
+  end
+  def primary_muscle_names
+    list = []
+    self.x_muscles("primary").each do |muscle|
+      list.append(muscle.name)
+
+    end
+    list.join(",")
+  end
+
+  def secondary_muscle_names
+    list = []
+    self.x_muscles("secondary").each do |muscle|
+      list.append(muscle.name)
+
+    end
+    list.join(",")
+
+  end
 
   def primary_muscles
     self.x_muscles("primary")

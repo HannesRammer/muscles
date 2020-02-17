@@ -1,5 +1,5 @@
 
-<div style="position: relative;left: 900px;">
 
-  <%= video_tag("#{@exercise.name}.mp4", :width=>"600px")%>
-</div>
+
+  <%= video_tag("#{@exercise.name}.mp4", :width=>"600px",  :loop => "loop")%>
+  <%#= video_tag("#{@exercise.name}.mp4", :width=>"600px", :autoplay => "false", :loop => "loop")%>

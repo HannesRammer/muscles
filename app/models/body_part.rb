@@ -8,6 +8,8 @@ class BodyPart < ApplicationRecord
   scope :secondary_muscles, -> (body_part_id) { x_muscles(body_part_id,"secondary") }
   scope :antagonist_muscles, -> (body_part_id) { x_muscles(body_part_id,"antagonist") }
 
+
+
   def sorted_muscles
     (primary_muscles + secondary_muscles)# + antagonist_muscles)
   end
