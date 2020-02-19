@@ -6,7 +6,8 @@
   <title>ITone <%= params[:controller] %>/<%= controller.action_name %></title>
 
 </head>
-<%#= csrf_meta_tags %>
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
 
 <%#= stylesheet_link_tag :application %>
 <%#= stylesheet_link_tag("main.scss") %>
