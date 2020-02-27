@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string]
+  before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string,:impressum]
   include ApplicationHelper
   #respond_to :html, :js
 
@@ -87,5 +87,9 @@ class MainController < ApplicationController
     return unless ExerciseToTrainingsplan.switch_exercise(params[:ettp_id_1], params[:ettp_id_2], @current_user.id)
     @trainingsplan = ExerciseToTrainingsplan.find_by_id(params[:ettp_id_1]).trainingsplan
     respond_to :js
+  end
+
+  def impressum
+
   end
 end

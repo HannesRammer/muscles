@@ -4,12 +4,12 @@
   <span onClick="back_style();"> back</span>
   <label>
     <SELECT name="style_options">
-      <OPTION <%= "SELECTED" if cookies["style"] == "dark" || !cookies["style"] %> value="dark">dark</option>
+      <!--OPTION <%#= "SELECTED" if cookies["style"] == "dark" || !cookies["style"] %> value="dark">dark</option-->
         <% @style_vars.each do |style| %>
         <OPTION <%= "SELECTED" if cookies["style"] == style[0] %> value="<%= style[0]%>" style="background-color:<%= style[1]%>;"><%=style[0]%> </option>
         <% end %>
-      <OPTION <%= "SELECTED" if cookies["style"] == "white_yellow" %> value="white_yellow">white_yellow</option>
-      <OPTION <%= "SELECTED" if cookies["style"] == "white_blue" %> value="white_blue">white_blue</option>
+      <!OPTION <%#= "SELECTED" if cookies["style"] == "white_yellow" %> value="white_yellow">white_yellow</option-->
+      <!OPTION <%#= "SELECTED" if cookies["style"] == "white_blue" %> value="white_blue">white_blue</option-->
     </SELECT>
   </label>
   &nbsp;&nbsp;

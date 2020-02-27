@@ -8,6 +8,7 @@ class Exercise < ApplicationRecord
   has_many :exercise_to_trainingsplans, -> { where(visible: true).order("id asc") }
   has_many :trainingsplans, :through => :exercise_to_trainingsplans
 
+  has_one_attached :video
   scope :visibleExercises, ->  { where(visible: true) }
 
 

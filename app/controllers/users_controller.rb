@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   ##before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :login_required
+  before_action :login_required, :except => :new
 
   # GET /users
   # GET /users.json

@@ -16,8 +16,8 @@
     <%= f.hidden_field :secondary_muscle_names %>
 
     <p>
-      <%= f.label :name %><br/>
-      <%= f.text_field :name %>
+      <%= f.label :name  %><br/>
+      <%= f.text_field :name ,:style=>"width:300px"%>
     </p>
     <%#= file_column_field "exercise", "image1" %>
     <p>
@@ -46,6 +46,10 @@
     <p>
       <%= f.label :visible %><br/>
       <%= f.text_field :visible %>
+    </p>
+    <p class='form-group'>
+      <%= f.label :video %>
+      <%= f.file_field :video %>
     </p>
     <p>
       <%= f.submit "Update" %>

@@ -50,7 +50,10 @@ Rails.application.routes.draw do
   post 'trainingsplans/remove_exercise/:ettp_id', to: 'trainingsplans#remove_exercise', format: 'js', as: :trainingsplans_remove_exercise
   post 'trainingsplans/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'trainingsplans#switch_exercise', format: 'js', as: :trainingsplans_switch_exercise
 
+  get 'main/impressum', to:'main#impressum', as: :impressum
+
   root 'main#index'
+
 
   resources :exercises
 

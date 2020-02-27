@@ -6,6 +6,7 @@ class ExercisesController < ApplicationController
 
   def index
     @exercises = Exercise.where(visible: true).order("id asc").all
+    #@exercises = Exercise.where(visible: false).order("id asc").all
   end
 
 
@@ -73,6 +74,7 @@ class ExercisesController < ApplicationController
 
     respond_to do |format|
       if @exercise.save
+        @current_user.exercises << @exercise
         format.html { redirect_to @exercise, notice: "Exercise was successfully created." }
         format.json { render :show, status: :created, location: @exercise }
       else
@@ -115,6 +117,6 @@ class ExercisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:name, :image1, :description, :image2, :main_description, :how_to, :how_not_to, :info, :exercise_type)
+      params.require(:exercise).permit(:name, :video, :description, :main_description, :how_to, :how_not_to, :info, :exercise_type)
     end
 end

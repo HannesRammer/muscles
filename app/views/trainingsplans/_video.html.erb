@@ -1,5 +1,3 @@
-
-
-
-  <%= video_tag("#{@exercise.name}.mp4", :width=>"600px",  :loop => "loop")%>
-  <%#= video_tag("#{@exercise.name}.mp4", :width=>"600px", :autoplay => "false", :loop => "loop")%>
+<% if @exercise.video.attached? %>
+  <%= video_tag("#{url_for(@exercise.video)}.mp4", :width => "600px", :controls => "true", :loop => "loop") %>
+<% end %>

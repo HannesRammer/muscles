@@ -1,0 +1,3 @@
+"id";"username";"email";"password_digest";"created_at";"updated_at";"admin"
+1;"";"hannes.rammer@gmail.com";"$2a$10$ffx7edgVXI/FpEb33abmbuy.6dM2spfqHaO7NsFUoDlnJWPcGnBUm";"2019-07-02 16:07:06";"2019-07-02 16:07:06";0
+2;"";"test@gmail.com";"$2a$10$HDBjXtv1/T9VDK7/HcWXyul6iYWNxW8SNDBDMQnYGMv/hTfO1ZDT2";"2020-01-05 23:05:40";"2020-01-05 23:05:40";0

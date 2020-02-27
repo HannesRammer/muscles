@@ -17,12 +17,17 @@
   <tr>
     <td><%=h exercise.name %></td>
     <td><%=h exercise.description && exercise.description[0..30] %></td>
-    <td><%= image_tag("exercises/#{clean_name(exercise.name).capitalize}.jpg" ,:size => "100x100") %> </td>
-    <td><%=h exercise.how_to && exercise.how_to[0..30] %></td>
-    <td><%= image_tag("exercises/#{clean_name(exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td>
 
-    <td><%=h exercise.how_not_to && exercise.how_not_to[0..30] %></td>
-    <td><%=h exercise.info && exercise.info[0..30] %></td>
+    <td><%= image_tag("exercises/#{clean_name(exercise.name).capitalize}.jpg" ,:size => "100x100") %> <%= image_tag("exercises/#{clean_name(exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td>
+      <td><% if exercise.video.attached? %>
+          <%= video_tag("#{url_for(exercise.video)}.mp4", :width => "200px", :controls => "true", :loop => "loop") %>
+        <% end %></td>
+
+
+     <td><%=h exercise.how_to && exercise.how_to[0..150] %></td>
+
+    <td><%=h exercise.how_not_to && exercise.how_not_to[0..150] %></td>
+    <td><%=h exercise.info && exercise.info[0..150] %></td>
     <td><%=h exercise.exercise_type %></td>
     <td><%=h exercise.visible %></td>
     <td><%= link_to "Show", exercise %></td>

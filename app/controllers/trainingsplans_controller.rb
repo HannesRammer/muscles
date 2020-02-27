@@ -88,6 +88,7 @@ class TrainingsplansController < ApplicationController
 
     respond_to do |format|
       if @trainingsplan.save
+        @current_user.traingsplans << @trainingsplan
         format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully created." }
         format.json { render :show, status: :created, location: @trainingsplan }
       else

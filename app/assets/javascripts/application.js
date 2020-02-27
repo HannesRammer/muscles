@@ -28,27 +28,6 @@ function setClass(elem, className1) {
 }
 
 
-function toggleExercise() {
-    let exercise = document.querySelector("#exercise");
-    if (exercise.innerHTML !== "") {
-
-        let open_exercise = document.querySelector("#open_exercise");
-        if (open_exercise.className === "open_exercise") {
-            open_exercise.className = "close_exercise";
-            open_exercise.innerHTML = "V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N";
-
-            document.querySelector("#exercise").className = "show_exercise";
-            window.scrollBy(2000, 0);
-
-        } else if (open_exercise.className === "close_exercise") {
-            window.scrollBy(-2000, 0);
-            open_exercise.innerHTML = "A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N";
-            exercise.className = "hidden_exercise";
-            open_exercise.className = "open_exercise";
-
-        }
-    }
-}
 
 function toggleTraining() {
     if (document.querySelector("#training").innerHTML !== "") {
