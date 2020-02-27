@@ -3,7 +3,7 @@
   <%@body_vars.each do |vars|%>
       <area shape="<%=vars[0]%>" coords="<%=vars[1]%>" href="#"
             onMouseover="hover('<%=vars[2]%>');"
-            onMouseout="hover('');" alt="<%=vars[2]%>"/>
+            onMouseout="hover('');" onclick="toggleMuscleToExercise('<%=@exercise.id%>','<%=vars[2]%>',$);" alt="<%=vars[2]%>"/>
   <%end%>
 </map>
 

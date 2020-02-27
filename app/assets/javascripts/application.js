@@ -322,7 +322,10 @@ function selected (name) {
     $.ajax({
         type: "POST",
         url: "/main/muscle/" + name,
-        dataType: "script"
+        dataType: "script",
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+        }
     });
     return false;
 }
@@ -336,7 +339,10 @@ function toggleMuscleToExercise (eid, name) {
     $.ajax({
         type: "POST",
         url: "/exercise/"+eid+"/"+muscleType+"/muscle/" + name,
-        dataType: "script"
+        dataType: "script",
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+        }
     });
     return false;
 }
