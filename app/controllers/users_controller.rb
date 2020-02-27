@@ -53,6 +53,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        trainingsplan = Trainingsplan.new
+        trainingsplan.name = "Erster Trainingsplan"
+        trainingsplan.save
+        @user.trainingsplans << trainingsplan
+
         format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
