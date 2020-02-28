@@ -110,6 +110,9 @@ module ApplicationHelper
     current_user&.admin || false
   end
 
+  def is_exercise_owner_for(exercise_id)
+    UserToExercise.find_by_user_id_and_exercise_id(@current_user.id, exercise_id) || false
+  end
 
   def redirect_to_target_or_default(default)
     redirect_to(session[:return_to] || default)

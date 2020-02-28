@@ -107,7 +107,7 @@ a:active {
     left: 40px;
 }
 
-.multi_pic ,#hover{
+.multi_pic, #hover {
     left: 350px;
     position: absolute;
     top: -20px;
@@ -166,6 +166,7 @@ a:active {
     height: 425px;
     overflow: auto;
 }
+
 #exercises_muscles {
     min-height: 6px;
     position: absolute;
@@ -175,6 +176,7 @@ a:active {
     height: 425px;
     overflow: auto;
 }
+
 #selected_exercises_muscles {
     min-height: 6px;
     position: absolute;
@@ -184,6 +186,7 @@ a:active {
     height: 425px;
     overflow: auto;
 }
+
 #muscles {
     min-height: 6px;
     position: absolute;
@@ -193,10 +196,12 @@ a:active {
     max-height: 620px;
     overflow: auto;
 }
+
 textarea {
     width: 230px;
     height: 60px;
 }
+
 table {
     width: 100%;
 }
@@ -216,9 +221,11 @@ table {
     position: relative;
     top: 60px;
 }
-#notice{
+
+#notice {
     border: 1px solid black;
 }
+
 #ex {
     /* background-color: #333333;*/
 
@@ -433,10 +440,11 @@ li {
     cursor: pointer;
 }
 
-#body_area area{
+#body_area area {
     cursor: pointer;
 }
-#exercise_selected, #muscle_selected{
+
+#exercise_selected, #muscle_selected {
     left: 0;
     position: absolute;
     top: 0;
@@ -512,28 +520,33 @@ div {
     -moz-border-radius: 8px 8px 7px 7px;
     border-radius: 8px 8px 7px 7px;
 }
-a{
+
+a {
     /* -webkit-border-radius: 5px;
      -khtml-border-radius: 5px;
      -moz-border-radius: 5px;
      border-radius: 5px;*/
 }
+
 a:link, a:visited {
-  /*  -webkit-transition: all 0.25s ease;
-    transition: all 0.25s ease;*/
+    /*  -webkit-transition: all 0.25s ease;
+      transition: all 0.25s ease;*/
 
 }
+
 a:hover, a:active {
     color: red;
 }
 
 
-
-body { background-color: #fff; color: #333; }
+body {
+    background-color: #fff;
+    color: #333;
+}
 
 body, p, ol, ul, td {
     font-family: verdana, arial, helvetica, sans-serif;
-    font-size:   13px;
+    font-size: 15px;
     line-height: 18px;
 }
 
@@ -543,9 +556,34 @@ pre {
     font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #6c5234; }
+#navilinks a {
+    color: #fff;
+    text-shadow: 1px 1px 1px black,
+    1px -1px 1px black,
+    -1px 1px 1px black,
+    -1px -1px 1px black;
+}
+
+a {
+    color: #000;
+
+}
+
+#navilinks a:visited {
+    color: #fff;
+}
+
+#navilinks a:hover {
+    color: #ff724b;
+}
+
+a:hover {
+    color: #fff;
+    text-shadow: 1px 1px 1px black,
+    1px -1px 1px black,
+    -1px 1px 1px black,
+    -1px -1px 1px black;
+}
 
 .fieldWithErrors {
     padding: 2px;
@@ -584,7 +622,7 @@ a:hover { color: #6c5234; }
 
 span.trainingsplans_exercises_text {
     display: inline-block;
-/*    text-align: center;*/
+    /*    text-align: center;*/
     padding: 14px;
     text-decoration: none;
 }
@@ -607,6 +645,7 @@ div#trainings_exercises_text {
     left: 175px;
     color: #2646e6;
 }
+
 .move_exercise_down {
     position: relative;
     top: 15px;
@@ -632,42 +671,46 @@ span.trainingsplans_exercises_text.active_exercise {
     position: absolute;
     width: 100%;
     height: 100%;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     text-align: center;
 }
+
 input {
     /*float: left;*/
 }
 
-#users_exercise_video{
+#users_exercise_video {
     position: absolute;
     left: 900px;
 }
 
-#trainingsplans_exercise_video{
+#trainingsplans_exercise_video {
     position: absolute;
     left: 900px;
 }
-#exercise_exercise_video{
+
+#exercise_exercise_video {
     position: absolute;
     left: 1060px;
 }
-#exercises__exercise_video{
+
+#exercises__exercise_video {
     position: absolute;
     left: 900px;
 }
 
-#rep_sec_pause{
+#rep_sec_pause {
     position: absolute;
     left: 900px;
-    top:0;
+    top: 0;
 }
 
-#exercises_show{
+#exercises_show {
     position: relative;
 }
-#exercises_show video{
+
+#exercises_show video {
     width: 300px;
 }
 

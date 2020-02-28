@@ -24,9 +24,7 @@
 <%#= javascript_include_tag "modernizr-1.6.min" %>
 <% cookies["style"] ? style = cookies["style"] : style = "dark" %>
 <body id="body" class="theme_<%= style %>">
-<%= link_to "Eigene Trainingspläne", user_trainingsplans_path %>
-<%= link_to "Alle Übungen", exercises_all_path %>
-<%= link_to "Start", root_path %>
+<%= render "layouts/navi" %>
 <script>
   $( document ).on( "mousemove", function( event ) {
       $( "#mouseX" ).attr("value",event.pageX);

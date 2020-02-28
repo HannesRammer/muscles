@@ -1,11 +1,14 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
   before_action :login_required#, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string]
+  #before_action :is_owner, only: [:edit]
   # GET /exercises
   # GET /exercises.json
 
   def index
-    @exercises = Exercise.where(visible: true).order("id asc").all
+    @exercises = Exercise.find_by_id_and_visible(@current_user.id,true) || []
+
+      #@exercises = Exercise.where(visible: true).order("id asc").all
     #@exercises = Exercise.where(visible: false).order("id asc").all
   end
 
@@ -63,8 +66,16 @@ class ExercisesController < ApplicationController
   # GET /exercises/1/edit
   def edit
     @exercise = Exercise.find_by_id(params[:id])
-    @p_muscles= @exercise.primary_muscles
-    @s_muscles= @exercise.secondary_muscles
+    if is_exercise_owner
+
+      @p_muscles= @exercise.primary_muscles
+      @s_muscles= @exercise.secondary_muscles
+    else
+      respond_to do |format|
+        format.html { redirect_to @exercise, notice: "Exercise not yours to edit."  }
+        format.json { render json: @exercise.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /exercises
@@ -89,7 +100,7 @@ class ExercisesController < ApplicationController
   def update
     @exercise = Exercise.find_by_id(params[:id])
     respond_to do |format|
-      if @exercise.update(exercise_params)
+      if is_exercise_owner && @exercise.update(exercise_params)
         format.html { redirect_to @exercise, notice: "Exercise was successfully updated." }
         format.json { render :show, status: :ok, location: @exercise }
       else
@@ -102,11 +113,21 @@ class ExercisesController < ApplicationController
   # DELETE /exercises/1
   # DELETE /exercises/1.json
   def destroy
-    @exercise.destroy
-    respond_to do |format|
-      format.html { redirect_to exercises_url, notice: "Exercise was successfully destroyed." }
-      format.json { head :no_content }
+    @exercise.visible = false
+    if is_exercise_owner && @exercise.save
+
+
+      respond_to do |format|
+        format.html { redirect_to exercises_url, notice: "Exercise was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to @exercise, notice: "Not your exercise to destroy." }
+        format.json { render json: @exercise.errors, status: :unprocessable_entity }
+      end
     end
+
   end
 
   private
