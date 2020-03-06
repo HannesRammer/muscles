@@ -33,7 +33,9 @@
 </script>
 <input type="hidden" id="mouseX" value=""/>
 <input type="hidden" id="mouseY" value=""/>
-<%= render "layouts/drop_style" %>  <br/>
+<span style="position: absolute;z-index: 9;">
+<%= render "layouts/drop_style" %>
+  </span>
 
 <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
 <div id="outer_container" class="nice_outer_tab">
@@ -44,10 +46,6 @@
   </div>
   <div id="container"><br/>
 
-    <%# if logged_in? %>
-      <div id="open_training" class="open_training" onclick="toggleTraining()"><%#= vertical_text("Training") %></div>
-    <%# end %>
-    <div id="training" class="hidden_training"><%#= render "main/user_selected" %></div>
 
 
     <div id="exercise" class="show_exercise"></div>

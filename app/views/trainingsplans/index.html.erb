@@ -13,9 +13,12 @@
   <tbody>
     <% @trainingsplans.each do |trainingsplan| %>
       <tr>
-        <td><%= trainingsplan.name %></td>
+        <td><%= trainingsplan.name %>
+          <%= image_tag("muskelman.png", :class => "multi_pic") %>
+
+        </td>
         <td><%= link_to "Show", trainingsplan %></td>
-        <td><%= link_to "Edit", edit_trainingsplan_path(trainingsplan) %></td>
+        <td><%#= link_to "Edit", edit_trainingsplan_path(trainingsplan) %></td>
         <td><%= link_to "Destroy", trainingsplan, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>

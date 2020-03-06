@@ -6,7 +6,8 @@ class ExercisesController < ApplicationController
   # GET /exercises.json
 
   def index
-    @exercises = Exercise.find_by_id_and_visible(@current_user.id,true) || []
+    @exercises = @current_user.exercises.where(visible:true) || []
+      #@exercises = Exercise.where(id:@current_user.id,visible: true).order("id asc").all  || []
 
       #@exercises = Exercise.where(visible: true).order("id asc").all
     #@exercises = Exercise.where(visible: false).order("id asc").all

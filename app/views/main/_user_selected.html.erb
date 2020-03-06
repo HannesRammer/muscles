@@ -1,22 +1,31 @@
 <div id="user_selected">
-  <%= image_tag("muskelman.png", :class => "multi_pic2") %>
-  <% if logged_in? %>
+
+  <% exercises = @trainingsplan.exercises %>
+  <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
+
+  <%= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: "post", remote: true, :style => "position: relative;top: -25px;left:125px;"}) do %>
+    <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] },@trainingsplan.id), {:multiple => false} %>
+    <%= submit_tag("select Trainingsplan") %>
+  <% end %>
+  <% exercises.each_with_index do |exercise, i| %>
+
+    <%= user_muscle_pics(exercise.primary_muscles, "selected", 4) %>
+    <%= user_muscle_pics(exercise.secondary_muscles, "selected", 1) %>
+  <% end %>
+
     <% @x = [] %>
 
 
-    <%= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: "post", remote: true,:style => "position: relative;top: 500px;"}) do %>
-      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }), {:multiple => false} %>
-      <%= submit_tag("select Trainingsplan") %>
-    <% end %>
 
     <div id="exercise_list">
 
-      <%=render("main/exercise_list") %>
+      <%= render("main/exercise_list") %>
     </div>
 
-  <% end %>
+
+
 </div>
-<%= render("exercises/training") %>
+
 
 
 

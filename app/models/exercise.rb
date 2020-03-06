@@ -58,7 +58,7 @@ class Exercise < ApplicationRecord
   end
 
   def antagonist_muscles
-    # self.x_muscles("antagonistic")
+    self.x_muscles("antagonistic")
   end
 
   def sorted_muscles

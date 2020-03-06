@@ -1,13 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Traingsplan:</strong>
+<strong>Traingsplans:</strong>
+<div>
+<% @current_user.trainingsplans.each do |trainingsplan| %>
+  <span>Name: <%= link_to trainingsplan.name, trainingsplan %></span> |
+<% end %>
+</div>
+<br/>
+<div style="position: relative;">
+  <strong>Selected Traingsplan:</strong>
   Name: <%= @trainingsplan.name %>
   Id: <%= @trainingsplan.id %>
-</p>
+</div>
 
 
-<div style="position:relative">
+<div style="position: relative;top: 60px;">
 
 
   <div id="trainings_exercises" class="nice_outer_tab">
@@ -16,9 +21,17 @@
 
   <%= image_tag("muskelman.png", :class => "multi_pic") %>
 
+
+
+  <div id="open_training" class="open_training" onclick="toggleTraining()">Show Trainingsplan</div>
+  <div id="training" class="hidden_training">
+    <%= render "trainingsplans/user_selected" %>
+  </div>
+
   <div id="exercise_selected">
     <%= render :partial => "trainingsplans/exercise_selected" %>
   </div>
+
   <div id="muscle_selected">
     <%= render partial: "trainingsplans/muscle_selected" %>
   </div>
@@ -28,18 +41,18 @@
   </div>
   <div id="hover"></div>
   <%= image_tag("blank.png", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
-<div id="rep_sec_pause">
-  <%= label :autolyse, "reps", :value => "reps"  %>
-  <%= radio_button_tag 'gender', 'male' , :checked => false %>
-  <%=text_field_tag("reps", value = nil, options = { placeholder: 'reps'}) %>
-  <%= label :autolyse, "time", :value => "time" %>
-  <%= radio_button_tag 'gender', 'male', :checked => true %>
+  <div id="rep_sec_pause">
+    <%= label :autolyse, "reps", :value => "reps" %>
+    <%= radio_button_tag 'gender', 'male', :checked => false %>
+    <%= text_field_tag("reps", value = nil, options = {placeholder: 'reps'}) %>
+    <%= label :autolyse, "time", :value => "time" %>
+    <%= radio_button_tag 'gender', 'male', :checked => true %>
 
-  <%=text_field_tag("sec", value = nil, options = { placeholder: 'sekunden'}) %>
-  <%=text_field_tag("pause", value = nil, options = { placeholder: 'pause'}) %>
-</div>
+    <%= text_field_tag("sec", value = nil, options = {placeholder: 'sekunden'}) %>
+    <%= text_field_tag("pause", value = nil, options = {placeholder: 'pause'}) %>
+  </div>
 
-  <div id="trainingsplans_exercise_video" >
+  <div id="trainingsplans_exercise_video">
     <%= render :partial => "trainingsplans/video" %>
   </div>
 

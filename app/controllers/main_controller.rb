@@ -9,10 +9,14 @@ class MainController < ApplicationController
     @muscles = Muscle.all
     @muscles_selected = []
     @body_parts = BodyPart.all.to_a
-    @p_muscles = @muscles
+    @p_muscles = []#@muscles
     @exercises = Exercise.where(visible: true).order("id asc").all
     @s_muscles = []
-    #@a_muscles = []
+    @a_muscles = []
+    # @muscle = @muscles.first
+    @primary = []
+    @secondary = []
+    @antagonist =[]
     @current_user if logged_in?
     @trainingsplans = @current_user.trainingsplans if @current_user
     @trainingsplan = @trainingsplans.first if @trainingsplans
@@ -25,7 +29,11 @@ class MainController < ApplicationController
     #p @name
     @muscles = Muscle.where("name = ?",@name).to_a.uniq
     @muscles_selected = @muscles
-    @exercises = @muscles.first.exercises
+    @muscle = @muscles.first
+    #@exercises = @primary_exercises.exercises
+    @primary = @muscle.primary_exercises
+    @secondary = @muscle.secondary_exercises
+    @antagonist = @muscle.antagonist_exercises
     respond_to :js
   end
 
@@ -35,12 +43,14 @@ class MainController < ApplicationController
       @p_muscles = Muscle.all
       @exercises = Exercise.where(visible: true).order("id asc").all
       @s_muscles = []
+      @a_muscles = []
     else
       body_part = BodyPart.where("name = ?",@name).first
       @muscle_list = BodyPart.muscle_list(body_part.id)
       @exercises = body_part.x_ercise
       @p_muscles = @muscle_list[0]#.uniq
       @s_muscles = @muscle_list[1]
+      @a_muscles = []
     end
     respond_to :js
   end
@@ -56,6 +66,7 @@ class MainController < ApplicationController
     @exercise = Exercise.find_by_name(@name)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
+    @a_muscles = @exercise.antagonist_muscles
     respond_to :js
   end
 

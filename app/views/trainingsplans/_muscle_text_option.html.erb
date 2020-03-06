@@ -1,6 +1,6 @@
 <div id="muscle_text_option" class="training_page" style="height: 352px;">
   <div id="m_primary">
-    primary muscles
+    <h3>primary muscles</h3>
     <% @p_muscles.each do |muscle| %>
       <div class="muscle_text_option" onmouseover="hover('<%=muscle.clean_name%>');">
         <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
@@ -8,9 +8,8 @@
       </div>
     <% end %>
   </div>
-  <br>
   <div id="m_secondary">
-    secondary muscles
+    <h3>secondary muscles</h3>
     <% @s_muscles.each do |muscle| %>
       <div class="muscle_text_option" onmouseover="hover('<%=muscle.clean_name%>');">
         <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
@@ -18,12 +17,13 @@
       </div>
     <% end %>
   </div>
-  <%#<div id="m_antagonist" <%= @p_muscles.blank? && @s_muscles.blank? ? "" : 'style="display:none"'%><%#>
-      <% @a_muscles.each do |s| %>
-  <%#<div class="muscle_text_option" onclick="selected('<%=s.name%><%#');"
-               onmouseover="hover('<%=s.clean_name%><%#');">
-            <%= s.name %>
-  <%# </div>
-      <% end %>
-  <%#</div> %>
+  <!--div id="m_antagonist" >
+    <%# #@a_muscles.each do |muscle| %>
+      <div class="muscle_text_option" onmouseover="hover('<%#=muscle.clean_name%>');">
+        <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
+        <%#= muscle.name %>
+      </div>
+    <%# end %>
+  </div-->
+
 </div>

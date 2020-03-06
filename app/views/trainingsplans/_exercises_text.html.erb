@@ -3,11 +3,9 @@
 <%# a_exercises = @muscles.blank? ? [] : @muscles[0].antagonist_exercises %>
 
 <% if @exercises %>
-  <div>
 
 
     <% ettps = @trainingsplan.exercise_to_trainingsplans %>
-    <br>
     <% ettps.each_with_index do |ettp, i| %>
       <% exercise = ettp.exercise %>
       <span class="trainingsplans_exercises_text nice_outer_tab" title="<%= exercise.name %> anzeigen" onclick="setExerciseActive(<%= i %>);">
@@ -39,13 +37,8 @@
     <% end %>
 
 
-
-
-
-
     <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
 
     <%#= link_to(image_tag("icons/add.png"), {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
-  </div>
 
 <% end %>

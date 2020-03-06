@@ -28,25 +28,13 @@ function setClass(elem, className1) {
 }
 
 
-
 function toggleTraining() {
-    if (document.querySelector("#training").innerHTML !== "") {
-
-
-        if (document.querySelector("#open_training").className === "open_training") {
-            document.querySelector("#open_training").className = "close_training";
-            document.querySelector("#open_training").innerHTML = "V<br/>E<br/>R<br/>B<br/>E<br/>R<br/>G<br/>E<br/>N";
-
-            document.querySelector("#training").className = "show_training";
-            window.scrollBy(2000, 0);
-
-        } else if (document.querySelector("#open_training").className === "close_training") {
-            window.scrollBy(-2000, 0);
-            document.querySelector("#open_training").innerHTML = "A<br/>N<br/>S<br/>E<br/>H<br/>E<br/>N";
-            document.querySelector("#training").className = "hidden_training";
-            document.querySelector("#open_training").className = "open_training";
-
-        }
+    if (document.querySelector("#training").className === "show_training") {
+        document.querySelector("#training").className = "hidden_training";
+        document.querySelector("#open_training").innerHTML = "Show Trainingsplan";
+    } else if (document.querySelector("#training").className === "hidden_training") {
+        document.querySelector("#training").className = "show_training";
+        document.querySelector("#open_training").innerHTML = "Hide Trainingsplan";
     }
 }
 
@@ -317,37 +305,37 @@ function cleanName(name) {
 }
 
 
-function selected (name) {
+function selected(name) {
 
     $.ajax({
         type: "POST",
         url: "/main/muscle/" + name,
         dataType: "script",
-        beforeSend: function(xhr) {
+        beforeSend: function (xhr) {
             xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
         }
     });
     return false;
 }
 
-function toggleMuscleToExercise (eid, name) {
+function toggleMuscleToExercise(eid, name) {
     let muscleType = "primary";
-    if(document.querySelector("#muscletype_Sekund_rmuskel").checked){
+    if (document.querySelector("#muscletype_Sekund_rmuskel").checked) {
         muscleType = "secondary";
     }
 
     $.ajax({
         type: "POST",
-        url: "/exercise/"+eid+"/"+muscleType+"/muscle/" + name,
+        url: "/exercise/" + eid + "/" + muscleType + "/muscle/" + name,
         dataType: "script",
-        beforeSend: function(xhr) {
+        beforeSend: function (xhr) {
             xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
         }
     });
     return false;
 }
 
-function setExerciseActive(trainingsplanPosition){
+function setExerciseActive(trainingsplanPosition) {
     var exerciseContainer = document.querySelector("#trainings_exercises_text");
     // Get all buttons with class="btn" inside the container
     var exercises = exerciseContainer.querySelectorAll(".trainingsplans_exercises_text");
@@ -355,12 +343,12 @@ function setExerciseActive(trainingsplanPosition){
 // Loop through the buttons and add the active class to the current/clicked button
     for (var i = 0; i < exercises.length; i++) {
 
-        if(i === trainingsplanPosition){
+        if (i === trainingsplanPosition) {
             $(exercises[i]).addClass("active_exercise");
-        }else{
+        } else {
             $(exercises[i]).removeClass("active_exercise");
         }
-        exercises[i].addEventListener("click", function() {
+        exercises[i].addEventListener("click", function () {
             var current = document.getElementsByClassName("active");
             current[0].className = current[0].className.replace(" active", "");
             this.className += " active";

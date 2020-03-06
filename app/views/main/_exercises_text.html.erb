@@ -4,6 +4,7 @@
 
 <% if @exercises %>
   <div>
+
     <% @exercises.each do |exercise| %>
       <div>
         <span class="main_exercises_text"
@@ -12,7 +13,61 @@
 
           <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
         </span>
-        <%= link_to("<i class='material-icons' style='position: relative;top: 6px;'>playlist_add</i>".html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+        <%= link_to("<i class='material-icons' style='position: relative;top: 6px;'>playlist_add</i>".html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) if logged_in? %>
+        <%#= link_to(image_tag("icons/add.png"), {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @primary %>
+    <div>
+
+    <h3>primary</h3>
+    <% @primary.each do |exercise| %>
+      <div>
+        <span class="main_exercises_text"
+              title="<%= exercise.name %> anzeigen">
+          <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen"}, {:remote => true, :method => :post}) %>
+
+          <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
+        </span>
+        <%= link_to("<i class='material-icons' style='position: relative;top: 6px;'>playlist_add</i>".html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) if logged_in? %>
+        <%#= link_to(image_tag("icons/add.png"), {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+  <% if @secondary %>
+  <div>
+    <h3>secondary</h3>
+    <%  @secondary.each do |exercise| %>
+      <div>
+        <span class="main_exercises_text"
+              title="<%= exercise.name %> anzeigen">
+          <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen"}, {:remote => true, :method => :post}) %>
+
+          <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
+        </span>
+        <%= link_to("<i class='material-icons' style='position: relative;top: 6px;'>playlist_add</i>".html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) if logged_in? %>
+        <%#= link_to(image_tag("icons/add.png"), {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+  <% if @antagonist %>
+
+  <div>
+    <h3>antagonist</h3>
+    <%  @antagonist.each do |exercise| %>
+      <div>
+        <span class="main_exercises_text"
+              title="<%= exercise.name %> anzeigen">
+          <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen"}, {:remote => true, :method => :post}) %>
+
+          <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
+        </span>
+        <%= link_to("<i class='material-icons' style='position: relative;top: 6px;'>playlist_add</i>".html_safe, {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) if logged_in? %>
         <%#= link_to(image_tag("icons/add.png"), {:controller => "trainingsplans", :action => "load_trainingsplans", :exercise => exercise.id, :title => "Zum Trainingsplan hinzufügen"}, {:remote => true, :method => :post}) %>
       </div>
     <% end %>

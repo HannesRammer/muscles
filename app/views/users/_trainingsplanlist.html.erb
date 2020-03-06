@@ -1,16 +1,25 @@
 
-  <strong>Deine Traingspläne:</strong>
 
-  <table>
+
   <% @trainingsplans.each do |trainingsplan| %>
+<div class="trainingsplan_item">
+  <%= trainingsplan.name %>
+  <div style="position: relative;height: 470px;">
+    <%#= image_tag("muskelman.png", :class => "multi_pic_ini") %>
+    <% trainingsplan.exercises.each_with_index do |exercise, i| %>
 
-  <tr>
-    <td><%= trainingsplan.name %></td>
-    <td><%= link_to "Show", trainingsplan %> |
-      <%= link_to "Edit", edit_trainingsplan_path(trainingsplan) %> |
-      <%= link_to "Destroy", trainingsplan, method: :delete, data: { confirm: "Are you sure?" } %>
-    </td>
-  </tr>
+      <%= user_muscle_pics_trainingsplan_list(exercise.primary_muscles, "selected", 4) %>
+      <%= user_muscle_pics_trainingsplan_list(exercise.secondary_muscles, "selected", 1) %>
+    <% end %>
+    <br>
+
+  </div>
+  <div id="navilinks">
+  <%= link_to "Show", trainingsplan %>
+  <%#= link_to "Edit", edit_trainingsplan_path(trainingsplan) %>
+  <%#= link_to "Destroy", trainingsplan, method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+</div>
+
   <% end %>
-  </table>
 

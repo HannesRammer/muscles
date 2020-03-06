@@ -12,11 +12,22 @@ class TrainingsplansController < ApplicationController
   def show
     @trainingsplan = Trainingsplan.find_by_id(params[:id])
     @exercises = @trainingsplan.exercises
-    @exercise = @exercises.first
-    @muscles = @exercises.first.muscles
-    @muscles_selected = []
-    @p_muscles = @exercises.first.primary_muscles
-    @s_muscles = @exercises.first.secondary_muscles
+    if @exercises.first
+      @exercise = @exercises.first
+      @muscles = @exercises.first.muscles
+      @muscles_selected = []
+      @p_muscles = @exercises.first.primary_muscles
+      @s_muscles = @exercises.first.secondary_muscles
+      @a_muscles = @exercises.first.antagonist_muscles
+    else
+      @exercise = nil
+      @muscles = []
+      @muscles_selected = []
+      @p_muscles = []
+      @s_muscles = []
+      @a_muscles = []
+    end
+
   end
 
   # GET /trainingsplans/new
@@ -33,8 +44,9 @@ class TrainingsplansController < ApplicationController
     @exercise = Exercise.find_by_name(@name)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
+    @a_muscles = @exercise.antagonist_muscles
     respond_to :js
-    # @a_muscles = @exercise.antagonist_muscles
+
 
     #render :update do |page|
     #  page["body_part_selected"].replace_html ""

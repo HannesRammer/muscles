@@ -22,7 +22,7 @@ body {
 
 .nav {
     position: relative;
-    padding: 5px;
+    padding: 10px;
 }
 
 img {
@@ -41,7 +41,7 @@ img {
 }
 
 #body_part_text_selected_div {
-    left: 600px;
+    left: 675px;
     position: absolute;
     width: 150px;
     top: 5px;
@@ -113,11 +113,22 @@ a:active {
     top: -20px;
 }
 
+.multi_pic_mini {
+    width:200px;
+
+}
+
 .multi_pic2 {
 
     position: absolute;
     top: 0;
     left: 0;
+
+}
+
+.multi_pic_mini2 {
+
+    width:200px;
 
 }
 
@@ -130,7 +141,7 @@ a:active {
 #user_selected {
     margin: 50px;
     position: relative;
-    width: 40%;
+
 }
 
 .text {
@@ -150,11 +161,10 @@ a:active {
 }
 
 #trainings_exercises {
-    left: 20px;
     height: 100px;
     position: relative;
     top: 500px;
-    width: 1200px;
+    z-index: 9;
 }
 
 #trainingsplans_muscles {
@@ -208,7 +218,7 @@ table {
 
 #outer_container {
     /*margin: 0 auto;*/
-    width: 1218px;
+
     min-height: 725px;
     position: relative;
 
@@ -216,10 +226,10 @@ table {
 
 #container {
     margin: 0 auto;
-    width: 1024px;
+    width: 100%;
     min-height: 700px;
     position: relative;
-    top: 60px;
+    top: 15px;
 }
 
 #notice {
@@ -316,13 +326,12 @@ table {
 .open_training {
     background-color: rgba(153, 153, 255, 0.5);
     border: 1px solid #FFFFFF;
-    float: right;
-    height: 200px;
+    height: 20px;
     overflow: hidden;
-    position: relative;
-    right: -118px;
-    top: 25px;
-    width: 20px;
+    position: absolute;
+    left: 275px;
+    top: -45px;
+    width: 190px;
     z-index: 9;
     text-align: center;
 }
@@ -346,11 +355,12 @@ table {
 
 .show_exercise {
     border: 1px solid #FFFFFF;
-    top: 0;
-    left: 1218px;
+    top: 100px;
+    left: 1100px;
     position: absolute;
     z-index: 10;
-    width: 500px;
+    min-width: 0;
+    max-width: 500px;
 }
 
 .hidden_exercise {
@@ -421,7 +431,7 @@ li {
 #login_box {
     position: absolute;
     right: 200px;
-    top: 25px;
+
 }
 
 .hide {
@@ -444,10 +454,17 @@ li {
     cursor: pointer;
 }
 
-#exercise_selected, #muscle_selected {
+#exercise_selected {
     left: 0;
     position: absolute;
     top: 0;
+  /*  z-index: 1;*/
+}
+#muscle_selected {
+    left: 0;
+    position: absolute;
+    top: 0;
+    /*z-index: 1;*/
 }
 
 
@@ -515,10 +532,10 @@ li {
 }
 
 div {
-    -webkit-border-radius: 8px 8px 7px 7px;
+  /*  -webkit-border-radius: 8px 8px 7px 7px;
 
     -moz-border-radius: 8px 8px 7px 7px;
-    border-radius: 8px 8px 7px 7px;
+    border-radius: 8px 8px 7px 7px;*/
 }
 
 a {
@@ -598,6 +615,12 @@ a:hover {
     margin-bottom: 20px;
     background-color: #f0f0f0;
 }
+.show_training {
+    min-height: 664px;
+    left: 300px;
+    position: absolute;
+    top: -70px;
+}
 
 #errorExplanation h2 {
     text-align: left;
@@ -633,23 +656,23 @@ div#trainings_exercises_text {
 }
 
 .remove_exercise {
-    position: relative;
-    top: -30px;
-    left: 0;
+    position: absolute;
+    top: -10px;
+    left: 8px;
     color: red;
 }
 
 .move_exercise_up {
-    position: relative;
-    top: -10px;
-    left: 175px;
+    position: absolute;
+    top: 0;
+    left: 225px;
     color: #2646e6;
 }
 
 .move_exercise_down {
-    position: relative;
-    top: 15px;
-    left: 147px;
+    position: absolute;
+    top: 55px;
+    left: 225px;
     color: #2646e6;
 }
 
@@ -658,22 +681,35 @@ span.trainingsplans_exercises_text {
     width: 240px;
     position: relative;
     font-weight: bold;
+    white-space: normal;
+    border:1px solid black;
 }
 
 span.trainingsplans_exercises_text.active_exercise {
     height: 60px;
     position: relative;
-    top: -25px;
+
     font-weight: bold;
+    border: 2px solid red;
+}
+.trainingsplan_item{
+    width: 500px;
+    float: left;
+    border: 2px solid darkgray;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .exercise_selection_link {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    width: 210px;
+    height: 45px;
+    top: 0px;
+    left: 0px;
     text-align: center;
+    vertical-align: middle;
+    padding: 25px;
 }
 
 input {

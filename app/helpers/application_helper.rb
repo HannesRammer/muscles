@@ -24,6 +24,21 @@ module ApplicationHelper
 
   end
 
+  def user_muscle_pics_trainingsplan_list(muscles, effect, strength = 3)
+
+    x=[]
+    muscles.each do |muscle|
+
+      #x << image_tag("/images/muscles/#{muscle.picture_id}_#{muscle.clean_name}#{"_#{effect}" if !effect.blank?}.png", :class=>"multi_pic2", :style=>"opacity:#{0.25*strength}")
+      #x << tag("div", class: "multi_pic2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}", style:"opacity:#{0.25 * strength};position:absolute;")
+      x << "<div class='multi_pic_minffi2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.25 * strength};position: absolute;
+    top: 0;
+    left: 0;'></div>"
+    end
+    x.join.html_safe
+
+  end
+
   def clean_name(name)
     name.downcase.gsub("ß", "ss").gsub(" ", "_").gsub("ä", "ae").gsub("ö", "oe").gsub("ü", "ue").gsub("Ä", "ae")
   end

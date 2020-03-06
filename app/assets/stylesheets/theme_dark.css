@@ -13,10 +13,11 @@
     margin-top: -30px;
     padding: 7px 5px 5px;
     text-align: center;
-    -webkit-border-radius: 7px 7px 0 0;
+  /*  -webkit-border-radius: 7px 7px 0 0;
     -moz-border-radius: 7px 7px 0 0;
-    border-radius: 7px 7px 0 0;
 
+    border-radius: 7px 7px 0 0;
+ */
 }
 
 .theme_dark .nice_inner_tab_js_hover {
@@ -28,10 +29,10 @@
     margin-top: -30px;
     padding: 7px 5px 5px;
     text-align: center;
-    -webkit-border-radius: 7px 7px 0 0;
+   /* -webkit-border-radius: 7px 7px 0 0;
     -moz-border-radius: 7px 7px 0 0;
     border-radius: 7px 7px 0 0;
-
+*/
 }
 
 .theme_dark .nice_outer_tab {

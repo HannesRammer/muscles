@@ -18,11 +18,11 @@
     padding: 7px 10px;
     margin: 0;
     text-align: center;
-    -webkit-border-radius: 7px 7px 0px 0px;
+  /*  -webkit-border-radius: 7px 7px 0px 0px;
     -khtml-border-radius: 7px 7px 0px 0px;
     -moz-border-radius: 7px 7px 0px 0px;
     border-radius: 7px 7px 0px 0px;
-
+*/
 }
 
 .theme_white_blue .nice_inner_tab_js_hover {
@@ -39,11 +39,11 @@
     padding: 7px 10px;
     margin: 0;
     text-align: center;
-    -webkit-border-radius: 7px 7px 0px 0px;
+  /*  -webkit-border-radius: 7px 7px 0px 0px;
     -khtml-border-radius: 7px 7px 0px 0px;
     -moz-border-radius: 7px 7px 0px 0px;
     border-radius: 7px 7px 0px 0px;
-
+*/
 }
 
 .theme_white_blue .nice_outer_tab {

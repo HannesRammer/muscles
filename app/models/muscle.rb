@@ -2,8 +2,12 @@ class Muscle < ApplicationRecord
   has_many :exercise_to_muscles, -> { order "name asc" }
   has_many :body_part, :through => :exercise_to_muscles
 
-  has_many :exercise_to_muscles, -> { order "name asc" }
+  has_many :exercise_to_muscles, -> { where(active: true).order "name asc" }
   has_many :exercises, :through => :exercise_to_muscles
+
+  #has_many :antagonist_exercises, :through => :antagonist_to_muscles
+  # has_many :antagonist_to_muscles, -> { where(active: false).order "name asc" }
+
   scope :sort_by_name , -> { order "name asc" }
 
   def clean_name
@@ -22,7 +26,7 @@ class Muscle < ApplicationRecord
   end
 
   def antagonist_exercises
-    #self.x_exercises("antagonistic")
+    self.x_exercises("antagonistic")
   end
   def sorted_exercises
     (primary_muscles + secondary_muscles)# + antagonist_muscles)
