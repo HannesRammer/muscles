@@ -6,7 +6,7 @@ class ExercisesController < ApplicationController
   # GET /exercises.json
 
   def index
-    @exercises = @current_user.exercises.where(visible:true) || []
+    @exercises = @current_user.exercises.where(visible:true).order("name asc") || []
       #@exercises = Exercise.where(id:@current_user.id,visible: true).order("id asc").all  || []
 
       #@exercises = Exercise.where(visible: true).order("id asc").all
@@ -39,7 +39,7 @@ class ExercisesController < ApplicationController
   end
 
   def all
-    @exercises = Exercise.visibleExercises
+    @exercises = Exercise.visible_exercises.order("name asc")
     @current_user if logged_in?
     @trainingsplans = @current_user.trainingsplans if @current_user
     @trainingsplan = @trainingsplans.first

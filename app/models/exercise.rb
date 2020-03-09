@@ -9,7 +9,7 @@ class Exercise < ApplicationRecord
   has_many :trainingsplans, :through => :exercise_to_trainingsplans
 
   has_one_attached :video
-  scope :visibleExercises, ->  { where(visible: true) }
+  scope :visible_exercises, ->  { where(visible: true) }
 
 
   def primary_muscle_ids
@@ -72,11 +72,11 @@ class Exercise < ApplicationRecord
   end
 
   def self.free_exercise
-    Exercise.find_all_by_exercise_type("free").sort!{|t1,t2|t1.name <=> t2.name}
+    Exercise.where(exercise_type: "free").all.to_a.sort!{|t1,t2|t1.name <=> t2.name}
   end
 
   def self.non_free_exercise
-    Exercise.find_all_by_exercise_type("gerät").sort!{|t1,t2|t1.name <=> t2.name}
+    Exercise.where(exercise_type:"gerät").all.to_a.sort!{|t1,t2|t1.name <=> t2.name}
   end
 
   def self.load_exercises(name)

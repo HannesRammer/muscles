@@ -8,8 +8,12 @@
     /*background-color:
   <%#= main_color%> ;*/
     color: #000000;
+  <%rgb = rgba_to_list(main_color)%>
+    background: rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.6);
+    /*
     background: -moz-linear-gradient(top, <%= main_color%> -31%, #fff 33%, #fff 37%, <%= main_color%> 176%, <%= main_color%> 145%);
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<%=main_color%>), color-stop(0.4, white), color-stop(0.34, white), color-stop(0.99, <%= main_color%>), to(<%= main_color%>));
+    */
     height: 786px;
   }
 
@@ -75,7 +79,7 @@
   }
 
   .theme_<%= main_name%> .nice_inset_tab {
-  <%rgb = hex_to_rgb(main_color)%> box-shadow: 0 0 31px 1px rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.1) inset;
+  <%rgb = rgba_to_list(main_color)%> box-shadow: 0 0 31px 1px rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.1) inset;
     -moz-box-shadow: 0 0 31px 1px rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.1) inset;
     -webkit-box-shadow: 0 0 31px 1px rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.1) inset;
     border: solid 1px<%=main_color%>;
@@ -94,15 +98,18 @@
 
   .theme_<%= main_name%> #muscle_text_option {
     background-color: #ebebeb; /*fallback color*/
-
-    background: -moz-linear-gradient(top, <%= main_color%> -31%, #fff 33%, #fff 37%, <%= main_color%> 176%, <%= main_color%> 145%);
+  <%rgb = rgba_to_list(main_color)%>
+    background: rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.2);
+    border: 1px solid rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.4);
+    /*background: -moz-linear-gradient(top, <%= main_color%> -31%, #fff 33%, #fff 37%, <%= main_color%> 176%, <%= main_color%> 145%);
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<%= main_color%>), color-stop(0.4, white), color-stop(0.34, white), color-stop(0.99, <%= main_color%>), to(<%= main_color%>));
+    */
     padding: 10px;
    /* -webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
     */
-    height: 315px;
+    max-height: 546px;
     /*  max-height:  355px;*/
     overflow: auto;
   }
@@ -119,16 +126,21 @@
   }
 
   .theme_<%= main_name%> #exercises_text {
-    background-color: #ebebeb; /*fallback color*/
+    /* background-color: #ebebeb;
+
     background: -moz-linear-gradient(top, <%= main_color%> -31%, #fff 33%, #fff 37%, <%= main_color%> 176%, <%= main_color%> 145%);
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<%= main_color%>), color-stop(0.4, white), color-stop(0.34, white), color-stop(0.99, <%= main_color%>), to(<%= main_color%>));
+    */
+    <%rgb = rgba_to_list(main_color)%>
+    background: rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.2);
+    border: 1px solid rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.4);
     padding: 10px;
   /*  -webkit-border-radius: 0 0 5px 5px;
 
     -moz-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
     */
-    height: 335px;
+    max-height: 600px;
     overflow: auto;
   }
 

@@ -1,37 +1,37 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-  def muscle_pics(muscles, effect, strength = 3)
+  def muscle_pics(muscles, effect, strength = 2)
     x=[]
     muscles.each do |muscle|
       #x.push(tag(:div, class: "multi_pic #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}", style:"opacity:#{0.25 * strength};position:absolute;"))
-      x << "<div class='multi_pic #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.20 * strength};position:absolute;'></div>"
+      x << "<div class='multi_pic #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.15 * strength};position:absolute;'></div>"
       #x << image_tag("/assets/muscles/#{muscle.picture_id}_#{muscle.clean_name}#{"_#{effect}" if !effect.blank?}.png", :style=>"opacity:#{0.25*strength}", :id=>"#{muscle.clean_name}_#{effect}", :class=>"multi_pic")
     end
   x.join.html_safe
   end
 
-  def user_muscle_pics(muscles, effect, strength = 3)
+  def user_muscle_pics(muscles, effect, strength = 2)
 
     x=[]
     muscles.each do |muscle|
 
       #x << image_tag("/images/muscles/#{muscle.picture_id}_#{muscle.clean_name}#{"_#{effect}" if !effect.blank?}.png", :class=>"multi_pic2", :style=>"opacity:#{0.25*strength}")
       #x << tag("div", class: "multi_pic2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}", style:"opacity:#{0.25 * strength};position:absolute;")
-      x << "<div class='multi_pic2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.25 * strength};position:absolute;'></div>"
+      x << "<div class='multi_pic2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.15 * strength};position:absolute;'></div>"
     end
     x.join.html_safe
 
   end
 
-  def user_muscle_pics_trainingsplan_list(muscles, effect, strength = 3)
+  def user_muscle_pics_trainingsplan_list(muscles, effect, strength = 2)
 
     x=[]
     muscles.each do |muscle|
 
       #x << image_tag("/images/muscles/#{muscle.picture_id}_#{muscle.clean_name}#{"_#{effect}" if !effect.blank?}.png", :class=>"multi_pic2", :style=>"opacity:#{0.25*strength}")
       #x << tag("div", class: "multi_pic2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}", style:"opacity:#{0.25 * strength};position:absolute;")
-      x << "<div class='multi_pic_minffi2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.25 * strength};position: absolute;
+      x << "<div class='multi_pic_minffi2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.15 * strength};position: absolute;
     top: 0;
     left: 0;'></div>"
     end
@@ -73,6 +73,10 @@ module ApplicationHelper
 
     [x,y,z]
 
+  end
+
+  def rgba_to_list(rgba)
+     rgba.split("(")[1].split(")")[0].split(",")
   end
 
   def give_dec(hex)

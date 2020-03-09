@@ -10,7 +10,7 @@ class MainController < ApplicationController
     @muscles_selected = []
     @body_parts = BodyPart.all.to_a
     @p_muscles = []#@muscles
-    @exercises = Exercise.where(visible: true).order("id asc").all
+    @exercises = Exercise.where(visible: true).order("name asc").all
     @s_muscles = []
     @a_muscles = []
     # @muscle = @muscles.first
@@ -41,7 +41,7 @@ class MainController < ApplicationController
     @name = params[:name]
     if @name == "Alle"
       @p_muscles = Muscle.all
-      @exercises = Exercise.where(visible: true).order("id asc").all
+      @exercises = Exercise.where(visible: true).order("name asc").all
       @s_muscles = []
       @a_muscles = []
     else
