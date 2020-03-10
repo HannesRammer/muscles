@@ -1,6 +1,6 @@
 
 <%= render :partial => "exercises/body_area" %>
-<%= image_tag("muskelman.png", :class=>"multi_pic2") %>
+<%= image_tag("muskelman.png", :class=>"multi_pic3") %>
 <style>
   #muscle_text {
     left: -500px !important;
@@ -13,10 +13,10 @@
 <% if @exercise%>
   <div>Name: <%=h @exercise.name %></div>
 
-    <%= user_muscle_pics(@exercise.primary_muscles, "",4) %>
-    <%= user_muscle_pics(@exercise.secondary_muscles, "",1) %>
-  <div id="hover" style="position:absolute;top: 0;left: 0;"></div>
-  <%= image_tag("blank.png", :class => "multi_pic2", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
+    <%= user_muscle_pics(@exercise.primary_muscles, "",4,"multi_pic3") %>
+    <%= user_muscle_pics(@exercise.secondary_muscles, "",1,"multi_pic3") %>
+  <div id="hover" ></div>
+  <%= image_tag("blank.png", :class => "multi_pic3", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
   <div style="width: 230px;
        position: absolute;
        left: 500px;">
@@ -32,7 +32,7 @@
   <div id="trainingsplans_exercise_video" >
     <%= render :partial => "trainingsplans/video" %>
   </div>
-    <div class="exercise_content" style="width:1000px;height:300px;position:relative;top:500px;">
+    <div class="exercise_content" >
 <table>
 
         <tr>

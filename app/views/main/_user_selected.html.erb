@@ -1,5 +1,5 @@
 <div id="user_selected">
-
+<% if @current_user %>
   <% exercises = @trainingsplan.exercises %>
   <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
 
@@ -9,8 +9,8 @@
   <% end %>
   <% exercises.each_with_index do |exercise, i| %>
 
-    <%= user_muscle_pics(exercise.primary_muscles, "selected", 4) %>
-    <%= user_muscle_pics(exercise.secondary_muscles, "selected", 1) %>
+    <%= user_muscle_pics(exercise.primary_muscles, "selected", 4,"multi_pic4") %>
+    <%= user_muscle_pics(exercise.secondary_muscles, "selected", 1,"multi_pic4") %>
   <% end %>
 
     <% @x = [] %>
@@ -21,6 +21,7 @@
 
       <%= render("main/exercise_list") %>
     </div>
+  <% end %>
 
 
 

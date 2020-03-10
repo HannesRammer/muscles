@@ -1,22 +1,23 @@
+<div id="exercise_edit">
+  <h1 style="position: absolute;top: -60px;left: 420px;">Editing exercise</h1>
 
-<h1 style="position: absolute;top: -60px;left: 420px;">Editing exercise</h1>
-
-<%= link_to "Show", @exercise %> |
-<%= link_to "Back", exercises_path %>
+  <%= link_to "Show", @exercise %> |
+  <%= link_to "Back", exercises_path %>
 <%#= label "muscletype_Primärmuskel", "primär", :value => "primär"  %>
-<div id="prim_sec" style="position: absolute;left: 490px;top: 5px;">
+  <div id="prim_sec" style="position: absolute;left: 490px;top: 5px;">
 
-  <label for="muscletype_Prim_rmuskel">Primär</label>
-  <%= radio_button_tag 'muscletype', 'Primärmuskel', :checked => true %>
-  <br/>
+    <label for="muscletype_Prim_rmuskel">Primär</label>
+    <%= radio_button_tag 'muscletype', 'Primärmuskel', :checked => true %>
+    <br/>
 <%#= label 'muscletype_Sekundärmuskel', "secundär", :value => "secundär"  %>
-  <label for="muscletype_Sekund_rmuskel">Sekundär</label>
-  <%= radio_button_tag 'muscletype', 'Sekundärmuskel'%>
+    <label for="muscletype_Sekund_rmuskel">Sekundär</label>
+    <%= radio_button_tag 'muscletype', 'Sekundärmuskel' %>
 
-</div>
-<div id="edit_exercise">
+  </div>
+  <div id="edit_exercise">
 
-  <%= render :partial => "exercises/edit" %>
+    <%= render :partial => "exercises/edit" %>
 
 
+  </div>
 </div>

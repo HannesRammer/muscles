@@ -29,12 +29,16 @@ function setClass(elem, className1) {
 
 
 function toggleTraining() {
-    if (document.querySelector("#training").className === "show_training") {
-        document.querySelector("#training").className = "hidden_training";
-        document.querySelector("#open_training").innerHTML = "Show Trainingsplan";
-    } else if (document.querySelector("#training").className === "hidden_training") {
-        document.querySelector("#training").className = "show_training";
+    if (document.querySelector(".hidden_training")) {
+        let a= $(".hidden_training");
+        a.toggleClass("hidden_training");
+        a.toggleClass("show_training");
         document.querySelector("#open_training").innerHTML = "Hide Trainingsplan";
+    } else if (document.querySelector(".show_training")) {
+        let a= $(".show_training");
+        a.toggleClass("hidden_training");
+        a.toggleClass("show_training");
+        document.querySelector("#open_training").innerHTML = "Show Trainingsplan";
     }
 }
 
@@ -46,7 +50,7 @@ function change_style() {
     let exp = new Date();
     let numdays = 7;
     exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * numdays));
-    document.cookie = "style=" + color + "; path=; expires=" + exp.toGMTString();
+    document.cookie = "style=" + color + "; path=*; expires=" + exp.toGMTString();
 
 }
 
@@ -83,7 +87,7 @@ function new_style(x) {
     var exp = new Date();
     var numdays = 7;
     exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * numdays));
-    document.cookie = "style=" + color + "; path=; expires=" + exp.toGMTString();
+    document.cookie = "style=" + color + "; path=*; expires=" + exp.toGMTString();
 
 }
 

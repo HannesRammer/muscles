@@ -11,7 +11,7 @@
   <div id="exercice_text" style="height: 400px;
       overflow: auto;">
     <% @exercises.each do |exercise| %>
-      <div>
+      <div class="exercises_text_div">
         <span class="all_exercises_text" title="<%= exercise.name %> anzeigen">
           <%= link_to(exercise.name, {:controller => "exercises", :action => "update_selected_exercise", :id => exercise.id}, {:remote => true, :method => :post}) %>
         </span>
@@ -22,6 +22,6 @@
 
 </div>
 
-<div id="selected_exercise" style="position: absolute;left: 350px;top: 20px;">
+<div id="selected_exercise" style="position: absolute;top: 20px;left: 300px;">
   <%= render "exercises/selected_exercise" %>
 </div>

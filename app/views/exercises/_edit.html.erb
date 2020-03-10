@@ -1,5 +1,3 @@
-
-
 <%= render :partial => "exercises/body_area_edit" %>
 
 <div class="exercise_content nice_outer_tab" style="    position: absolute;
@@ -16,8 +14,8 @@
     <%= f.hidden_field :secondary_muscle_names %>
 
     <p>
-      <%= f.label :name  %><br/>
-      <%= f.text_field :name ,:style=>"width:300px"%>
+      <%= f.label :name %><br/>
+      <%= f.text_field :name, :style => "width:300px" %>
     </p>
     <%#= file_column_field "exercise", "image1" %>
     <p>
@@ -68,8 +66,8 @@
         position: absolute;
         left: 0;">
 
-      <%= user_muscle_pics(@exercise.primary_muscles, "", 4) %>
-      <%= user_muscle_pics(@exercise.secondary_muscles, "", 1) %>
+      <%= user_muscle_pics(@exercise.primary_muscles, "", 4, "multi_pic2") %>
+      <%= user_muscle_pics(@exercise.secondary_muscles, "", 1, "multi_pic2") %>
       <div id="hover" style="position:absolute;top: 0;left: 0;"></div>
       <%= image_tag("blank.png", :class => "multi_pic2", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
       <div style="width: 230px;
