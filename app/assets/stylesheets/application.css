@@ -121,18 +121,14 @@ h3{
     font-size: 15px;
 }
 
-.multi_pic{
+.multi_pic, #hover {
     left: 335px;
     position: absolute;
     top: 10px;
 }
- #hover {
-    left: 335px;
-    position: absolute;
-    top: 10px;
-}
-#selected_exercise #hover {
-    left: 20px;
+
+.multi_pic3, #selected_exercise #hover {
+    left: 70px;
     position: absolute;
     top: 80px;
 }
@@ -147,11 +143,6 @@ h3{
     left: 0;
 }
 
-.multi_pic3 {
-    position: absolute;
-    top: 80px;
-    left: 20px;
-}
 .multi_pic4 {
     position: absolute;
      top: 30px;

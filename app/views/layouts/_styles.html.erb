@@ -164,9 +164,13 @@
 
 
   .theme_<%= main_name%> #trainings_exercises_text {
-    background-color: #ebebeb;
+    /*background-color: #ebebeb;
     background: -moz-linear-gradient(top, <%= main_color%> -31%, #fff 33%, #fff 37%, <%= main_color%> 176%, <%= main_color%> 145%);
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<%= main_color%>), color-stop(0.4, white), color-stop(0.34, white), color-stop(0.99, <%= main_color%>), to(<%= main_color%>));
+
+    */
+    <%rgb = rgba_to_list(main_color)%>
+    background: rgba(<%= rgb[0]%>,<%= rgb[1]%>,<%= rgb[2]%>, 0.2);
     padding: 10px;
    /* -webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
