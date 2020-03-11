@@ -72,11 +72,11 @@ class Exercise < ApplicationRecord
   end
 
   def self.free_exercise
-    Exercise.where(exercise_type: "free").all.to_a.sort!{|t1,t2|t1.name <=> t2.name}
+    Exercise.where(exercise_type: "free").where(visible:true).all.to_a.sort!{|t1,t2|t1.name <=> t2.name}
   end
 
   def self.non_free_exercise
-    Exercise.where(exercise_type:"gerät").all.to_a.sort!{|t1,t2|t1.name <=> t2.name}
+    Exercise.where(exercise_type:"gerät").where(visible:true).all.to_a.sort!{|t1,t2|t1.name <=> t2.name}
   end
 
   def self.load_exercises(name)
@@ -86,7 +86,7 @@ class Exercise < ApplicationRecord
     elsif name == "Freigewicht"
       @exercises = Exercise.free_exercise
     else
-      @exercises = Exercise.where("name LIKE ? or name LIKE ?", "%#{name}%","%#{name.downcase}%").to_a.uniq
+      @exercises = Exercise.where("name LIKE ? or name LIKE ?", "%#{name}%","%#{name.downcase}%").where(visible:true).to_a.uniq
     end
     @exercises
   end

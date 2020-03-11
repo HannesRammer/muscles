@@ -56,8 +56,8 @@ class MainController < ApplicationController
   end
 
   def search_string
-
-    @exercises = Exercise.load_exercises(params[:name])
+    @name = params[:name]
+    @exercises = Exercise.load_exercises(@name)
     respond_to :js
   end
 
@@ -71,17 +71,29 @@ class MainController < ApplicationController
   end
 
   def add_exercise
-    @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan])
-    @trainingsplan.exercises << Exercise.find_by_id(params[:exercise])
-    #@current_user.exercises << Exercise.find_by_id(params[:exercise])
-    respond_to :js
-  end
+    trainingsplan_id= params[:trainingsplan]
+    exercise_id= params[:exercise]
+    tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id,exercise_id: exercise_id)
+    @trainingsplan = Trainingsplan.find_by_id(trainingsplan_id)
+    if tpte
+      flash[:notice]="Exercise already in your trainingslan."
+      respond_to :js
+    else
 
 
-  def hide_exercise
-    render :update do |page|
-      page["exercise"].replace_html ""
+      @trainingsplan.exercises << Exercise.find_by_id(exercise_id)
+      tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id,exercise_id: exercise_id)
+      tpte.reps = 12
+      tpte.duration = 45
+      tpte.pause = 120
+      tpte.unit = "reps"
+      flash[:notice]="Exercise added to Trainingsplan: #{@trainingsplan.name}."
+      respond_to :js
     end
+
+
+    #@current_user.exercises << Exercise.find_by_id(params[:exercise])
+
   end
 
   def remove_exercise

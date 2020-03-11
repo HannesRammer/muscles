@@ -1,6 +1,9 @@
 
 <div class="user_text">
-  Trainingsplan id: <%=@trainingsplan.name %>
+  Trainingsplan id: <div id="trainingsplan_text_selected">
+  <%=@trainingsplan.name %>
+  </div>
+
   <br>
   <% @ettps.each_with_index do |ettp, i| %>
 

@@ -5,9 +5,11 @@
 <% end %>
 </div>
 <br/>
-<div style="position: relative;">
-  <strong>Selected Traingsplan:</strong>
-  Name: <%= @trainingsplan.name %>
+<strong>Selected Trainingsplan:</strong>
+
+<div  style="position: relative;">
+
+  Name: <span id="trainingsplan_text_selected" style="position: relative;"><%= @trainingsplan.name %></span>
   Id: <%= @trainingsplan.id %>
 </div>
 
@@ -19,28 +21,26 @@
     <%= render :partial => "trainingsplans/exercise" %>
   </div>
 
-  <%= image_tag("muskelman.png", :class => "multi_pic") %>
+  <%= image_tag("muskelman.png", :class => "trainingsplan_exercise_multi_pic_base") %>
 
 
 
-  <div id="open_training" class="open_training" onclick="toggleTraining()">Show Trainingsplan</div>
+  <div id="open_training" class="open_training" onclick="toggleTraining()">Hide Trainingsplan</div>
 
 
+
+  <div id="trainingsplans" class="show_training">
+    <%= render "trainingsplans/user_selected" %>
+  </div>
   <div id="exercise_selected">
     <%= render :partial => "trainingsplans/exercise_selected" %>
   </div>
-  <div id="trainingsplans" class="hidden_training">
-    <%= render "trainingsplans/user_selected" %>
-  </div>
 
-  <div id="muscle_selected">
-    <%= render partial: "trainingsplans/muscle_selected" %>
-  </div>
 <%#= render :partial => "main/muscle_hover" %>
-  <div id="trainingsplans_muscles" class="nice_outer_tab">
-    <%= render :partial => "trainingsplans/muscle" %>
+  <!--div id="trainingsplans_muscles" class="nice_outer_tab">
+    <%#= render :partial => "trainingsplans/muscle" %>
   </div>
-  <div id="hover"></div>
+  <div id="hover"></div-->
   <%= image_tag("blank.png", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
   <div id="rep_sec_pause">
     <%= label :autolyse, "reps", :value => "reps" %>

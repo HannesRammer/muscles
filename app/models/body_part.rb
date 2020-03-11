@@ -82,7 +82,7 @@ class BodyPart < ApplicationRecord
 
   def x_ercise
     e = ExerciseToMuscle.find_all_by_body_part_id(self.id).collect { |x| x.exercise_id }.to_a.uniq.compact
-    Exercise.where("id in (?)",e).order("name asc")
+    Exercise.where("id in (?)",e).where(visible:true).order("name asc")
   end
 
 

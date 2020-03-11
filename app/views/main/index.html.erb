@@ -29,15 +29,19 @@
   <div id="body_part_selected">
     <%= render :partial => "main/body_part_selected" %>
   </div>
+
+  <% if logged_in? %>
+  <div id="open_training" class="open_training" onclick="toggleTraining()">Hide Trainingsplan</div>
+
+    <% end %>
+  <div id="main" class="show_training">
+    <%= render "main/user_selected" %>
+  </div>
+
+
   <div id="muscle_selected">
     <%= render partial: "main/muscle_selected" %>
   </div>
-  <% if logged_in? %>
-  <div id="open_training" class="open_training" onclick="toggleTraining()">Show Trainingsplan</div>
-
-    <% end %>
-
-
   <div id="exercise_selected">
     <%= render :partial => "main/exercise_selected" %>
   </div>
@@ -46,9 +50,7 @@
   <div id="exercises" class="nice_outer_tab">
     <%= render :partial => "main/exercise" %>
   </div>
-  <div id="main" class="hidden_training">
-    <%= render "main/user_selected" %>
-  </div>
+
   <div id="hover"></div>
   <%= image_tag("blank.png", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
 </div>

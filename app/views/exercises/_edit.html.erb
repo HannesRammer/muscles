@@ -1,60 +1,6 @@
 <%= render :partial => "exercises/body_area_edit" %>
 
-<div class="exercise_content nice_outer_tab" style="    position: absolute;
-    left: 25px;
-    top: 70px;
-    padding: 12px;">
 
-  <%= form_for(@exercise, :html => {:multipart => true}) do |f| %>
-
-
-    <%#= f.label :primary_muscle_names %>
-    <%= f.hidden_field :primary_muscle_names %>
-    <%#= f.label :secondary_muscle_names %>
-    <%= f.hidden_field :secondary_muscle_names %>
-
-    <p>
-      <%= f.label :name %><br/>
-      <%= f.text_field :name, :style => "width:300px" %>
-    </p>
-    <%#= file_column_field "exercise", "image1" %>
-    <p>
-      <%= f.label :description %><br/>
-      <%= f.text_area :description %>
-    </p>
-    <%#= file_column_field "exercise", "image2" %>
-
-    <p>
-      <%= f.label :how_to %><br/>
-      <%= f.text_area :how_to %>
-    </p>
-
-    <p>
-      <%= f.label :how_not_to %><br/>
-      <%= f.text_area :how_not_to %>
-    </p>
-    <p>
-      <%= f.label :info %><br/>
-      <%= f.text_area :info %>
-    </p>
-    <p>
-      <%= f.label :exercise_type %><br/>
-      <%= f.text_field :exercise_type %>
-    </p>
-    <p>
-      <%= f.label :visible %><br/>
-      <%= f.text_field :visible %>
-    </p>
-    <p class='form-group'>
-      <%= f.label :video %>
-      <%= f.file_field :video %>
-    </p>
-    <p>
-      <%= f.submit "Update" %>
-    </p>
-  <% end %>
-
-</div>
 <div id="exercise_muscles" style="position: absolute;
     top: 55px;left:300px;">
   <%= image_tag("muskelman.png", :class => "multi_pic2") %>
@@ -66,8 +12,8 @@
         position: absolute;
         left: 0;">
 
-      <%= user_muscle_pics(@exercise.primary_muscles, "", 4, "multi_pic2") %>
-      <%= user_muscle_pics(@exercise.secondary_muscles, "", 1, "multi_pic2") %>
+      <%= user_muscle_pics(@exercise.primary_muscles, "", 5, "multi_pic2") %>
+      <%= user_muscle_pics(@exercise.secondary_muscles, "", 2, "multi_pic2") %>
       <div id="hover" style="position:absolute;top: 0;left: 0;"></div>
       <%= image_tag("blank.png", :class => "multi_pic2", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
       <div style="width: 230px;
@@ -85,6 +31,83 @@
 
 <div id="exercises_muscles" class="nice_outer_tab">
   <%= render :partial => "exercises/muscle" %>
+</div>
+
+<div class="exercise_content nice_outer_tab" style="
+position: absolute;
+    left: 25px;
+    top: 493px;
+    padding: 12px;
+">
+
+  <%= form_for(@exercise, :html => {:multipart => true}) do |f| %>
+
+
+    <%#= f.label :primary_muscle_names %>
+    <%= f.hidden_field :primary_muscle_names %>
+    <%#= f.label :secondary_muscle_names %>
+    <%= f.hidden_field :secondary_muscle_names %>
+    <p>
+      <%= f.label :name %><br/>
+      <%= f.text_field :name, :style => "width:300px" %>
+    </p>
+<table>
+  <tr>
+
+    <td>
+      <%#= file_column_field "exercise", "image1" %>
+      <p>
+        <%= f.label :description %><br/>
+        <%= f.text_area :description %>
+      </p>
+      <%#= file_column_field "exercise", "image2" %>
+    </td>
+    <td>
+
+    <p>
+        <%= f.label :how_to %><br/>
+        <%= f.text_area :how_to %>
+      </p>
+    </td>
+    <td>
+
+    <p>
+        <%= f.label :how_not_to %><br/>
+        <%= f.text_area :how_not_to %>
+      </p>
+    </td>
+    <td>
+    <p>
+        <%= f.label :info %><br/>
+        <%= f.text_area :info %>
+      </p>
+    </td>
+    <td>
+    <p>
+        <%= f.label :exercise_type %><br/>
+        <%= f.text_field :exercise_type %>
+      </p>
+    </td>
+    <td>
+    <p>
+        <%= f.label :visible %><br/>
+        <%= f.text_field :visible %>
+      </p>
+    </td>
+    <td>
+    <p class='form-group'>
+        <%= f.label :video %>
+        <%= f.file_field :video %>
+      </p>
+    </td>
+  </tr>
+
+</table>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+
 </div>
 <div id="exercise_exercise_video">
   <%= render :partial => "trainingsplans/video" %>

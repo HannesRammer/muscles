@@ -13,12 +13,12 @@ class TrainingsplansController < ApplicationController
     @trainingsplan = Trainingsplan.find_by_id(params[:id])
     @exercises = @trainingsplan.exercises
     if @exercises.first
-      @exercise = @exercises.first
-      @muscles = @exercises.first.muscles
+      @exercise = nil#[]#@exercises.first
+      @muscles = []#@exercises.first.muscles
       @muscles_selected = []
-      @p_muscles = @exercises.first.primary_muscles
-      @s_muscles = @exercises.first.secondary_muscles
-      @a_muscles = @exercises.first.antagonist_muscles
+      @p_muscles = []#@exercises.first.primary_muscles
+      @s_muscles = []#@exercises.first.secondary_muscles
+      @a_muscles = []#@exercises.first.antagonist_muscles
     else
       @exercise = nil
       @muscles = []

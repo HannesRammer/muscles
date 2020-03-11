@@ -44,12 +44,12 @@ img {
     height: 300px;
     position: relative;
     top: 527px;
-    left: -220px;
+    /*left: -220px;*/
 }
 #body_part_text_selected_div {
     left: 675px;
     position: absolute;
-    width: 228px;
+    width: 300px;
     top: 5px;
     text-align: center;
 }
@@ -61,10 +61,9 @@ img {
 }
 
 #exercise_text_selected_div {
-
     position: absolute;
-
-    width: 230px;
+    width: 300px;
+    top: -37px;
 }
 
 #muscle_text_hover {
@@ -76,7 +75,7 @@ img {
 
 }
 
-#muscle_text_selected {
+#trainingsplan_text_selected {
     background-color: rgba(153, 255, 153, 0.5);
 
 }
@@ -125,6 +124,17 @@ h3{
     left: 335px;
     position: absolute;
     top: 10px;
+}
+.trainingsplan_exercise_multi_pic_base{
+    left: 10px;
+    position: absolute;
+    top: 10px;
+}
+
+.trainingsplan_exercise_multi_pic_exercise{
+    top: 0;
+    left: -326px;
+    position: absolute;
 }
 
 .multi_pic3, #selected_exercise #hover {
@@ -226,7 +236,7 @@ div#exercise_edit {
 #muscles {
     min-height: 6px;
     position: absolute;
-    top: 0;
+    top: -20px;
     left: 780px;
     width: 315px;
     max-height: 640px;
@@ -373,7 +383,7 @@ table {
 }
 
 .open_training {
-    background-color: rgba(153, 153, 255, 0.5);
+    background-color: rgba(153, 255, 153, 0.5);
     border: 1px solid #FFFFFF;
     height: 20px;
     overflow: hidden;
@@ -386,7 +396,7 @@ table {
 }
 
 .close_training {
-    background-color: rgba(153, 153, 255, 0.8);
+    background-color: rgba(153, 255, 153, 0.5);
     border-top: 1px solid #FFFFFF;
     border-left: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;

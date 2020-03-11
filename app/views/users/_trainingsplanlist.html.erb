@@ -8,8 +8,8 @@
     <%#= image_tag("muskelman.png", :class => "multi_pic_ini") %>
     <% trainingsplan.exercises.each_with_index do |exercise, i| %>
 
-      <%= user_muscle_pics_trainingsplan_list(exercise.primary_muscles, "", 4) %>
-      <%= user_muscle_pics_trainingsplan_list(exercise.secondary_muscles, "", 1) %>
+      <%= user_muscle_pics_trainingsplan_list(exercise.primary_muscles, "", 5) %>
+      <%= user_muscle_pics_trainingsplan_list(exercise.secondary_muscles, "", 2) %>
     <% end %>
     <br>
 

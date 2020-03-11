@@ -50,7 +50,7 @@ function change_style() {
     let exp = new Date();
     let numdays = 7;
     exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * numdays));
-    document.cookie = "style=" + color + "; path=*; expires=" + exp.toGMTString();
+    document.cookie = "style=" + color + "; path=/; expires=" + exp.toGMTString();
 
 }
 
@@ -87,7 +87,7 @@ function new_style(x) {
     var exp = new Date();
     var numdays = 7;
     exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * numdays));
-    document.cookie = "style=" + color + "; path=*; expires=" + exp.toGMTString();
+    document.cookie = "style=" + color + "; path=/; expires=" + exp.toGMTString();
 
 }
 
