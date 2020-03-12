@@ -1,6 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+
+
   def muscle_pics(muscles, effect, strength = 2)
     x=[]
     muscles.each do |muscle|
@@ -130,12 +132,33 @@ module ApplicationHelper
   end
 
   def is_exercise_owner_for(exercise_id)
-    UserToExercise.find_by_user_id_and_exercise_id(@current_user.id, exercise_id) || false
+    @current_user && UserToExercise.find_by_user_id_and_exercise_id(@current_user.id, exercise_id) || false
   end
 
   def redirect_to_target_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
+  end
+
+  def creator_of_trainingsplan
+    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id:params[:id],user_id:@current_user.id)
+
+  end
+
+  def is_unit_duration(unit)
+    if unit == "duration"
+      true
+    else
+      false
+    end
+  end
+
+  def is_unit_reps(unit)
+    if unit == "reps"
+      true
+    else
+      false
+    end
   end
 
   private

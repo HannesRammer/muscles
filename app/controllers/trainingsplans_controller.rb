@@ -1,6 +1,9 @@
 class TrainingsplansController < ApplicationController
-  before_action :set_trainingsplan, only: [:show, :edit, :update, :destroy]
-  before_action :login_required
+  before_action :set_trainingsplan, only: [ :edit, :update, :destroy]
+  before_action :login_required,except: [:show, :exercise]
+
+  #before_action :creator_of_trainingsplan, only:[:edit,:update,:destroy]
+
   # GET /trainingsplans
   # GET /trainingsplans.json
   def index
@@ -10,10 +13,13 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans/1
   # GET /trainingsplans/1.json
   def show
+    @current_user = current_user
     @trainingsplan = Trainingsplan.find_by_id(params[:id])
     @exercises = @trainingsplan.exercises
+
     if @exercises.first
-      @exercise = nil#[]#@exercises.first
+      @exercise = @exercises.first
+      @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:@trainingsplan.id,exercise_id:@exercise.id)
       @muscles = []#@exercises.first.muscles
       @muscles_selected = []
       @p_muscles = []#@exercises.first.primary_muscles
@@ -21,6 +27,7 @@ class TrainingsplansController < ApplicationController
       @a_muscles = []#@exercises.first.antagonist_muscles
     else
       @exercise = nil
+      @ett = nil
       @muscles = []
       @muscles_selected = []
       @p_muscles = []
@@ -37,11 +44,19 @@ class TrainingsplansController < ApplicationController
 
   # GET /trainingsplans/1/edit
   def edit
+    @trainingsplan = Trainingsplan.find_by_id(params[:id])
+    @exercises = @trainingsplan.exercises
+
+    unless creator_of_trainingsplan
+      redirect_to trainingsplan_path(params[:id])
+    end
   end
 
   def exercise
     @name = params["name"]
     @exercise = Exercise.find_by_name(@name)
+    @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:params["id"],exercise_id:@exercise.id)
+
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
     @a_muscles = @exercise.antagonist_muscles
@@ -58,6 +73,9 @@ class TrainingsplansController < ApplicationController
   end
 
   def remove_exercise
+    unless creator_of_trainingsplan
+      redirect_to trainingsplan_path(params[:id])
+    end
     @ett = ExerciseToTrainingsplan.find_by_id(params[:ettp_id])
     @trainingsplan = @ett.trainingsplan
     user_id = Trainingsplan.user(@ett.id).id
@@ -70,7 +88,9 @@ class TrainingsplansController < ApplicationController
   end
 
   def switch_exercise
-
+    unless creator_of_trainingsplan
+      redirect_to trainingsplan_path(params[:id])
+    end
     return unless ExerciseToTrainingsplan.switch_exercise(params[:ettp_id_1], params[:ettp_id_2], @current_user.id)
     @trainingsplan = ExerciseToTrainingsplan.find_by_id(params[:ettp_id_1]).trainingsplan
     @exercises = @trainingsplan.exercises
@@ -113,12 +133,36 @@ class TrainingsplansController < ApplicationController
   # PATCH/PUT /trainingsplans/1
   # PATCH/PUT /trainingsplans/1.json
   def update
+    unless creator_of_trainingsplan
+      redirect_to trainingsplan_path(params[:id])
+    end
     respond_to do |format|
       @trainingsplan.name = params[:trainingsplan][:name]
+      params["exercise"].each do |exercise|
+        ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:@trainingsplan.id,exercise_id:exercise[0])
+        exercise_to_trainingsplan_param = exercise[1]
+        changed = false
+        if ett.reps != exercise_to_trainingsplan_param[:reps]
+          ett.reps = exercise_to_trainingsplan_param[:reps]
+          changed = true
+        end
+        if ett.duration != exercise_to_trainingsplan_param[:duration]
+          ett.duration = exercise_to_trainingsplan_param[:duration]
+          changed = true
+        end
+        if ett.pause != exercise_to_trainingsplan_param[:pause]
+          ett.pause = exercise_to_trainingsplan_param[:pause]
+          changed = true
+        end
+        if changed
+          ett.save
+        end
+      end
       if @trainingsplan.save
-        format.html { redirect_to user_trainingsplans_path, notice: "Trainingsplan was successfully updated." }
+        @exercises = @trainingsplan.exercises
+        format.html { render :edit, notice: "Trainingsplan was successfully updated." }
         #format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully updated." }
-        format.json { render :show, status: :ok, location: @trainingsplan }
+        format.json { render :edit, status: :ok, location: @trainingsplan }
       else
         format.html { render :edit }
         format.json { render json: @trainingsplan.errors, status: :unprocessable_entity }
@@ -129,6 +173,9 @@ class TrainingsplansController < ApplicationController
   # DELETE /trainingsplans/1
   # DELETE /trainingsplans/1.json
   def destroy
+    unless creator_of_trainingsplan
+      redirect_to trainingsplan_path(params[:id])
+    end
     @trainingsplan.destroy
     respond_to do |format|
       format.html { redirect_to user_trainingsplans_path, notice: "Trainingsplan was successfully destroyed." }
@@ -137,6 +184,10 @@ class TrainingsplansController < ApplicationController
   end
 
   private
+  def creator_of_trainingsplan
+    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id:params[:id],user_id:@current_user.id)
+
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_trainingsplan
       @trainingsplan = Trainingsplan.find(params[:id])
@@ -146,4 +197,5 @@ class TrainingsplansController < ApplicationController
     def trainingsplan_params
       params.require(:trainingsplan).permit(:exercises)
     end
+
 end

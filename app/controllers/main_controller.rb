@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string,:impressum]
+  before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string, :impressum]
   include ApplicationHelper
   #respond_to :html, :js
 
@@ -9,14 +9,14 @@ class MainController < ApplicationController
     @muscles = Muscle.all
     @muscles_selected = []
     @body_parts = BodyPart.all.to_a
-    @p_muscles = []#@muscles
+    @p_muscles = [] #@muscles
     @exercises = Exercise.where(visible: true).order("name asc").all
     @s_muscles = []
     @a_muscles = []
     # @muscle = @muscles.first
     @primary = []
     @secondary = []
-    @antagonist =[]
+    @antagonist = []
     @current_user if logged_in?
     @trainingsplans = @current_user.trainingsplans if @current_user
     @trainingsplan = @trainingsplans.first if @trainingsplans
@@ -27,7 +27,7 @@ class MainController < ApplicationController
     #p "##################################"
     @name = params["name"]
     #p @name
-    @muscles = Muscle.where("name = ?",@name).to_a.uniq
+    @muscles = Muscle.where("name = ?", @name).to_a.uniq
     @muscles_selected = @muscles
     @muscle = @muscles.first
     #@exercises = @primary_exercises.exercises
@@ -45,10 +45,10 @@ class MainController < ApplicationController
       @s_muscles = []
       @a_muscles = []
     else
-      body_part = BodyPart.where("name = ?",@name).first
+      body_part = BodyPart.where("name = ?", @name).first
       @muscle_list = BodyPart.muscle_list(body_part.id)
       @exercises = body_part.x_ercise
-      @p_muscles = @muscle_list[0]#.uniq
+      @p_muscles = @muscle_list[0] #.uniq
       @s_muscles = @muscle_list[1]
       @a_muscles = []
     end
@@ -71,23 +71,30 @@ class MainController < ApplicationController
   end
 
   def add_exercise
-    trainingsplan_id= params[:trainingsplan]
-    exercise_id= params[:exercise]
-    tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id,exercise_id: exercise_id)
+    unless creator_of_trainingsplan
+      redirect_to root_path
+    end
+    trainingsplan_id = params[:trainingsplan]
+    exercise_id = params[:exercise]
+    tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id, exercise_id: exercise_id)
     @trainingsplan = Trainingsplan.find_by_id(trainingsplan_id)
     if tpte
-      flash[:notice]="Exercise already in your trainingslan."
+      flash[:notice] = "Exercise already in your trainingslan."
       respond_to :js
     else
 
 
       @trainingsplan.exercises << Exercise.find_by_id(exercise_id)
-      tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id,exercise_id: exercise_id)
+      tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id, exercise_id: exercise_id)
       tpte.reps = 12
       tpte.duration = 45
       tpte.pause = 120
       tpte.unit = "reps"
-      flash[:notice]="Exercise added to Trainingsplan: #{@trainingsplan.name}."
+      if tpte.save
+        flash[:notice] = "Exercise added to Trainingsplan: #{@trainingsplan.name}."
+      else
+        flash[:notice] = "some error while saving ExerciseToTrainingsplan t_id:#{trainingsplan_id} e_id #{exercise_id}"
+      end
       respond_to :js
     end
 

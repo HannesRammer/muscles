@@ -1,11 +1,12 @@
 class Exercise < ApplicationRecord
-  has_many :exercise_to_muscles, -> { where(active: true).order("id") }
+  has_many :exercise_to_muscles, -> { order("id") }
   has_many :muscles, :through => :exercise_to_muscles
 #include Muscles
-  has_many :user_to_exercises,  -> { where(visible: true).order("id asc")  }
+  has_many :user_to_exercises,  -> { order("id asc")  }
   has_many :users, :through => :user_to_exercises
 
-  has_many :exercise_to_trainingsplans, -> { where(visible: true).order("id asc") }
+#has_many :exercise_to_trainingsplans, -> { where(visible: true).order("id asc") }
+  has_many :exercise_to_trainingsplans, -> { order("id asc") }
   has_many :trainingsplans, :through => :exercise_to_trainingsplans
 
   has_one_attached :video

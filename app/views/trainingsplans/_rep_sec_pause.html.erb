@@ -1,0 +1,23 @@
+<% if @ett %>
+  <%= label :autolyse, "reps", :value => "reps" %>
+  <% repschecked = is_unit_reps(@ett.unit) %>
+  <% if repschecked %>
+    <%= radio_button_tag 'unit', 'reps', :checked => repschecked %>
+  <% else %>
+    <%= radio_button_tag 'unit', 'reps' %>
+  <% end %>
+  <%= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
+  <br>
+  <%= label :autolyse, "time", :value => "duration" %>
+  <% durationchecked = is_unit_duration(@ett.unit) %>
+  <% if durationchecked %>
+    <%= radio_button_tag 'unit', 'duration', :checked => durationchecked %>
+  <% else %>
+    <%= radio_button_tag 'unit', 'duration' %>
+  <% end %>
+  <%= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'sekunden'}) %>
+  <br>
+  Pause
+  <%= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>
+<% end %>
+ 
