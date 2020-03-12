@@ -19,7 +19,7 @@ class TrainingsplansController < ApplicationController
 
     if @exercises.first
       @exercise = @exercises.first
-      @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:@trainingsplan.id,exercise_id:@exercise.id)
+      @ett = ExerciseToTrainingsplan.where(trainingsplan_id:@trainingsplan.id,exercise_id:@exercise.id).order("id asc").to_a.first
       @muscles = []#@exercises.first.muscles
       @muscles_selected = []
       @p_muscles = []#@exercises.first.primary_muscles
@@ -45,7 +45,9 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans/1/edit
   def edit
     @trainingsplan = Trainingsplan.find_by_id(params[:id])
-    @exercises = @trainingsplan.exercises
+
+    @etts = @trainingsplan.exercise_to_trainingsplans #ExerciseToTrainingsplan.where(:trainingsplan_id=>@trainingsplan.id).order("id asc")
+
 
     unless creator_of_trainingsplan
       redirect_to trainingsplan_path(params[:id])
@@ -138,6 +140,7 @@ class TrainingsplansController < ApplicationController
     end
     respond_to do |format|
       @trainingsplan.name = params[:trainingsplan][:name]
+      @etts = @trainingsplan.exercise_to_trainingsplans.to_a
       params["exercise"].each do |exercise|
         ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:@trainingsplan.id,exercise_id:exercise[0])
         exercise_to_trainingsplan_param = exercise[1]
@@ -154,13 +157,17 @@ class TrainingsplansController < ApplicationController
           ett.pause = exercise_to_trainingsplan_param[:pause]
           changed = true
         end
+        if ett.unit != exercise_to_trainingsplan_param[:unit]
+          ett.unit = exercise_to_trainingsplan_param[:unit]
+          changed = true
+        end
         if changed
           ett.save
         end
       end
       if @trainingsplan.save
         @exercises = @trainingsplan.exercises
-        format.html { render :edit, notice: "Trainingsplan was successfully updated." }
+        format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully updated." }
         #format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully updated." }
         format.json { render :edit, status: :ok, location: @trainingsplan }
       else

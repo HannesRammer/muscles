@@ -47,8 +47,8 @@ Rails.application.routes.draw do
   post 'main/remove_exercise/:ettp_id', to: 'main#remove_exercise', format: 'js', as: :main_remove_exercise
   post 'main/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'main#switch_exercise', format: 'js', as: :main_switch_exercise
 
-  post 'trainingsplans/remove_exercise/:ettp_id', to: 'trainingsplans#remove_exercise', format: 'js', as: :trainingsplans_remove_exercise
-  post 'trainingsplans/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'trainingsplans#switch_exercise', format: 'js', as: :trainingsplans_switch_exercise
+  post 'trainingsplans/:id/remove_exercise/:ettp_id', to: 'trainingsplans#remove_exercise', format: 'js', as: :trainingsplans_remove_exercise
+  post 'trainingsplans/:id/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'trainingsplans#switch_exercise', format: 'js', as: :trainingsplans_switch_exercise
 
   get 'main/impressum', to:'main#impressum', as: :impressum
 

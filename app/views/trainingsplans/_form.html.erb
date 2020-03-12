@@ -17,28 +17,21 @@
   </div>
 
 
-  <% @exercises.each do |exercise| %>
+  <% @etts.each do |ett| %>
+    <% exercise = ett.exercise %>
     <div id="trainingsplan_edit_exercise">
-      <% ett = ExerciseToTrainingsplan.find_by(trainingsplan_id: @trainingsplan.id, exercise_id: exercise.id) %>
+
       <div style="width:400px;padding-bottom: 7px;"><%= exercise.name %> </div>
       <div>
         <%= label :autolyse, "reps", :value => "reps" %>
         <% repschecked = is_unit_reps(ett.unit) %>
-        <% if repschecked %>
-          <%= radio_button_tag 'unit',  "exercise[#{exercise.id}][reps]", :checked => repschecked %>
-        <% else %>
-          <%= radio_button_tag 'unit', "exercise[#{exercise.id}][reps]" %>
-        <% end %>
+        <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][reps]", repschecked, onclick: "set_exercise_unit(#{exercise.id},'reps')" %>
         <%= text_field_tag("exercise[#{exercise.id}][reps]", value = ett.reps, options = {placeholder: 'reps'}) %>
-
+        <%= hidden_field_tag "exercise[#{exercise.id}][unit]", ett.unit %>
 
         <%= label :autolyse, "time", :value => "duration" %>
         <% durationchecked = is_unit_duration(ett.unit) %>
-        <% if durationchecked %>
-          <%= radio_button_tag 'unit', "exercise[#{exercise.id}][duration]", :checked => durationchecked %>
-        <% else %>
-          <%= radio_button_tag 'unit', "exercise[#{exercise.id}][duration]" %>
-        <% end %>
+        <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][duration]", durationchecked, onclick: "set_exercise_unit(#{exercise.id},'duration')" %>
         <%= text_field_tag("exercise[#{exercise.id}][duration]", value = ett.duration, options = {placeholder: 'sekunden'}) %>
         Pause nach der Übung
         <%= text_field_tag("exercise[#{exercise.id}][pause]", value = ett.pause, options = {placeholder: 'pause'}) %>
@@ -51,3 +44,9 @@
     <%= form.submit %>
   </div>
 <% end %>
+<script>
+  function set_exercise_unit(e_id,unit){
+document.querySelector("#exercise_"+e_id+"_unit").setAttribute("value",unit);
+
+  }
+</script>
