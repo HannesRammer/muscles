@@ -15,21 +15,22 @@ class ExercisesController < ApplicationController
 
 
   def toggle_muscle
-    @muscle = Muscle.find_by_name(params[:name])
-    @exercise = Exercise.find_by_id(params[:eid])
-    @muscle_type = params[:muscle_type]
-    @exercise_to_muscles = @exercise.exercise_to_muscles
-    @exercise_to_muscle = ExerciseToMuscle.find_by_exercise_id_and_muscle_id(params[:eid],@muscle.id)
+    muscle_id = Muscle.find_by_name(params[:name]).id
+    exercise_id = params[:eid]
+    muscle_type = params[:muscle_type]
 
+    exercise_to_muscle = ExerciseToMuscle.find_by_exercise_id_and_muscle_id(exercise_id,muscle_id)
+    body_part_id = ExerciseToMuscle.find_by_muscle_id(muscle_id).body_part
 
-    if @exercise_to_muscle == nil
-      @exercise_to_muscle = @exercise_to_muscles.first.dup
-      @exercise_to_muscle.exercise_id = @exercise.id
-      @exercise_to_muscle.muscle_id=@muscle.id
-      @exercise_to_muscle.muscle_type = @muscle_type
-      @exercise_to_muscle.save
+    if exercise_to_muscle == nil
+      @exercise_to_muscle = ExerciseToMuscle.new(:muscle_id=>muscle_id,:muscle_type=>muscle_type,:exercise_id=>exercise_id,:body_part=>body_part_id)
+      if @exercise_to_muscle.save
+        @exercise = Exercise.find_by_id(params[:eid])
+        else
+          @exercise = Exercise.find_by_id(params[:eid])
+      end
     else
-      @exercise_to_muscle.destroy
+      exercise_to_muscle.destroy
     end
     @exercise = Exercise.find_by_id(params[:eid])
     @p_muscles = @exercise.primary_muscles

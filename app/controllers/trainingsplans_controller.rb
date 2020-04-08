@@ -20,7 +20,7 @@ class TrainingsplansController < ApplicationController
     if @exercises.first
       @exercise = @exercises.first
       @ett = ExerciseToTrainingsplan.where(trainingsplan_id:@trainingsplan.id,exercise_id:@exercise.id).order("id asc").to_a.first
-      @muscles = []#@exercises.first.muscles
+      @muscles = @exercises.first.muscles
       @muscles_selected = []
       @p_muscles = []#@exercises.first.primary_muscles
       @s_muscles = []#@exercises.first.secondary_muscles

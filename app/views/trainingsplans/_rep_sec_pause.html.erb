@@ -1,20 +1,21 @@
 <% if @ett %>
+  <div id="start_exercise" onclick="start_training();">
+    start Training
+  </div>
+  <!--div id="continue_exercise" onclick="continue_training();$('#continue_exercise').hide();$('#start_exercise').show();"  style="display:none;">
+    continue Training $('#continue_exercise').show();
+  </div-->
+  <div id="pause_exercise" onclick="pause_training();">
+    STOP TRAINING
+  </div>
   <%= label :autolyse, "reps", :value => "reps" %>
   <% repschecked = is_unit_reps(@ett.unit) %>
-  <% if repschecked %>
-    <%= radio_button_tag 'unit', 'reps', :checked => repschecked %>
-  <% else %>
-    <%= radio_button_tag 'unit', 'reps' %>
-  <% end %>
+    <%= radio_button_tag 'unit', 'reps', repschecked %>
   <%= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
   <br>
   <%= label :autolyse, "time", :value => "duration" %>
   <% durationchecked = is_unit_duration(@ett.unit) %>
-  <% if durationchecked %>
-    <%= radio_button_tag 'unit', 'duration', :checked => durationchecked %>
-  <% else %>
-    <%= radio_button_tag 'unit', 'duration' %>
-  <% end %>
+    <%= radio_button_tag 'unit', 'duration', durationchecked %>
   <%= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'sekunden'}) %>
   <br>
   Pause
