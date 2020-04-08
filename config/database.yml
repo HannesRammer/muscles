@@ -49,6 +49,15 @@ test:
 #
 production:
   <<: *default
-  database: muscles_production
-  username: muscles
-  password: <%= ENV['MUSCLES_DATABASE_PASSWORD'] %>
+#  database: muscles_production
+#  username: muscles
+#  password: <%= ENV['MUSCLES_DATABASE_PASSWORD'] %>
+#  production:
+#  <<: *default
+#  database: afterhour_development
+  database: musclesa_muscles_development
+  username: musclesa_afterhour
+  password: b4Hhhd4EFSpc6Xg
+  #username: afterhour
+  #password: <%= ENV['AFTERHOUR_DATABASE_PASSWORD'] %>
+
