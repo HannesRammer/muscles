@@ -1,8 +1,11 @@
 <div id="navilinks">
   <%= link_to "Start", root_path %> |
-  <%= link_to "Eigene Trainingspläne", user_trainingsplans_path %> |
-  <%= link_to "Alle Übungen", exercises_all_path %> |
-  <%= link_to "Meine Übungen", exercises_path %> |
+  <%= link_to "Advanced Search", index_path %> |
+  <%= link_to "Eigene Trainingspläne", user_trainingsplans_path if current_user %> |
+
+  <%= link_to "Alle Trainingspläne", trainingsplans_path %> |
+  <%= link_to "Alle Übungen", exercises_all_path if current_user %> |
+  <%= link_to "Meine Übungen", exercises_path if current_user %> |
   <%= link_to "impressum", impressum_path %>
 
 </div>
