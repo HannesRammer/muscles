@@ -22,7 +22,7 @@
       <%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td-->
       <td>
         <% if exercise.video.attached? %>
-          <%= video_tag("#{url_for(exercise.video)}.mp4", :width => "200px", :controls => "true", :loop => "loop") %>
+          <%= video_tag("#{url_for(exercise.video)}.mp4", :width => "200px", :controls => "false", :loop => "loop") %>
         <% end %></td>
 
 
