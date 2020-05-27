@@ -1,0 +1,43 @@
+<div class="nav nice_outer_tab">
+Herzlich Willkommen bei InstaFit
+
+</div>
+<br/>                 <br/>
+
+<div style="left:0;top:15px;position:relative">
+  Was möchtest Du machen
+</div>
+
+<div class="mainborder">
+  Trainingsplan auswählen und direkt loslegen
+  <br>
+  <div style="margin:15px">
+    <%= link_to "Alle Trainingspläne", trainingsplans_path %>
+  </div>
+  <div style="margin:15px">
+    <%= link_to "Eigene Trainingspläne", user_trainingsplans_path if current_user %>
+  </div>
+
+</div>
+
+<div class="mainborder">
+  Übungen durchsuchen
+  <br>
+  <div style="margin:15px">
+    <%= link_to "Alle Übungen", exercises_all_path %>
+  </div>
+  <div style="margin:15px;">
+    <%= link_to "Eigene Übungen", exercises_path if current_user%>
+  </div>
+</div>
+
+<div class="mainborder">
+  Videos Verwalten
+</div>
+
+
+
+
+
+
+

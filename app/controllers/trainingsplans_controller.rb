@@ -1,6 +1,6 @@
 class TrainingsplansController < ApplicationController
   before_action :set_trainingsplan, only: [ :edit, :update, :destroy]
-  before_action :login_required,except: [:show, :exercise]
+  before_action :login_required,except: [:index,:show, :exercise]
 
   #before_action :creator_of_trainingsplan, only:[:edit,:update,:destroy]
 

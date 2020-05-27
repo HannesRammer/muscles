@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
-  before_action :login_required#, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string]
+  before_action :login_required, :except => [:all]
   #before_action :is_owner, only: [:edit]
   # GET /exercises
   # GET /exercises.json

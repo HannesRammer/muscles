@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :body_parts
   resources :muscles
   resources :sessions
-  #resources :users
   get 'main/index'
 
   #sign_up 'users#new'
@@ -52,10 +51,13 @@ Rails.application.routes.draw do
 
   get 'main/impressum', to:'main#impressum', as: :impressum
 
-  root 'main#index'
+  #root 'main#index'
+  root 'start#index'
 
 
   resources :exercises
+  resources :users
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
