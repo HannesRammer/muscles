@@ -51,6 +51,8 @@ Rails.application.routes.draw do
 
   get 'main/impressum', to:'main#impressum', as: :impressum
 
+  get 'main/index', to:'main#index', as: :index
+
   #root 'main#index'
   root 'start#index'
 
