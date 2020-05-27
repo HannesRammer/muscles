@@ -1,5 +1,5 @@
 <% if @exercise && @exercise.video.attached? %>
-  <%= video_tag("#{url_for(@exercise.video)}.mp4", :width => "600px", :controls => "true", :onended=>"video_ended();") %>
+  <%= video_tag("#{url_for(@exercise.video)}.mp4", :controls => "true", :onended=>"video_ended();") %>
 <% else %>
 
   NO VIDEO

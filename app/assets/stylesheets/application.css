@@ -13,7 +13,7 @@
  * require_tree .
  *= require_self
  */
-@import "themes.css";
+
 @import "scaffold.css";
 
 body {
@@ -67,21 +67,21 @@ img {
 }
 
 #muscle_text_hover {
-    background-color: rgba(153, 153, 255, 0.5);
+    border: 1px solid rgba(153, 153, 255, 0.5);
 }
 
 #body_part_text_selected {
-    background-color: rgba(255, 255, 104, 0.5);
+    border: 1px solid rgba(255, 255, 104, 0.5);
 
 }
 
 #trainingsplan_text_selected {
-    background-color: rgba(153, 255, 153, 0.5);
+    border: 1px solid rgba(153, 255, 153, 0.5);
 
 }
 
 #exercise_text_selected {
-    background-color: rgba(255, 153, 153, 0.5);
+    border: 1px solid rgba(255, 153, 153, 0.5);
 
 }
 
@@ -116,7 +116,7 @@ h3{
     padding-top: 0 !important;
     margin-bottom: 5px;
     border-bottom: 1px solid #7d5c5c;
-    color: #3a3d4a;
+    color: #ff8d97;
     font-size: 15px;
 }
 
@@ -336,7 +336,7 @@ table {
 #x_how_not_to {
     font-family: monospace;
     padding: 1px 20px 20px;
-    min-height: 100px;
+
     box-shadow: 8px 10px 26px rgba(255, 151, 151, 0.4) inset;
     -moz-box-shadow: 8px 10px 26px rgba(255, 151, 151, 0.4) inset;
     -webkit-box-shadow: 8px 10px 26px rgba(255, 151, 151, 0.4) inset;
@@ -416,13 +416,13 @@ table {
 }
 
 .show_exercise {
-    border: 1px solid #FFFFFF;
-    top: 100px;
+
+    top: -40px;
     left: 1100px;
     position: absolute;
     z-index: 10;
     min-width: 0;
-    max-width: 500px;
+
 }
 
 .hidden_exercise {
@@ -642,7 +642,8 @@ pre {
     font-size: 11px;
 }
 
-#navilinks a {
+
+ a {
     color: #fff;
     text-shadow: 1px 1px 1px black,
     1px -1px 1px black,
@@ -650,18 +651,16 @@ pre {
     -1px -1px 1px black;
 }
 
-a {
-    color: #000;
 
-}
 
 #navilinks a:visited {
     color: #fff;
 }
 
-#navilinks a:hover {
-    color: #ff724b;
-}
+
+a:hover {
+     color: #ff724b !important;
+ }
 
 a:hover {
     color: #fff;
@@ -798,7 +797,8 @@ input {
 
 #trainingsplans_exercise_video {
     position: absolute;
-    left: 600px;
+    top: -65px;
+    left:590px;
 }
 
 #exercise_exercise_video {
@@ -813,8 +813,13 @@ input {
 
 #rep_sec_pause {
     position: absolute;
-    left: 900px;
-    top: 0;
+    left: 480px;
+    top: 90px;
+    width: 85px;
+}
+
+#reps,#duration,#pause{
+    width: 85px;
 }
 
 #exercises_show {
@@ -822,6 +827,25 @@ input {
 }
 
 #exercises_show video {
-    width: 300px;
+    width: 100%;
 }
 
+#open_training,
+#trainingsplan_id,
+.show_training input{
+    cursor: pointer;
+}
+
+#start_exercise{
+    float: left;
+    cursor: pointer;
+    display: block;
+}
+#pause_exercise{
+    float: left;
+    cursor: pointer;
+    display: none;
+}
+#trainingsplans_exercise_video video{
+    max-height: 545px;
+}

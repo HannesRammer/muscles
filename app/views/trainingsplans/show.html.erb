@@ -23,7 +23,7 @@
     <%= render :partial => "trainingsplans/exercise" %>
   </div>
 
-  <%= image_tag("muskelman.png", :class => "trainingsplan_exercise_multi_pic_base") %>
+  <%= image_tag("muskelman.svg", :class => "trainingsplan_exercise_multi_pic_base") %>
 
 
 
@@ -107,19 +107,24 @@
 
 
     function start_training() {
-        global_current_exercise = 0;
-        select_exercise(global_current_exercise);
 
+        if (pause === true) {
+            pause = false;
+            play_video();
+        } else {
+            global_current_exercise = 0;
+            select_exercise(global_current_exercise);
+        }
 
     }
 
     function pause_training() {
         pause = true;
-
+        show_play_button();
 
     }
+
     function continue_training() {
-        pause = false;
 
 
     }
@@ -137,14 +142,28 @@
 
     }
 
+    function hide_play_button() {
+        $("#start_exercise").css("display", "none");
+        $("#pause_exercise").css("display", "block");
+
+    }
+
+    function show_play_button() {
+        $("#start_exercise").css("display", "block");
+        $("#pause_exercise").css("display", "none");
+
+    }
+
     function play_video() {
+        hide_play_button();
         $("video")[0].play();
     }
 
     function select_exercise(current_exercise) {
         links = $(".exercise_selection_link ");
         links[current_exercise].click();
-        setTimeout(init_max_and_current, 5000);
+
+        setTimeout(init_max_and_current, 3000);
 
 
     }
@@ -158,4 +177,6 @@
         start_exercise();
         global_max_exercise = $(".exercise_selection_link ").length - 1;
     }
+
+
 </script>

@@ -21,8 +21,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <%#= javascript_include_tag "modernizr-1.6.min" %>
-<% cookies["style"] ? style = cookies["style"] : style = "dark" %>
-<body id="body" class="theme_<%= style %>">
+<body id="body" class="theme_3a3a3a" onresize="resize_trainingsplans_exercise_video();">
 <%= render "layouts/navi" %>
 <script>
   $( document ).on( "mousemove", function( event ) {
@@ -48,7 +47,7 @@
 
 
 
-    <div id="exercise" class="show_exercise"></div>
+
 
     <%#= render("shared/header", :locals => {:cont_name => "contact"}) %>
     <div id="muscle"></div>

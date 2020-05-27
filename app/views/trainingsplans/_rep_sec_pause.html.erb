@@ -1,24 +1,25 @@
 <% if @ett %>
   <div id="start_exercise" onclick="start_training();">
-    start Training
+    <i class="material-icons" style="font-size:85px;color:#29a833">play_circle_outline</i>
   </div>
   <!--div id="continue_exercise" onclick="continue_training();$('#continue_exercise').hide();$('#start_exercise').show();"  style="display:none;">
     continue Training $('#continue_exercise').show();
   </div-->
   <div id="pause_exercise" onclick="pause_training();">
-    STOP TRAINING
+    <i class="material-icons" style="font-size:85px;color:#d6d6d6">pause_circle_outline</i>
   </div>
   <%= label :autolyse, "reps", :value => "reps" %>
   <% repschecked = is_unit_reps(@ett.unit) %>
     <%= radio_button_tag 'unit', 'reps', repschecked %>
   <%= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
   <br>
-  <%= label :autolyse, "time", :value => "duration" %>
+  <%= label :autolyse, "duration", :value => "duration" %>
   <% durationchecked = is_unit_duration(@ett.unit) %>
     <%= radio_button_tag 'unit', 'duration', durationchecked %>
-  <%= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'sekunden'}) %>
+  <%= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
   <br>
-  Pause
+  <%= label :autolyse, "pause", :value => "Pause nach Übung" %>
+
   <%= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>
 <% end %>
  

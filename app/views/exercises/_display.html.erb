@@ -10,6 +10,11 @@
     <%#= h @exercise.exercise_type %>
   </div>
   <div style="position:relative;">
+
+    <div id="exercises_show">
+      <%= render :partial => "trainingsplans/video" %>
+    </div>
+
     <div id="x_how_to">
       <div id="ex_title">Was tun:</div>
       <br/>
@@ -20,10 +25,6 @@
       <div id="ex_title">Was NICHT tun:</div>
       <br/>
       <%#= h @exercise.how_not_to %>
-    </div>
-
-    <div id="exercises_show">
-      <%= render :partial => "trainingsplans/video" %>
     </div>
 
     <div id="x_description">

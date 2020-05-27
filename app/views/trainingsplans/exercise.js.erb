@@ -5,8 +5,15 @@ $("#muscle_text_option").html("<%=j render('trainingsplans/muscle_text_option') 
 $("#exercise_selected").html("<%=j render partial: 'trainingsplans/exercise_selected'%>");
 $("#exercise_text_selected").html("<%=j @name %>");
 $("#open_exercise").html("<%=vertical_text(@name) %>");
-$("#trainingsplans_exercise_video").html("<%=j render partial: 'trainingsplans/video'%>");
+ex = $("#trainingsplans_exercise_video");
+ex.html("<%=j render partial: 'trainingsplans/video'%>");
 $("#rep_sec_pause").html("<%=j render partial: 'trainingsplans/rep_sec_pause'%>");
 
+video = $("video");
 
+left = ex.position()["left"];
+maxWidth = $("#container").width();
+width = maxWidth - left - 50;
+//ex.width(width);
+video.css( "maxWidth",width);
 //alert("yes");

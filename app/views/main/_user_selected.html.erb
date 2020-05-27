@@ -3,10 +3,10 @@
   <% exercises = @trainingsplan.exercises %>
   <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
 
-  <%= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: "post", remote: true, :style => "position: relative;top: -25px;left:125px;"}) do %>
+  <%#= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: "post", remote: true, :style => "position: relative;top: -25px;left:125px;"}) do %>
     <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] },@trainingsplan.id), {:multiple => false} %>
-    <%= submit_tag("select Trainingsplan") %>
-  <% end %>
+    <%#= submit_tag("select Trainingsplan") %>
+  <%# end %>
   <% exercises.each_with_index do |exercise, i| %>
 
     <%= user_muscle_pics(exercise.primary_muscles, "selected", 5,"multi_pic4") %>
@@ -15,7 +15,21 @@
 
     <% @x = [] %>
 
+    <script>
+        $('select#trainingsplan_id').on('change', function(event) {
+            let selected_resource_id = $(this).val();
 
+            $.ajax({
+                type: "POST",
+                url: "/trainingsplans/get_exercises/" + selected_resource_id,
+                dataType: "script",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                }
+            });
+            return false;
+        });
+    </script>
 
     <div id="exercise_list">
 

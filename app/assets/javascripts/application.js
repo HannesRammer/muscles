@@ -355,3 +355,25 @@ function setExerciseActive(trainingsplanPosition) {
 
     }
 }
+
+function resize_trainingsplans_exercise_video(){
+
+    if($("#trainingsplans_exercise_video video").length === 1){
+        let ex = $("#trainingsplans_exercise_video");
+        let video = $("video");
+        let left = ex.position()["left"];
+        let maxWidth = $("#container").width();
+        let width = maxWidth - left - 50;
+        //ex.width(width);
+        video.css( "maxWidth",width);
+    }
+    if($("#exercises_show video").length === 1){
+        let ex = $("#exercise");
+        let left = ex.position()["left"];
+        let maxWidth = $("#container").width();
+        let width = maxWidth - left - 50;
+//ex.width(width);
+        ex.css( "maxWidth",width);
+    }
+}
+
