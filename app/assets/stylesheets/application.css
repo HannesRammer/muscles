@@ -866,7 +866,7 @@ input {
 .mainborder {
 
     display: table;
-    width: 500px;
+    width: 900px;
     border: 1px solid green;
     padding: 30px;
     margin: 40px;

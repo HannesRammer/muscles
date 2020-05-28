@@ -1,5 +1,5 @@
 <div class="nav nice_outer_tab">
-Herzlich Willkommen bei InstaFit
+  Herzlich Willkommen bei InstaFit
 
 </div>
 <br/>                 <br/>
@@ -9,13 +9,15 @@ Herzlich Willkommen bei InstaFit
 </div>
 
 <div class="mainborder">
-  Trainingsplan auswählen und direkt loslegen
-  <br>
   <div style="margin:15px">
-    <%= link_to "Alle Trainingspläne", trainingsplans_path %>
+    <%= link_to "Alle Trainingspläne (Trainingsplan auswählen und Training starten)", trainingsplans_path %>
   </div>
   <div style="margin:15px">
-    <%= link_to "Eigene Trainingspläne", user_trainingsplans_path if current_user %>
+    <% if current_user %>
+      <%= link_to "Eigene Trainingspläne (Trainingspläne erstellen und mit Freunden teilen)", user_trainingsplans_path %>
+    <% else %>
+      <%= "Bitte einloggen um Trainingspläne zu erstellen" %>
+    <% end %>
   </div>
 
 </div>
@@ -23,20 +25,34 @@ Herzlich Willkommen bei InstaFit
 <div class="mainborder">
   Übungen durchsuchen
   <br>
+  <div style="margin:15px;">
+
+    <% if current_user %>
+      <%= link_to "Advanced Search (Suche Muskelspezifische Übungen und optimiere deine Trainingspläne)", index_path %>
+    <% else %>
+      <%= link_to "Advanced Search (Suche Muskelspezifische Übungen) ", index_path %>
+      <br><br>
+      Bitte einloggen um deine
+      Trainingspläne zu optimieren
+    <% end %>
+
+  </div>
   <div style="margin:15px">
-    <%= link_to "Alle Übungen", exercises_all_path %>
+    <%= link_to "Alle Übungen", exercises_all_path if current_user %>
   </div>
   <div style="margin:15px;">
-    <%= link_to "Eigene Übungen", exercises_path if current_user%>
+
+    <% if current_user %>
+      <%= link_to "Eigene Übungen", exercises_path if current_user %>
+    <% else %>
+      <%= "Bitte einloggen um Übungen zu erstellen" %>
+    <% end %>
   </div>
+
 </div>
 
 <div class="mainborder">
-  <%= link_to "Advanced Search", index_path %>
-</div>
-
-<div class="mainborder">
-  Videos Verwalten
+  Videos Verwalten *coming soon
 </div>
 
 
