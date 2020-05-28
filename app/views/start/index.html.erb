@@ -10,13 +10,14 @@
 
 <div class="mainborder">
   <div style="margin:15px">
-    <%= link_to "Alle Trainingspläne (Trainingsplan auswählen und Training starten)", trainingsplans_path %>
+    <%= link_to "Trainingsplan auswählen und Training starten", trainingsplans_path %>
   </div>
   <div style="margin:15px">
     <% if current_user %>
-      <%= link_to "Eigene Trainingspläne (Trainingspläne erstellen und mit Freunden teilen)", user_trainingsplans_path %>
+      <%= link_to "Eigene Trainingspläne erstellen und diese mit Freunden teilen", user_trainingsplans_path %>
     <% else %>
-      <%= "Bitte einloggen um Trainingspläne zu erstellen" %>
+      <%= "Einloggen um eigene Trainingspläne zu erstellen und diese mit Freunden zu teilen" %>
+
     <% end %>
   </div>
 

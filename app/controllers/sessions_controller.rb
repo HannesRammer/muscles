@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   def new
   end
-  
+  def index
+
+  end
   def create
     user =  User.where(:email => params[:email]).first
     #user = User.authenticate(params[:login], params[:password])
