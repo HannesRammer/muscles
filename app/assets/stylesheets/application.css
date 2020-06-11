@@ -225,7 +225,7 @@ div#exercise_edit {
     min-height: 6px;
     position: absolute;
     top: 70px;
-    left: 785px;
+    left: 500px;
     width: 250px;
     height: 425px;
     overflow: auto;
@@ -806,15 +806,20 @@ input {
     left: 900px;
 }
 
-#trainingsplans_exercise_video {
+#trainingsplans_exercise_video_show {
     position: absolute;
     top: -65px;
     left: 590px;
 }
 
-#exercise_exercise_video {
+#exercise_video_show {
     position: absolute;
-    left: 1060px;
+    left: 840px;
+}
+
+#exercise_video_show {
+    position: absolute;
+  //  left: 1060px;
 }
 
 #exercises__exercise_video {
@@ -859,7 +864,7 @@ input {
     display: none;
 }
 
-#trainingsplans_exercise_video video {
+#exercise_video_show video, #trainingsplans_exercise_video_show video{
     max-height: 545px;
 }
 
@@ -870,4 +875,9 @@ input {
     border: 1px solid green;
     padding: 30px;
     margin: 40px;
+}
+.material-icons{
+    top:1px !important;
+    position: relative !important;
+    font-size: 15px !important;
 }

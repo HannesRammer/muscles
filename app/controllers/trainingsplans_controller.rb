@@ -19,6 +19,7 @@ class TrainingsplansController < ApplicationController
 
     if @exercises.first
       @exercise = @exercises.first
+      @video = @exercise.selected_video(@trainingsplan.id)
       @ett = ExerciseToTrainingsplan.where(trainingsplan_id:@trainingsplan.id,exercise_id:@exercise.id).order("id asc").to_a.first
       @muscles = @exercises.first.muscles
       @muscles_selected = []
@@ -27,6 +28,7 @@ class TrainingsplansController < ApplicationController
       @a_muscles = []#@exercises.first.antagonist_muscles
     else
       @exercise = nil
+      @video = nil
       @ett = nil
       @muscles = []
       @muscles_selected = []
@@ -57,8 +59,9 @@ class TrainingsplansController < ApplicationController
   def exercise
     @name = params["name"]
     @exercise = Exercise.find_by_name(@name)
-    @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:params["id"],exercise_id:@exercise.id)
-
+    trainingsplan_id = params["id"]
+    @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:trainingsplan_id,exercise_id:@exercise.id)
+    @video = @exercise.selected_video(trainingsplan_id)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
     @a_muscles = @exercise.antagonist_muscles
@@ -103,6 +106,15 @@ class TrainingsplansController < ApplicationController
   end
 
   def get_exercises
+    muscle_name = "Alle"
+    if params[:muscle] != "undefined"
+      muscle_name =params[:muscle]
+      @muscle = Muscle.find_by_name(muscle_name)
+
+      @muscle_exercises = @muscle.exercises
+    else
+      @muscle_exercises = Exercise.where(visible: true).order("name asc").all
+    end
     @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])
     @exercises = @trainingsplan.exercises
     respond_to :js
@@ -143,22 +155,26 @@ class TrainingsplansController < ApplicationController
       @etts = @trainingsplan.exercise_to_trainingsplans.to_a
       params["exercise"].each do |exercise|
         ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:@trainingsplan.id,exercise_id:exercise[0])
-        exercise_to_trainingsplan_param = exercise[1]
+        e_to_t_param = exercise[1]
         changed = false
-        if ett.reps != exercise_to_trainingsplan_param[:reps]
-          ett.reps = exercise_to_trainingsplan_param[:reps]
+        if ett.reps != e_to_t_param[:reps]
+          ett.reps = e_to_t_param[:reps]
           changed = true
         end
-        if ett.duration != exercise_to_trainingsplan_param[:duration]
-          ett.duration = exercise_to_trainingsplan_param[:duration]
+        if ett.duration != e_to_t_param[:duration]
+          ett.duration = e_to_t_param[:duration]
           changed = true
         end
-        if ett.pause != exercise_to_trainingsplan_param[:pause]
-          ett.pause = exercise_to_trainingsplan_param[:pause]
+        if ett.pause != e_to_t_param[:pause]
+          ett.pause = e_to_t_param[:pause]
           changed = true
         end
-        if ett.unit != exercise_to_trainingsplan_param[:unit]
-          ett.unit = exercise_to_trainingsplan_param[:unit]
+        if ett.unit != e_to_t_param[:unit]
+          ett.unit = e_to_t_param[:unit]
+          changed = true
+        end
+        if ett.video_id != e_to_t_param[:video_id]
+          ett.video_id = e_to_t_param[:video_id]
           changed = true
         end
         if changed

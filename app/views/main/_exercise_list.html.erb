@@ -1,33 +1,66 @@
-
 <div class="user_text">
-  Trainingsplan id: <div id="trainingsplan_text_selected">
-  <%=@trainingsplan.name %>
-  </div>
+  Trainingsplan: <%= @trainingsplan.name %>
+  <div id="trainingsplan_text_selected">
 
-  <br>
-  <% @ettps.each_with_index do |ettp, i| %>
 
-    <% exercise = ettp.exercise %>
-    <% @x << "#{clean_name(exercise.name).capitalize}" %>
+
+    <br>
+    <% @ettps.each_with_index do |ettp, i| %>
+
+      <% exercise = ettp.exercise %>
+      <% @x << "#{clean_name(exercise.name).capitalize}" %>
+      <div style="border: #cc003a 1px solid;
+          padding: 5px;">
     <span class="main_exercises_text"
           title="<%= exercise.name %> anzeigen">
-          <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen"}, {:remote => true, :method => :post}) %>
+          <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen", :trainingsplan_id => "#{ettp.trainingsplan_id}"}, {:remote => true, :method => :post}) %>
 
       <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
         </span>
 
 
-    <%= link_to(image_tag("icons/remove.png"), {:controller => "main", :action => "remove_exercise", :ettp_id => ettp.id}, {:confirm => "Are you sure?", :remote => true, :method => :post}) %>
-    <%#= link_to(image_tag('icons/remove.png'),:html=>{:title => 'Vom Trainingsplan entfernen'}, :url=>{:controller=>'main', :action=>'remove_exercise', :ute_id=>ute.id}, :confirm => 'Are you sure?', :remote=>true) %>
-    <% if i != 0 %>
-      <%= link_to(image_tag("icons/up.png"), {:controller => "main", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => @ettps[i - 1].id}, {:remote => true, :method => :post}) %>
-    <% end %>
-    <% unless @ettps[i + 1].blank? %>
-      <%= link_to(image_tag("icons/down.png"), {:controller => "main", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => @ettps[i + 1].id}, {:remote => true, :method => :post}) %>
+        <%= link_to("<i class='material-icons'>remove_circle_outline</i>".html_safe, {:controller => "main", :action => "remove_exercise", :ettp_id => ettp.id}, {:confirm => "Are you sure?", :remote => true, :method => :post}) %>
+        <%#= link_to(image_tag('icons/remove.png'),:html=>{:title => 'Vom Trainingsplan entfernen'}, :url=>{:controller=>'main', :action=>'remove_exercise', :ute_id=>ute.id}, :confirm => 'Are you sure?', :remote=>true) %>
+        <% if i != 0 %>
+          <%= link_to("<i class='material-icons move_exercise'>arrow_drop_up</i>".html_safe, {:controller => "main", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => @ettps[i - 1].id}, {:remote => true, :method => :post}) %>
+        <% end %>
+        <% unless @ettps[i + 1].blank? %>
+          <%= link_to("<i class='material-icons'>arrow_drop_down</i>".html_safe, {:controller => "main", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => @ettps[i + 1].id}, {:remote => true, :method => :post}) %>
+
+        <% end %>
+
+
+        <br>
+        <% repschecked = is_unit_reps(ettp.unit) %>
+        <% if repschecked %>
+          <%#= label :autolyse, "reps", :value => "reps" %>
+          <%#= radio_button_tag 'unit', 'reps', repschecked %>
+          <%#= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
+
+          <span>Reps: <%= ettp.reps %></span>
+
+        <% end %>
+
+
+        <% durationchecked = is_unit_duration(ettp.unit) %>
+        <% if durationchecked %>
+          <%#= label :autolyse, "duration", :value => "duration" %>
+          <%#= radio_button_tag 'unit', 'duration', durationchecked %>
+          <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
+
+
+          <span>Duration: <%= ettp.duration %></span>
+
+        <% end %>
+
+
+      </div>
+      <div style="font-size: 13px;
+          text-align: center;
+          width: 100%;">Pause: <%= ettp.pause %></div>
 
     <% end %>
-    <br/>
-  <% end %>
+  </div>
 </div>
 
 

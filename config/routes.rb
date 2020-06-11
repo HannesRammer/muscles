@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :videos
   resources :exercise_to_trainingsplans
   resources :trainingsplan_to_users
   resources :trainingsplans
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   post 'users/save_trainingsplan',to: 'users#save_trainingsplan', format: 'js',as: :user_save_trainingsplan
 
   get 'users/exercises', to: 'users#exercises', as: :user_exercises
+  get 'users/videos', to: 'users#videos', as: :user_videos
   post 'users/save_exercise',to: 'users#save_exercise', format: 'js',as: :user_save_exercise
 
   post 'trainingsplans/load_trainingsplans',to: 'trainingsplans#load_trainingsplans', format: 'js',as: :trainingsplans_load_trainingsplans

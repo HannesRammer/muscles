@@ -24,6 +24,11 @@ class ApplicationController < ActionController::Base
     UserToExercise.find_by_user_id_and_exercise_id(@current_user.id, params[:id]) || false
   end
 
+  def is_video_owner
+    @current_user = current_user
+    UserToVideo.find_by_user_id_and_video_id(@current_user.id, params[:id]) || false
+  end
+
   def admin_required
     unless is_admin?
       flash[:error] = "You must first log in as admin"

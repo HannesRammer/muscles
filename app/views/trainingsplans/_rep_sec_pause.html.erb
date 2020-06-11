@@ -8,16 +8,29 @@
   <div id="pause_exercise" onclick="pause_training();">
     <i class="material-icons" style="font-size:85px;color:#d6d6d6">pause_circle_outline</i>
   </div>
-  <%= label :autolyse, "reps", :value => "reps" %>
+
+
   <% repschecked = is_unit_reps(@ett.unit) %>
+  <% if repschecked %>
+    <%= label :autolyse, "reps", :value => "reps" %>
     <%= radio_button_tag 'unit', 'reps', repschecked %>
-  <%= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
+    <%#= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
+    <meter id="reps" value="0" min="0" max="<%= @ett.reps %>"></meter><br>
+    <br>
+  <% end %>
   <br>
-  <%= label :autolyse, "duration", :value => "duration" %>
+
   <% durationchecked = is_unit_duration(@ett.unit) %>
+  <% if durationchecked %>
+    <%= label :autolyse, "duration", :value => "duration" %>
     <%= radio_button_tag 'unit', 'duration', durationchecked %>
-  <%= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
-  <br>
+    <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
+
+
+    <meter id="duration" value="0" min="0" max="<%= @ett.duration %>"></meter><br>
+    <br>
+  <% end %>
+
   <%= label :autolyse, "pause", :value => "Pause nach Übung" %>
 
   <%= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   ##before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :login_required, :except => :new
-
+  helper :all
   # GET /users
   # GET /users.json
   def index
@@ -30,12 +30,12 @@ class UsersController < ApplicationController
   end
 
   def exercises
-    @exercise = Exercise.new
-    @exercises = Exercise.where({ :visible => true }).all
-#    @exercises = @current_user.exercises
-    @trainingsplans = @current_user.trainingsplans
-    @trainingsplan = Trainingsplan.new
-  
+    @exercises = @current_user.exercises
+
+  end
+  def videos
+    @videos = @current_user.videos
+
   end
 
   def save_trainingsplan

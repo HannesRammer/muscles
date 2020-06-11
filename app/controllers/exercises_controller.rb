@@ -50,12 +50,14 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find_by_id(params[:id])
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
+    @video = @exercise.selected_video(nil)
     respond_to :js
   end
   # GET /exercises/1
   # GET /exercises/1.json
   def show
     @exercise = Exercise.find_by_id(params[:id])
+    @video =  @exercise.selected_video(nil)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
   end
@@ -68,6 +70,7 @@ class ExercisesController < ApplicationController
   # GET /exercises/1/edit
   def edit
     @exercise = Exercise.find_by_id(params[:id])
+    @video = @exercise.selected_video(nil)
     if is_exercise_owner
 
       @p_muscles= @exercise.primary_muscles
@@ -83,13 +86,14 @@ class ExercisesController < ApplicationController
   # POST /exercises
   # POST /exercises.json
   def create
+
     @exercise = Exercise.new(exercise_params)
 
     respond_to do |format|
       if @exercise.save
         @current_user.exercises << @exercise
-        format.html { redirect_to @exercise, notice: "Exercise was successfully created." }
-        format.json { render :show, status: :created, location: @exercise }
+        format.html { redirect_to :action => :edit, :id=>@exercise.id,  notice: "Exercise was successfully created." }
+        format.json { render :edit, status: :created, location: @exercise }
       else
         format.html { render :new }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
@@ -140,6 +144,6 @@ class ExercisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:name, :video, :description, :main_description, :how_to, :how_not_to, :info, :exercise_type)
+      params.require(:exercise).permit(:name, :description, :main_description, :how_to, :how_not_to, :info, :exercise_type,:default_video_id)
     end
 end

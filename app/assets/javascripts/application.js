@@ -16,6 +16,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= include videoPlayer
+
 ////= require jquery
 
 
@@ -93,7 +95,7 @@ function new_style(x) {
 
 function toggle_tab(id) {
     let factor = id.split("_")[0];
-    debugger;
+
     let primary = document.querySelector("#" + factor + "_primary");
     let secondary = document.querySelector("#" + factor + "_secondary");
 
@@ -358,10 +360,19 @@ function setExerciseActive(trainingsplanPosition) {
 
 function resize_trainingsplans_exercise_video(){
 
-    if($("#trainingsplans_exercise_video video").length === 1){
-        let ex = $("#trainingsplans_exercise_video");
+    if($("#exercise_video_show video").length === 1){
+        let ex = $("#exercise_video_show");
         let video = $("video");
-        let left = ex.position()["left"];
+        let left = ex.offset()["left"];
+        let maxWidth = $("#container").width();
+        let width = maxWidth - left - 50;
+        //ex.width(width);
+        video.css( "maxWidth",width);
+    }
+    if($("#trainingsplans_exercise_video_show video").length === 1){
+        let ex = $("#trainingsplans_exercise_video_show");
+        let video = $("video");
+        let left = ex.offset()["left"];
         let maxWidth = $("#container").width();
         let width = maxWidth - left - 50;
         //ex.width(width);
@@ -369,7 +380,15 @@ function resize_trainingsplans_exercise_video(){
     }
     if($("#exercises_show video").length === 1){
         let ex = $("#exercise");
-        let left = ex.position()["left"];
+        let left = ex.offset()["left"];
+        let maxWidth = $("#container").width();
+        let width = maxWidth - left - 50;
+//ex.width(width);
+        ex.css( "maxWidth",width);
+    }
+    if($("#exercise_video_show video").length === 1){
+        let ex = $("#exercise_video_show video");
+        let left = ex.offset()["left"];
         let maxWidth = $("#container").width();
         let width = maxWidth - left - 50;
 //ex.width(width);

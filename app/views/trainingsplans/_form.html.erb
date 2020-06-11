@@ -23,18 +23,26 @@
 
       <div style="width:400px;padding-bottom: 7px;"><%= exercise.name %> </div>
       <div>
-        <%= label :autolyse, "reps", :value => "reps" %>
+        <%= label :autolyse, "reps", :value => "wiederholungen" %>
         <% repschecked = is_unit_reps(ett.unit) %>
         <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][reps]", repschecked, onclick: "set_exercise_unit(#{exercise.id},'reps')" %>
         <%= text_field_tag("exercise[#{exercise.id}][reps]", value = ett.reps, options = {placeholder: 'reps'}) %>
         <%= hidden_field_tag "exercise[#{exercise.id}][unit]", ett.unit %>
 
-        <%= label :autolyse, "time", :value => "duration" %>
+        <%= label :autolyse, "time", :value => "dauer" %>
         <% durationchecked = is_unit_duration(ett.unit) %>
         <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][duration]", durationchecked, onclick: "set_exercise_unit(#{exercise.id},'duration')" %>
         <%= text_field_tag("exercise[#{exercise.id}][duration]", value = ett.duration, options = {placeholder: 'sekunden'}) %>
         Pause nach der Übung
         <%= text_field_tag("exercise[#{exercise.id}][pause]", value = ett.pause, options = {placeholder: 'pause'}) %>
+        <% video = exercise.selected_video(ett.trainingsplan_id) %>
+        <% if video && video.video.attached? %>
+          <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">------------</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ett.trainingsplan_id).id).html_safe, {:multiple => false} %>
+        <% else %>
+          <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">------------</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false} %>
+        <% end %>
+        <%= render "trainingsplans/video", :video => video, :width => "300" %>
+
         <br>
       </div>
     </div>
@@ -45,8 +53,8 @@
   </div>
 <% end %>
 <script>
-  function set_exercise_unit(e_id,unit){
-document.querySelector("#exercise_"+e_id+"_unit").setAttribute("value",unit);
+    function set_exercise_unit(e_id, unit) {
+        document.querySelector("#exercise_" + e_id + "_unit").setAttribute("value", unit);
 
-  }
+    }
 </script>

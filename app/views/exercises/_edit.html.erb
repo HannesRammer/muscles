@@ -2,7 +2,7 @@
 
 
 <div id="exercise_muscles" style="position: absolute;
-    top: 55px;left:300px;">
+    top: 55px;left:0px;">
   <%= image_tag("muskelman.svg", :class => "multi_pic2") %>
 
 
@@ -51,64 +51,76 @@ position: absolute;
       <%= f.label :name %><br/>
       <%= f.text_field :name, :style => "width:300px" %>
     </p>
-<table>
-  <tr>
+    <table>
+      <tr>
 
-    <td>
-      <%#= file_column_field "exercise", "image1" %>
-      <p>
-        <%= f.label :description %><br/>
-        <%= f.text_area :description %>
-      </p>
-      <%#= file_column_field "exercise", "image2" %>
-    </td>
-    <td>
+        <td>
+          <%#= file_column_field "exercise", "image1" %>
+          <p>
+            <%= f.label :description %><br/>
+            <%= f.text_area :description %>
+          </p>
+          <%#= file_column_field "exercise", "image2" %>
+        </td>
+        <td>
 
-    <p>
-        <%= f.label :how_to %><br/>
-        <%= f.text_area :how_to %>
-      </p>
-    </td>
-    <td>
+          <p>
+            <%= f.label :how_to %><br/>
+            <%= f.text_area :how_to %>
+          </p>
+        </td>
+        <td>
 
-    <p>
-        <%= f.label :how_not_to %><br/>
-        <%= f.text_area :how_not_to %>
-      </p>
-    </td>
-    <td>
-    <p>
-        <%= f.label :info %><br/>
-        <%= f.text_area :info %>
-      </p>
-    </td>
-    <td>
-    <p>
-        <%= f.label :exercise_type %><br/>
-        <%= f.text_field :exercise_type %>
-      </p>
-    </td>
-    <td>
-    <p>
-        <%= f.label :visible %><br/>
-        <%= f.text_field :visible %>
-      </p>
-    </td>
-    <td>
-    <p class='form-group'>
-        <%= f.label :video %>
-        <%= f.file_field :video %>
-      </p>
-    </td>
-  </tr>
+          <p>
+            <%= f.label :how_not_to %><br/>
+            <%= f.text_area :how_not_to %>
+          </p>
+        </td><td>
+        <p>
+          <%= f.label :info %><br/>
+          <%= f.text_area :info %>
+        </p>
+      </td>
+      </tr>
+      <tr>
 
-</table>
-    <p>
-      <%= f.submit "Update" %>
-    </p>
+        <td>
+          <p>
+            <%= f.label :exercise_type %><br/>
+            <%= f.text_field :exercise_type %>
+          </p>
+        </td>
+        <td>
+          <p>
+            <%= f.label :visible %><br/>
+            <%= f.text_field :visible %>
+          </p>
+        </td>
+        <td>
+          <p class='form-group'>
+            <%#= f.label :video %>
+            <%#= f.file_field :video %>
+
+            <% if @video && @video.video.attached? %>
+              <%= select_tag "exercise[default_video_id]", '<option value="0">------------</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] },@exercise.selected_video(nil).id), {:multiple => false} %>
+
+            <% else %>
+              <%= select_tag "exercise[default_video_id]", '<option value="0">------------</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }), {:multiple => false} %>
+            <% end %>
+          </p>
+        </td>
+        <td>
+          <p>
+            <%= f.submit "Update" %>
+          </p>
+        </td>
+      </tr>
+    </table>
+
+
   <% end %>
 
 </div>
-<div id="exercise_exercise_video">
-  <%= render :partial => "trainingsplans/video" %>
+<div id="exercise_video_show">
+  <%= render "videos/video", :video => @video, :width => nil %>
 </div>

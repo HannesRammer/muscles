@@ -1,0 +1,5 @@
+<p id="notice"><%= notice %></p>
+
+<%= render "videos/video",:video=> @video , :width => nil%>
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

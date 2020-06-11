@@ -1,15 +1,45 @@
-<h1>New Exercise</h1>
+<h1>Listing exercises</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <!--th>pic1</th-->
+    <th>video</th>
+    <th>How to</th>
+    <th>How not to</th>
+    <th>Info</th>
+    <th>Type</th>
+    <th>visible</th>
+  </tr>
+
+  <% @exercises.each do |exercise| %>
+    <tr>
+      <td><%= h exercise.name %></td>
+      <td><%= h exercise.description && exercise.description[0..30] %></td>
+
+      <!--td><%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}.jpg" ,:size => "100x100") %>
+      <%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td-->
+      <td>
+        <% @video = exercise.video %>
+        <% if @video && @video.video.attached? %>
+          <%= video_tag("#{url_for(@video.video)}.mp4", :width => "300px", :controls => "false", :loop => "loop") %>
+        <% end %></td>
 
 
-<%= form_tag("/users/save_exercise", :id => "exercise_form", method: "post", remote: true) do %>
-  <div class="field">
-    Name
-    <%= text_field :exercise, :name %>
-  </div>
-  <%= submit_tag %>
-<% end %>
-<br>
-<div id="exercise_list">
+      <td><%= h exercise.how_to && exercise.how_to[0..150] %></td>
 
-  <%= render "users/exerciselist" %>
-</div>
+      <td><%= h exercise.how_not_to && exercise.how_not_to[0..150] %></td>
+      <td><%= h exercise.info && exercise.info[0..150] %></td>
+      <td><%= h exercise.exercise_type %></td>
+      <td><%= h exercise.visible %>
+        <%= link_to "Show", exercise %>
+        <%= link_to "Edit", edit_exercise_path(exercise) if is_exercise_owner_for(exercise.id) %>
+        <%= link_to "Destroy", exercise, :confirm => "Are you sure?", :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to "New exercise", new_exercise_path %>

@@ -63,10 +63,12 @@ class MainController < ApplicationController
 
   def exercise
     @name = params["name"]
+    trainingsplan_id = params["trainingsplan_id"]
     @exercise = Exercise.find_by_name(@name)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
     @a_muscles = @exercise.antagonist_muscles
+    @video = @exercise.selected_video(trainingsplan_id)
     respond_to :js
   end
 

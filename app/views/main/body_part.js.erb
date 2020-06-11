@@ -6,4 +6,4 @@ $("#exercises_text_header").html("Übungen <%=@name %>muskeln");
 //$("#muscle_selected").html("");
 
 //$("#exercise_selected").html("Alle <%#=@name %>übungen");
-$("#exercises_text").html("<%=j render partial: "main/exercises_text"%>");
+$("#exercises_text").html("<%=j render  "main/exercises_text",exercises: @exercises   %>");

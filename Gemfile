@@ -34,7 +34,7 @@ gem 'bigdecimal','1.4.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
+gem "google-cloud-storage", "~> 1.11", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

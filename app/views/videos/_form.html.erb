@@ -1,0 +1,18 @@
+<%= form_for(video, :html => {:multipart => true}) do |form| %>
+  <% if video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.label :video %>
+  <%= form.file_field :video %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
