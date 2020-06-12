@@ -13,6 +13,7 @@ function video_ended() {
             current_reps += 1;
             console.log("current_reps" + current_reps);
             $("#reps")[0].value = current_reps;
+            $("#reps_current")[0].innerHTML = current_reps;
             console.log("current_duration" + current_duration);
             if (current_reps <= max_reps) {
                 play_video();
@@ -27,6 +28,7 @@ function video_ended() {
         } else {
             current_duration += parseInt($("video")[0].duration);
             $("#duration")[0].value = current_duration;
+            $("#dur_current")[0].innerHTML = current_duration;
             console.log("current_reps" + current_reps);
             console.log("current_duration" + current_duration);
             if (current_duration <= max_duration) {
@@ -70,7 +72,7 @@ function continue_training() {
 
 function set_unit() {
     let unit_rep = $("#unit_reps")[0];
-    if (unit_rep !== undefined && unit_rep.checked) {
+    if (unit_rep !== undefined) {
         unit = "reps";
     } else {
         unit = "duration";

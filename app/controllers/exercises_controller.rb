@@ -120,7 +120,7 @@ class ExercisesController < ApplicationController
   # DELETE /exercises/1.json
   def destroy
     @exercise.visible = false
-    if is_exercise_owner && @exercise.save
+    if is_exercise_owner
 
 
       respond_to do |format|
@@ -137,6 +137,10 @@ class ExercisesController < ApplicationController
   end
 
   private
+    def is_exercise_owner
+      @current_user = current_user
+      UserToExercise.find_by_user_id_and_exercise_id(@current_user.id, params[:id]) || false
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_exercise
       @exercise = Exercise.find(params[:id])

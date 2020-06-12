@@ -300,7 +300,7 @@ table {
 }
 
 #notice {
-    border: 1px solid black;
+    border: 1px solid #ff5656;
 }
 
 #ex {
@@ -880,4 +880,8 @@ input {
     top:1px !important;
     position: relative !important;
     font-size: 15px !important;
+}
+
+div#trainingsplan_edit_exercise input[type=text] {
+    width: 30px;
 }

@@ -1,6 +1,6 @@
 class ExerciseToTrainingsplansController < ApplicationController
   before_action :set_exercise_to_trainingsplan, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_required
   # GET /exercise_to_trainingsplans
   # GET /exercise_to_trainingsplans.json
   def index

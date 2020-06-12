@@ -1,6 +1,6 @@
 class UserToExercisesController < ApplicationController
   before_action :set_user_to_exercise, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_required
   # GET /user_to_exercises
   # GET /user_to_exercises.json
   def index

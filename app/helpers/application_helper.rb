@@ -113,7 +113,7 @@ module ApplicationHelper
 
   def login_required
     unless logged_in?
-      flash[:error] = "You must first log in or sign up before accessing this page."
+      flash[:notice] = "You must first log in or sign up before accessing this page."
       store_target_location
       redirect_to login
     end
@@ -121,7 +121,7 @@ module ApplicationHelper
 
   def admin_required
     unless is_admin?
-      flash[:error] = "You must first log in as admin"
+      flash[:notice] = "You must first log in as admin"
       store_target_location
       redirect_to login
     end

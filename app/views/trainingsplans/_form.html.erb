@@ -37,9 +37,9 @@
         <%= text_field_tag("exercise[#{exercise.id}][pause]", value = ett.pause, options = {placeholder: 'pause'}) %>
         <% video = exercise.selected_video(ett.trainingsplan_id) %>
         <% if video && video.video.attached? %>
-          <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">------------</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ett.trainingsplan_id).id).html_safe, {:multiple => false} %>
+          <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ett.trainingsplan_id).id).html_safe, {:multiple => false} %>
         <% else %>
-          <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">------------</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false} %>
+          <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false} %>
         <% end %>
         <%= render "trainingsplans/video", :video => video, :width => "300" %>
 

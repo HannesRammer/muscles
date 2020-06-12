@@ -13,16 +13,13 @@ class ApplicationController < ActionController::Base
 
   def login_required
     unless logged_in?
-      flash[:error] = "You must first log in or sign up before accessing this page."
+      flash[:notice] = "You must first log in or sign up before accessing this page."
       store_target_location
       redirect_to login_url
     end
   end
 
-  def is_exercise_owner
-    @current_user = current_user
-    UserToExercise.find_by_user_id_and_exercise_id(@current_user.id, params[:id]) || false
-  end
+
 
   def is_video_owner
     @current_user = current_user
@@ -31,7 +28,7 @@ class ApplicationController < ActionController::Base
 
   def admin_required
     unless is_admin?
-      flash[:error] = "You must first log in as admin"
+      flash[:notice] = "You must first log in as admin"
       store_target_location
       redirect_to login_url
     end
@@ -39,7 +36,7 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     @current_user = current_user
-    @current_user && @current_user.admin || false
+    @current_user.email ==  "hannes.rammer@gmail.com" || @current_user.admin || false
   end
 
 

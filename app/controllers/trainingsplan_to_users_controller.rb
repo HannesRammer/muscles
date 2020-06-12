@@ -1,6 +1,6 @@
 class TrainingsplanToUsersController < ApplicationController
   before_action :set_trainingsplan_to_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_required
   # GET /trainingsplan_to_users
   # GET /trainingsplan_to_users.json
   def index

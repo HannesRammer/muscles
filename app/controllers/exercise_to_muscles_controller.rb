@@ -1,6 +1,6 @@
 class ExerciseToMusclesController < ApplicationController
   before_action :set_exercise_to_muscle, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_required
   # GET /exercise_to_muscles
   # GET /exercise_to_muscles.json
   def index

@@ -1,6 +1,6 @@
 class BodyPartsController < ApplicationController
   before_action :set_body_part, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_required
   # GET /body_parts
   # GET /body_parts.json
   def index

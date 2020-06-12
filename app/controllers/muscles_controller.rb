@@ -1,5 +1,6 @@
 class MusclesController < ApplicationController
   before_action :set_muscle, only: [:show, :edit, :update, :destroy]
+  before_action :admin_required
   # GET /muscles
   # GET /muscles.json
   def index

@@ -102,10 +102,10 @@ position: absolute;
             <%#= f.file_field :video %>
 
             <% if @video && @video.video.attached? %>
-              <%= select_tag "exercise[default_video_id]", '<option value="0">------------</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] },@exercise.selected_video(nil).id), {:multiple => false} %>
+              <%= select_tag "exercise[default_video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] },@exercise.selected_video(nil).id), {:multiple => false} %>
 
             <% else %>
-              <%= select_tag "exercise[default_video_id]", '<option value="0">------------</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }), {:multiple => false} %>
+              <%= select_tag "exercise[default_video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }), {:multiple => false} %>
             <% end %>
           </p>
         </td>
