@@ -33,8 +33,8 @@
       <td><%= h exercise.info && exercise.info[0..150] %></td>
       <td><%= h exercise.exercise_type %></td>
       <td><%= h exercise.visible %>
-      <%= link_to "Show", exercise %>
-      <%= link_to "Edit", edit_exercise_path(exercise) if is_exercise_owner_for(exercise.id) %>
+      <%= link_to "Ansehen", exercise %>
+      <%= link_to "Bearbeiten", edit_exercise_path(exercise) if is_exercise_owner_for(exercise.id) %>
       <%= link_to "Destroy", exercise, :confirm => "Are you sure?", :method => :delete %></td>
     </tr>
   <% end %>

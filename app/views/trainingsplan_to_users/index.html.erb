@@ -11,8 +11,8 @@
   <tbody>
     <% @trainingsplan_to_users.each do |trainingsplan_to_user| %>
       <tr>
-        <td><%= link_to "Show", trainingsplan_to_user %></td>
-        <td><%= link_to "Edit", edit_trainingsplan_to_user_path(trainingsplan_to_user) %></td>
+        <td><%= link_to "Ansehen", trainingsplan_to_user %></td>
+        <td><%= link_to "Bearbeiten", edit_trainingsplan_to_user_path(trainingsplan_to_user) %></td>
         <td><%= link_to "Destroy", trainingsplan_to_user, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>

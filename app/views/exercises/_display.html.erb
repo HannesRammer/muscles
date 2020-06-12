@@ -1,6 +1,6 @@
 <div id="ex">
   <%#= link_to("Schließen", :url=>{:controller=>"main", :action=>"hide_exercise"}, :remote=>true) %>
-  <%= link_to "Edit", edit_exercise_path(@exercise) %>
+  <%= link_to "Bearbeiten", edit_exercise_path(@exercise) %>
   <div id="x_title">
 
     <%= h @exercise.name %>

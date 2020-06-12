@@ -18,8 +18,8 @@
           <%#= image_tag("muskelman.svg", :class => "multi_pic") %>
 
         </td>
-        <td><%= link_to "Show", trainingsplan  %></td>
-        <td><%#= link_to "Edit", edit_trainingsplan_path(trainingsplan) %></td>
+        <td><%= link_to "Ansehen", trainingsplan  %></td>
+        <td><%#= link_to "Bearbeiten", edit_trainingsplan_path(trainingsplan) %></td>
         <td><%= link_to "Destroy", trainingsplan, method: :delete, data: { confirm: "Are you sure?" } if creator_of_trainingsplan%></td>
       </tr>
     <% end %>

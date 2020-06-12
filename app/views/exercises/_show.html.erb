@@ -1,7 +1,7 @@
 <div id="ex">
   <%#= link_to("Schließen", :url=>{:controller=>"main", :action=>"hide_exercise"}, :remote=>true) %>
   <% if is_exercise_owner_for(@exercise.id) %>
-    <%= link_to "Edit", edit_exercise_path(@exercise) %>
+    <%= link_to "Bearbeiten", edit_exercise_path(@exercise) %>
   <% end %>
 
 
