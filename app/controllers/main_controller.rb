@@ -83,6 +83,8 @@ class MainController < ApplicationController
     if tpte
       flash[:notice] = "Exercise already in your trainingslan."
       respond_to :js
+
+
     else
 
 
@@ -107,10 +109,18 @@ class MainController < ApplicationController
 
   def remove_exercise
     @ett = ExerciseToTrainingsplan.find_by_id(params[:ettp_id])
+
+
     @trainingsplan = @ett.trainingsplan
     user_id = Trainingsplan.user(@ett.id).id
+    if @current_user.id == user_id
+      flash[:notice] = "Exercise removed"
+      ExerciseToTrainingsplan.destroy(@ett.id)
 
-    ExerciseToTrainingsplan.destroy(@ett.id) if @current_user.id == user_id
+    else
+      flash[:notice] = "not your trainingsplan"
+
+    end
     respond_to :js
   end
 

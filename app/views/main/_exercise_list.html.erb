@@ -11,8 +11,7 @@ font-size: 13px;width:400px;
 
       <% exercise = ettp.exercise %>
       <% @x << "#{clean_name(exercise.name).capitalize}" %>
-      <div style="border: #cc003a 1px solid;
-          padding: 5px;">
+      <div class="exercise_border_red">
     <span class="main_exercises_text"
           title="<%= exercise.name %> anzeigen">
           <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen", :trainingsplan_id => "#{ettp.trainingsplan_id}"}, {:remote => true, :method => :post}) %>

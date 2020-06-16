@@ -1,6 +1,6 @@
 class TrainingsplansController < ApplicationController
-  before_action :set_trainingsplan, only: [ :edit, :update, :destroy]
-  before_action :login_required,except: [:index,:show, :exercise]
+  before_action :set_trainingsplan, only: [:edit, :update, :destroy]
+  before_action :login_required, except: [:index, :show, :exercise]
 
   #before_action :creator_of_trainingsplan, only:[:edit,:update,:destroy]
 
@@ -20,12 +20,12 @@ class TrainingsplansController < ApplicationController
     if @exercises.first
       @exercise = @exercises.first
       @video = @exercise.selected_video(@trainingsplan.id)
-      @ett = ExerciseToTrainingsplan.where(trainingsplan_id:@trainingsplan.id,exercise_id:@exercise.id).order("id asc").to_a.first
+      @ett = ExerciseToTrainingsplan.where(trainingsplan_id: @trainingsplan.id, exercise_id: @exercise.id).order("id asc").to_a.first
       @muscles = @exercises.first.muscles
       @muscles_selected = []
-      @p_muscles = []#@exercises.first.primary_muscles
-      @s_muscles = []#@exercises.first.secondary_muscles
-      @a_muscles = []#@exercises.first.antagonist_muscles
+      @p_muscles = [] #@exercises.first.primary_muscles
+      @s_muscles = [] #@exercises.first.secondary_muscles
+      @a_muscles = [] #@exercises.first.antagonist_muscles
     else
       @exercise = nil
       @video = nil
@@ -60,7 +60,7 @@ class TrainingsplansController < ApplicationController
     @name = params["name"]
     @exercise = Exercise.find_by_name(@name)
     trainingsplan_id = params["id"]
-    @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:trainingsplan_id,exercise_id:@exercise.id)
+    @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id, exercise_id: @exercise.id)
     @video = @exercise.selected_video(trainingsplan_id)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
@@ -108,7 +108,7 @@ class TrainingsplansController < ApplicationController
   def get_exercises
     muscle_name = "Alle"
     if params[:muscle] != "undefined"
-      muscle_name =params[:muscle]
+      muscle_name = params[:muscle]
       @muscle = Muscle.find_by_name(muscle_name)
 
       @muscle_exercises = @muscle.exercises
@@ -121,7 +121,7 @@ class TrainingsplansController < ApplicationController
   end
 
   def load_trainingsplans
-    @trainingsplans= @current_user.trainingsplans
+    @trainingsplans = @current_user.trainingsplans
     @exercise_id = params[:exercise]
     #@exerciseId = params
     respond_to :js
@@ -153,32 +153,34 @@ class TrainingsplansController < ApplicationController
     respond_to do |format|
       @trainingsplan.name = params[:trainingsplan][:name]
       @etts = @trainingsplan.exercise_to_trainingsplans.to_a
-      params["exercise"].each do |exercise|
-        ett = ExerciseToTrainingsplan.find_by(trainingsplan_id:@trainingsplan.id,exercise_id:exercise[0])
-        e_to_t_param = exercise[1]
-        changed = false
-        if ett.reps != e_to_t_param[:reps]
-          ett.reps = e_to_t_param[:reps]
-          changed = true
-        end
-        if ett.duration != e_to_t_param[:duration]
-          ett.duration = e_to_t_param[:duration]
-          changed = true
-        end
-        if ett.pause != e_to_t_param[:pause]
-          ett.pause = e_to_t_param[:pause]
-          changed = true
-        end
-        if ett.unit != e_to_t_param[:unit]
-          ett.unit = e_to_t_param[:unit]
-          changed = true
-        end
-        if ett.video_id != e_to_t_param[:video_id]
-          ett.video_id = e_to_t_param[:video_id]
-          changed = true
-        end
-        if changed
-          ett.save
+      if params["exercise"]
+        params["exercise"].each do |exercise|
+          ett = ExerciseToTrainingsplan.find_by(trainingsplan_id: @trainingsplan.id, exercise_id: exercise[0])
+          e_to_t_param = exercise[1]
+          changed = false
+          if ett.reps != e_to_t_param[:reps]
+            ett.reps = e_to_t_param[:reps]
+            changed = true
+          end
+          if ett.duration != e_to_t_param[:duration]
+            ett.duration = e_to_t_param[:duration]
+            changed = true
+          end
+          if ett.pause != e_to_t_param[:pause]
+            ett.pause = e_to_t_param[:pause]
+            changed = true
+          end
+          if ett.unit != e_to_t_param[:unit]
+            ett.unit = e_to_t_param[:unit]
+            changed = true
+          end
+          if ett.video_id != e_to_t_param[:video_id]
+            ett.video_id = e_to_t_param[:video_id]
+            changed = true
+          end
+          if changed
+            ett.save
+          end
         end
       end
       if @trainingsplan.save
@@ -207,18 +209,20 @@ class TrainingsplansController < ApplicationController
   end
 
   private
+
   def creator_of_trainingsplan
-    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id:params[:id],user_id:@current_user.id)
+    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id: params[:id], user_id: @current_user.id)
 
   end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_trainingsplan
-      @trainingsplan = Trainingsplan.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def trainingsplan_params
-      params.require(:trainingsplan).permit(:exercises)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_trainingsplan
+    @trainingsplan = Trainingsplan.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def trainingsplan_params
+    params.require(:trainingsplan).permit(:exercises)
+  end
 
 end

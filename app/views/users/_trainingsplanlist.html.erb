@@ -1,25 +1,22 @@
+<% @trainingsplans.each do |trainingsplan| %>
+  <div class="trainingsplan_item">
+    <span class="trainingsplan_name"><%= trainingsplan.name %></span>
+    <div style="position: relative;height: 470px;margin: 15px;">
+      <%= image_tag("muskelman.svg", :class => "multi_pic_ini") %>
+      <% trainingsplan.exercises.each_with_index do |exercise, i| %>
 
+        <%= user_muscle_pics_trainingsplan_list(exercise.primary_muscles, "", 5) %>
+        <%= user_muscle_pics_trainingsplan_list(exercise.secondary_muscles, "", 2) %>
+      <% end %>
+      <br>
 
-
-  <% @trainingsplans.each do |trainingsplan| %>
-<div class="trainingsplan_item">
-  <%= trainingsplan.name %>
-  <div style="position: relative;height: 470px;">
-    <%#= image_tag("muskelman.png", :class => "multi_pic_ini") %>
-    <% trainingsplan.exercises.each_with_index do |exercise, i| %>
-
-      <%= user_muscle_pics_trainingsplan_list(exercise.primary_muscles, "", 5) %>
-      <%= user_muscle_pics_trainingsplan_list(exercise.secondary_muscles, "", 2) %>
-    <% end %>
-    <br>
-
+    </div>
+    <div id="navilinks">
+      <%= link_to "Ansehen", trainingsplan %>
+      <%#= link_to "Bearbeiten", edit_trainingsplan_path(trainingsplan) %>
+      <%#= link_to "Destroy", trainingsplan, method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
   </div>
-  <div id="navilinks">
-  <%= link_to "Ansehen", trainingsplan %>
-  <%#= link_to "Bearbeiten", edit_trainingsplan_path(trainingsplan) %>
-  <%#= link_to "Destroy", trainingsplan, method: :delete, data: { confirm: "Are you sure?" } %>
-  </div>
-</div>
 
-  <% end %>
+<% end %>
 

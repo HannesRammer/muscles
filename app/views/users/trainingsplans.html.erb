@@ -1,4 +1,4 @@
-<h1>New Trainingsplan</h1>
+<h1>Neuer Trainingsplan</h1>
 
 
 <%= form_tag("/users/save_trainingsplan", :id => "trainingsplan_form", method: "post", remote: true) do %>
@@ -6,7 +6,7 @@
     Name
     <%= text_field :trainingsplan, :name %>
   </div>
-  <%= submit_tag %>
+  <%= submit_tag "Erstellen"%>
 <% end %>
 <br>
 <strong>Deine Traingspläne:</strong>

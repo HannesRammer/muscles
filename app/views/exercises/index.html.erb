@@ -15,7 +15,7 @@
 
   <% @exercises.each do |exercise| %>
     <tr>
-      <td><%= h exercise.name %></td>
+      <td class="exercise_name"><%= h exercise.name %></td>
       <td><%= h exercise.description && exercise.description[0..30] %></td>
 
       <!--td><%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}.jpg" ,:size => "100x100") %>

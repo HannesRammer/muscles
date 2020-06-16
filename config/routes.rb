@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get 'logout', to: 'sessions#destroy', as: :logout
   get 'login', to: 'sessions#new', as: :login
-  get 'start', to: 'main#index', as: :start
+  #get 'start', to: 'main#index', as: :start
   get 'sign_up', to: 'users#new', as: :sign_up
 
   get 'backend', to: 'backend#index', as: :backend
@@ -54,9 +54,10 @@ Rails.application.routes.draw do
   get 'main/impressum', to:'main#impressum', as: :impressum
 
   get 'main/index', to:'main#index', as: :index
+  get 'start', to:'start#index', as: :start
 
-  #root 'main#index'
-  root 'start#index'
+  root 'main#index'
+  #root 'start#index'
 
 
   resources :exercises

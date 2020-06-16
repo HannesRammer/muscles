@@ -1,21 +1,21 @@
-<h1>Listing exercises</h1>
+<h1>Deine Übungen</h1>
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Description</th>
+    <th>Beschreibung</th>
     <!--th>pic1</th-->
-    <th>video</th>
-    <th>How to</th>
-    <th>How not to</th>
+    <th>Video</th>
+    <th>Was tun</th>
+    <th>Was nicht tun</th>
     <th>Info</th>
     <th>Type</th>
-    <th>visible</th>
+    <th>Sichtbar</th>
   </tr>
 
   <% @exercises.each do |exercise| %>
     <tr>
-      <td><%= h exercise.name %></td>
+      <td  class="exercise_name"><%= h exercise.name %></td>
       <td><%= h exercise.description && exercise.description[0..30] %></td>
 
       <!--td><%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}.jpg" ,:size => "100x100") %>

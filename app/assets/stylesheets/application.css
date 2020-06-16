@@ -16,8 +16,16 @@
 
 @import "scaffold.css";
 
-body {
+:root {
+    --red-color: #d44b78;
+    --blue-color: #64c6ef;
+    --yellow-color: #cbc351;
+    --green-color: #2cab85;
+    --light-green-color: #b0eae0;
+}
 
+body {
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
 }
 
 .nav {
@@ -69,21 +77,24 @@ img {
 }
 
 #muscle_text_hover {
-    border: 1px solid rgba(153, 153, 255, 0.5);
+    border: 1px solid var(--green-color);
+    /*border: 1px solid var(--blue-color);*/
 }
 
 #body_part_text_selected {
-    border: 1px solid rgba(255, 255, 104, 0.5);
+    border: 1px solid var(--yellow-color);
 
 }
 
 #trainingsplan_text_selected {
-    border: 1px solid rgba(153, 255, 153, 0.5);
+    /*border: 1px solid var(--green-color);*/
+ /*   border: 1px solid var(--blue-color);*/
 
 }
 
 #exercise_text_selected {
-    border: 1px solid rgba(255, 153, 153, 0.5);
+    /*border: 1px solid rgba(255, 153, 153, 0.5);*/
+    border: 1px solid var(--red-color);
 
 }
 
@@ -94,12 +105,13 @@ a {
 }
 
 a:hover {
-    color: #0066ff;
+    color: var(--green-color) !important;
+    /*color: var(--blue-color);*/
     text-decoration: none;
 }
 
 a:active {
-    color: #fbd302;
+    color: var(--yellow-color);
 }
 
 .bild1 {
@@ -119,8 +131,8 @@ h3 {
     padding-top: 0 !important;
     margin-bottom: 5px;
     border-bottom: 1px solid #7d5c5c;
-    color: #ff8d97;
-    font-size: 15px;
+    color: var(--red-color);
+    font-size: 12px;
 }
 
 .multi_pic, #hover {
@@ -316,7 +328,7 @@ table {
 
 #x_title {
     font-family: monospace;
-    border: 1px solid #FFAAAA;
+    border: 1px solid var(--red-color);
 
 }
 
@@ -325,34 +337,30 @@ table {
     position: relative;
 
     padding: 1px 20px 20px 20px;
-    box-shadow: 8px 10px 26px rgba(151, 151, 255, 0.4) inset;
-    -moz-box-shadow: 8px 10px 26px rgba(151, 151, 255, 0.4) inset;
-    -webkit-box-shadow: 8px 10px 26px rgba(151, 151, 255, 0.4) inset;
+    box-shadow: 8px 10px 26px var(--blue-color) inset;
+    -moz-box-shadow: 8px 10px 26px var(--blue-color) inset;
+    -webkit-box-shadow: 8px 10px 26px var(--blue-color) inset;
 }
 
 #x_how_to {
     font-family: monospace;
     padding: 1px 20px 20px 20px;
-    box-shadow: 8px 10px 26px rgba(151, 255, 151, 0.4) inset;
-    -moz-box-shadow: 8px 10px 26px rgba(151, 255, 151, 0.4) inset;
-    -webkit-box-shadow: 8px 10px 26px rgba(151, 255, 151, 0.4) inset;
+    box-shadow: 8px 10px 26px var(--green-color) inset;
+    -moz-box-shadow: 8px 10px 26px var(--green-color) inset;
+    -webkit-box-shadow: 8px 10px 26px var(--green-color) inset;
 }
 
 #x_how_not_to {
     font-family: monospace;
     padding: 1px 20px 20px;
 
-    box-shadow: 8px 10px 26px rgba(255, 151, 151, 0.4) inset;
-    -moz-box-shadow: 8px 10px 26px rgba(255, 151, 151, 0.4) inset;
-    -webkit-box-shadow: 8px 10px 26px rgba(255, 151, 151, 0.4) inset;
+    box-shadow: 8px 10px 26px var(--red-color) inset;
 }
 
 #x_info {
     font-family: monospace;
     padding: 1px 20px 20px;
-    box-shadow: 8px 10px 26px rgba(151, 151, 0, 0.4) inset;
-    -moz-box-shadow: 8px 10px 26px rgba(151, 151, 0, 0.4) inset;
-    -webkit-box-shadow: 8px 10px 26px rgba(151, 151, 0, 0.4) inset;
+    box-shadow: 8px 10px 26px var(--yellow-color) inset;
 }
 
 #x_exercise_type {
@@ -360,8 +368,8 @@ table {
 }
 
 .open_exercise {
-    background-color: rgba(255, 153, 153, 0.5);
-    border: 1px solid #FFFFFF;
+    background-color: var(--red-color);
+    /*border: 1px solid #FFFFFF;*/
     float: right;
     height: 200px;
     overflow: hidden;
@@ -374,7 +382,7 @@ table {
 }
 
 .close_exercise {
-    background-color: rgba(255, 153, 153, 0.8);
+    background-color: var(--red-color);
     border-top: 1px solid #FFFFFF;
     border-left: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
@@ -391,8 +399,10 @@ table {
 }
 
 .open_training {
-    background-color: rgba(153, 255, 153, 0.5);
-    border: 1px solid #FFFFFF;
+    background-color: var(--blue-color);
+    /*background-color: var(--green-color);*/
+    color:#fff;
+   /* border: 1px solid #ffffff;*/
     height: 20px;
     overflow: hidden;
     position: absolute;
@@ -404,7 +414,8 @@ table {
 }
 
 .close_training {
-    background-color: rgba(153, 255, 153, 0.5);
+    background-color: var(--blue-color);
+    /*background-color: var(--green-color);*/
     border-top: 1px solid #FFFFFF;
     border-left: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
@@ -547,63 +558,52 @@ li {
     word-wrap: break-word;
 }
 
-.rgb_shadow {
-    color: rgb(254, 255, 255);
-    text-shadow: 0 6px 4px rgb(51, 51, 255), -5px -3px 4px rgb(255, 0, 0), 5px -3px 4px rgb(0, 255, 0);
-}
-
-.fire {
-
-    color: rgb(50, 50, 50);
-    text-shadow: 0 -1px 2px rgb(255, 255, 0), 0 -3px 3px rgb(255, 204, 0), 0 -5px 4px rgb(255, 153, 0), -2px -7px 5px rgb(255, 102, 0), 4px -9px 6px rgb(255, 51, 0), -3px -11px 7px rgb(255, 0, 0);
-}
-
 .red_glow {
-    text-shadow: 0 0 24px #C00, 0 0 4px #C00, 1px 1px 2px #333;
+    text-shadow: 0 0 24px var(--red-color), 0 0 4px var(--red-color), 1px 1px 2px #333;
 }
 
 .green_glow {
-    text-shadow: 0 0 24px #0C0, 0 0 4px #0C0, 1px 1px 2px #333;
+    text-shadow: 0 0 24px var(--green-color), 0 0 4px var(--green-color), 1px 1px 2px #333;
 }
 
 .yellow_glow {
-    text-shadow: 0 0 24px #Cc0, 0 0 4px #cC0, 1px 1px 2px #333;
+    text-shadow: 0 0 24px var(--yellow-color), 0 0 4px var(--yellow-color), 1px 1px 2px #333;
 }
 
 .blue_glow {
-    text-shadow: 0 0 24px #00C, 0 0 4px #00C, 1px 1px 2px #333;
+    text-shadow: 0 0 24px var(--blue-color), 0 0 4px var(--blue-color), 1px 1px 2px #333;
 }
 
 .red_shadow {
-    text-shadow: 0 3px 11px #f00;
+    text-shadow: 0 3px 11px var(--red-color);
 }
 
 .green_shadow {
-    text-shadow: 0 3px 11px #0f0;
+    text-shadow: 0 3px 11px var(--green-color);
 }
 
 .yellow_shadow {
-    text-shadow: 0 3px 11px #ff0;
+    text-shadow: 0 3px 11px var(--yellow-color);
 }
 
 .blue_shadow {
-    text-shadow: 0 3px 11px #00f;
+    text-shadow: 0 3px 11px var(--blue-color);
 }
 
 .red_glow_for_same_color_text {
-    text-shadow: 0 0 11px #F00;
+    text-shadow: 0 0 11px var(--red-color);
 }
 
 .green_glow_for_same_color_text {
-    text-shadow: 0 0 11px #0F0;
+    text-shadow: 0 0 11px var(--green-color);
 }
 
 .yellow_glow_for_same_color_text {
-    text-shadow: 0 0 11px #FF0;
+    text-shadow: 0 0 11px var(--yellow-color);
 }
 
 .blue_glow_for_same_color_text {
-    text-shadow: 0 0 11px #00F;
+    text-shadow: 0 0 11px var(--blue-color);
 }
 
 div {
@@ -627,7 +627,7 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-    color: red;
+  /*  color: var(--red-color) !important;*/
 }
 
 
@@ -650,7 +650,7 @@ pre {
 
 
 a {
-    color: #fff;
+    color: var(--light-green-color) !important;
     text-shadow: 1px 1px 1px black,
     1px -1px 1px black,
     -1px 1px 1px black,
@@ -659,16 +659,19 @@ a {
 
 
 #navilinks a:visited {
-    color: #fff;
+    color: var(--light-green-color);
+}
+#navilinks {
+    font-size: 19px;
 }
 
 
 a:hover {
-    color: #ff724b !important;
+   /* color: var(--yellow-color) !important;*/
 }
 
 a:hover {
-    color: #fff;
+    color: var(--green-color) !important;
     text-shadow: 1px 1px 1px black,
     1px -1px 1px black,
     -1px 1px 1px black,
@@ -740,21 +743,21 @@ div#trainings_exercises_text {
     position: absolute;
     top: -10px;
     left: 8px;
-    color: red;
+    color: var(--red-color);
 }
 
 .move_exercise_up {
     position: absolute;
     top: 0;
     left: 225px;
-    color: #2646e6;
+    color: var(--yellow-color);
 }
 
 .move_exercise_down {
     position: absolute;
     top: 55px;
     left: 225px;
-    color: #2646e6;
+    color: var(--yellow-color);
 }
 
 span.trainingsplans_exercises_text {
@@ -771,19 +774,20 @@ span.trainingsplans_exercises_text.active_exercise {
     position: relative;
 
     font-weight: bold;
-    border: 2px solid red;
+    border: 2px solid var(--red-color);
 }
 
 .trainingsplan_item {
-    width: 500px;
+    width: 730px;
     float: left;
-    border: 2px solid darkgray;
-
+    border: 2px solid #5f5c5c;
     padding: 5px;
     box-sizing: border-box;
     transform: scale(0.7);
     position: relative;
-    margin: -70px;
+    margin-top: -77px;
+    margin-left: -105px;
+    margin-bottom: -77px;
 }
 
 .exercise_selection_link {
@@ -809,7 +813,7 @@ input {
 #trainingsplans_exercise_video_show {
     position: absolute;
     top: -65px;
-    left: 590px;
+    left: 640px;
 }
 
 #exercise_video_show {
@@ -831,11 +835,11 @@ input {
     position: absolute;
     left: 480px;
     top: 90px;
-    width: 85px;
+    width: 145px;
 }
 
 #reps, #duration, #pause {
-    width: 85px;
+    width: 100%;
 }
 
 #exercises_show {
@@ -872,7 +876,7 @@ input {
 
     display: table;
     width: 900px;
-    border: 1px solid green;
+    border: 1px solid var(--green-color);;
     padding: 30px;
     margin: 40px;
 }
@@ -884,4 +888,19 @@ input {
 
 div#trainingsplan_edit_exercise input[type=text] {
     width: 30px;
+}
+.exercise_border_red{
+    border: var(--red-color) 1px solid;
+    padding: 5px;
+}
+
+.trainingsplan_name{
+    color: var(--blue-color);
+    font-size: 20px;
+    padding: 5px;
+}
+.exercise_name{
+    color: var(--red-color);
+    font-size: 19px;
+    padding: 5px;
 }
