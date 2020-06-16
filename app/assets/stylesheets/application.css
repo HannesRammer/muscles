@@ -778,7 +778,7 @@ span.trainingsplans_exercises_text.active_exercise {
 }
 
 .trainingsplan_item {
-    width: 730px;
+    width: 800px;
     float: left;
     border: 2px solid #5f5c5c;
     padding: 5px;
@@ -786,10 +786,10 @@ span.trainingsplans_exercises_text.active_exercise {
     transform: scale(0.7);
     position: relative;
     margin-top: -77px;
-    margin-left: -105px;
+    margin-left: -230px;
     margin-bottom: -77px;
+    left: 130px;
 }
-
 .exercise_selection_link {
     position: absolute;
     width: 210px;
