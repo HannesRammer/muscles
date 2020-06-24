@@ -1,0 +1,10 @@
+de:
+  layouts:
+    navi:
+      start: "Start"
+      advanced_search: "Erweiterte Suche"
+      all_trainingsplans: "Alle Trainingspläne"
+      my_trainingsplans: "Eigene Trainingspläne"
+      all_exerccises: "Alle Übungen"
+      my_exercises: "Meine Übungen"
+      my_videos: "Meine Videos"

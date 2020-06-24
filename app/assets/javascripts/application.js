@@ -35,12 +35,14 @@ function toggleTraining() {
         let a= $(".hidden_training");
         a.toggleClass("hidden_training");
         a.toggleClass("show_training");
-        document.querySelector("#open_training").innerHTML = "Verstecke Trainingsplan";
+        $(document.querySelector("#open_training")).hide();
+        $(document.querySelector("#close_training")).show();
     } else if (document.querySelector(".show_training")) {
         let a= $(".show_training");
         a.toggleClass("hidden_training");
         a.toggleClass("show_training");
-        document.querySelector("#open_training").innerHTML = "Zeige Trainingsplan";
+        $(document.querySelector("#open_training")).show();
+        $(document.querySelector("#close_training")).hide();
     }
 }
 

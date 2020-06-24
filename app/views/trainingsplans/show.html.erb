@@ -56,7 +56,7 @@
 
 
   <div style="position: relative;top: -155px;">
-    <%= link_to "Bearbeiten", edit_trainingsplan_path(@trainingsplan) if creator_of_trainingsplan %> |
-    <%= link_to "Zurück", user_trainingsplans_path %>
+    <%= link_to t('edit'), edit_trainingsplan_path(@trainingsplan) if creator_of_trainingsplan %> |
+    <%= link_to t('back'), user_trainingsplans_path %>
   </div>
 </div>

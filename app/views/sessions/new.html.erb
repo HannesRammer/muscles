@@ -1,6 +1,6 @@
 <% "Log in" %>
 
-<p>Don't have an account? <%= link_to "Sign up!", sign_up_path %></p>
+<p>Don't have an account? <%= link_to t('signup'), sign_up_path %></p>
 
 <%= form_tag sessions_path do |form|%>
   <p>
@@ -11,5 +11,5 @@
     <%= label_tag :password %><br />
     <%= password_field_tag :password %>
   </p>
-  <p><%= submit_tag "Log in" %></p>
+  <p><%= submit_tag t('login') %></p>
 <% end %>

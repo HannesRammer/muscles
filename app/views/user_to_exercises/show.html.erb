@@ -9,5 +9,5 @@
   <%= @user_to_exercise.exercise_id %>
 </p>
 
-<%= link_to "Bearbeiten", edit_user_to_exercise_path(@user_to_exercise) %> |
-<%= link_to "Zurück", user_to_exercises_path %>
+<%= link_to t('edit'), edit_user_to_exercise_path(@user_to_exercise) %> |
+<%= link_to t('back'), user_to_exercises_path %>

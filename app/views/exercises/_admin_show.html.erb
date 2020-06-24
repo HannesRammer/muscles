@@ -29,5 +29,5 @@
 <%= image_tag("exercises/#{clean_name(@exercise.name)}.jpg" ,:size => "100x100") %>
 <%= image_tag("exercises/#{clean_name(@exercise.name)}1.jpg" ,:size => "100x100") %>
 
-<%= link_to "Bearbeiten", edit_exercise_path(@exercise) %> |
-<%= link_to "Zurück", exercises_path %>
+<%= link_to t('edit'), edit_exercise_path(@exercise) %> |
+<%= link_to t('back'), exercises_path %>

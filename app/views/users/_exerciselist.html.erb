@@ -1,5 +1,5 @@
 
-  <strong>Deine Übungen:</strong>
+  <strong><%= t("users.exerciselist.header") %></strong>
 
   <table>
   <% @exercises.each do |exercise| %>
@@ -11,8 +11,8 @@
       </div></td>
 
 
-    <td><%= link_to "Ansehen", exercise %> |
-      <%= link_to "Bearbeiten", edit_exercise_path(exercise) %> |
+    <td><%= link_to t('view'), exercise %> |
+      <%= link_to t('edit'), edit_exercise_path(exercise) %> |
       <%#= link_to "Destroy", exercise, method: :delete, data: { confirm: "Are you sure?" } %>
     </td>
   </tr>

@@ -2,5 +2,5 @@
 
 <%= render "form", user_to_exercise: @user_to_exercise %>
 
-<%= link_to "Ansehen", @user_to_exercise %> |
-<%= link_to "Zurück", user_to_exercises_path %>
+<%= link_to t('view'), @user_to_exercise %> |
+<%= link_to t('back'), user_to_exercises_path %>

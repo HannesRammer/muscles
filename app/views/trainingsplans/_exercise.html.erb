@@ -1,13 +1,13 @@
 
   <div id="exercises_text_header" class="nice_inner_tab_js_hover"
        onclick="toggleClass(this,'nice_inner_tab_js_hover','nice_inner_tab')">
-    Alle Übungen des Trainingsplans
+    <%= t("allTrainingsplanExercises") %>
   </div>
   <div id="trainings_exercises_text">
     <%= render "trainingsplans/exercises_text" %>
   </div>
   <div id="exercise_text_selected_div">
-    Ausgewählte Übung
+    <%= t("selectedExercise") %>
     <div id="exercise_text_selected">
       <br/>
     </div>

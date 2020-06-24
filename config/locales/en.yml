@@ -30,4 +30,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  view: 'View'
+  add: 'Add'
+  edit: 'Edit'
+  update: 'Update'
+  delete: 'Delete'
+  logout: 'log out'
+  login: 'log in'
+  signup: 'sign up'
+  back: 'Back'
+  selectedExercise: 'Selected exercise'
+  allTrainingsplanExercises: 'All trainingsplan exercises'
+  allMuscleExercises: 'All muscle exercises'

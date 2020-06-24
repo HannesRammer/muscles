@@ -1,0 +1,6 @@
+en:
+  main:
+    index:
+      howTo: 'Click on a muscle in the piture to display exercises for the muscle.'
+      hidePlan: 'Hide Trainingsplan'
+      showPlan: 'Show Trainingsplan'

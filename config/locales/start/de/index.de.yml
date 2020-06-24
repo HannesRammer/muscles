@@ -1,0 +1,16 @@
+de:
+  start:
+    index:
+      title: 'Herzlich Willkommen bei InstaFit'
+      question: 'Was möchtest Du machen?'
+      startTraining: 'Trainingsplan auswählen und Training starten'
+      createAndShare: 'Eigene Trainingspläne erstellen und diese mit Freunden teilen'
+      loginToCreateAndShare: 'Einloggen um eigene Trainingspläne zu erstellen und diese mit Freunden zu teilen'
+      searchMuscleExercise: 'Suche Muskelspezifische Übungen '
+      optimizePlan: ' und optimiere deine Trainingspläne'
+      loginToOptimizePlan: 'Bitte einloggen um deine Trainingspläne zu optimieren'
+      allExercises: 'Alle Übungen'
+      ownExercises: 'Eigene Übungen'
+      loginForOwnExercises: 'Einloggen um Übungen zu erstellen'
+      ownVideos: 'Eigene Videos'
+      loginForOwnVideos: 'Einloggen um eigene Videos zu verwalten'

@@ -1,0 +1,11 @@
+en:
+  layouts:
+    navi:
+      start: "Start"
+      advanced_search: "Advanced Search"
+      all_trainingsplans: "All trainingsplans"
+      my_trainingsplans: "My trainingsplans"
+      all_exerccises: "All exercises"
+      my_exercises: "My exercises"
+      my_videos: "My Videos"
+

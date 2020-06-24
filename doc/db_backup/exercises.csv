@@ -1,4 +1,4 @@
-"id";"name";"image1";"description";"image2";"main_description";"how_to";"how_not_to";"info";"exercise_type";"visible"
+"id";"name";"image1";"description";"image2";"main_description";"how_to";"how_not_to";"info";"exercise_type";"visible";"default_video_id"
 1;"Bankdrücken";"";"Dies ist eine schwere und schlichte Grund?bung, auch wenn sie starke Konzentration und im Allgemeinen auch Hilfestellung
 edordert. lst die Bank hoch, empfiehlt es sich, die F??e auf eine Stufe zu stellen, um den Lendenbereich
 nicht ?berm??ig zu beugen, wobei das Wichtigste jedoch ist, Stabilit?t zu erreichen. Nur wenn kein Partner da ist,
@@ -25,7 +25,7 @@ fest aufgestützt
 - Durchstrecken der Ellbogen 
 - Bewegungen der Füße, des Rückens, des Kopfes";"Eln st?rkerer Tonus der vorderen 0berk?rpermuskeln im Vergleich zu den hinteren f?hrt in der Regel zu einer gekr?mmten Haltung
 (neben weiteren Problemen). Dies bedeutet, dass nicht nur eine laterale Symmetrie, sondern auch eine Symmetrie zwischen
-der vorderen und der hinteren Seite einzuhalten ist.";"free";1
+der vorderen und der hinteren Seite einzuhalten ist.";"free";1;10
 2;"Schrägbankdrücken";"";"Der Neigungswinkel der Bank kann auf 60 oder 70 erh?ht werden. Dadurch wird der obere Bereich des gro?en
 Brustmuskels noch st?rker beansprucht, daf?r geht jedoch ein gro?er Teil der Belastung auf die Schultern ?ber.
 Dieser Bereich der Brust darJ nicht vernachl?ssigt werden (obwohl der gesamte Bereich arbeitet), denn er entwickelt
@@ -49,7 +49,7 @@ Durchbiegen des R?ckens, Abfedern der Stange auf der Brust und
 Durchstrecken der Ellbogen in der oberen Position.";"Bewegungen des Handgelenks unter Last k?nnen die kleinen Knochen und Muskeln desselben sch?digen
 und sogar manche Muskeln des Unterarms. Ein Griff, bei dem der Daumen den ?brigen Fingern
 gegen?berliegt (Umschlie?en der Stange) erm?glicht einen sichereren und vor allem nat?rlicheren
-Griff bei jeder Art des Bankdr?ckens.";"free";0
+Griff bei jeder Art des Bankdr?ckens.";"free";0;0
 3;"Bankdrücken auf der Negativbank";"";"Diese ung?nstige Ubung wird nicht mehr praktiziert (bzw. sollte nicht mehr praktiziert werden), da sie einen Bereich
 des Brustmuskels beansprucht - den unteren -, der sich bereits durch die herk?mmlichen ?bungen gut entwickelt,
 Abgesehen davon sind k?rperliche Belastungen nicht zu empfehlen, beidenen der Kopf tiefer liegt als das Herz, zumindest
@@ -70,7 +70,7 @@ nach oben dr?cken, Die Unterarme m?ssen sich senkrecht zum Boden bewegen
 F?llen, vom K?rper gel?st sein. Beim Hochdr?cken der Langhantel
 ausatmen.";"starke Negativneigung der Bank, zu vielGewicht und ?berm??iges
 Ausf?hren dieser ?bung.";"Fr?her oder sp?ter muss sich jeder Kraftsportler gewisse Kenntnisse der Anatomie und der Physiologie aneignen, Ansonsten wird er nie wissen,
-ob er das Richtige tut.";"free";0
+ob er das Richtige tut.";"free";0;0
 4;"Kurzhanteldrücken";"";"Wie bei anderen Ubungen erm?glichen die Kurzhanteln eine l?ngere Bewegungsstrecke. Der gr??te Nachteil besteht
 in der Handhabung der Last zu Beginn und am Ende des Satzes, weshalb bei schweren ?bungen die Hilfestellung
 durch einen Partner empfohlen wird. Wir k?nnen mit den Kurzhanteln ?ber den Knien beginnen und uns mit gebeugten
@@ -91,7 +91,7 @@ einatmen, Absenken bis auf die H?he des Brustmuskels (je nach
 Beweglichkeit) und wieder senkrecht zur Mitte heben. Die Ellbogen bleiben
 senkrecht zum K?rper (auseinander), W?hrend der Aufw?rtsbewegung ausatmen.";"zu tiefes Absenken des Gewichts, falsches Aufnehmen und
 Ablegen des Gewichts zu Beginn und am Ende des Satzes und Zusammensto?en
-der Kurzhanteln am obersten Punkt.";"";"free";1
+der Kurzhanteln am obersten Punkt.";"";"free";1;8
 5;"Fliegende Bewegung mit Kurzhanteln";"";"Theoretisch tr?gt diese Ubung zurWeitung des Brustkorbs bei, insbesondere bei Menschen im Wachstumsalter, denn
 sp?ter werden weniger Fortschritte erreicht, trotz Hinweisen, dass die Rippenknorpel verl?ngert werden k?nnten (slehe
 ?bung 5, R?ckenmuskel). Tats?chlich ist diese ?bung beinahe identisch mit dem Bankdr?cken (siehe ?bung 4), zumindest
@@ -116,7 +116,7 @@ Gelenke, Umleiten der Belastung auf die Deltamuskeln und falsche Atmung,";"Viele
 liegt daran, dass bei der Grund?bung der fliegenden Bewegung (der einzigen, die diese Bezeichnung
 verdient) nicht mit so viel Gewicht gearbeitet werden kann. Bei der Wahl einer Bewegung, die
 diesen Muskel intensiv beansprucht, ist das Bankdr?cken (sei es mit der Langhantel oder mit Kurzhanteln)
-der fliegenden Bewegung mit Kurzhanteln ?berlegen.";"free";1
+der fliegenden Bewegung mit Kurzhanteln ?berlegen.";"free";1;8
 6;"Liegestütz auf dem Boden";"";"Diese Ubung ?hnelt dem Bankdr?cken, nutzt aber das Eigengewicht des K?rpers. Bei Schmerzen in den Handgelenken
 k?nnen die F?uste aufgest?tztwerden, ohne die Belastung der Muskeln zu ver?ndern. Eine Steigerung von leicht
 zuanspruchsvollkannsoerfolgen: l.anderWand,dieF??eingeringemAbstandzurWand,2.anderWand,dieF??
@@ -135,7 +135,7 @@ Bei Bewegungen mit hoher Spannung und/oder Bewegungsstrecke f?r den Brustmuskel 
 insbesondere an seinem Ansatz am Oberarmknochen, Zu dieser Verletzung kommt es in der Regel dann, wenn versucht
 wird, ein zu hohes Gewicht zu heben oderwenn der Muskel unter Belastung zu weit gestreckt wird. Bei einer leichten Zerrung reichi
 es in der Regel aus, auszuruhen und zu k?hlen, doch in vielen F?llen ist eine ?rztliche Behandlung notwendig.
-ln ersterem Fall muss mindestens eine Woche lang absolute Ruhe gewahrt werden, in letzterem Fall kann es sogar zwei oder drei Monate andauern.";"free";1
+ln ersterem Fall muss mindestens eine Woche lang absolute Ruhe gewahrt werden, in letzterem Fall kann es sogar zwei oder drei Monate andauern.";"free";1;0
 7;"Oberkörperheben am Barren";"";"Diese ?bung stellt eine ausgezeichnete Alternative zum Bankdr?cken auf der Negativbank dar, erfordertjedoch ein
 gewisses Vla? an Kraft, weswegen sie f?r Anf?nger nicht zu empfehlen ist, Zwar werden Trizeps und Deltamuskel
 stark beansprucht, doch die Hauptbeanspruchung sollte auf den Brustmuskel gerichtet sein, damit wir merken, wie
@@ -152,7 +152,7 @@ des Absenkens werden die Ellbogen vom Oberk?rper entfernt. Unten
 angekommen, erfolgt bei Ausatmung eine erneute Aufw?rtsbewegung,";"kurze Bewegungsstrecke, ?berm??ige Belastung des Trizeps, zu
 viel Zusatzgewicht, falls ein solcher bei der ?bung venryendet wird, falsche Oberk?rperhaltung
 bei der Bewegung und hohe Geschwindigkeit.";"Proteine sind die ,,Bausteine der Muskeln. Zu den besten nat?rlichen Proteinquellen z?hlen Eier, Fisch und Fleisch. Zu den pflanzlichen
-Quellen geh?rt insbesondere Soja.";"free";0
+Quellen geh?rt insbesondere Soja.";"free";0;0
 8;"Überzüge mit der Kurzhantel";"";"Diese ?bung ist f?r ge?bte Sportler geeignet. Neben dem Brustmuskel beansprucht sie auch den R?ckenmuskel und
 die angrenzenden Muskeln stark. Sie galt fr?her und in der Theorie als ?bung zur ,,Weitung des Brustkorbs (siehe
 ?bung 5, R?ckenmuskel) und zur Verbesserung der Dehnbarkeit der Brustmuskeln, Daf?r ist es wichtig, tief einzuatmen.
@@ -170,7 +170,7 @@ Die Bewegung erlolgt bis senkrecht ?ber die Augen, w?hrend der Brustmuskel
 kontrahiert, W?hrend der Aufw?rtsbewegung ausatmen.";"zu vielGewicht, falsche Atmung, zu lange oder zu kurze Bewegungsstrecke
 und Beugen des Ellbogens (Trizeps).";"Die mentale Konzentration auf den beanspruchten Muskel spielt eine gro?e Rolle bei der Ausf?hrung der Bewegungen im Krafttraining.
 Dies dient nicht nur der Vermeidung von Unf?llen, sondern auch der ausreichenden Reizung des Bereichs, der beansprucht werden
-soll. Anderenfalls k?nnte der Muskel, der trainiert werden soll, auf die ein oder andere Weise durch andere lvluskeln ersetzt werden.";"free";1
+soll. Anderenfalls k?nnte der Muskel, der trainiert werden soll, auf die ein oder andere Weise durch andere lvluskeln ersetzt werden.";"free";1;0
 9;"Drehung mit der Kurzhantel";"";"Die Ubung soll so aussehen wie ,,R?ckenschwimmen (unter Ausnutzung der drei Freiheitsgrade der Schulter), wobei
 jedoch nicht dieselben Muskelgruppen in derselben Weise beansprucht werden wie beijenem Sport. Diese ?bung zielt
 nicht direkt auf Volumen ab, sondern auf Beweglichkeit, und muss mit geringem Gewicht ausgef?hrt werden, Neben
@@ -182,7 +182,7 @@ uns, Mit halb gebeugten Ellbogen wird das Gewicht langsam ?ber und hinter den Ko
 Kopfes erreicht, werden die Arme in einer Adduktion kreuzf?rmig ge?ffnet, um sie in Richtung K?rperseite zu
 f?hren. Von dieser Position aus werden sie bis zur?ck zur Ausgangsposition nach vorne und nach oben gehoben
 (Schulterbeugung). Die gesamte Bewegung muss langsam und kontrolliert erfolgen, Die Einatmung erfolgt
-bei der Abw?rtsbewegung, so wie bei den ?berz?gen, die Ausatmung am Ende der Bewegungsstrecke,";"zu viel Gewicht, ?berm??ige Drehung (Zirkumduktion) der Schulter,";"";"free";0
+bei der Abw?rtsbewegung, so wie bei den ?berz?gen, die Ausatmung am Ende der Bewegungsstrecke,";"zu viel Gewicht, ?berm??ige Drehung (Zirkumduktion) der Schulter,";"";"free";0;0
 10;"Rollende Liegestützen mit Kurzhanteln";"";"Diese ?bung wird nicht oft ausgef?hrt, da sie Kraft und Koordination erfordert, Sie eignet sich nicht f?r Anf?nger und
 l?sst sich in jedem Fall leicht durch andere, wirkungsvollere ?bungen ersetzen. Manche Kurzhanteln lassen sich nicht
 so rollen wie oben erkl?rt, doch zu diesem Zweck gibt es Gleltschienen. Eine weitere M?glichkeit w?re es, die Kurzhanteln
@@ -195,7 +195,7 @@ Intensit?t bei der Ausf?hrung der ?bung zu erreichen.";"";"";"Die Haltung entspr
 und halb gebeugten Ellbogen. Durch das Rollen der Kurzhanteln nach au?en werden die Arme gleichzeitig
 ge?ffnet, ?hnlich wie bei den ,,Fliegenden Bewegungen. Anhalten der Bewegung und Kontraktion des
 Brustmuskels, um die Hanteln zueinander zu f?hren, bis sie wieder in derAusgangsposition aneinanderliegen.
-Bei der Abw?rtsbewegung einatmen, w?hrend der Aufw?rtsbewegung ausatmen.";"falsche Technik bei der Ausf?hrung und fehlendes Aufw?rmen.";"";"free";1
+Bei der Abw?rtsbewegung einatmen, w?hrend der Aufw?rtsbewegung ausatmen.";"falsche Technik bei der Ausf?hrung und fehlendes Aufw?rmen.";"";"free";1;0
 11;"Seitliches heben der Langhantel mit einer Hand";"";"Dies ist eine nicht sehr verbreitete Ubung, an der vor allem der obere Bereich des Brustmuskels sowie der vordere
 Teil des Deltamuskels beteiligt sind. Sie kann als abschließende Übung einer Trainingseinheit genutzt werden, um den
 üblichen Trainingsablauf zu variieren, oder auch zum sportspezifischen Training (2, B. für manche Wurfsportarten).
@@ -205,7 +205,7 @@ wird, für das Training genutzt. Für andere Zwecke hat sie keine große Bedeutu
 Obergriff gehalten und in der Mitte von der anderen Hand im Untergriff. Die Hand am Ende der Stange bleibt
 ruhig, während die andere Hand das Gewicht in einem Halbkreis bis zur Senkrechten hebt, Dann lässt sie die
 Stange sanft bis in die Ausgangsstellung absinken. Bei der Abwärtsbewegung einatmen, am Ende der Aufwärtsbewegung
-ausatmen.";"zu viel Gewicht und falsche Technik";"Es gibt keine einzige Sportart, bei der Krafttraining schaden würde. lm Gegenteil, für die meisten Sportarten ist es überaus nützlich.";"free";0
+ausatmen.";"zu viel Gewicht und falsche Technik";"Es gibt keine einzige Sportart, bei der Krafttraining schaden würde. lm Gegenteil, für die meisten Sportarten ist es überaus nützlich.";"free";0;0
 20;"Dips am Barren";"";"Wie bei den freien Gewichten erläutert, ist dies eine bessere Alternative zum Bankdrücken auf der Negativbank, mit
 dem Vorteil, dass das Abstützen für den Anfänger eine Erleichterung darstellt. Zwar wird der Trizeps stark beansprucht,
 doch die Hauptbelastung sollte auf dem Brustmuskel liegen, damit wir spüren, wie er sich beim Absenken
@@ -217,7 +217,7 @@ die Beine zusammen, Einatmen, dabei absenken und den Oberkörper nach vorne beug
 Knie auf dem Gestell abstützen (je nach Konstruktion des Geräts). Während der Abwärtsbewegung werden die
 Ellbogen vom 0berkörper weg bewegt, Unten angekommen, wird der Körper erneut nach oben gedrückt, dabei
 ausatmen,";"kurze Bewegungsstrecke, übermäßige Belastung des Trizeps,
-falsche Oberkörperhaltung während der Bewegung.";"";"gerät";0
+falsche Oberkörperhaltung während der Bewegung.";"";"gerät";0;0
 25;"Seitziehen mit einer Hand";"";"Dies ist eine leichte Übung, Sie eignet sich für Anfänger oder zum Aufwärmen, Doch trotz ihrer Einfachheit muss es
 gelingen, die Belastung auf den Rückenmuskel zu konzentrieren, indem der Körper über die gesamte Bewegungsstrecke
 hinweg zur Seite bewegt wird. Anderenfalls übernehmen die Beugemuskeln des Arms die gesamte Arbeit. ln
@@ -227,7 +227,7 @@ sich nahe an der Stange und wir halten uns mit einer Hand an ihr fest, während 
 Der Körper fällt steif zur Seite, die Füße bleiben stehen. Anschließend am Arm ziehen, um ihn wieder heranzuführen,
 dabei nähert sich der Ellbogen der Seite,
 Während der ersten Hälfte der Bewegung einatmen, während der zweiten Hälfte ausatmen,";"ruckartige Bewegungen ohne konstante Anspannung, zu starke
-Einbeziehung des Arms und gebeugte Haltung des Körpers.";"Das Aufwärmen lässt sich sehr treffend und knapp charakterisieren: Es ist unverzichtbar";"free";0
+Einbeziehung des Arms und gebeugte Haltung des Körpers.";"Das Aufwärmen lässt sich sehr treffend und knapp charakterisieren: Es ist unverzichtbar";"free";0;0
 30;"Rudern am Gerät";"";"Diese Übung ähnelt dem Rudern am tiefen Seilzug (siehe Übung 10) und dem Langhantelrudern (siehe Übung 2),
 was den großen Vorteil hat, dass eine Überlastung des Lendenbereichs und der paravertebralen Muskeln verhindert
 wird, da der Oberkörper angelehnt wird. Ungünstig ist dagegen, dass das Zusammendrücken des Bauchs und der
@@ -244,7 +244,7 @@ gelehnt sind, erschwert dies die normale Atmung. Außerdem muss während
 eines Teils der Bewegungsstrecke die Luft angehalten werden und
 darJ nie ganz ausgeatmet werden,";"Strecken des Oberkörpers, um den Lendenmuskel und die paravertebralen
 Vluskeln zu Hilfe zu nehmen, unvollständige Ausführung der Bewegungsstrecke
-und falsche Einstellung (oder falsche Konstruktion) des Geräts,";"";"gerät";0
+und falsche Einstellung (oder falsche Konstruktion) des Geräts,";"";"gerät";0;0
 32;"Überzüge am hohen Seilzug";"";"Dies ist eine gute Ubung für den Rückenmuskel. Sie darf nicht mit viel Gewicht ausgeführt werden, da uns das Seil
 ansonsten nach oben ziehen würde. Dennoch beteiligt sie diesen Muskel aus anderen Winkeln als die gängigsten Übungen.
 Außerdem ist die Beteiligung des Bizeps, im Gegensatz zu anderen Übungen für den Rückenmuskel, zu vernachlässigen;
@@ -267,7 +267,7 @@ Dazwischen besteht im Grunde kaum ein Unterschied: Die Armbewegung ist beinahe d
 der Ellbogengelenke und der Hüfte lässt uns die Hände weiter nach oben bzw. nach unten führen. Da der Rückenmuskel am 0berarmknochen
 ansetzt und dessen Bewegung in beiden Fällen gleich ist, besteht kein Unterschied in der Belastung.
 Zu vermuten ist nur, dass die Bewegungstrecke bei einer stärkeren Beugung der Hüfte und der Knie und bei einer Bewegung in Richtung
-der Oberschenkel etwas kürzer ist.";"gerät";0
+der Oberschenkel etwas kürzer ist.";"gerät";0;0
 33;"Klimmzüge am Gerät mit Unterstützung";"";"Dies ist eine hervorragende Übung für den Rückenmuskel, die sowohl Anfänger als auch Fortgeschrittene ausführen
 können. Für Erstere dient sie der Gewöhnung an Klimmzüge (siehe Übung I ), Letztere können durch sie die Anzahl
 der Wiederholungen steigern, die sie mit freien Gewichten erzielen, und ihre Technik verfeinern. Auch hier werden der
@@ -290,7 +290,7 @@ umgekehrt erfolgen.";"Beugen des Oberkörpers, um die Brust- und Bauchmuskeln zu
 Hilfe zu nehmen, unvollständige Ausführung der Bewegungsstrecke, gezwungene
 Haltung bei der Aufwärtsbewegung und ruckartiges (nicht gleichmäßiges) Abstoßen
 von der Unterstützung.";"lm Hinblick auf Knochen und Muskeln ist Krafttraining der umfassendste Sport, noch vor Schwimmen, Leichtathletik, Kampfsport oder sonstigen
-Sportarten. Doch damit es darüber hinaus auch der gesündeste Sport ist, ist als Ergänzung Ausdauersport notwendig.";"gerät";0
+Sportarten. Doch damit es darüber hinaus auch der gesündeste Sport ist, ist als Ergänzung Ausdauersport notwendig.";"gerät";0;0
 41;"Kurzhantelfrontdrücken";"";"Diese schwere Übung für den vorderen Bereich des Deltamuskels kann auch im Stehen ausgeführt werden. ln diesem
 Fall jedoch kann sie den Rücken eher gefährden.
 Zwar wird diese Übung häufig empfohlen, um Schwierigkeiten mit den Bändern und den kleinen Muskeln, die das Schultergelenk
@@ -309,7 +309,7 @@ die Luft ausstoßen.";"zu starkes Beugen des Lendenbereichs und zu starke Beteil
 des Trizeps.";"Die drei wichtigsten Anteile des Deltamuskels sind:
 Vorderer Teil/Schlüsselbeinteil,
 Mittlerer Teil/Schulterhöhenteil/lateraler bzw. seitlicher Teil,
-Hinterer Teil/Grätenteil.";"free";1
+Hinterer Teil/Grätenteil.";"free";1;0
 46;"Kurzhantelheben vor dem Körper in Seitenlage";"";"Für Anfänger ist dies eine komplizierte Ubung, die aber als interessante Abwandlung des herkömmlichen Seithebens
 dienen kann. Der Lendenbereich wird nicht überbeansprucht, doch ist es schwierig, die Haltung auf der Bank zu bewahren.";"";"";"Seitlich auf einer Bank liegend, gut abgestützt, um das Gleichgewicht zu
 halten, halten Sie die Kurzhantel mit der freien Hand senkrecht im Obergriff
@@ -321,10 +321,10 @@ dem Daumen in Richtung Boden oder in Richtung Kopf gehalten werden, Zu
 Beginn der Abwärtsbewegung einatmen und beim Erreichen der oberen
 Position ausatmen.";"Ellbogen eng am Körper, um den Rückenmuskelzu Hilfe zu nehmen
 (der bedeutend stärker ist als der Deltamuskel), Bewegen des gesamten Oberkörpers
-und Beugen/Strecken des Ellbogens, um Schwung zu holen.";"Die drei Säulen des Muskelwachstums sind: intelligentes Training, ausgewogene Ernährung und ausreichende Erholung.";"free";1
+und Beugen/Strecken des Ellbogens, um Schwung zu holen.";"Die drei Säulen des Muskelwachstums sind: intelligentes Training, ausgewogene Ernährung und ausreichende Erholung.";"free";1;0
 48;"Schulterheber mit Kurzhanteln";"";"Dies ist eine hervorragende, zugleich schwere und gezielte Übung für den Trapezmuskel und den Schulterblattheber.Sie beansprucht sehr gezielt den oberen Teil des Trapez und die angrenzenden Muskeln. Aufgrund ihrer Einfachheit ist sie für jedes niveau geeignet.Anfänger werden schnell Fortschritte beim verwendeten gewicht feststellen. anderre Varianten dieser Übung verbessern das Training des Trapezmuskels kaum.";"";"";"Leicht gegrätschte beine, geradem fixiertem oberkörper, neutraler griff seitlich vom körper. heben sie auf der ängstmöglichen bewegungsstrecke und versuchen sie zu halten. arme sind angespannt. kurz vor der aufwärtsbewegung einatmen und bei abwärtsbewegung ausatmen";"Drehen der Schultern bei schweren Sätzen, zu wenig oder zu viel
 Gewicht, unvollständige Ausführung der Bewegungsstrecke, zukurze oder zu wenige
-Sätze und Beugen der Ellbogen, um die Aufwärtsbewegung zu erleichtern.";"";"free";0
+Sätze und Beugen der Ellbogen, um die Aufwärtsbewegung zu erleichtern.";"";"free";0;0
 54;"Schultersenken am Barren";"";"Es handelt sich um eine seltene Ubung, die zwei Bereiche der Skelettmuskulatur trainiert, die oft etwas in Vergessenheit
 geraten, weil sie kaum sichtbar sind: den unteren Bereich des Trapezmuskels und den großen Brustmuskel.
 Doch sie ist einfach, und ihre Einbeziehung ins Training wird empfohlen, Dabei ist die gesamte Bewegungsstrecke
@@ -335,7 +335,7 @@ Aufwärtsbewegung ausatmen,";"zu schnelle Ausführung, kurze oder leichte Sätze
 Bewegungsstrecke,";"Der Trapezmuskel ist aufgrund der Anordnung seiner Fasern und Knochenansätze eines der besten Beispiele, um zu verstehen,
 wie ein Muskel eine Bewegung (2. B. das Anheben des Schulterblatts) und die Gegenbewegung (das Absenken desselben) ausführen
 kann. Da der obere Teil besser sichtbar und auffälliger ist, neigen viele Menschen dazu, den mittleren und den unteren Teil zu
-vernachlässigen.";"free";0
+vernachlässigen.";"free";0;0
 55;"Kopfstrecken im Liegen";"";"Sehr gut trainierte Sportler können sich im Bereich des Hinterhaupts eine Hantelscheibe auflegen, um die Anspannung
 zu erhöhen, oder Bänder mit Zusatzgewicht. Dies ist jedoch nicht immer empfehlenswert, da der Nackenbereich
 empfindlich ist und vorsichtig trainiert werden muss. Eine Variante besteht darin, den Kopf nur nach vorne und nach
@@ -345,7 +345,7 @@ gewählter Kombination aus Strecken und/oder Bewegen des Kopfes nach vorne austa
 hinaus, Um das Gleichgewicht zu halten, kann die Bank mit den Armen umfasst werden, Sie richten den Blick
 nach vorne und setzen den Kopf anschließend sanft ab, bis Sie auf den Boden und noch weiter nach hinten
 blicken. Die Ausführung ist auch mit geschlossenen Augen möglich, Die Atmung ist natürlich,";"zu vielZusatzgewicht, zu hohe Geschwindigkeit oder zu lange
-Bewegungsstrecke (Zusammenprallen der Wirbelfortsätze ...).";"";"free";1
+Bewegungsstrecke (Zusammenprallen der Wirbelfortsätze ...).";"";"free";1;0
 56;"Kopfbeugen im Liegen";"";"Sehr gut trainierte Sportler können sich auf die Vorderseite des Körpers eine Hantelscheibe oder eine andere Art
 von Zusatzgewicht auflegen (nicht uneingeschränkt zu empfehlen), müssen dabeiaber die Empfindlichkeit des trainierten
 Bereichs beachten, Außerdem kann die Beugebewegung durch ein Bewegen des Kopfes nach vorne ersetzt
@@ -356,7 +356,7 @@ hinaus. Halten Sie sich seitlich an der Bank fest, um das Gleichgewicht zu wahre
 gebeugt, bis Sie zu den Füßen schauen, und dann nicht viel weiter als bis zur Waagerechten nach hinten fallengelassen,
 Die Augen können dabei geschlossen werden, Die Atmung ist natürlich, vorzugsweise wird beim
 Fallenlassen des Kopfes eingeatmet.";"zu vielZusatzgewicht und zu hohe Geschwindigkeit oder zu lange
-Bewegungsstrecke,";"";"free";0
+Bewegungsstrecke,";"";"free";0;0
 63;"Einhändiges Schulterziehen am Seilzug";"";"Diese Übung entspricht derjenigen mit freien Gewichten (siehe Ubung 7), doch mit dem Seilzug lässt sich eine konstantere
 Spannung erzielen, wenn eine gleichförmige (beinahe isokinetische) Bewegung gelingt. Es soll noch einmal
 darauf hingewiesen werden, dass der hintere Teil der Deltamuskeln meist wenig trainiert ist, weshalb ihm besondere
@@ -371,7 +371,7 @@ Ellbogen müssen ausreichend weit vom Oberkörper entfernt sein, um den
 Rückenmuskel nicht zu sehr einzubeziehen. Zu Beginn der Aufwärtsbewegung
 einatmen, bei der Abwärtsbewegung ausatmen.";"Veränderung der Ellbogenbeugung, um den Trizeps zu Hilfe zu
 nehmen, Schleudern des Gewichts, um es bis nach ganz oben zu bewegen, und starkes
-Annähern des Arms an den Körper, um den Rückenmuskel zu Hilfe zu nehmen.";"";"gerät";0
+Annähern des Arms an den Körper, um den Rückenmuskel zu Hilfe zu nehmen.";"";"gerät";0;0
 64;"Schuöterziehen im Sitzen am Gerät";"";"Dies ist eine hervorragende Ubung für den hinteren Schulterbereich, Sie ermöglicht die Verwendung einer beachtlichen
 lVenge an Gewicht, ohne mit dem Oberkörper zu schummeln wie bei entsprechenden anderen Übungen mit freien
 Gewichten (siehe Ubung 7), Darüber hinaus schützt sie den Rücken, da er den Körper nicht in seiner Position halten
@@ -384,7 +384,7 @@ die Arme waagerecht zum Boden sind (abgespreizt). Mit halb gebeugten Ellbogen,
 jedoch bei gleichbleibendem Winkel, werden die Arme wie bei einer
 umgekehrten Umarmung kreuzförmig geöffnet, Beim Öffnen einatmen und
 beim Schließen ausatmen, ohne die gesamte Luft herauszulassen.";"unvollständige Ausführung der Bewegungsstrecke und zu
-schnelle/ballistische Bewegungen, mit denen das Gewicht geschleudert wird.";"";"gerät";0
+schnelle/ballistische Bewegungen, mit denen das Gewicht geschleudert wird.";"";"gerät";0;0
 67;"Außenrotation am Seilzug";"";"Es gelten die gleichen Erläuterungen wie bei Verwendung der Kurzhantel (siehe Übung 1 1), wobeijedoch die Verwendung
 des Seilzugs eine konstante Spannung über die gesamte Bewegungsstrecke hinweg ermöglicht. Die wichtigsten
 Voraussetzungen (neben der richtigen Wahl des Gewichts) sind eine sehr kontrollierte Ausführung der
@@ -396,5 +396,6 @@ Die Beugung aller Gelenke bleibt unverändert, nur die Schulter wird von vorne z
 erfolgt natürlich.";"zu viel Gewicht, schnelle Ausführung der Bewegung, Loslösung
 des Ellbogens vom Körper und Bewegen des Ellbogens, um den hinteren Teil des
 Deltamuskels zu sehr zu Hilfe zu nehmen, und Einnahme eines zu großen Winkels mit
-dem Ellbogen in Bezug auf den Seilzug.";"";"gerät";0
-68;"Aussenrotation im liegen";"";"";"";"";"";"";"";"";1
+dem Ellbogen in Bezug auf den Seilzug.";"";"gerät";0;0
+68;"Aussenrotation im liegen";"";"";"";"";"";"";"";"";0;0
+69;"testübung mit testaccount id 2";"";"";"";"";"";"";"";"";1;9

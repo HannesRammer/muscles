@@ -31,7 +31,8 @@ gem 'bigdecimal','1.4.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'rails-i18n'
+gem 'i18n-debug', group: :development
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem "google-cloud-storage", "~> 1.11", require: false

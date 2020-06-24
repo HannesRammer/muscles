@@ -1,0 +1,16 @@
+en:
+  start:
+    index:
+      title: 'Happy Welcome at InstaFit'
+      question: 'What do you want to do?'
+      startTraining: 'Select training plan and start training'
+      createAndShare: 'Create your own training plans and share them with friends'
+      loginToCreateAndShare: 'Log in to create your own training plans and share them with friends'
+      searchMuscleExercise: 'Find muscle specific exercises '
+      optimizePlan: ' and optimize your training plans'
+      loginToOptimizePlan: 'Please log in to optimize your training plans'
+      allExercises: 'All exercises'
+      ownExercises: 'Own exercises'
+      loginForOwnExercises: 'Log in to create exercises'
+      ownVideos: 'Own videos'
+      loginForOwnVideos: 'Login to manage your own videos'

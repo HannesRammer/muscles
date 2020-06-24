@@ -1,22 +1,22 @@
 <div class="nav nice_outer_tab">
-  Herzlich Willkommen bei InstaFit
+  <%= t(".title") %>
 
 </div>
 <br/>                 <br/>
 
 <div style="left:0;top:15px;position:relative">
-  Was möchtest Du machen
+  <%=t(".question") %>
 </div>
 
 <div class="mainborder">
   <div style="margin:15px">
-    <%= link_to "Trainingsplan auswählen und Training starten", trainingsplans_path %>
+    <%= link_to t(".startTraining"), trainingsplans_path %>
   </div>
   <div style="margin:15px">
     <% if current_user %>
-      <%= link_to "Eigene Trainingspläne erstellen und diese mit Freunden teilen", user_trainingsplans_path %>
+      <%= link_to t(".createAndShare"), user_trainingsplans_path %>
     <% else %>
-      <%= "Einloggen um eigene Trainingspläne zu erstellen und diese mit Freunden zu teilen" %>
+      <%= t(".loginToCreateAndShare") %>
 
     <% end %>
   </div>
@@ -24,36 +24,38 @@
 </div>
 
 <div class="mainborder">
-  Übungen durchsuchen
-  <br>
   <div style="margin:15px;">
 
     <% if current_user %>
-      <%= link_to "Suche Muskelspezifische Übungen und optimiere deine Trainingspläne", index_path %>
+      <%= link_to t(".searchMuscleExercise") + t( ".optimizePlan"), index_path %>
     <% else %>
-      <%= link_to "Suche Muskelspezifische Übungen ", index_path %>
+      <%= link_to t(".searchMuscleExercise"), index_path %>
       <br><br>
-      Bitte einloggen um deine
-      Trainingspläne zu optimieren
+      <%=t(".loginToOptimizePlan") %>
     <% end %>
 
   </div>
   <div style="margin:15px">
-    <%= link_to "Alle Übungen", exercises_all_path if current_user %>
+    <%= link_to t(".allExercises"), exercises_all_path if current_user %>
   </div>
   <div style="margin:15px;">
 
     <% if current_user %>
-      <%= link_to "Eigene Übungen", exercises_path if current_user %>
+      <%= link_to t(".ownExercises"), exercises_path if current_user %>
     <% else %>
-      <%= "Bitte einloggen um Übungen zu erstellen" %>
+      <%= t(".loginForOwnExercises") %>
     <% end %>
   </div>
 
 </div>
 
 <div class="mainborder">
-  Videos Verwalten *coming soon
+  <% if current_user %>
+    <%= link_to t(".ownVideos"), user_videos_path if current_user %>
+  <% else %>
+    <%= t(".loginForOwnVideos") %>
+  <% end %>
+
 </div>
 
 

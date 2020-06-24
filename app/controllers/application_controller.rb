@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
-#  include Authentication
-
+  #  include Authentication
+  before_action :set_locale
   helper :all # include all helpers, all the time
+
+  def set_locale
+    I18n.locale = params[:locale] || :en
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -20,7 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
 
-
   def is_video_owner
     @current_user = current_user
     UserToVideo.find_by_user_id_and_video_id(@current_user.id, params[:id]) || false
@@ -36,7 +39,7 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     @current_user = current_user
-    @current_user.email ==  "hannes.rammer@gmail.com" || @current_user.admin || false
+    @current_user.email == "hannes.rammer@gmail.com" || @current_user.admin || false
   end
 
 

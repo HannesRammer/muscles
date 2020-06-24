@@ -1,11 +1,12 @@
 <div id="exercise_text_selected_div">
-  Ausgewählte Übung
+  <%= t("selectedExercise") %>
   <div id="exercise_text_selected">
     <br/>
   </div>
 </div>
   <div id="exercises_text_header" class="nice_inner_tab_js_hover">
-    Alle Übungen des Muskels
+    <%= t("allMusleExercises") %>
+
   </div>
   <div id="exercises_text">
     <%= render "main/exercises_text" ,  exercises: @exercises  %>

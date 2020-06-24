@@ -15,8 +15,8 @@
       <tr>
         <td><%= user_to_exercise.user_id %></td>
         <td><%= user_to_exercise.exercise_id %></td>
-        <td><%= link_to "Ansehen", user_to_exercise %></td>
-        <td><%= link_to "Bearbeiten", edit_user_to_exercise_path(user_to_exercise) %></td>
+        <td><%= link_to t('view'), user_to_exercise %></td>
+        <td><%= link_to t('edit'), edit_user_to_exercise_path(user_to_exercise) %></td>
         <td><%= link_to "Destroy", user_to_exercise, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>

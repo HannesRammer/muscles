@@ -1,6 +1,6 @@
-<% "Sign up" %>
+<% t('signup') %>
 
-<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
+<p>Already have an account? <%= link_to t('login'), login_path %>.</p>
 
 <%= form_for @user do |f| %>
   <%= render "shared/error_messages", :target => @user %>
@@ -20,5 +20,5 @@
     <%= f.label :password_confirmation, "Confirm Password" %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p><%= f.submit "Sign up" %></p>
+  <p><%= f.submit t('signup') %></p>
 <% end %>

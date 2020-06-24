@@ -6,10 +6,10 @@ class ExercisesController < ApplicationController
   # GET /exercises.json
 
   def index
-    @exercises = @current_user.exercises.where(visible:true).order("name asc") || []
-      #@exercises = Exercise.where(id:@current_user.id,visible: true).order("id asc").all  || []
+    @exercises = @current_user.exercises.where(visible: true).order("name asc") || []
+    #@exercises = Exercise.where(id:@current_user.id,visible: true).order("id asc").all  || []
 
-      #@exercises = Exercise.where(visible: true).order("id asc").all
+    #@exercises = Exercise.where(visible: true).order("id asc").all
     #@exercises = Exercise.where(visible: false).order("id asc").all
   end
 
@@ -19,20 +19,28 @@ class ExercisesController < ApplicationController
     exercise_id = params[:eid]
     muscle_type = params[:muscle_type]
 
-    exercise_to_muscle = ExerciseToMuscle.find_by_exercise_id_and_muscle_id(exercise_id,muscle_id)
-    body_part_id = ExerciseToMuscle.find_by_muscle_id(muscle_id).body_part
+    exercise_to_muscle = ExerciseToMuscle.find_by_exercise_id_and_muscle_id(exercise_id, muscle_id)
+    e_to_m = ExerciseToMuscle.find_by_muscle_id(muscle_id)
+    body_part = nil
+    if e_to_m&.body_part_id
+      body_part = e_to_m.body_part
+    else
+      body_part = BodyPart.find(1)
+    end
 
     if exercise_to_muscle == nil
-      @exercise_to_muscle = ExerciseToMuscle.new(:muscle_id=>muscle_id,:muscle_type=>muscle_type,:exercise_id=>exercise_id,:body_part=>body_part_id)
+      @exercise_to_muscle = ExerciseToMuscle.new(:muscle_id => muscle_id, :muscle_type => muscle_type, :exercise_id => exercise_id, :body_part => body_part)
       if @exercise_to_muscle.save
         @exercise = Exercise.find_by_id(params[:eid])
-        else
-          @exercise = Exercise.find_by_id(params[:eid])
+      else
+        @exercise = Exercise.find_by_id(params[:eid])
       end
     else
       exercise_to_muscle.destroy
     end
     @exercise = Exercise.find_by_id(params[:eid])
+    @video = @exercise.selected_video(nil)
+
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
 
@@ -53,11 +61,12 @@ class ExercisesController < ApplicationController
     @video = @exercise.selected_video(nil)
     respond_to :js
   end
+
   # GET /exercises/1
   # GET /exercises/1.json
   def show
     @exercise = Exercise.find_by_id(params[:id])
-    @video =  @exercise.selected_video(nil)
+    @video = @exercise.selected_video(nil)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
   end
@@ -73,11 +82,11 @@ class ExercisesController < ApplicationController
     @video = @exercise.selected_video(nil)
     if is_exercise_owner
 
-      @p_muscles= @exercise.primary_muscles
-      @s_muscles= @exercise.secondary_muscles
+      @p_muscles = @exercise.primary_muscles
+      @s_muscles = @exercise.secondary_muscles
     else
       respond_to do |format|
-        format.html { redirect_to @exercise, notice: "Exercise not yours to edit."  }
+        format.html { redirect_to @exercise, notice: "Exercise not yours to edit." }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
       end
     end
@@ -92,7 +101,7 @@ class ExercisesController < ApplicationController
     respond_to do |format|
       if @exercise.save
         @current_user.exercises << @exercise
-        format.html { redirect_to :action => :edit, :id=>@exercise.id,  notice: "Exercise was successfully created." }
+        format.html { redirect_to :action => :edit, :id => @exercise.id, notice: "Exercise was successfully created." }
         format.json { render :edit, status: :created, location: @exercise }
       else
         format.html { render :new }
@@ -137,17 +146,19 @@ class ExercisesController < ApplicationController
   end
 
   private
-    def is_exercise_owner
-      @current_user = current_user
-      UserToExercise.find_by_user_id_and_exercise_id(@current_user.id, params[:id]) || false
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_exercise
-      @exercise = Exercise.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def exercise_params
-      params.require(:exercise).permit(:name, :description, :main_description, :how_to, :how_not_to, :info, :exercise_type,:default_video_id)
-    end
+  def is_exercise_owner
+    @current_user = current_user
+    UserToExercise.find_by_user_id_and_exercise_id(@current_user.id, params[:id]) || false
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_exercise
+    @exercise = Exercise.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def exercise_params
+    params.require(:exercise).permit(:name, :description, :main_description, :how_to, :how_not_to, :info, :exercise_type, :default_video_id)
+  end
 end

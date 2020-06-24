@@ -5,9 +5,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th >show</th>
-      <th >edit</th>
-      <th >destroy</th>
+      <th ><%=t('view') %></th>
+      <th ><%=t('edit') %></th>
+      <th ><%=t('delete') %></th>
     </tr>
   </thead>
 
@@ -18,8 +18,8 @@
           <%#= image_tag("muskelman.svg", :class => "multi_pic") %>
 
         </td>
-        <td><%= link_to "Ansehen", trainingsplan  %></td>
-        <td><%#= link_to "Bearbeiten", edit_trainingsplan_path(trainingsplan) %></td>
+        <td><%= link_to t('view'), trainingsplan  %></td>
+        <td><%#= link_to t('edit'), edit_trainingsplan_path(trainingsplan) %></td>
         <td><%= link_to "Destroy", trainingsplan, method: :delete, data: { confirm: "Are you sure?" } if creator_of_trainingsplan%></td>
       </tr>
     <% end %>

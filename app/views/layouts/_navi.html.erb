@@ -1,12 +1,14 @@
 <div id="navilinks">
-  <%= link_to "Start", root_path %> |
-  <%= link_to "Erweiterte Suche", index_path %> |
-  <%= link_to "Eigene Trainingspläne", user_trainingsplans_path if current_user %> |
+  <%= link_to t('layouts.navi.start'), start_path %> |
+  <%= link_to t('layouts.navi.advanced_search'), index_path %> |
 
-  <%= link_to "Alle Trainingspläne", trainingsplans_path %> |
-  <%= link_to "Alle Übungen", exercises_all_path if current_user %> |
-  <%= link_to "Meine Übungen", user_exercises_path if current_user %> |
-  <%= link_to "Meine Videos", user_videos_path if current_user %> |
+  <%= link_to t('layouts.navi.all_trainingsplans'), trainingsplans_path %> |
+  <%= link_to t('layouts.navi.my_trainingsplans'), user_trainingsplans_path if current_user %> |
+
+  <%= link_to t('layouts.navi.all_exerccises'), exercises_all_path if current_user %> |
+  <%= link_to t('layouts.navi.my_exercises'), user_exercises_path if current_user %> |
+
+  <%= link_to t('layouts.navi.my_videos'), user_videos_path if current_user %> |
   <%= link_to "impressum", impressum_path %>
 
 </div>
