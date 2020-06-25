@@ -15,7 +15,7 @@
         <%= link_to(exercise.name, {:controller => "trainingsplans", :action => "exercise", :name => exercise.name}, {:remote => true, :method => :post, :title => "#{exercise.name} auswählen",:class=>"exercise_selection_link"}) %>
 
 
-        <%= link_to("<i class='material-icons'>remove_circle_outline</i>".html_safe,
+        <%#= link_to("<i class='material-icons'>remove_circle_outline</i>".html_safe,
                     {:controller => "trainingsplans", :action => "remove_exercise", :ettp_id => ettp.id},
                     {:confirm => "Are you sure?", :remote => true, :method => :post,:class=>'remove_exercise', :title => "Remove #{exercise.name} from Trainingsplan #{@trainingsplan.name}"}) %>
 

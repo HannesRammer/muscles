@@ -1,6 +1,6 @@
 <% if @ett %>
   <div id="start_exercise" onclick="start_training();">
-    <i class="material-icons" style="font-size:85px;color:#29a833">play_circle_outline</i>
+    <i class="material-icons" style="font-size:85px!important;color:#29a833">play_circle_outline</i>
   </div>
   <!--div id="continue_exercise" onclick="continue_training();$('#continue_exercise').hide();$('#start_exercise').show();"  style="display:none;">
     continue Training $('#continue_exercise').show();
@@ -16,7 +16,7 @@
     <%#= radio_button_tag 'unit', 'reps', repschecked %>
     <%#= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
     <span id="unit_reps"></span>
-    <span id="reps_current">0</span><span id="reps_max"> / <%= @ett.reps %></span><br><span>Wiederholungen</span>
+    <span id="reps_current">0</span><span id="reps_max"> / <%= @ett.reps %></span><br><span><%= t("reps") %></span>
     <meter id="reps" value="0" min="0" max="<%= @ett.reps %>"></meter><br>
     <br>
   <% end %>
@@ -28,7 +28,7 @@
     <%#= radio_button_tag 'unit', 'duration', durationchecked %>
     <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
 <span id="unit_duration"></span>
-    <span id="dur_current">0</span><span id="dur_max"> / <%= @ett.duration %></span><br><span>Sekunden</span>
+    <span id="dur_current">0</span><span id="dur_max"> / <%= @ett.duration %></span><br><span><%= t("dur") %></span>
     <meter id="duration" value="0" min="0" max="<%= @ett.duration %>"></meter><br>
     <br>
   <% end %>

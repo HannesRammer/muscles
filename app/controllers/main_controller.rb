@@ -19,7 +19,12 @@ class MainController < ApplicationController
     @antagonist = []
     @current_user if logged_in?
     @trainingsplans = @current_user.trainingsplans if @current_user
-    @trainingsplan = @trainingsplans.first if @trainingsplans
+    @trainingsplan = nil
+    if params[:trainingsplan_id]
+      @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])
+    else
+      @trainingsplan = @trainingsplans.first if @trainingsplans
+    end
   end
 
 

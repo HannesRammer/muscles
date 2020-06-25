@@ -185,7 +185,8 @@ class TrainingsplansController < ApplicationController
       end
       if @trainingsplan.save
         @exercises = @trainingsplan.exercises
-        format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully updated." }
+        #format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully updated." }
+        format.html { redirect_to index_path(trainingsplan_id:@trainingsplan.id), notice: "Trainingsplan was successfully updated." }
         #format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully updated." }
         format.json { render :edit, status: :ok, location: @trainingsplan }
       else

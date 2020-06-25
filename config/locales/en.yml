@@ -42,3 +42,7 @@ en:
   selectedExercise: 'Selected exercise'
   allTrainingsplanExercises: 'All trainingsplan exercises'
   allMuscleExercises: 'All muscle exercises'
+  add_or_remove_exercises: 'add/remove exercise'
+  edit_repetition_duration_or_videos: 'change reps/dur and videos of exercises'
+  reps: 'repetitions'
+  dur: 'seconds'

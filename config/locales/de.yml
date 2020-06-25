@@ -30,15 +30,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 de:
-  view: "Ansehen"
-  add: "Hinzufügen"
-  edit: "Bearbeiten"
-  update: "Änderung speichern"
-  delete: "Löschen"
-  logout: "Abmelden"
-  login: "Anmelden"
-  signup: "Registrieren"
-  back: "Zurück"
+  view: 'Ansehen'
+  add: 'Hinzufügen'
+  edit: 'Bearbeiten'
+  update: 'Änderung speichern'
+  delete: 'Löschen'
+  logout: 'Abmelden'
+  login: 'Anmelden'
+  signup: 'Registrieren'
+  back: 'Zurück'
   selectedExercise: 'Ausgewählte Übung'
-  allTrainingsplanExercises: "Alle Übungen des Trainingsplans"
-  allMuscleExercises: "Alle Übungen des Muskels"
+  allTrainingsplanExercises: 'Alle Übungen des Trainingsplans'
+  allMuscleExercises: 'Alle Übungen des Muskels'
+  add_or_remove_exercises: 'Übungen hinzufügen/entfernen'
+  edit_repetition_duration_or_videos: 'bearbeite Übungseinstellungen'
+  reps: 'Wiederholungen'
+  dur: 'Sekunden'

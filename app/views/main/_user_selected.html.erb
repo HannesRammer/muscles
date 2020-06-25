@@ -1,4 +1,5 @@
 <div id="user_selected">
+  <div class="exercise_border_blue">
 <% if @current_user %>
   <% exercises = @trainingsplan.exercises %>
   <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
@@ -7,6 +8,7 @@
     <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] },@trainingsplan.id), {:multiple => false} %>
     <%#= submit_tag("select Trainingsplan") %>
   <%# end %>
+    <%=link_to "start_Training", trainingsplan_path(@trainingsplan) %>
   <% exercises.each_with_index do |exercise, i| %>
 
     <%= user_muscle_pics(exercise.primary_muscles, "selected", 5,"multi_pic4") %>
@@ -46,6 +48,7 @@
 
 
 
+</div>
 </div>
 
 

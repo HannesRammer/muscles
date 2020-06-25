@@ -23,7 +23,7 @@
 
       <div style="width:400px;padding-bottom: 7px;"><%= exercise.name %> </div>
       <div>
-        <%= label :autolyse, "reps", :value => "wiederholungen" %>
+        <%= label :autolyse, "reps", :value => t("reps") %>
         <% repschecked = is_unit_reps(ett.unit) %>
         <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][reps]", repschecked, onclick: "set_exercise_unit(#{exercise.id},'reps')" %>
         <%= text_field_tag("exercise[#{exercise.id}][reps]", value = ett.reps, options = {placeholder: 'reps'}) %>
