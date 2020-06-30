@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   ##before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :login_required, :except => :new
+  before_action :login_required, :except => [:new,:create]
   before_action :admin_required, :only => :destroy
   helper :all
   # GET /users
@@ -58,6 +58,7 @@ class UsersController < ApplicationController
         trainingsplan.name = "Erster Trainingsplan"
         trainingsplan.save
         @user.trainingsplans << trainingsplan
+        UserMailer.with(user: @user).welcome_email(email:@user.email).deliver_now
 
         format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }

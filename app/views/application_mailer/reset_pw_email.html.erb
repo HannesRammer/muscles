@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<h1>Hi,</h1>
+
+Hello,
+
+A request has been made to reset your instaFit account password.
+
+Reset your password by clicking on the following link:
+
+<p>
+https://muscles.a2hosted.com/muscles/reset_pw?token=<%= @user.reset_password_token %>&email=<%= @user.email %>
+
+
+</p>
+<p>
+  To login to the site, just follow this link: <%= @url %>.
+</p>
+<p>Thanks for joining and have a great day!</p>
+</body>
+</html>

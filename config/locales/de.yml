@@ -46,3 +46,5 @@ de:
   edit_repetition_duration_or_videos: 'bearbeite Übungseinstellungen'
   reps: 'Wiederholungen'
   dur: 'Sekunden'
+  reset_new_pw: 'passwort ändern'
+  request_new_pw_link: 'passwort link anfordern'

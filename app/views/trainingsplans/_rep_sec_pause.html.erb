@@ -35,6 +35,11 @@
 
   <%= label :autolyse, "pause", :value => "Pause nach Übung" %>
 
-  <%= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>
+  <%#= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>
+  <span id="pause_span"></span>
+  <span id="pause_current">0</span><span id="pause_max"> / <%= @ett.pause %></span><br><span><%= t("dur") %></span>
+  <meter id="pause" value="0" min="0" max="<%= @ett.pause %>"></meter><br>
+  <br>
+
 <% end %>
  

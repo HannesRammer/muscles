@@ -59,7 +59,10 @@ Rails.application.routes.draw do
   root 'main#index'
   #root 'start#index'
 
-
+  get 'forgot_pw', to: 'passwords#forgot_pw' ,as: :forgot_pw
+  get 'reset_pw', to: 'passwords#reset_pw' ,as: :reset_pw
+  post 'passwords/forgot', to: 'passwords#forgot' ,as: :forgot
+  post 'passwords/reset', to: 'passwords#reset',as: :reset
   resources :exercises
   resources :users
 

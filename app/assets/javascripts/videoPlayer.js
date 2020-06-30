@@ -2,10 +2,11 @@ let global_max_exercise = 0;
 let global_current_exercise = 0;
 let current_duration = 0;
 let current_reps = 0;
+let current_pause = 0;
 let unit = "";
-let max_reps = 0, max_duration = 0;
+let max_reps = 0, max_duration = 0, max_pause = 0;
 let pause = false;
-
+let myVar = 0;
 function video_ended() {
 
     if (!pause) {
@@ -19,8 +20,7 @@ function video_ended() {
                 play_video();
             } else {
                 if (global_max_exercise > global_current_exercise) {
-                    global_current_exercise += 1;
-                    select_exercise(global_current_exercise);
+                    myVar = setInterval(myTimer, 1000);
 
                 }
 
@@ -35,9 +35,7 @@ function video_ended() {
                 play_video();
             } else {
                 if (global_max_exercise > global_current_exercise) {
-                    global_current_exercise += 1;
-                    select_exercise(global_current_exercise);
-
+                    myVar = setInterval(myTimer, 1000);
                 }
 
             }
@@ -49,7 +47,7 @@ function video_ended() {
 
 function start_training() {
 
-    if (pause === true) {
+    if (pause && pause === true) {
         pause = false;
         play_video();
     } else {
@@ -108,7 +106,6 @@ function select_exercise(current_exercise) {
     setTimeout(init_max_and_current, 3000);
 
 
-}
 
 function init_max_and_current() {
     let rep = $("#reps")[0];
@@ -116,13 +113,44 @@ function init_max_and_current() {
         max_reps = rep.max - 1;
     }
     current_reps = 0;
+
     let dur = $("#duration")[0];
     if( dur !== undefined){
         max_duration = dur.max - 1;
     }
+    current_duration = 0;}
 
-    current_duration = 0;
+
+let pause = $("#pause")[0];
+    if( pause !== undefined){
+        max_pause = pause.max - 1;
+    }
+    current_pause = 0;
+
     set_unit();
     start_exercise();
     global_max_exercise = $(".exercise_selection_link ").length - 1;
+}
+
+
+
+function myTimer() {
+    debugger;
+    let d = new Date();
+    if(current_pause === max_pause){
+        current_pause = 0;
+        myStopFunction();
+        global_current_exercise += 1;
+        select_exercise(global_current_exercise);
+
+
+    }else{
+        current_pause++;
+        $("#pause")[0].value = current_pause;
+        $("#pause_current")[0].innerHTML = current_pause;
+    }
+}
+
+function myStopFunction() {
+    clearInterval(myVar);
 }
