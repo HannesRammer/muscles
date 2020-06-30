@@ -1,7 +1,8 @@
 <h1>Neuer Trainingsplan</h1>
 
 
-<%= form_tag("/users/save_trainingsplan", :id => "trainingsplan_form", method: "post", remote: true) do %>
+<%#= form_tag(user_save_trainingsplan_url, :id => "trainingsplan_form", method: "post", remote: true) do %>
+<%= form_with(url: user_save_trainingsplan_url, :id => "trainingsplan_form", method: "post", remote: true) do %>
   <div class="field">
     Name
     <%= text_field :trainingsplan, :name %>
