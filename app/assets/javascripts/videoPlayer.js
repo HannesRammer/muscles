@@ -47,7 +47,10 @@ function video_ended() {
 
 function start_training() {
 
-    if (pause && pause === true) {
+    if(pause === undefined ){
+        pause = false;
+    }
+    if (pause === true) {
         pause = false;
         play_video();
     } else {
