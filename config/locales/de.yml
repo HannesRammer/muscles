@@ -36,7 +36,7 @@ de:
   update: 'Änderung speichern'
   delete: 'Löschen'
   logout: 'Abmelden'
-  login: 'Anmelden'
+  login: 'Anmelden |'
   signup: 'Registrieren'
   back: 'Zurück'
   selectedExercise: 'Ausgewählte Übung'

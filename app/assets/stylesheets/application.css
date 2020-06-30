@@ -26,6 +26,7 @@
 
 body {
     text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    font-family: 'Open Sans', Helvetica, Arial, Sans serif;
 }
 
 .nav {
@@ -108,7 +109,8 @@ a {
 }
 
 a:hover {
-    color: var(--green-color) !important;
+
+    color: rgba(249, 105, 14, 1) !important;
     /*color: var(--blue-color);*/
     text-decoration: none;
 }
@@ -515,6 +517,7 @@ li {
 }
 
 #login_box {
+    float: right;
     /*
     position: absolute;
     right: 200px;
@@ -660,6 +663,7 @@ pre {
 
 a {
     color: var(--light-green-color) !important;
+
     text-shadow: 1px 1px 1px black,
     1px -1px 1px black,
     -1px 1px 1px black,
@@ -673,6 +677,8 @@ a {
 
 #navilinks {
     font-size: 19px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid antiquewhite;
 }
 
 
@@ -681,7 +687,8 @@ a:hover {
 }
 
 a:hover {
-    color: var(--green-color) !important;
+    /*color: var(--green-color) !important;*/
+    color: rgba(249, 105, 14, 1) !important;
     text-shadow: 1px 1px 1px black,
     1px -1px 1px black,
     -1px 1px 1px black,

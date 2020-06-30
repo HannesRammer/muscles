@@ -9,9 +9,10 @@
   <%= link_to t('layouts.navi.my_exercises'), user_exercises_path if current_user %> |
 
   <%= link_to t('layouts.navi.my_videos'), user_videos_path if current_user %> |
-  <%= link_to "impressum", impressum_path %> |
+
 
   <span id="login_box">
+    <%= link_to "impressum", impressum_path %> |
     <%= link_to(t('login'), login_path, :class => "nice_inset_tab") unless logged_in? %>
     <%= link_to(t('signup'), sign_up_path, :class => "nice_inset_tab") unless logged_in? %>
     <%= link_to(t('logout'), logout_path, :class => "nice_inset_tab") if logged_in? %>
