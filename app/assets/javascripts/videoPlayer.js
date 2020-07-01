@@ -8,6 +8,7 @@ let max_reps = 0, max_duration = 0, max_pause = 0;
 let pause = false;
 let myVar = 0;
 
+
 function video_ended() {
 
     if (!pause) {
@@ -48,10 +49,11 @@ function video_ended() {
 
 function start_training() {
 
-    if (pause && pause === true) {
+    if (pause === true) {
         pause = false;
         play_video();
     } else {
+        pause = false;
         global_current_exercise = 0;
         select_exercise(global_current_exercise);
     }
@@ -64,10 +66,10 @@ function pause_training() {
 
 }
 
-function continue_training() {
+/*function continue_training() {
 
 
-}
+}*/
 
 function set_unit() {
     let unit_rep = $("#unit_reps")[0];
@@ -101,7 +103,7 @@ function play_video() {
 }
 
 function select_exercise(current_exercise) {
-    links = $(".exercise_selection_link ");
+    let links = $(".exercise_selection_link ");
     links[current_exercise].click();
 
     setTimeout(init_max_and_current, 3000);
@@ -120,9 +122,9 @@ function init_max_and_current() {
     }
     current_duration = 0;
 
-    let pause = $("#pause")[0];
-    if (pause !== undefined) {
-        max_pause = pause.max - 1;
+    let pause_div = $("#pause")[0];
+    if (pause_div !== undefined) {
+        max_pause = pause_div.max - 1;
     }
     current_pause = 0;
 
@@ -133,14 +135,12 @@ function init_max_and_current() {
 
 
 function myTimer() {
-    let d = new Date();
+    /*let d = new Date();*/
     if (current_pause === max_pause) {
         current_pause = 0;
         myStopFunction();
         global_current_exercise += 1;
         select_exercise(global_current_exercise);
-
-
     } else {
         current_pause++;
         $("#pause")[0].value = current_pause;
