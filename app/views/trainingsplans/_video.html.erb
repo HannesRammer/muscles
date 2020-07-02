@@ -1,9 +1,9 @@
 <% if video && video.video.attached? %>
   <% if width %>
     <%#= video_tag("#{url_for(video.video)}.mp4", :controls => "false", :onended=>"video_ended();", :width=>300) %>
-    <%= video_tag("#{url_for(video.video)}.mp4", :controls => "false", :onended => "video_ended();", :width => width) %>
+    <%= video_tag("#{url_for(video.video)}", :controls => false, :onended => "video_ended();", :width => width) %>
   <% else %>
-    <%= video_tag("#{url_for(video.video)}.mp4", :controls => "false", :onended => "video_ended();") %>
+    <%= video_tag("#{url_for(video.video)}", :controls => false, :onended => "video_ended();") %>
   <% end %>
 
 <% else %>

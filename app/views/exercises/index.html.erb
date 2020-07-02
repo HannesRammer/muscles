@@ -23,7 +23,7 @@
       <td>
         <% @video = exercise.video %>
         <% if @video && @video.video.attached? %>
-          <%= video_tag("#{url_for(@video.video)}.mp4", :width => "200px", :controls => "false") %>
+          <%= video_tag("#{url_for(@video.video)}", :width => "200px", :controls => false) %>
         <% end %></td>
 
 
