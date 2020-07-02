@@ -1,3 +1,4 @@
+
 let global_max_exercise = 0;
 let global_current_exercise = 0;
 let current_duration = 0;
@@ -5,13 +6,13 @@ let current_reps = 0;
 let current_pause = 0;
 let unit = "";
 let max_reps = 0, max_duration = 0, max_pause = 0;
-let pause = false;
+
 let myVar = 0;
 
 
 function video_ended() {
-
-    if (!pause) {
+    let pause = $("#pause_status")[0];
+    if (pause.value === "false") {
         if (unit === "reps") {
             current_reps += 1;
             console.log("current_reps" + current_reps);
@@ -48,12 +49,11 @@ function video_ended() {
 
 
 function start_training() {
-
-    if (pause === true) {
-        pause = false;
+let pause = $("#pause_status")[0];
+    if (pause.value === "true") {
+        pause.value = false;
         play_video();
     } else {
-        pause = false;
         global_current_exercise = 0;
         select_exercise(global_current_exercise);
     }
@@ -61,7 +61,7 @@ function start_training() {
 }
 
 function pause_training() {
-    pause = true;
+    $("#pause_status")[0].value = "true";
     show_play_button();
 
 }

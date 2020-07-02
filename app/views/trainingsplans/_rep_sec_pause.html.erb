@@ -9,7 +9,7 @@
     <i class="material-icons" style="font-size:85px;color:#d6d6d6">pause_circle_outline</i>
   </div>
 <br>
-
+  <%= hidden_field_tag "pause_status", "false" %>
   <% repschecked = is_unit_reps(@ett.unit) %>
   <% if repschecked %>
     <%#= label :autolyse, "reps", :value => "reps" %>
