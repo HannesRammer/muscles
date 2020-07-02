@@ -428,7 +428,7 @@ function video_ended() {
     let global_max_exercise = parseInt($("#global_max_exercise")[0].value);
     let myVar = $("#myVar")[0].value;
 
-    if (pause === "false")  {
+    if (pause === "false") {
         if (unit === "reps") {
             current_reps = current_reps + 1;
             $("#current_reps")[0].value = current_reps;
