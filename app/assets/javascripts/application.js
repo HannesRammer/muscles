@@ -410,3 +410,8 @@ function resize_trainingsplans_exercise_video(){
     }
 }
 
+function set_exercise_unit(e_id, unit) {
+    document.querySelector("#exercise_" + e_id + "_unit").setAttribute("value", unit);
+
+}
+
