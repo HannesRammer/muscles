@@ -1,4 +1,16 @@
 <strong>Traingsplans:</strong>
+<%= hidden_field_tag "pause_status", "false" %>
+<%= hidden_field_tag "global_max_exercise", 0 %>
+<%= hidden_field_tag "global_current_exercise", 0 %>
+<%= hidden_field_tag "current_duration", 0 %>
+<%= hidden_field_tag "current_reps", 0 %>
+<%= hidden_field_tag "current_pause", 0 %>
+<%= hidden_field_tag "unit", "" %>
+<%= hidden_field_tag "max_reps", 0 %>
+<%= hidden_field_tag "max_duration", 0 %>
+<%= hidden_field_tag "max_pause", 0 %>
+<%= hidden_field_tag "myVar", 0 %>
+
 <div>
   <% if @current_user %>
     <% @current_user.trainingsplans.each do |trainingsplan| %>

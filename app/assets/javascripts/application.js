@@ -32,13 +32,13 @@ function setClass(elem, className1) {
 
 function toggleTraining() {
     if (document.querySelector(".hidden_training")) {
-        let a= $(".hidden_training");
+        let a = $(".hidden_training");
         a.toggleClass("hidden_training");
         a.toggleClass("show_training");
         $(document.querySelector("#open_training")).hide();
         $(document.querySelector("#close_training")).show();
     } else if (document.querySelector(".show_training")) {
-        let a= $(".show_training");
+        let a = $(".show_training");
         a.toggleClass("hidden_training");
         a.toggleClass("show_training");
         $(document.querySelector("#open_training")).show();
@@ -315,10 +315,10 @@ function cleanName(name) {
 
 function selected(name) {
     let urlString = ""
-    if (document.location.href.indexOf("muscles") > -1 ){
-        urlString ="/muscles/main/muscle/";
-    }else{
-        urlString ="/main/muscle/";
+    if (document.location.href.indexOf("muscles") > -1) {
+        urlString = "/muscles/main/muscle/";
+    } else {
+        urlString = "/main/muscle/";
     }
 
     $.ajax({
@@ -338,10 +338,10 @@ function toggleMuscleToExercise(eid, name) {
         muscleType = "secondary";
     }
     let urlString = ""
-    if (document.location.href.indexOf("muscles") > -1 ){
-        urlString ="/muscles/main/exercise/";
-    }else{
-        urlString ="/main/exercise/";
+    if (document.location.href.indexOf("muscles") > -1) {
+        urlString = "/muscles/main/exercise/";
+    } else {
+        urlString = "/main/exercise/";
     }
 
     $.ajax({
@@ -372,41 +372,41 @@ function setExerciseActive(trainingsplanPosition) {
     }
 }
 
-function resize_trainingsplans_exercise_video(){
+function resize_trainingsplans_exercise_video() {
 
-    if($("#exercise_video_show video").length === 1){
+    if ($("#exercise_video_show video").length === 1) {
         let ex = $("#exercise_video_show");
         let video = $("video");
         let left = ex.offset()["left"];
         let maxWidth = $("#container").width();
         let width = maxWidth - left - 50;
         //ex.width(width);
-        video.css( "maxWidth",width);
+        video.css("maxWidth", width);
     }
-    if($("#trainingsplans_exercise_video_show video").length === 1){
+    if ($("#trainingsplans_exercise_video_show video").length === 1) {
         let ex = $("#trainingsplans_exercise_video_show");
         let video = $("video");
         let left = ex.offset()["left"];
         let maxWidth = $("#container").width();
         let width = maxWidth - left - 50;
         //ex.width(width);
-        video.css( "maxWidth",width);
+        video.css("maxWidth", width);
     }
-    if($("#exercises_show video").length === 1){
+    if ($("#exercises_show video").length === 1) {
         let ex = $("#exercise");
         let left = ex.offset()["left"];
         let maxWidth = $("#container").width();
         let width = maxWidth - left - 50;
 //ex.width(width);
-        ex.css( "maxWidth",width);
+        ex.css("maxWidth", width);
     }
-    if($("#exercise_video_show video").length === 1){
+    if ($("#exercise_video_show video").length === 1) {
         let ex = $("#exercise_video_show video");
         let left = ex.offset()["left"];
         let maxWidth = $("#container").width();
         let width = maxWidth - left - 50;
 //ex.width(width);
-        ex.css( "maxWidth",width);
+        ex.css("maxWidth", width);
     }
 }
 
@@ -416,46 +416,45 @@ function set_exercise_unit(e_id, unit) {
 }
 
 
-let global_max_exercise = 0;
-let global_current_exercise = 0;
-let current_duration = 0;
-let current_reps = 0;
-let current_pause = 0;
-let unit = "";
-let max_reps = 0, max_duration = 0, max_pause = 0;
-
-let myVar = 0;
-
-
 function video_ended() {
-    let pause = $("#pause_status")[0];
-    if (pause.value === "false") {
+    let current_reps = parseInt($("#current_reps")[0].value);
+    let current_duration = parseInt($("#current_duration")[0].value);
+
+    let max_reps = parseInt($("#max_reps")[0].value);
+    let max_duration = parseInt($("#max_duration")[0].value);
+    let pause = $("#pause_status")[0].value;
+    let unit = $("#unit")[0].value;
+    let global_current_exercise = parseInt($("#global_current_exercise")[0].value);
+    let global_max_exercise = parseInt($("#global_max_exercise")[0].value);
+    let myVar = $("#myVar")[0].value;
+
+    if (pause === "false") {
         if (unit === "reps") {
-            current_reps += 1;
+            current_reps = current_reps + 1;
+            $("#current_reps")[0].value = current_reps;
             console.log("current_reps" + current_reps);
             $("#reps")[0].value = current_reps;
             $("#reps_current")[0].innerHTML = current_reps;
-            console.log("current_duration" + current_duration);
             if (current_reps <= max_reps) {
                 play_video();
             } else {
                 if (global_max_exercise > global_current_exercise) {
-                    myVar = setInterval(myTimer, 1000);
+                    $("#myVar")[0].value = setInterval(myTimer, 1000);
 
                 }
 
             }
         } else {
-            current_duration += parseInt($("video")[0].duration);
+            current_duration = current_duration + parseInt($("video")[0].duration);
+            $("#current_duration")[0].value = current_duration;
             $("#duration")[0].value = current_duration;
             $("#dur_current")[0].innerHTML = current_duration;
-            console.log("current_reps" + current_reps);
             console.log("current_duration" + current_duration);
             if (current_duration <= max_duration) {
                 play_video();
             } else {
                 if (global_max_exercise > global_current_exercise) {
-                    myVar = setInterval(myTimer, 1000);
+                    $("#myVar")[0].value = setInterval(myTimer, 1000);
                 }
 
             }
@@ -468,11 +467,12 @@ function video_ended() {
 function start_training() {
     let pause = $("#pause_status")[0];
     if (pause.value === "true") {
-        pause.value = false;
+        $("#pause_status")[0].value = false;
         play_video();
     } else {
-        global_current_exercise = 0;
-        select_exercise(global_current_exercise);
+
+
+        select_exercise(0);
     }
 
 }
@@ -490,10 +490,12 @@ function pause_training() {
 
 function set_unit() {
     let unit_rep = $("#unit_reps")[0];
+
+
     if (unit_rep !== undefined) {
-        unit = "reps";
+        $("#unit")[0].value = "reps";
     } else {
-        unit = "duration";
+        $("#unit")[0].value = "duration";
     }
 }
 
@@ -528,43 +530,53 @@ function select_exercise(current_exercise) {
 
 function init_max_and_current() {
     let rep = $("#reps")[0];
+
     if (rep !== undefined) {
-        max_reps = rep.max - 1;
+        $("#max_reps")[0].value = rep.max - 1;
     }
-    current_reps = 0;
+    $("#current_reps")[0].value = 0;
 
     let dur = $("#duration")[0];
     if (dur !== undefined) {
-        max_duration = dur.max - 1;
+        $("#max_duration")[0].value = dur.max - 1;
     }
-    current_duration = 0;
+    $("#current_duration")[0].value = 0;
 
     let pause_div = $("#pause")[0];
     if (pause_div !== undefined) {
-        max_pause = pause_div.max - 1;
+        $("#max_pause")[0].value = pause_div.max - 1;
     }
-    current_pause = 0;
+    $("#current_pause")[0].value = 0;
 
     set_unit();
     start_exercise();
-    global_max_exercise = $(".exercise_selection_link ").length - 1;
+    $("#global_max_exercise")[0].value = $(".exercise_selection_link ").length - 1;
 }
 
 
 function myTimer() {
+    let current_pause = parseInt($("#current_pause")[0].value);
+    let max_pause = parseInt($("#max_pause")[0].value);
+    let global_current_exercise = parseInt($("#global_current_exercise")[0].value);
+
+
     /*let d = new Date();*/
     if (current_pause === max_pause) {
         current_pause = 0;
         myStopFunction();
         global_current_exercise += 1;
+        $("#global_current_exercise")[0].value = global_current_exercise;
         select_exercise(global_current_exercise);
     } else {
         current_pause++;
+        $("#current_pause")[0].value = current_pause
         $("#pause")[0].value = current_pause;
         $("#pause_current")[0].innerHTML = current_pause;
     }
 }
 
 function myStopFunction() {
+    let myVar = $("#myVar")[0].value;
+
     clearInterval(myVar);
 }
