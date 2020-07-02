@@ -6,7 +6,7 @@ $("#exercise_selected").html("<%=j render partial: 'trainingsplans/exercise_sele
 $("#exercise_text_selected").html("<%=j @name %>");
 $("#open_exercise").html("<%=vertical_text(@name) %>");
 ex = $("#trainingsplans_exercise_video_show");
-ex.html("<%=j render('videos/video', :video => @video, :width => nil)%>");
+ex.html("<%=j render('trainingsplans/video', :video => @video, :width => nil)%>");
 $("#rep_sec_pause").html("<%=j render partial: 'trainingsplans/rep_sec_pause'%>");
 
 video = $("video");

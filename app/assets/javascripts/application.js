@@ -16,7 +16,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= include videoPlayer
+
 
 ////= require jquery
 

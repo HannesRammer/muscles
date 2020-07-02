@@ -40,7 +40,7 @@
               <span>Dauer: <%= ettp.duration %></span>
             <% end %>
             <% video = exercise.selected_video(ettp.trainingsplan_id) %>
-            <%= render "trainingsplans/video", :video => video, :width => "130" %>
+            <%= render "videos/video", :video => video, :width => "130" %>
 
           </div>
           <div style="font-size: 13px; text-align: center; width: 100%;">
@@ -93,7 +93,7 @@
                 <% else %>
                   <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false} %>
                 <% end %>
-                <%= render "trainingsplans/video", :video => video, :width => "130" %>
+                <%= render "videos/video", :video => video, :width => "130" %>
 
                 <br>
               </div>
