@@ -17,6 +17,28 @@
 
       <% @x = [] %>
 
+    <script>
+
+        $('select#trainingsplan_id').on('change', function(event) {
+            let selected_resource_id = $(this).val();
+            let selected_muscle = $("#body_part_text_selected").innerText;
+            let urlString = ""
+            if (document.location.href.indexOf("muscles") > -1 ){
+                urlString ="/muscles/trainingsplans/get_exercises/";
+            }else{
+                urlString ="/trainingsplans/get_exercises/";
+            }
+            $.ajax({
+                type: "POST",
+                url: urlString + selected_resource_id+"?muscle=" + selected_muscle,
+                dataType: "script",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                }
+            });
+            return false;
+        });
+    </script>
 
       <div id="exercise_list">
 
