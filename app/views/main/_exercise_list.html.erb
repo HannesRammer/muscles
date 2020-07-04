@@ -16,7 +16,6 @@
           </span>
 
             <%= link_to("<i class='material-icons'>remove_circle_outline</i>".html_safe, {:controller => "main", :action => "remove_exercise", :ettp_id => ettp.id}, {:confirm => "Are you sure?", :remote => true, :method => :post}) %>
-            <%#= link_to(image_tag('icons/remove.png'),:html=>{:title => 'Vom Trainingsplan entfernen'}, :url=>{:controller=>'main', :action=>'remove_exercise', :ute_id=>ute.id}, :confirm => 'Are you sure?', :remote=>true) %>
             <% if i != 0 %>
               <%= link_to("<i class='material-icons move_exercise'>arrow_drop_up</i>".html_safe, {:controller => "main", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => @ettps[i - 1].id}, {:remote => true, :method => :post}) %>
             <% end %>
