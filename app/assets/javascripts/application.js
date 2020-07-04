@@ -130,124 +130,6 @@ function set_level(percent, id, way) {             //called
     }
 }
 
-function toggle_running(elem) {
-    if (elem.value === "false") {
-        elem.value = "true";
-        document.querySelector("#pause_training").innerHTML = "<b>pause training</b>";
-    } else {
-        elem.value = "false";
-        document.querySelector("#pause_training").innerHTML = "<b>resume training</b>";
-    }
-
-
-}
-
-function startExercise(i) {
-    document.querySelector("#running").value = "true";
-    document.querySelector("#allow_pause").value = "true";
-    document.querySelector("#start_training").innerHTML = "";
-    /*document.querySelector("pause_training").innerHTML = "<b>pause training</b>";*/
-    reps = document.querySelector("#reps").value;
-    single_rep = document.querySelector("#single_rep").value * 1000;
-    perc = 100;
-    set_level(perc, "reps_div", "left");
-    set_level(perc, "single_rep_div", "left");
-    set_level(0, "pause_div", "left");
-    do_rep(single_rep, single_rep, reps, reps, i);
-}
-
-function do_rep(single_rep, counter, reps, new_reps, i) {
-
-    if (counter > 0) {
-
-        if (document.querySelector("#hold_div_f").innerHTML === 0) {
-            drown_to_null(single_rep, counter, "single_rep_div");
-            //set_timeline(single_rep, counter) ;
-            document.querySelector("#single_rep_div_f").innerHTML = (counter / 1000);
-
-            if (counter > (single_rep / 2)) {
-                extention = ".jpg";
-                do_it = "push it!!";
-            } else if (counter === (single_rep / 2)) {
-                hold = document.querySelector("#hold").value * 1000;
-                extention = "1.jpg";
-                document.querySelector("#hold_div_f").innerHTML = hold;
-                do_it = "Halten";
-            } else if (counter < (single_rep / 2)) {
-                extention = "1.jpg";
-                do_it = "release";
-            }
-            document.querySelector("#training_pic").src = "/images/exercises/" + trainingsArray[i] + extention;
-
-            document.querySelector("#training_text").innerHTML = do_it;
-
-            counter = counter - 100;
-            setTimeout("do_rep(" + single_rep + "," + counter + "," + reps + "," + new_reps + "," + i + ")", 100);
-        } else {
-            hold_on(hold, hold, single_rep, counter, reps, new_reps, i);
-        }
-    } else {
-        fill("single_rep_div", 0);
-        document.querySelector("#single_rep_div_f").innerHTML = 0;
-        new_reps = new_reps - 1;
-        if (new_reps > 0) {
-            drown_to_null(reps, new_reps, "reps_div");
-            document.querySelector("#reps_div_f").innerHTML = new_reps;
-            full("single_rep_div");
-            do_rep(single_rep, single_rep, reps, new_reps, i);
-        } else {
-            fill("reps_div", 0);
-            document.querySelector("#reps_div_f").innerHTML = 0;
-
-            i = i + 1;
-            if (i < trainingsArray.length) {
-                pause = document.querySelector("#pause").value * 1000;
-                pause_c(pause, pause, i)
-            } else {
-                document.querySelector("#running").value = "false";
-                document.querySelector("#allow_pause").value = "false";
-                document.querySelector("#start_training").innerHTML = "<b>start</b>";
-                /*document.querySelector("#pause_training").innerHTML = "";*/
-            }
-        }
-
-
-    }
-
-
-}
-
-function pause_for(milliseconds) {
-    var dt = new Date();
-    while (new Date() - dt <= milliseconds) { /* Do nothing */
-    }
-}
-
-
-function pause_c(x, y, i) {
-    document.querySelector("#training_text").innerHTML = "noch " + (x / 1000) + " s pause";
-    if (x > 0) {
-        x = x - 100;
-        drown_to_null(y, x, "pause_div");
-        setTimeout("pause_c(" + x + "," + y + "," + i + ")", 100);
-    } else {
-        startExercise(i);
-    }
-}
-
-function hold_on(max, counter, single_rep, counter_1, reps, new_reps, i) {
-    document.querySelector("#training_text").innerHTML = "noch " + (counter / 1000) + " s halten";
-    if (counter > 0) {
-        counter = counter - 100;
-        drown_to_null(max, counter, "hold_div");
-        document.querySelector("#hold_div_f").innerHTML = counter;
-        setTimeout("hold_on(" + max + "," + counter + "," + single_rep + "," + counter_1 + "," + reps + "," + new_reps + "," + i + ")", 100);
-    } else {
-        fill("hold_div", 0);
-        do_rep(single_rep, counter_1, reps, new_reps, i);
-    }
-}
-
 //set_level id to 100%
 function full(id) {               //inject
     set_level(100, id, "left");
@@ -271,14 +153,6 @@ function set_timeline(counter_max, counter) {             //called
     x = (duration / 100) * usertime_percent;
     document.querySelector("#htmlPlayer").currentTime = duration - x;
     document.querySelector("#vid").value = (duration - x) / 60;
-
-}
-
-function set_training(r, s, h, p) {
-    document.querySelector("#reps").value = r;
-    document.querySelector("#single_rep").value = s;
-    document.querySelector("#hold").value = h;
-    document.querySelector("#pause").value = p;
 
 }
 
@@ -465,13 +339,12 @@ function video_ended() {
 
 
 function start_training() {
+    $("#training_started")[0].value = "true";
     let pause = $("#pause_status")[0];
     if (pause.value === "true") {
         $("#pause_status")[0].value = false;
         play_video();
     } else {
-
-
         select_exercise(0);
     }
 
@@ -480,6 +353,7 @@ function start_training() {
 function pause_training() {
     $("#pause_status")[0].value = "true";
     show_play_button();
+    $("#training_started")[0].value = "false"
 
 }
 
@@ -525,32 +399,44 @@ function select_exercise(current_exercise) {
     let links = $(".exercise_selection_link ");
     links[current_exercise].click();
 
-    setTimeout(init_max_and_current, 3000);
+    // setTimeout(init_max_and_current, 3000);
+}
+
+function autoCallInitOnVidLoadIfTrainingStarted() {
+    if ($("#training_started")[0].value === "true") {
+        init_max_and_current();
+    }
+
+
 }
 
 function init_max_and_current() {
-    let rep = $("#reps")[0];
+    if ($("#reps")[0] && $("#reps")[0].value === 0 || $("#duration")[0] && $("#duration")[0].value === 0) {
 
-    if (rep !== undefined) {
-        $("#max_reps")[0].value = rep.max - 1;
+        let rep = $("#reps")[0];
+
+        if (rep !== undefined) {
+            $("#max_reps")[0].value = rep.max - 1;
+        }
+        $("#current_reps")[0].value = 0;
+
+        let dur = $("#duration")[0];
+        if (dur !== undefined) {
+            $("#max_duration")[0].value = dur.max - 1;
+        }
+        $("#current_duration")[0].value = 0;
+
+        let pause_div = $("#pause")[0];
+        if (pause_div !== undefined) {
+            $("#max_pause")[0].value = pause_div.max - 1;
+        }
+        $("#current_pause")[0].value = 0;
+
+        set_unit();
+        start_exercise();
+        $("#global_max_exercise")[0].value = $(".exercise_selection_link ").length - 1;
     }
-    $("#current_reps")[0].value = 0;
 
-    let dur = $("#duration")[0];
-    if (dur !== undefined) {
-        $("#max_duration")[0].value = dur.max - 1;
-    }
-    $("#current_duration")[0].value = 0;
-
-    let pause_div = $("#pause")[0];
-    if (pause_div !== undefined) {
-        $("#max_pause")[0].value = pause_div.max - 1;
-    }
-    $("#current_pause")[0].value = 0;
-
-    set_unit();
-    start_exercise();
-    $("#global_max_exercise")[0].value = $(".exercise_selection_link ").length - 1;
 }
 
 
