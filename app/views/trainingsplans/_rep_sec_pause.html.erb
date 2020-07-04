@@ -9,9 +9,9 @@
       <%#= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
       <div style="position: absolute;top: 15px;left: 44%;">
         <span id="unit_reps"></span>
-        <span id="reps_current">0</span><span id="reps_max"> / <%= @ett.reps %></span><span><%= t("reps") %></span>
+        <span id="reps_current">-3</span><span id="reps_max"> / <%= @ett.reps %></span><span><%= t("reps") %></span>
       </div>
-      <meter id="reps" value="0" min="0" max="<%= @ett.reps %>"></meter>
+      <meter id="reps" value="-3" min="-3" max="<%= @ett.reps %>"></meter>
     <% end %>
     <% durationchecked = is_unit_duration(@ett.unit) %>
     <% if durationchecked %>
@@ -20,9 +20,9 @@
       <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
       <div style="position: absolute;">
         <span id="unit_duration"></span>
-        <span id="dur_current">0</span><span id="dur_max"> / <%= @ett.duration %></span><span><%= t("dur") %></span>
+        <span id="dur_current">-6</span><span id="dur_max"> / <%= @ett.duration %></span><span><%= t("dur") %></span>
       </div>
-      <meter id="duration" value="0" min="0" max="<%= @ett.duration %>"></meter>
+      <meter id="duration" value="-6" min="-6" max="<%= @ett.duration %>"></meter>
     <% end %>
   </div>
 

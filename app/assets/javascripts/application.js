@@ -415,20 +415,20 @@ function autoCallInitOnVidLoadIfTrainingStarted() {
 }
 
 function init_max_and_current() {
-    if ($("#reps")[0] && $("#reps")[0].value === 0 || $("#duration")[0] && $("#duration")[0].value === 0) {
+    if ($("#reps")[0] && $("#reps")[0].value === -3 || $("#duration")[0] && $("#duration")[0].value === -6) {
 
         let rep = $("#reps")[0];
 
         if (rep !== undefined) {
             $("#max_reps")[0].value = rep.max - 1;
         }
-        $("#current_reps")[0].value = 0;
+        $("#current_reps")[0].value = -3;
 
         let dur = $("#duration")[0];
         if (dur !== undefined) {
             $("#max_duration")[0].value = dur.max - 1;
         }
-        $("#current_duration")[0].value = 0;
+        $("#current_duration")[0].value = -6;
 
         let pause = $("#pause")[0];
         if (pause !== undefined) {
