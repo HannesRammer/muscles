@@ -1,4 +1,4 @@
-<strong>Traingsplans:</strong>
+<strong>Trainingsplans:</strong>
 <%= hidden_field_tag "pause_status", "false" %>
 <%= hidden_field_tag "global_max_exercise", 0 %>
 <%= hidden_field_tag "global_current_exercise", 0 %>
@@ -14,10 +14,26 @@
 
 <div>
   <% if @current_user %>
-    <% @current_user.trainingsplans.each do |trainingsplan| %>
-      <span>Name: <%= link_to trainingsplan.name, trainingsplan %></span> |
-    <% end %>
-  <% end %>
+
+    <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
+
+<% end %>
+  <script>
+
+      $('select#trainingsplan_id').on('change', function(event) {
+          let selected_resource_id = $(this).val();
+          let selected_muscle = $("#body_part_text_selected").innerText;
+          let urlString = ""
+          if (document.location.href.indexOf("muscles") > -1 ){
+              urlString ="/muscles/trainingsplans/";
+          }else{
+              urlString ="/trainingsplans/";
+          }
+          let host = document.location.host;
+          document.location = "http://"+host + urlString + selected_resource_id;
+          return false;
+      });
+  </script>
 </div>
 <br/>
 <strong>Ausgewählter Trainingsplan:</strong>
@@ -39,9 +55,19 @@
   <%= image_tag("muskelman.svg", :class => "trainingsplan_exercise_multi_pic_base") %>
 
 
-
-  <div id="open_training" class="open_training" onclick="toggleTraining()">Verstecke Trainingsplan</div>
-
+<span id="trainingsplans_show_view">
+  <div id="hide_training" class="open_training" onclick="toggleTraining()" style="display: block"><%=t(".hidePlan") %></div>
+  <div id="open_training" class="open_training" onclick="toggleTraining()" style="display: none;"><%=t(".showPlan") %></div>
+</span>
+  <div id="start_exercise" onclick="start_training();" title="Start Training">
+    <i class="material-icons" style="font-size:120px !important;color:#29a833">play_circle_outline</i>
+  </div>
+  <!--div id="continue_exercise" onclick="continue_training();$('#continue_exercise').hide();$('#start_exercise').show();"  style="display:none;">
+    continue Training $('#continue_exercise').show();
+  </div-->
+  <div id="pause_exercise" onclick="pause_training();" title="Pause Training">
+    <i class="material-icons" style="font-size:120px !important;color:#d6d6d6">pause_circle_outline</i>
+  </div>
 
   <div id="trainingsplans" class="show_training">
     <%= render "trainingsplans/user_selected" %>
@@ -58,9 +84,6 @@
   <div id="hover"></div-->
   <%= image_tag("blank.png", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
 
-  <div id="rep_sec_pause">
-    <%= render :partial => "trainingsplans/rep_sec_pause" %>
-  </div>
 
 
   <div id="trainingsplans_exercise_video_show">

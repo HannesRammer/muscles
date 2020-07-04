@@ -80,14 +80,15 @@ class MainController < ApplicationController
   def add_exercise
     unless creator_of_trainingsplan
       redirect_to root_path
+      flash[:notice] = "not your exercise."
+
     end
-    trainingsplan_id = params[:trainingsplan]
+    trainingsplan_id = params[:trainingsplan_id]
     exercise_id = params[:exercise]
     tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id, exercise_id: exercise_id)
     @trainingsplan = Trainingsplan.find_by_id(trainingsplan_id)
     if tpte
       flash[:notice] = "Exercise already in your trainingslan."
-      respond_to :js
 
 
     else
@@ -104,10 +105,10 @@ class MainController < ApplicationController
       else
         flash[:notice] = "some error while saving ExerciseToTrainingsplan t_id:#{trainingsplan_id} e_id #{exercise_id}"
       end
-      respond_to :js
+
     end
 
-
+    respond_to :js
     #@current_user.exercises << Exercise.find_by_id(params[:exercise])
 
   end

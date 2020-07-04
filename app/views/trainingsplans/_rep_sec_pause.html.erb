@@ -1,45 +1,40 @@
 <%#= javascript_include_tag "videoPlayer", "data-turbolinks-track": "reload" %>
 <% if @ett %>
-  <div id="start_exercise" onclick="start_training();">
-    <i class="material-icons" style="font-size:85px!important;color:#29a833">play_circle_outline</i>
+
+  <div id="play_div" style="display: block;">
+    <% repschecked = is_unit_reps(@ett.unit) %>
+    <% if repschecked %>
+      <%#= label :autolyse, "reps", :value => "reps" %>
+      <%#= radio_button_tag 'unit', 'reps', repschecked %>
+      <%#= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
+      <div style="position: absolute;top: 15px;left: 44%;">
+        <span id="unit_reps"></span>
+        <span id="reps_current">0</span><span id="reps_max"> / <%= @ett.reps %></span><span><%= t("reps") %></span>
+      </div>
+      <meter id="reps" value="0" min="0" max="<%= @ett.reps %>"></meter>
+    <% end %>
+    <% durationchecked = is_unit_duration(@ett.unit) %>
+    <% if durationchecked %>
+      <%#= label :autolyse, "duration", :value => "duration" %>
+      <%#= radio_button_tag 'unit', 'duration', durationchecked %>
+      <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
+      <div style="position: absolute;">
+        <span id="unit_duration"></span>
+        <span id="dur_current">0</span><span id="dur_max"> / <%= @ett.duration %></span><span><%= t("dur") %></span>
+      </div>
+      <meter id="duration" value="0" min="0" max="<%= @ett.duration %>"></meter>
+    <% end %>
   </div>
-  <!--div id="continue_exercise" onclick="continue_training();$('#continue_exercise').hide();$('#start_exercise').show();"  style="display:none;">
-    continue Training $('#continue_exercise').show();
-  </div-->
-  <div id="pause_exercise" onclick="pause_training();">
-    <i class="material-icons" style="font-size:85px;color:#d6d6d6">pause_circle_outline</i>
+
+  <div id="pause_div" style="display: none;">
+
+    <%#= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>
+    <div style="position: absolute;top: 15px;left: 44%;">
+      <span id="pause_span"></span>
+      <span id="pause_current">0</span><span id="pause_max"> / <%= @ett.pause %></span><span><%= t("dur") %></span>
+    </div>
+    <meter id="pause" value="0" min="0" max="<%= @ett.pause %>"></meter>
   </div>
-<br>
-  <% repschecked = is_unit_reps(@ett.unit) %>
-  <% if repschecked %>
-    <%#= label :autolyse, "reps", :value => "reps" %>
-    <%#= radio_button_tag 'unit', 'reps', repschecked %>
-    <%#= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
-    <span id="unit_reps"></span>
-    <span id="reps_current">0</span><span id="reps_max"> / <%= @ett.reps %></span><br><span><%= t("reps") %></span>
-    <meter id="reps" value="0" min="0" max="<%= @ett.reps %>"></meter><br>
-    <br>
-  <% end %>
-  <br>
-
-  <% durationchecked = is_unit_duration(@ett.unit) %>
-  <% if durationchecked %>
-    <%#= label :autolyse, "duration", :value => "duration" %>
-    <%#= radio_button_tag 'unit', 'duration', durationchecked %>
-    <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
-<span id="unit_duration"></span>
-    <span id="dur_current">0</span><span id="dur_max"> / <%= @ett.duration %></span><br><span><%= t("dur") %></span>
-    <meter id="duration" value="0" min="0" max="<%= @ett.duration %>"></meter><br>
-    <br>
-  <% end %>
-
-  <%= label :autolyse, "pause", :value => "Pause nach Übung" %>
-
-  <%#= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>
-  <span id="pause_span"></span>
-  <span id="pause_current">0</span><span id="pause_max"> / <%= @ett.pause %></span><br><span><%= t("dur") %></span>
-  <meter id="pause" value="0" min="0" max="<%= @ett.pause %>"></meter><br>
-  <br>
 
 <% end %>
  

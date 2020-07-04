@@ -141,7 +141,7 @@ module ApplicationHelper
   end
 
   def creator_of_trainingsplan
-    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id:params[:id],user_id:@current_user.id)
+    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id:params[:trainingsplan_id],user_id:@current_user.id)
 
   end
 

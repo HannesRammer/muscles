@@ -111,12 +111,15 @@ class TrainingsplansController < ApplicationController
       muscle_name = params[:muscle]
       @muscle = Muscle.find_by_name(muscle_name)
 
-      @muscle_exercises = @muscle.exercises
+      #@muscle_exercises = @muscle.exercises
     else
-      @muscle_exercises = Exercise.where(visible: true).order("name asc").all
+
     end
+    #@muscle_exercises = Exercise.where(visible: true).order("name asc").all
+
     @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])
-    @exercises = @trainingsplan.exercises
+    @exercises = Exercise.where(visible: true).order("name asc").all#@trainingsplan.exercises
+    @all_exercises = Exercise.where(visible: true).order("name asc").all#@trainingsplan.exercises
     respond_to :js
   end
 

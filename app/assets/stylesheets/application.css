@@ -150,11 +150,12 @@ h3 {
     left: 10px;
     position: absolute;
     top: 10px;
+    transform: scale(0.90);
 }
 
 .trainingsplan_exercise_multi_pic_exercise {
-    top: 0;
-    left: -326px;
+    top: 26px;
+    left: -335px;
     position: absolute;
 }
 
@@ -417,6 +418,20 @@ table {
     overflow: hidden;
     position: absolute;
     left: 350px;
+    top: -45px;
+    width: 190px;
+    z-index: 9;
+    text-align: center;
+}
+#trainingsplans_show_view .open_training {
+    background-color: var(--blue-color);
+    /*background-color: var(--green-color);*/
+    color: #fff;
+    /* border: 1px solid #ffffff;*/
+    height: 20px;
+    overflow: hidden;
+    position: absolute;
+    left: 5px;
     top: -45px;
     width: 190px;
     z-index: 9;
@@ -830,8 +845,8 @@ input {
 
 #trainingsplans_exercise_video_show {
     position: absolute;
-    top: -65px;
-    left: 640px;
+    top: -140px;
+    left: 440px;
 }
 
 #exercise_video_show {
@@ -851,9 +866,8 @@ input {
 
 #rep_sec_pause {
     position: absolute;
-    left: 480px;
-    top: 90px;
-    width: 145px;
+    bottom: -35px;
+    width: 100%;
 }
 
 #reps, #duration, #pause {
@@ -875,19 +889,25 @@ input {
 }
 
 #start_exercise {
+    left: 295px;
+    position: absolute;
+    top: -130px;
     float: left;
     cursor: pointer;
     display: block;
 }
 
 #pause_exercise {
+    left: 295px;
     float: left;
     cursor: pointer;
     display: none;
+    position: absolute;
+    top: -130px;
 }
 
 #exercise_video_show video, #trainingsplans_exercise_video_show video {
-    max-height: 545px;
+    max-height: 610px;
 }
 
 .mainborder {
@@ -947,4 +967,16 @@ div#trainingsplan_edit_exercise input[type=text] {
 
 #muscle_text_header {
     border: 1px solid var(--red-color);
+}
+
+meter{
+    height: 50px;
+}
+
+#play_div meter::-webkit-meter-optimum-value{
+    background: #2cab85;
+}
+
+#pause_div meter::-webkit-meter-optimum-value{
+    background: var(--red-color);
 }

@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
   get 'exercises/all', to: 'exercises#all',  as: :exercises_all
 
-  post 'main/add_exercise/:exercise/trainingsplan/:trainingsplan', to: 'main#add_exercise', format: 'js', as: :main_add_exercise
+  post 'main/add_exercise/:exercise/trainingsplan/:trainingsplan_id', to: 'main#add_exercise', format: 'js', as: :main_add_exercise
   post 'main/remove_exercise/:ettp_id', to: 'main#remove_exercise', format: 'js', as: :main_remove_exercise
   post 'main/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'main#switch_exercise', format: 'js', as: :main_switch_exercise
 

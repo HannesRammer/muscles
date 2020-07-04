@@ -8,7 +8,6 @@
         <br>
         <% @ettps.each_with_index do |ettp, i| %>
           <% exercise = ettp.exercise %>
-          <% @x << "#{clean_name(exercise.name).capitalize}" %>
           <div class="exercise_border_red">
           <span class="main_exercises_text" title="<%= exercise.name %> anzeigen">
             <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen", :trainingsplan_id => "#{ettp.trainingsplan_id}"}, {:remote => true, :method => :post}) %>

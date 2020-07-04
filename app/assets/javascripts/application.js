@@ -313,6 +313,8 @@ function video_ended() {
                 play_video();
             } else {
                 if (global_max_exercise > global_current_exercise) {
+                    let pause_div = $("#pause_div").css("display","block");
+                    let play_div = $("#play_div").css("display","none");
                     $("#myVar")[0].value = setInterval(myTimer, 1000);
 
                 }
@@ -328,6 +330,8 @@ function video_ended() {
                 play_video();
             } else {
                 if (global_max_exercise > global_current_exercise) {
+                    let pause_div = $("#pause_div").css("display","block");
+                    let play_div = $("#play_div").css("display","none");
                     $("#myVar")[0].value = setInterval(myTimer, 1000);
                 }
 
@@ -426,9 +430,9 @@ function init_max_and_current() {
         }
         $("#current_duration")[0].value = 0;
 
-        let pause_div = $("#pause")[0];
-        if (pause_div !== undefined) {
-            $("#max_pause")[0].value = pause_div.max - 1;
+        let pause = $("#pause")[0];
+        if (pause !== undefined) {
+            $("#max_pause")[0].value = pause.max - 1;
         }
         $("#current_pause")[0].value = 0;
 
@@ -465,4 +469,7 @@ function myStopFunction() {
     let myVar = $("#myVar")[0].value;
 
     clearInterval(myVar);
+    let pause_div = $("#pause_div").css("display","none");
+    let play_div = $("#play_div").css("display","block");
+
 }

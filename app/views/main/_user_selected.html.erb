@@ -1,6 +1,6 @@
 <div id="user_selected">
   <div class="exercise_border_blue">
-    <% if @current_user %>
+    <% if @current_user && @trainingsplan != nil %>
       <% exercises = @trainingsplan.exercises %>
       <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
 
@@ -14,8 +14,6 @@
         <%= user_muscle_pics(exercise.primary_muscles, "selected", 5, "multi_pic4") %>
         <%= user_muscle_pics(exercise.secondary_muscles, "selected", 2, "multi_pic4") %>
       <% end %>
-
-      <% @x = [] %>
 
     <script>
 
