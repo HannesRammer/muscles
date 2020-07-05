@@ -23,7 +23,7 @@
       <td>
         <% @video = exercise.video %>
         <% if @video && @video.video.attached? %>
-          <%= render "videos/video", :video => @video, :width => 200 %>
+          <%= render "videos/video", :video => @video, :preload => true%>
         <% end %></td>
 
 

@@ -1,4 +1,4 @@
 
-<%= render "videos/video",:video=> @video , :width => nil%>
+<%= render "videos/video",:video=> @video , :preload => true%>
 <%= link_to t('edit'), edit_video_path(@video) %> |
 <%= link_to t('back'), videos_path %>
