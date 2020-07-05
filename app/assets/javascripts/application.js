@@ -248,40 +248,15 @@ function setExerciseActive(trainingsplanPosition) {
 
 function resize_trainingsplans_exercise_video() {
 
-    if ($("#exercise_video_show video").length === 1) {
-        let ex = $("#exercise_video_show");
-        let video = $("video");
-        let left = ex.offset()["left"];
-        let maxWidth = $("#container").width();
-        let width = maxWidth - left - 50;
-        //ex.width(width);
-        video.css("maxWidth", width);
-    }
-    if ($("#trainingsplans_exercise_video_show video").length === 1) {
-        let ex = $("#trainingsplans_exercise_video_show");
-        let video = $("video");
-        let left = ex.offset()["left"];
-        let maxWidth = $("#container").width();
-        let width = maxWidth - left - 50;
-        //ex.width(width);
-        video.css("maxWidth", width);
-    }
-    if ($("#exercises_show video").length === 1) {
-        let ex = $("#exercise");
-        let left = ex.offset()["left"];
-        let maxWidth = $("#container").width();
-        let width = maxWidth - left - 50;
-//ex.width(width);
-        ex.css("maxWidth", width);
-    }
-    if ($("#exercise_video_show video").length === 1) {
-        let ex = $("#exercise_video_show video");
-        let left = ex.offset()["left"];
-        let maxWidth = $("#container").width();
-        let width = maxWidth - left - 50;
-//ex.width(width);
-        ex.css("maxWidth", width);
-    }
+    let currentWidth = document.documentElement.clientWidth;
+    let currentHeight = document.documentElement.clientHeight;
+
+    $("#body_tag").css("transform","scale("+(currentWidth/1900)+")");
+    let left = $("#body_tag").position().left;
+    let top = $("#body_tag").position().top;
+
+    $("body").css("left",15-left);
+    $("body").css("top",15-top);
 }
 
 function set_exercise_unit(e_id, unit) {

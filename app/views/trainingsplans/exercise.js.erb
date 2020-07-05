@@ -9,11 +9,5 @@ ex = $("#trainingsplans_exercise_video_show");
 ex.html("<%=j render('trainingsplans/video', :video => @video, :width => nil)%>");
 $("#rep_sec_pause").html("<%=j render partial: 'trainingsplans/rep_sec_pause'%>");
 
-video = $("video");
 
-left = ex.position()["left"];
-maxWidth = $("#container").width();
-width = maxWidth - left - 50;
-//ex.width(width);
-video.css( "maxWidth",width);
 //alert("yes");

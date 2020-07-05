@@ -21,61 +21,59 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
 <%#= javascript_include_tag "modernizr-1.6.min" %>
 <body id="body" class="theme_3a3a3a" onresize="resize_trainingsplans_exercise_video();">
-<%= render "layouts/navi" %>
-<script>
-    $(document).on("mousemove", function (event) {
-        $("#mouseX").attr("value", event.pageX);
-        $("#mouseY").attr("value", event.pageY);
-        //$( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
-    });
+<div id="body_tag">
+  <%= render "layouts/navi" %>
+  <script>
+      $(document).on("mousemove", function (event) {
+          $("#mouseX").attr("value", event.pageX);
+          $("#mouseY").attr("value", event.pageY);
+          //$( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+      });
 
 
+      //    $( document ).ready( readyFn );
+      // or:
+      //$( window ).on( "load", resize_trainingsplans_exercise_video);
+      $(document).ready(resize_trainingsplans_exercise_video);
+  </script>
 
 
-
-    //    $( document ).ready( readyFn );
-    // or:
-    //$( window ).on( "load", resize_trainingsplans_exercise_video);
-    $(document).ready(resize_trainingsplans_exercise_video);
-</script>
-
-
-<input type="hidden" id="mouseX" value=""/>
-<input type="hidden" id="mouseY" value=""/>
-<span style="position: absolute;z-index: 9;">
+  <input type="hidden" id="mouseX" value=""/>
+  <input type="hidden" id="mouseY" value=""/>
+  <span style="position: absolute;z-index: 9;">
 <%= render "layouts/drop_style" %>
   </span>
 
-<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
-<div id="outer_container" class="nice_outer_tab">
-  <div id="container"><br/>
+  <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
+  <div id="outer_container" class="nice_outer_tab">
+    <div id="container"><br/>
 
 
 
 
 
-    <%#= render("shared/header", :locals => {:cont_name => "contact"}) %>
-    <div id="muscle"></div>
-    <% if flash[:notice] %>
-      <div id="notice"><%= flash[:notice] %></div>
-    <% end %>
+      <%#= render("shared/header", :locals => {:cont_name => "contact"}) %>
+      <div id="muscle"></div>
+      <% if flash[:notice] %>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end %>
 
 
-    <%= yield :layout %>
+      <%= yield :layout %>
 
-    <%#= render "layouts/donation" %>
-    <div id="trainingsplanlist" style="display: none;
-        top: 318px;
-        left: 1015px;
-        position: absolute;
-        border: 1px solid black;
-        padding: 5px;
-        background: lightgrey;">
+      <%#= render "layouts/donation" %>
+      <div id="trainingsplanlist" style="display: none;
+          top: 318px;
+          left: 1015px;
+          position: absolute;
+          border: 1px solid black;
+          padding: 5px;
+          background: lightgrey;">
 
+      </div>
     </div>
   </div>
-</div>
-<!--table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <!--table width="100%" cellspacing="0" cellpadding="0" border="0">
   <tbody>
   <tr>
     <td width="100%" align="center" style="padding:10px;">Copyright &copy; INC-M99.</td>
@@ -89,6 +87,6 @@
   </tr>
   </tbody>
 </table-->
-
+</div>
 </body>
 </html>

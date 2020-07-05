@@ -12,53 +12,15 @@
 <%= hidden_field_tag "myVar", 0 %>
 <%= hidden_field_tag "training_started", "false" %>
 
-<div>
-  <% if @current_user %>
 
-    <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
 
-<% end %>
-  <script>
-
-      $('select#trainingsplan_id').on('change', function(event) {
-          let selected_resource_id = $(this).val();
-          let selected_muscle = $("#body_part_text_selected").innerText;
-          let urlString = ""
-          if (document.location.href.indexOf("muscles") > -1 ){
-              urlString ="/muscles/trainingsplans/";
-          }else{
-              urlString ="/trainingsplans/";
-          }
-          let host = document.location.host;
-          document.location = "http://"+host + urlString + selected_resource_id;
-          return false;
-      });
-  </script>
-</div>
-<br/>
-<strong>Ausgewählter Trainingsplan:</strong>
 
 <div style="position: relative;">
 
-  <span id="trainingsplan_text_selected" class="trainingsplan_name" style="position: relative;"><%= @trainingsplan.name %></span>
-  Id: <%= @trainingsplan.id %>
-</div>
-
-
-<div style="position: relative;top: 60px;">
-
-
-  <div id="trainings_exercises" class="nice_outer_tab">
-    <%= render :partial => "trainingsplans/exercise" %>
+  <div id="trainingsplans_exercise_video_show">
+    <%= render "trainingsplans/video", :video => @video, :width => nil %>
   </div>
 
-  <%= image_tag("muskelman.svg", :class => "trainingsplan_exercise_multi_pic_base") %>
-
-
-<span id="trainingsplans_show_view">
-  <div id="hide_training" class="open_training" onclick="toggleTraining()" style="display: block"><%=t(".hidePlan") %></div>
-  <div id="open_training" class="open_training" onclick="toggleTraining()" style="display: none;"><%=t(".showPlan") %></div>
-</span>
   <div id="start_exercise" onclick="start_training();" title="Start Training">
     <i class="material-icons" style="font-size:120px !important;color:#29a833">play_circle_outline</i>
   </div>
@@ -69,31 +31,58 @@
     <i class="material-icons" style="font-size:120px !important;color:#d6d6d6">pause_circle_outline</i>
   </div>
 
-  <div id="trainingsplans" class="show_training">
-    <%= render "trainingsplans/user_selected" %>
+  <div id="trainingsplan_selection_area">
+    <div id="trainingsplans_show_view">
+      <div id="hide_training" class="open_training" onclick="toggleTraining()" style="display: block"><%= t(".hidePlan") %></div>
+      <div id="open_training" class="open_training" onclick="toggleTraining()" style="display: none;"><%= t(".showPlan") %></div>
+    </div>
+    <div style="position: absolute;top: -45px;left: 0px;">
+      <% if @current_user %>
+
+        <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
+
+      <% end %>
+      <script>
+
+          $('select#trainingsplan_id').on('change', function (event) {
+              let selected_resource_id = $(this).val();
+              let selected_muscle = $("#body_part_text_selected").innerText;
+              let urlString = ""
+              if (document.location.href.indexOf("muscles") > -1) {
+                  urlString = "/muscles/trainingsplans/";
+              } else {
+                  urlString = "/trainingsplans/";
+              }
+              let host = document.location.host;
+              document.location = "http://" + host + urlString + selected_resource_id;
+              return false;
+          });
+      </script>
+    </div>
+    <div style="position: relative;">
+      <%= link_to t('add_or_remove_exercises'), index_path(trainingsplan_id: @trainingsplan.id) if creator_of_trainingsplan %>
+      <%#= link_to t('edit_repetition_duration_or_videos'), edit_trainingsplan_path(@trainingsplan) if creator_of_trainingsplan %>
+      <%#= link_to t('back'), user_trainingsplans_path %>
+    </div>
+
+
+
   </div>
-  <div id="exercise_selected">
-    <%= render :partial => "trainingsplans/exercise_selected" %>
+
+  <div id="trainingsplan_muscle_images_field" style="position: absolute;">
+
+    <%= image_tag("muskelman.svg", :class => "trainingsplan_exercise_multi_pic_base") %>
+    <div id="trainingsplans" class="show_training">
+      <%= render "trainingsplans/user_selected" %>
+    </div>
+    <div id="exercise_selected">
+      <%= render :partial => "trainingsplans/exercise_selected" %>
+    </div>
   </div>
 
-<%#= render :partial => "main/muscle_hover" %>
-  <!--div id="trainingsplans_muscles" class="nice_outer_tab">
-    <%#= render :partial => "trainingsplans/muscle" %>
-  </div>
-
-  <div id="hover"></div-->
-  <%= image_tag("blank.webp", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
-
-
-
-  <div id="trainingsplans_exercise_video_show">
-    <%= render "trainingsplans/video", :video => @video, :width => nil %>
+  <div id="trainings_exercises" class="nice_outer_tab">
+    <%= render :partial => "trainingsplans/exercise" %>
   </div>
 
 
-  <div style="position: relative;top: -155px;">
-    <%= link_to t('add_or_remove_exercises'), index_path(trainingsplan_id:@trainingsplan.id) if creator_of_trainingsplan %>
-    <%#= link_to t('edit_repetition_duration_or_videos'), edit_trainingsplan_path(@trainingsplan) if creator_of_trainingsplan %>
-    <%#= link_to t('back'), user_trainingsplans_path %>
-  </div>
 </div>
