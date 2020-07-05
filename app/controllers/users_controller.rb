@@ -58,7 +58,7 @@ class UsersController < ApplicationController
         trainingsplan.name = "Erster Trainingsplan"
         trainingsplan.save
         @user.trainingsplans << trainingsplan
-        UserMailer.with(user: @user).welcome_email(email:@user.email).deliver_now
+        ApplicationMailer.with(user: @user).welcome_email(email:@user.email).deliver_now
 
         format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
