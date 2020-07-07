@@ -46,8 +46,16 @@ img {
 
 #muscle_text_hover_div {
     position: absolute;
-    visibility: hidden;
     width: 275px;
+    top: 475px;
+    left: 440px;
+}
+
+#exercises_muscle_text_hover_div {
+    width: 275px;
+    position: absolute;
+    top: 540px;
+    left: 130px;
 }
 
 .exercise_content {
