@@ -1,5 +1,5 @@
-$("#main").html("<%=j render partial: "main/user_selected"%>");
-$("#exercise_selected").html("");
+document.querySelector("#main").innerHTML = '<%=j render partial: "main/user_selected"%>';
+document.querySelector("#exercise_selected").innerHTML = '';
 $("#trainingsplanlist").hide();
 $('#notice').text("<%= flash[:notice] %> ")
 

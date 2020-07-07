@@ -1,7 +1,6 @@
-/*$("#body_part_selected").html("");*/
-$("#muscles").html("<%=j render partial: "main/muscle"%>");
-$("#muscle_text_header").html("<%= @name%> Muskeln");
-$("#exercise_selected").html("<%=j render partial: 'main/exercise_selected'%>");
-$("#exercise_text_selected").html("<%=j @name %>");
-ex = $("#exercise");
-ex.html("<%=j render partial: 'exercises/display' %>");
+/*$("#body_part_selected").innerHTML = '");*/
+document.querySelector("#muscles").innerHTML = '<%=j render partial: "main/muscle"%>';
+document.querySelector("#muscle_text_header").innerHTML = '<%= @name%> Muskeln';
+document.querySelector("#exercise_selected").innerHTML = '<%=j render partial: 'main/exercise_selected'%>';
+document.querySelector("#exercise_text_selected").innerHTML = '<%=j @name %>';
+document.querySelector("#exercise").innerHTML = '<%=j render partial: 'exercises/display' %>';

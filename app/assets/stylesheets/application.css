@@ -66,6 +66,18 @@ img {
     /*left: -220px;*/
 }
 
+#users_exercise_muscles {
+    transform: scale(0.7);
+    height: 300px;
+    left: 0;
+    position: absolute;
+}
+.users_exercise_muscle_pic2{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
 #body_part_text_selected_div {
     visibility: hidden;
     left: 675px;
@@ -217,9 +229,11 @@ div#trainingsplan_edit_exercise {
     top: 650px;
     left: 250px;
 }
-#exercise{
-    width:680px;
+
+#exercise {
+    width: 680px;
 }
+
 #exercises {
     left: 20px;
     min-height: 6px;
@@ -435,6 +449,7 @@ table {
     z-index: 9;
     text-align: center;
 }
+
 #trainingsplans_show_view .open_training {
     background-color: var(--blue-color);
     /*background-color: var(--green-color);*/
@@ -984,33 +999,37 @@ div#trainingsplan_edit_exercise input[type=text] {
     border: 1px solid var(--red-color);
 }
 
-meter{
+meter {
     height: 50px;
 }
 
-#play_div meter::-webkit-meter-optimum-value{
+#play_div meter::-webkit-meter-optimum-value {
     background: #2cab85;
 }
 
-#pause_div meter::-webkit-meter-optimum-value{
+#pause_div meter::-webkit-meter-optimum-value {
     background: var(--red-color);
 }
 
-#trainingsplan_muscle_images_field{
+#trainingsplan_muscle_images_field {
     transform: scale(0.85);
     left: 1450px;
 }
 
-#trainingsplan_selection_area{
+#trainingsplan_selection_area {
     left: 1450px;
     top: 30px;
     position: absolute;
     z-index: 9999;
 }
-#body_tag{
+
+#body_tag {
     position: absolute;
 }
 
-body{
+body {
     position: absolute;
+}
+td{
+    position: relative;
 }

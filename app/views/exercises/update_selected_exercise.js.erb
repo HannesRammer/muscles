@@ -1,5 +1,3 @@
-
-
-$("#selected_exercise").html("<%=j render partial: 'exercises/selected_exercise' %>");
+document.querySelector("#selected_exercise").innerHTML = '<%=j render partial: 'exercises/selected_exercise' %>';
 
 resize_trainingsplans_exercise_video();

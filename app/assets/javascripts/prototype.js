@@ -4013,7 +4013,12 @@ Object.extend(Event, (function() {
       if (element.addEventListener) {
         element.addEventListener(name, wrapper, false);
       } else {
-        element.attachEvent("on" + name, wrapper);
+          if(element.attachEvent !== undefined){
+              element.attachEvent("on" + name, wrapper);
+          }else if(element[0].attachEvent !== undefined){
+              element[0].attachEvent("on" + name, wrapper);
+          }
+
       }
 
       return element;
@@ -4067,9 +4072,11 @@ Object.extend(Event, (function() {
       event.eventName = eventName;
       event.memo = memo || { };
 
-      if (document.createEvent) {
-        element.dispatchEvent(event);
-      } else {
+        if (element.dispatchEvent !== undefined && document.createEvent) {
+            element.dispatchEvent(event);
+        }else if (element[0].dispatchEvent !== undefined && document.createEvent) {
+            element[0].dispatchEvent(event);
+        } else {
         element.fireEvent(event.eventType, event);
       }
 

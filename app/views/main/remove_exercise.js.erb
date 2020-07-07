@@ -1,4 +1,4 @@
-$("#main").html("<%=j render partial: "main/user_selected"%>");
+document.querySelector("#main").innerHTML = '<%=j render partial: "main/user_selected"%>';
 $('#notice').text("<%= flash[:notice] %> ")
 
 //alert("yes");

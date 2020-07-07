@@ -1,5 +1,5 @@
-$("#exercise_selected").html("");
-$("#exercises_text_header").html("<%=j @name %>");
-$("#exercises_text").html("<%=j render 'main/exercises_text' , exercises: @exercises  %>");
-$("#exercises_text_header").html("Übungen mit <%=@name %>");
+document.querySelector("#exercise_selected").innerHTML = '';
+document.querySelector("#exercises_text_header").innerHTML = '<%=j @name %>';
+document.querySelector("#exercises_text").innerHTML = '<%=j render 'main/exercises_text' , exercises: @exercises  %>';
+document.querySelector("#exercises_text_header").innerHTML = 'Übungen mit <%=@name %>';
 //alert("yes");

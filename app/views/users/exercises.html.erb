@@ -16,7 +16,28 @@
   <% @exercises.each do |exercise| %>
     <tr>
       <td  class="exercise_name"><%= h exercise.name %></td>
-      <td><%= h exercise.description && exercise.description[0..30] %></td>
+      <td><%#= h exercise.description && exercise.description[0..30] %>
+        <% if exercise %>
+          <%= image_tag("muskelman.svg", :class => "users_exercise_muscle_pic2") %>
+
+          <div class="users_exercise_muscles" style="">
+
+            <%= user_muscle_pics(exercise.primary_muscles, "", 5, "users_exercise_muscle_pic2") %>
+            <%= user_muscle_pics(exercise.secondary_muscles, "", 2, "users_exercise_muscle_pic2") %>
+            <div id="hover" style="position:absolute;top: 0;left: 0;"></div>
+            <%= image_tag("blank.webp", :class => "multi_pic2", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
+            <div style="width: 230px;
+                position: absolute;
+                left: 500px;">
+            </div>
+
+
+          </div>
+
+
+        <% end %>
+
+      </td>
 
       <!--td><%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}.jpg" ,:size => "100x100") %>
       <%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td-->
