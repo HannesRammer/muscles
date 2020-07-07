@@ -187,17 +187,11 @@ function cleanName(name) {
 }
 
 
-function selected(name) {
-    let urlString = ""
-    if (document.location.href.indexOf("muscles") > -1) {
-        urlString = "/muscles/main/muscle/";
-    } else {
-        urlString = "/main/muscle/";
-    }
+function selected(urlString) {
 
     $.ajax({
         type: "POST",
-        url: urlString + name,
+        url: urlString,
         dataType: "script",
         beforeSend: function (xhr) {
             xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
@@ -205,22 +199,20 @@ function selected(name) {
     });
     return false;
 }
-
-function toggleMuscleToExercise(eid, name) {
+function getMuscleType(){
     let muscleType = "primary";
     if (document.querySelector("#muscletype_Sekund_rmuskel").checked) {
         muscleType = "secondary";
     }
-    let urlString = ""
-    if (document.location.href.indexOf("muscles") > -1) {
-        urlString = "/muscles/main/exercise/";
-    } else {
-        urlString = "/main/exercise/";
-    }
+    return muscleType;
+}
+function toggleMuscleToExercise(urlString) {
+    let muscleType =getMuscleType();
+
 
     $.ajax({
         type: "POST",
-        url: urlString + eid + "/" + muscleType + "/muscle/" + name,
+        url: urlString + muscleType,
         dataType: "script",
         beforeSend: function (xhr) {
             xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))

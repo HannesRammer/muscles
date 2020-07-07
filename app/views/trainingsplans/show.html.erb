@@ -47,7 +47,7 @@
           $('select#trainingsplan_id').on('change', function (event) {
               let selected_resource_id = $(this).val();
               let selected_muscle = $("#body_part_text_selected").innerText;
-              let urlString = ""
+              let urlString = <%=  trainingsplans_url%>>
               if (document.location.href.indexOf("muscles") > -1) {
                   urlString = "/muscles/trainingsplans/";
               } else {

@@ -20,12 +20,7 @@
         $('select#trainingsplan_id').on('change', function(event) {
             let selected_resource_id = $(this).val();
             let selected_muscle = $("#body_part_text_selected").innerText;
-            let urlString = ""
-            if (document.location.href.indexOf("muscles") > -1 ){
-                urlString ="/muscles/trainingsplans/get_exercises/";
-            }else{
-                urlString ="/trainingsplans/get_exercises/";
-            }
+            let urlString = "<%= trainingsplans_get_exercises_url("") %>";
             $.ajax({
                 type: "POST",
                 url: urlString + selected_resource_id+"?muscle=" + selected_muscle,

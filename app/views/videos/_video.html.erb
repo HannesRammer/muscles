@@ -1,8 +1,11 @@
 <span id="videos_folder">
 <% if video && video.video.attached? %>
-  <% if preload %>
+  <% if view == "preload" %>
     <%#= video_tag("#{url_for(video.video)}.mp4", :controls => "false", :onended=>"video_ended();", :width=>300) %>
       <%= video_tag("#{url_for(video.video)}", :controls => true, preload: 'metadata') %>
+  <% elsif view == "preload_300" %>
+      <%= video_tag("#{url_for(video.video)}", :controls => true, preload: 'metadata', width:300) %>
+
   <% else %>
     <%= video_tag("#{url_for(video.video)}", :controls => true, preload: 'none') %>
   <% end %>

@@ -3,6 +3,6 @@
   <%@body_vars.each do |vars|%>
       <area shape="<%=vars[0]%>" coords="<%=vars[1]%>" href="#"
             onMouseover="hover('<%=vars[2]%>');"
-            onMouseout="hover('');" onclick="selected('<%=vars[2]%>');" alt="<%=vars[2]%>"/>
+            onMouseout="hover('');" onclick="selected('<%=main_muscle_url(vars[2])%>');" alt="<%=vars[2]%>"/>
   <%end%>
 </map>
