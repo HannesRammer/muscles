@@ -47,14 +47,9 @@
           $('select#trainingsplan_id').on('change', function (event) {
               let selected_resource_id = $(this).val();
               let selected_muscle = $("#body_part_text_selected").innerText;
-              let urlString = <%=  trainingsplans_url%>>
-              if (document.location.href.indexOf("muscles") > -1) {
-                  urlString = "/muscles/trainingsplans/";
-              } else {
-                  urlString = "/trainingsplans/";
-              }
-              let host = document.location.host;
-              document.location = "http://" + host + urlString + selected_resource_id;
+              let urlString = <%=  trainingsplans_url%>;
+
+              document.location =  urlString + selected_resource_id;
               return false;
           });
       </script>
