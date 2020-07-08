@@ -1035,7 +1035,7 @@ td{
     position: relative;
 }
 #trainingsplan_id{
-    position: relative;
+    position: absolute;
     top: 23px;
     left: 260px;
     font-size: 17px;
