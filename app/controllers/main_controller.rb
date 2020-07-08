@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string, :impressum]
+  before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :search_string, :impressum]
   include ApplicationHelper
   #respond_to :html, :js
 

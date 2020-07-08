@@ -7,7 +7,9 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans
   # GET /trainingsplans.json
   def index
-    @trainingsplans = Trainingsplan.all
+    trainingsplan_ids = ExerciseToTrainingsplan.select("trainingsplan_id").distinct.all
+    @trainingsplans = Trainingsplan.where("id in (?)",trainingsplan_ids).to_a
+    @trainingsplans
   end
 
   # GET /trainingsplans/1

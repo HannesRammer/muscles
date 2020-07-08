@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :videos
   resources :exercise_to_trainingsplans
   resources :trainingsplan_to_users
-  resources :trainingsplans
+  resources :trainingsplans , path: 'workouts'
   resources :user_to_exercises
   resources :exercise_to_muscles
 
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   get 'users/exercises', to: 'users#exercises', as: :user_exercises
   get 'users/videos', to: 'users#videos', as: :user_videos
   post 'users/save_exercise',to: 'users#save_exercise', format: 'js',as: :user_save_exercise
+
+  #get 'workout/:id', to: 'trainingsplans#index', as: :trainingsplans
+
 
   post 'trainingsplans/load_trainingsplans',to: 'trainingsplans#load_trainingsplans', format: 'js',as: :trainingsplans_load_trainingsplans
   post 'trainingsplans/get_exercises/:trainingsplan_id',to: 'trainingsplans#get_exercises', format: 'js',as: :trainingsplans_get_exercises
