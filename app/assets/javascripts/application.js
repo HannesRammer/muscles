@@ -374,7 +374,7 @@ function select_exercise(current_exercise) {
 }
 
 function autoCallInitOnVidLoadIfTrainingStarted() {
-    if ($("#training_started")[0].value === "true") {
+    if ($("#training_started")[0] && $("#training_started")[0].value === "true") {
         init_max_and_current();
     }
 

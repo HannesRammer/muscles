@@ -45,11 +45,12 @@
       <script>
 
           $('select#trainingsplan_id').on('change', function (event) {
+              debugger;
               let selected_resource_id = $(this).val();
               let selected_muscle = $("#body_part_text_selected").innerText;
-              let urlString = "<%=  trainingsplans_url%>";
+              let urlString = "<%=  trainingsplans_url%>" + "/" + selected_resource_id;
 
-              document.location =  urlString + "/" + selected_resource_id;
+              document.location = urlString;
               return false;
           });
       </script>
@@ -59,7 +60,6 @@
       <%#= link_to t('edit_repetition_duration_or_videos'), edit_trainingsplan_path(@trainingsplan) if creator_of_trainingsplan %>
       <%#= link_to t('back'), user_trainingsplans_path %>
     </div>
-
 
 
   </div>
