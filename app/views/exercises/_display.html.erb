@@ -5,33 +5,33 @@
 
     <%= h @exercise.name %>
   </div>
-  <div id="x_exercise_type">
+  <!--div id="x_exercise_type">
     <strong>exercise_type:</strong>
     <%#= h @exercise.exercise_type %>
-  </div>
+  </div-->
   <div style="position:relative;">
 
     <div id="exercises_show">
-      <%= render "videos/video", :video => @video, :view => "preload_300" %>
+      <%= render "videos/video", :video => @video, :view => "preload" %>
     </div>
 
-    <div id="x_how_to">
+    <!--div id="x_how_to">
       <div id="ex_title">Was tun:</div>
-      <br/>
+
       <%#= h @exercise.how_to %>
     </div>
 
     <div id="x_how_not_to">
       <div id="ex_title">Was NICHT tun:</div>
-      <br/>
+
       <%#= h @exercise.how_not_to %>
     </div>
 
     <div id="x_description">
       <div id="ex_title">Beschreibung:</div>
-      <br/>
+
       <%#= h @exercise.description %>
-    </div>
+    </div-->
 
   </div>
 </div>

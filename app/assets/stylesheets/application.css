@@ -47,8 +47,9 @@ img {
 #muscle_text_hover_div {
     position: absolute;
     width: 275px;
-    top: 475px;
-    left: 440px;
+    top: 538px;
+    text-align: center;
+    left: 425px;
 }
 
 #exercises_muscle_text_hover_div {
@@ -159,11 +160,14 @@ h3 {
     color: var(--red-color);
     font-size: 12px;
 }
-
+select{
+    border-radius: 0px;
+}
 .multi_pic, #hover {
-    left: 355px;
+    left: 283px;
     position: absolute;
-    top: 10px;
+    top: 81px;
+
 }
 
 .trainingsplan_exercise_multi_pic_base {
@@ -200,25 +204,25 @@ div#trainingsplan_edit_exercise {
 }
 
 .multi_pic4 {
-    position: absolute;
-    top: 30px;
-    left: 10px;
+    top: 37px;
+    left: -8px;
 }
 
 .multi_pic_mini2 {
     width: 200px;
 }
-
+input {
+    border-radius: 0;
+}
 .user_text {
     position: relative;
-    padding-top: 500px;
+    padding-left: 460px;
     font-size: 13px;
-    width: 455px;
-
+    width: 340px;
+    min-height: 500px;
 }
 
 #user_selected {
-    margin: 49px;
     position: relative;
 
 }
@@ -231,16 +235,18 @@ div#trainingsplan_edit_exercise {
 }
 
 #exercise {
-    width: 680px;
+    width: 700px;
+    float: left;
+    top: -89px;
 }
 
 #exercises {
-    left: 20px;
-    min-height: 6px;
-    max-height: 620px;
+    width: 250px;
     position: relative;
-    top: 0;
-    width: 300px;
+    top: 3px;
+    float: left;
+    left: 0;
+    padding-right: 20px;
 }
 
 div#exercise_edit {
@@ -288,13 +294,12 @@ div#exercise_edit {
 }
 
 #muscles {
-    min-height: 6px;
-    position: absolute;
-    top: -20px;
-    left: 830px;
-    width: 315px;
+    width: 700px;
     max-height: 640px;
     overflow: auto;
+    float: left;
+    position: relative;
+    top: -70px;
 }
 
 textarea {
@@ -307,7 +312,7 @@ table {
 }
 
 #outer_container {
-
+    box-sizing: border-box;
     margin: 0 auto;
     min-height: 725px;
     position: relative;
@@ -316,7 +321,7 @@ table {
 
 .exercises_text_div {
     box-sizing: border-box;
-    width: 260px;
+    width: 231px;
     border-bottom: 1px solid #0000001f;
     height: 53px;
     text-align: center;
@@ -437,17 +442,17 @@ table {
 
 .open_training {
     background-color: var(--blue-color);
-    /*background-color: var(--green-color);*/
     color: #fff;
-    /* border: 1px solid #ffffff;*/
-    height: 20px;
+    height: 34px;
     overflow: hidden;
-    position: absolute;
-    left: 350px;
-    top: -45px;
+    position: relative;
+    left: 0;
     width: 190px;
     z-index: 9;
+    top: 5px;
     text-align: center;
+    padding-top: 6px;
+    box-sizing: border-box;
 }
 
 #trainingsplans_show_view .open_training {
@@ -485,11 +490,11 @@ table {
 
 .show_exercise {
 
-    top: -40px;
-    left: 1150px;
-    position: absolute;
-    z-index: 10;
-    min-width: 0;
+    position: relative;
+    float: left;
+    width: 425px;
+    height: 550px;
+    border: 1px solid green;
 
 }
 
@@ -501,13 +506,6 @@ table {
     overflow: hidden;
 }
 
-.hidden_training {
-    height: 0;
-    position: absolute;
-    left: 1105px;
-    width: 0;
-    overflow: hidden;
-}
 
 .hidden_muscle_pic {
     display: none;
@@ -752,10 +750,12 @@ a:hover {
 }
 
 .show_training {
-    /*min-height: 664px;*/
-    left: 295px;
-    position: absolute;
-    top: -70px;
+    float: left;
+    min-width: 500px;
+    min-height: 500px;
+    padding: 20px;
+    top: -49px;
+    margin-right: 20px;
 }
 
 #trainingsplans {
@@ -964,22 +964,37 @@ div#trainingsplan_edit_exercise input[type=text] {
     border: var(--red-color) 1px solid;
     padding: 5px;
     position: relative;
-    height: 80px;
+    height: 125px;
+    margin-top: 5px;
 }
 
 .exercise_border_blue {
     border: var(--blue-color) 1px solid;
-    padding: 5px;
+
     position: relative;
 }
 
 .exercise_border_red video {
-    position: absolute;
-    top: 0;
-    right: -5px;
-    width: 160px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+
 }
 
+.videos_folder{
+    position: absolute;
+    width: 175px;
+    height: 105px;
+    box-sizing: border-box;
+}
+#exercise .videos_folder{
+    position: absolute;
+    width: 100%;
+    height: 105px;
+    box-sizing: border-box;
+}
 .trainingsplan_name {
     color: var(--blue-color);
     font-size: 20px;
@@ -1026,6 +1041,7 @@ meter {
 
 #body_tag {
     position: absolute;
+    box-sizing: border-box;
 }
 
 body {
@@ -1036,7 +1052,60 @@ td{
 }
 #trainingsplan_id{
     position: absolute;
-    top: 23px;
-    left: 260px;
+    top: -21px;
+    left: 250px;
     font-size: 17px;
+    height: 35px;
+    border-radius: 0;
+    max-width: 620px;
+    z-index: 99;
+}
+.exercise_border_red div.main_exercises_text {
+    border-bottom: 1px solid var(--red-color);
+
+}
+.main_exercises_text {
+    height: 21px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.exercise_list_rep{
+    position: relative;
+    left: 180px;
+    margin: 5px;
+}
+.exercise_list_duration{
+    position: relative;
+    left: 180px;
+    margin: 5px;
+}
+.exercise_list_pause{
+    position: relative;
+    left: 180px;
+
+    margin: 5px;
+}
+.exercise_list_select{
+    top: 1px;
+    position: relative;
+    left: 1px;
+}
+input#trainingsplan_name{
+width: 150px;
+    position: absolute;
+}
+.add_to_playlist{
+    float: left;
+    top: 11px;
+    position: relative;
+}
+
+div#main {
+    padding: 10px;
+    margin: 10px;
+}
+
+#m_primary,#m_secondary,#m_antagonistic{
+    float: left;
+    width: 33%;
 }

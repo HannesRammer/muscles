@@ -37,6 +37,7 @@ gem 'i18n-debug', group: :development
 gem 'bootsnap', '>= 1.1.0', require: false
 #gem "google-cloud-storage", "~> 1.11", require: false
 gem 'streamio-ffmpeg'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

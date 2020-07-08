@@ -48,7 +48,7 @@ module ApplicationHelper
     nt = ""
     i = text.length
     i.times do |it|
-      nt << "#{text[(it)..(it)]}<br/>"
+      nt << "#{text[(it)..(it)]}"
     end
     nt.html_safe
   end

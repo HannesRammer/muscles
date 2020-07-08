@@ -1,27 +1,26 @@
-
-  <div id="m_primary">
-    <h3>primary muscles</h3>
-    <% @p_muscles.each do |muscle| %>
-      <div class="muscle_text_option" onmouseover="hover('<%=muscle.clean_name%>');">
-        <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
-        <%= muscle.name %>
-      </div>
-    <% end %>
-  </div>
-  <div id="m_secondary">
-    <h3>secondary muscles</h3>
-    <% @s_muscles.each do |muscle| %>
-      <div class="muscle_text_option" onmouseover="hover('<%=muscle.clean_name%>');">
-        <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
-        <%= muscle.name %>
-      </div>
-    <% end %>
-  </div>
-  <!--div id="m_antagonist" >
+<div id="m_primary">
+  <h3>primary muscles</h3>
+  <% @p_muscles.each do |muscle| %>
+    <div class="muscle_text_option" onmouseover="hover('<%=muscle.clean_name%>');">
+      <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
+      <%= muscle.name %>
+    </div>
+  <% end %>
+</div>
+<div id="m_secondary">
+  <h3>secondary muscles</h3>
+  <% @s_muscles.each do |muscle| %>
+    <div class="muscle_text_option" onmouseover="hover('<%=muscle.clean_name%>');">
+      <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
+      <%= muscle.name %>
+    </div>
+  <% end %>
+</div>
+<!--div id="m_antagonist" >
     <%# #@a_muscles.each do |muscle| %>
       <div class="muscle_text_option" onmouseover="hover('<%#=muscle.clean_name%>');">
         <%#= link_to(muscle.name, {:controller => "main", :action => "muscle", :name => muscle.name, :title => "#{muscle.name} auswählen"}, {:remote => true, :method => :post}) %>
-        <%#= muscle.name %>
+<%#= muscle.name %>
       </div>
     <%# end %>
   </div-->

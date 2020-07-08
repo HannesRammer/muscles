@@ -6,7 +6,7 @@
 
   <p>
     change account password for     <%= params[:email]%>
-    <%#= f.label :username %><br />
+    <%#= f.label :username %>
     <%#= f.text_field :username %>
   </p>
   <p>
@@ -18,7 +18,7 @@
     <%= f.hidden_field :token ,  :value => params[:token] %>
   </p>
   <p>
-    <%= f.label :password, "Chose new password" %><br />
+    <%= f.label :password, "Chose new password" %>
     <%= f.password_field :password %>
   </p>
   <p><%= f.submit t('reset_new_pw') %></p>

@@ -1,4 +1,4 @@
-<span id="videos_folder">
+<div class="videos_folder">
 <% if video && video.video.attached? %>
   <% if view == "preload" %>
     <%#= video_tag("#{url_for(video.video)}.mp4", :controls => "false", :onended=>"video_ended();", :width=>300) %>
@@ -14,4 +14,4 @@
 
   NO VIDEO
 <% end %>
-</span>
+</div>

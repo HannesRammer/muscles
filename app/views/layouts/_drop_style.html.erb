@@ -1,7 +1,7 @@
 <%= render "layouts/style_vars" %>
 
 <!--FORM name="style_form">
-  <span onClick="back_style();" style="cursor: pointer"> back</span>
+  <div onClick="back_style();" style="cursor: pointer"> back</div>
   <label>
     <SELECT name="style_options">
         <% @style_vars.each do |style| %>
@@ -10,17 +10,17 @@
     </SELECT>
   </label>
   <INPUT type="button" name="ok" value="Ok!" onClick="change_style();" style="cursor: pointer">
-  <span onClick="next_style();" style="cursor: pointer"> next</span>
+  <div onClick="next_style();" style="cursor: pointer"> next</div>
 </FORM-->
 
 
 
 
-<span id="style_vars">
+<div id="style_vars">
   <% @style_vars.each do |style| %>
       <%= render partial: "layouts/styles", locals:{main_color:style[1], main_name: style[0]} %>
   <% end %>
 
 
-</span>
+</div>
 

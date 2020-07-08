@@ -8,8 +8,8 @@
       <%#= radio_button_tag 'unit', 'reps', repschecked %>
       <%#= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
       <div style="position: absolute;top: 15px;left: 44%;">
-        <span id="unit_reps"></span>
-        <span id="reps_current">-3</span><span id="reps_max"> / <%= @ett.reps %></span><span><%= t("reps") %></span>
+        <div id="unit_reps"></div>
+        <div id="reps_current">-3</div><div id="reps_max"> / <%= @ett.reps %></div><div><%= t("reps") %></div>
       </div>
       <meter id="reps" value="-3" min="-3" max="<%= @ett.reps %>"></meter>
     <% end %>
@@ -19,8 +19,8 @@
       <%#= radio_button_tag 'unit', 'duration', durationchecked %>
       <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
       <div style="position: absolute;">
-        <span id="unit_duration"></span>
-        <span id="dur_current">-6</span><span id="dur_max"> / <%= @ett.duration %></span><span><%= t("dur") %></span>
+        <div id="unit_duration"></div>
+        <div id="dur_current">-6</div><div id="dur_max"> / <%= @ett.duration %></div><div><%= t("dur") %></div>
       </div>
       <meter id="duration" value="-6" min="-6" max="<%= @ett.duration %>"></meter>
     <% end %>
@@ -30,8 +30,8 @@
 
     <%#= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>
     <div style="position: absolute;top: 15px;left: 44%;">
-      <span id="pause_span"></span>
-      <span id="pause_current">0</span><span id="pause_max"> / <%= @ett.pause %></span><span><%= t("dur") %></span>
+      <div id="pause_span"></div>
+      <div id="pause_current">0</div><div id="pause_max"> / <%= @ett.pause %></div><div><%= t("dur") %></div>
     </div>
     <meter id="pause" value="0" min="0" max="<%= @ett.pause %>"></meter>
   </div>

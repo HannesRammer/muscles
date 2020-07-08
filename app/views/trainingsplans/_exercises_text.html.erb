@@ -8,7 +8,7 @@
     <% ettps = @trainingsplan.exercise_to_trainingsplans %>
     <% ettps.each_with_index do |ettp, i| %>
       <% exercise = ettp.exercise %>
-      <span id="trainingsplan_exercise_<%=exercise.id %>" class="trainingsplans_exercises_text nice_outer_tab" title="<%= exercise.name %> anzeigen" onclick="setExerciseActive(<%= i %>);">
+      <div id="trainingsplan_exercise_<%=exercise.id %>" class="trainingsplans_exercises_text nice_outer_tab" title="<%= exercise.name %> anzeigen" onclick="setExerciseActive(<%= i %>);">
         <%= i+1 %>
           <%# @x << "#{clean_name(exercise.name).capitalize}" %>
 
@@ -29,8 +29,8 @@
                         {:controller => "trainingsplans", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => ettps[i + 1].id},
                         {:remote => true, :method => :post,:class=>'move_exercise_down', :title => "Move Down"}) %>
           <% end %>
-        <br/>
-      </span>
+
+      </div>
 
 
     <% end %>

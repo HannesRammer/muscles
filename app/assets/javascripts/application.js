@@ -31,19 +31,15 @@ function setClass(elem, className1) {
 
 
 function toggleTraining() {
-    if (document.querySelector(".hidden_training")) {
-        let a = $(".hidden_training");
-        a.toggleClass("hidden_training");
-        a.toggleClass("show_training");
-        $(document.querySelector("#open_training")).hide();
-        $(document.querySelector("#close_training")).show();
-    } else if (document.querySelector(".show_training")) {
-        let a = $(".show_training");
-        a.toggleClass("hidden_training");
-        a.toggleClass("show_training");
-        $(document.querySelector("#open_training")).show();
-        $(document.querySelector("#close_training")).hide();
-    }
+        let a = $("#user_selected");
+        a.toggleClass("hide");
+        a.toggleClass("show");
+    let b = $("#hide_training");
+    b.toggleClass("hide");
+    b.toggleClass("show");
+    let c = $("#open_training");
+    c.toggleClass("hide");
+    c.toggleClass("show");
 }
 
 function change_style() {
@@ -95,28 +91,6 @@ function new_style(x) {
 
 }
 
-function toggle_tab(id) {
-    let factor = id.split("_")[0];
-
-    let primary = document.querySelector("#" + factor + "_primary");
-    let secondary = document.querySelector("#" + factor + "_secondary");
-
-    let primaryTab = document.querySelector("#" + factor + "_primary_tab");
-    let secondaryTab = document.querySelector("#" + factor + "_secondary_tab");
-    if (id === (factor + "_primary")) {
-        primary.classList.toggle("hide");
-        primaryTab.classList.toggle("activeTab");
-
-    } else if (id === (factor + "_secondary")) {
-        secondary.classList.toggle("hide");
-        secondaryTab.classList.toggle("activeTab");
-    }
-    /* else if (id == (factor + "_antagonist")) {
-     document.querySelector(factor + "_antagonist").style.display = "block";
-     setClass(document.querySelector(factor + "_antagonist_tab"), document.querySelector(factor + "_antagonist_tab").className.gsub("underline", ""));
-
-     }   */
-}
 
 
 function set_level(percent, id, way) {             //called
