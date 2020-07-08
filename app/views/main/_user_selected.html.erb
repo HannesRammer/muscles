@@ -23,7 +23,7 @@
             let urlString = "<%= trainingsplans_get_exercises_url("") %>";
             $.ajax({
                 type: "POST",
-                url: urlString + "/" + selected_resource_id+"?muscle=" + selected_muscle,
+                url: urlString + selected_resource_id+"?muscle=" + selected_muscle,
                 dataType: "script",
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))

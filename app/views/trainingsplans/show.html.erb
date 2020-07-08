@@ -49,7 +49,7 @@
               let selected_muscle = $("#body_part_text_selected").innerText;
               let urlString = "<%=  trainingsplans_url%>";
 
-              document.location =  urlString + selected_resource_id;
+              document.location =  urlString + "/" + selected_resource_id;
               return false;
           });
       </script>
