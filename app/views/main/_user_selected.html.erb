@@ -1,11 +1,10 @@
-<div id="user_selected">
+
   <div class="exercise_border_blue">
     <% if @current_user && @trainingsplan != nil %>
       <% exercises = @trainingsplan.exercises %>
       <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
 
       <%#= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: "post", remote: true, :style => "position: relative;top: -25px;left:125px;"}) do %>
-      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
       <%#= submit_tag("select Trainingsplan") %>
       <%# end %>
       <%= link_to "start_Training", trainingsplan_path(@trainingsplan) %>
@@ -15,25 +14,6 @@
         <%= user_muscle_pics(exercise.secondary_muscles, "selected", 2, "multi_pic4") %>
       <% end %>
 
-      <script>
-
-          $('select#trainingsplan_id').on('change', function (event) {
-              let selected_resource_id = $(this).val();
-              let selected_muscle = $("#body_part_text_selected").innerText;
-              let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
-              debugger;
-              $.ajax({
-                  type: "POST",
-                  url: urlString,
-                  dataType: "script",
-                  beforeSend: function (xhr) {
-                      xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-                  }
-              });
-              return false;
-          });
-      </script>
-
       <div id="exercise_list">
 
         <%= render("main/exercise_list") %>
@@ -42,7 +22,7 @@
 
 
   </div>
-</div>
+
 
 
 

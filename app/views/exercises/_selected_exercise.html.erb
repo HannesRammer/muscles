@@ -1,70 +1,67 @@
-
 <%= render :partial => "exercises/body_area" %>
-<%= image_tag("muskelman.svg", :class=>"multi_pic3") %>
+<%= image_tag("muskelman.svg", :class => "multi_pic3") %>
 <div id="exercises_muscle_text_hover_div">
   <div id="muscle_text_hover">
     <br/>
   </div>
 </div>
 <style>
-  #muscle_text {
-    left: -500px !important;
-    position: absolute !important;
-    width: 500px !important;
-    top: -115px !important;
-  }
+    #muscle_text {
+        left: -500px !important;
+        position: absolute !important;
+        width: 500px !important;
+        top: -115px !important;
+    }
 </style>
 
-<% if @exercise%>
-  <div>Name: <%=h @exercise.name %></div>
+<% if @exercise %>
+  <div>Name: <%= h @exercise.name %></div>
 
-    <%= user_muscle_pics(@exercise.primary_muscles, "",5,"multi_pic3") %>
-    <%= user_muscle_pics(@exercise.secondary_muscles, "",2,"multi_pic3") %>
-  <div id="hover" ></div>
+  <%= user_muscle_pics(@exercise.primary_muscles, "", 5, "multi_pic3") %>
+  <%= user_muscle_pics(@exercise.secondary_muscles, "", 2, "multi_pic3") %>
+  <div id="hover"></div>
   <%= image_tag("blank.webp", :class => "multi_pic3", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
   <div style="width: 230px;
-       position: absolute;
-       left: 500px;">
+      position: absolute;
+      left: 500px;">
 
     <div id="selected_exercises_muscles" class="nice_outer_tab">
       <%= render :partial => "exercises/muscle" %>
     </div>
 
 
-
-
   </div>
-  <div id="exercise_video_show" >
+  <div id="exercise_video_show">
     <%= render "videos/video", :video => @video, :view => "preload_300" %>
   </div>
-    <div class="exercise_content" >
-<table>
+  <div class="exercise_content">
+    <table>
 
-        <tr>
+      <tr>
 
-          <th>Description</th>
+        <th>Description</th>
 
-          <th>How to</th>
+        <th>How to</th>
 
-          <th>How not to</th>
-          <th>Info</th>
-          <th>Type</th>
-        </tr>
+        <th>How not to</th>
+        <th>Info</th>
+        <th>Type</th>
+      </tr>
 
 
-          <tr>
+      <tr>
 
-            <td height="100"><%=h @exercise.description && @exercise.description[0..30] %></td>
-            <td height="100"><%=h @exercise.how_to %></td>
+        <td height="100"><%= h @exercise.description && @exercise.description[0..30] %></td>
+        <td height="100"><%= h @exercise.how_to %></td>
 
-            <td height="100"><%=h @exercise.how_not_to && @exercise.how_not_to[0..30] %></td>
-            <td height="100"><%=h @exercise.info && @exercise.info[0..30] %></td>
-            <td height="100"><%=h @exercise.exercise_type %></td>
+        <td height="100"><%= h @exercise.how_not_to && @exercise.how_not_to[0..30] %></td>
+        <td height="100"><%= h @exercise.info && @exercise.info[0..30] %></td>
+        <td height="100"><%= h @exercise.exercise_type %></td>
 
-          </tr>
+      </tr>
 
-      </table>
+    </table>
 
-    </div>
+  </div>
 
-  <% end %>
+<% end %>

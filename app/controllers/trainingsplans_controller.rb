@@ -107,6 +107,14 @@ class TrainingsplansController < ApplicationController
 
   def get_exercises
     muscle_name = "Alle"
+    if params[:muscle] != nil
+      muscle_name = params[:muscle]
+      @muscle = Muscle.find_by_name(muscle_name)
+
+      #@muscle_exercises = @muscle.exercises
+    else
+
+    end
     #@muscle_exercises = Exercise.where(visible: true).order("name asc").all
 
     @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])

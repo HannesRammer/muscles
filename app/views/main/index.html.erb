@@ -7,7 +7,7 @@
   </div>
   <%#= link_to("Alle", {:controller => "main", :action => "body_part", :name => "Alle"}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
   <%# @body_parts.each do |part| %>
-    <%#= link_to(part.name, {:controller => "main", :action => "body_part", :name => part.name}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
+  <%#= link_to(part.name, {:controller => "main", :action => "body_part", :name => part.name}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
 
   <%# end %>
   <br/>
@@ -38,13 +38,33 @@
   </div>
 
   <% if logged_in? %>
-    <div id="hide_training" class="open_training" onclick="toggleTraining()" style="display: block"><%=t(".hidePlan") %></div>
-    <div id="open_training" class="open_training" onclick="toggleTraining()" style="display: none;"><%=t(".showPlan") %></div>
+    <div id="hide_training" class="open_training" onclick="toggleTraining()" style="display: block"><%= t(".hidePlan") %></div>
+    <div id="open_training" class="open_training" onclick="toggleTraining()" style="display: none;"><%= t(".showPlan") %></div>
 
-    <% end %>
+  <% end %>
   <div id="main" class="show_training">
+    <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
 
-    <%= render "main/user_selected" %>
+    <script>
+        $('select#trainingsplan_id').on('change', function (event) {
+            let selected_resource_id = $(this).val();
+            //let selected_muscle = $("#body_part_text_selected")[0].innerText;
+            let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
+            $.ajax({
+
+                type: "POST",
+                url: urlString,
+                dataType: "script",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                }
+            });
+            return false;
+        });
+    </script>
+    <div id="user_selected">
+      <%= render "main/user_selected" %>
+    </div>
   </div>
 
 

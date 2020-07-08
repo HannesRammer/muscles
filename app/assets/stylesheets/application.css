@@ -914,6 +914,7 @@ input {
 
 #open_training,
 #trainingsplan_id,
+#trainingsplan_trainingsplan_id,
 .show_training input {
     cursor: pointer;
 }
@@ -1032,4 +1033,10 @@ body {
 }
 td{
     position: relative;
+}
+#trainingsplan_id{
+    position: relative;
+    top: 23px;
+    left: 260px;
+    font-size: 17px;
 }

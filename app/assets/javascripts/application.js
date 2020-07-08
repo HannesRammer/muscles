@@ -199,15 +199,17 @@ function selected(urlString) {
     });
     return false;
 }
-function getMuscleType(){
+
+function getMuscleType() {
     let muscleType = "primary";
     if (document.querySelector("#muscletype_Sekund_rmuskel").checked) {
         muscleType = "secondary";
     }
     return muscleType;
 }
+
 function toggleMuscleToExercise(urlString) {
-    let muscleType =getMuscleType();
+    let muscleType = getMuscleType();
 
 
     $.ajax({
@@ -243,12 +245,12 @@ function resize_trainingsplans_exercise_video() {
     let currentWidth = document.documentElement.clientWidth;
     let currentHeight = document.documentElement.clientHeight;
 
-    $("#body_tag").css("transform","scale("+(currentWidth/1900)+")");
+    $("#body_tag").css("transform", "scale(" + (currentWidth / 1900) + ")");
     let left = $("#body_tag").position().left;
     let top = $("#body_tag").position().top;
 
-    $("body").css("left",15-left);
-    $("body").css("top",15-top);
+    $("body").css("left", 15 - left);
+    $("body").css("top", 15 - top);
 }
 
 function set_exercise_unit(e_id, unit) {
@@ -280,8 +282,8 @@ function video_ended() {
                 play_video();
             } else {
                 if (global_max_exercise > global_current_exercise) {
-                    let pause_div = $("#pause_div").css("display","block");
-                    let play_div = $("#play_div").css("display","none");
+                    let pause_div = $("#pause_div").css("display", "block");
+                    let play_div = $("#play_div").css("display", "none");
                     $("#myVar")[0].value = setInterval(myTimer, 1000);
 
                 }
@@ -297,8 +299,8 @@ function video_ended() {
                 play_video();
             } else {
                 if (global_max_exercise > global_current_exercise) {
-                    let pause_div = $("#pause_div").css("display","block");
-                    let play_div = $("#play_div").css("display","none");
+                    let pause_div = $("#pause_div").css("display", "block");
+                    let play_div = $("#play_div").css("display", "none");
                     $("#myVar")[0].value = setInterval(myTimer, 1000);
                 }
 
@@ -436,7 +438,7 @@ function myStopFunction() {
     let myVar = $("#myVar")[0].value;
 
     clearInterval(myVar);
-    let pause_div = $("#pause_div").css("display","none");
-    let play_div = $("#play_div").css("display","block");
+    let pause_div = $("#pause_div").css("display", "none");
+    let play_div = $("#play_div").css("display", "block");
 
 }

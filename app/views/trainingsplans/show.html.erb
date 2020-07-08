@@ -36,21 +36,18 @@
       <div id="hide_training" class="open_training" onclick="toggleTraining()" style="display: block"><%= t(".hidePlan") %></div>
       <div id="open_training" class="open_training" onclick="toggleTraining()" style="display: none;"><%= t(".showPlan") %></div>
     </div>
-    <div style="position: absolute;top: -45px;left: 0px;">
+    <div style="position: absolute;top: -45px;left: 0;">
       <% if @current_user %>
 
-        <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
+        <%= select_tag "trainingsplan_trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
 
       <% end %>
       <script>
 
-          $('select#trainingsplan_id').on('change', function (event) {
-              debugger;
+          $('select#trainingsplan_trainingsplan_id').on('change', function (event) {
               let selected_resource_id = $(this).val();
-              let selected_muscle = $("#body_part_text_selected").innerText;
-              let urlString = "<%=  trainingsplans_url%>" + "/" + selected_resource_id;
-
-              document.location = urlString;
+              let selected_muscle = $("#body_part_text_selected")[0].innerText;
+              document.location = "<%=  trainingsplans_url%>" + "/" + selected_resource_id;
               return false;
           });
       </script>
