@@ -35,26 +35,27 @@
   <% end %>
   <div id="main" class="">
     <div id="show_training" class="show_training <%= "exercise_border_blue" if logged_in? %>">
+      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
+
+<script>
+    $('select#trainingsplan_id').on('change', function (event) {
+        let selected_resource_id = $(this).val();
+        //let selected_muscle = $("#body_part_text_selected")[0].innerText;
+        let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
+        $.ajax({
+
+            type: "POST",
+            url: urlString,
+            dataType: "script",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+            }
+        });
+        return false;
+    });
+</script>
 
 
-
-      <script>
-          $('select#trainingsplan_id').on('change', function (event) {
-              let selected_resource_id = $(this).val();
-              //let selected_muscle = $("#body_part_text_selected")[0].innerText;
-              let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
-              $.ajax({
-
-                  type: "POST",
-                  url: urlString,
-                  dataType: "script",
-                  beforeSend: function (xhr) {
-                      xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-                  }
-              });
-              return false;
-          });
-      </script>
       <div id="user_selected" class="show">
         <%= render "main/user_selected" %>
       </div>
