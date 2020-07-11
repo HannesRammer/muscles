@@ -9,7 +9,7 @@
       <%#= text_field_tag("reps", value = @ett.reps, options = {placeholder: 'reps'}) %>
       <div style="position: absolute;top: 15px;left: 44%;">
         <div id="unit_reps"></div>
-        <div id="reps_current">-3</div><div id="reps_max"> / <%= @ett.reps %></div><div><%= t("reps") %></div>
+        <span id="reps_current">-3</span><span id="reps_max"> / <%= @ett.reps %></span><span><%= t("reps") %></span>
       </div>
       <meter id="reps" value="-3" min="-3" max="<%= @ett.reps %>"></meter>
     <% end %>

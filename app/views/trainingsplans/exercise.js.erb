@@ -1,10 +1,6 @@
 /*document.querySelector("#body_part_selected").innerHTML = '');*/
-document.querySelector("#muscles").innerHTML = '<%=j render partial: "main/muscle"%>';
-document.querySelector("#muscle_text_header").innerHTML = '<%= @name%> Muskeln';
-document.querySelector("#muscle_text_option").innerHTML = '<%=j render('trainingsplans/muscle_text_option') %>';
 document.querySelector("#exercise_selected").innerHTML = '<%=j render partial: 'trainingsplans/exercise_selected'%>';
 document.querySelector("#exercise_text_selected").innerHTML = '<%=j @name %>';
-document.querySelector("#open_exercise").innerHTML = '<%=vertical_text(@name) %>';
 document.querySelector("#trainingsplans_exercise_video_show").innerHTML = '<%=j render('trainingsplans/video', :video => @video, :width => nil)%>';
 document.querySelector("#rep_sec_pause").innerHTML = '<%=j render partial: 'trainingsplans/rep_sec_pause'%>';
 

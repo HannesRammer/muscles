@@ -49,7 +49,7 @@ img {
     width: 275px;
     top: 538px;
     text-align: center;
-    left: 425px;
+    left: 380px;
 }
 
 #exercises_muscle_text_hover_div {
@@ -750,7 +750,7 @@ a:hover {
 
 .show_training {
     float: left;
-    min-width: 500px;
+    min-width: 450px;
     min-height: 500px;
     padding: 20px;
     top: -49px;
@@ -758,10 +758,9 @@ a:hover {
 }
 
 #trainingsplans {
-    /*min-height: 664px;*/
-    left: 285px;
+    left: 314px;
     position: absolute;
-    top: -40px;
+    top: -11px;
 }
 
 #errorExplanation h2 {
@@ -785,12 +784,7 @@ a:hover {
     list-style: square;
 }
 
-span.trainingsplans_exercises_text {
-    display: inline-block;
-    /*    text-align: center;*/
-    padding: 14px;
-    text-decoration: none;
-}
+
 
 div#trainings_exercises_text {
     background: rgba(58, 58, 58, 0.2);
@@ -822,7 +816,13 @@ div#trainings_exercises_text {
     color: var(--yellow-color);
 }
 
-span.trainingsplans_exercises_text {
+div.trainingsplans_exercises_text {
+    display: inline-block;
+    /*    text-align: center;*/
+    padding: 14px;
+    text-decoration: none;
+}
+div.trainingsplans_exercises_text {
     height: 60px;
     width: 310px;
     position: relative;
@@ -831,7 +831,7 @@ span.trainingsplans_exercises_text {
     border: 1px solid black;
 }
 
-span.trainingsplans_exercises_text.active_exercise {
+div.trainingsplans_exercises_text.active_exercise {
     height: 60px;
     position: relative;
 
