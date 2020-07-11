@@ -35,7 +35,7 @@
   <% end %>
   <div id="main" class="">
     <div id="show_training" class="show_training <%= "exercise_border_blue" if logged_in? %>">
-      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} %>
+      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} if @current_user %>
 
 <script>
     $('select#trainingsplan_id').on('change', function (event) {
