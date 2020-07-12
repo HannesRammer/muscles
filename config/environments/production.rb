@@ -72,7 +72,7 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
+      # :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
       :address              => 'az1-ss26.a2hosting.com',
       :port                 => 465,
       :user_name            => ENV["MAIL_USERNAME"],
