@@ -64,16 +64,15 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "muscles_#{Rails.env}"
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   #host = 'az1-ss26.a2hosting.com' #replace with your own url
-  host = 'muscles.a2hosted.com' #replace with your own url
+  host = 'az1-ss26.a2hosting.com' #replace with your own url
   config.action_mailer.default_url_options = { host: host }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      # :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
+      :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
       :address              => 'mail.muscles.a2hosted.com',
       :port                 => 465,
       :user_name            => ENV["MAIL_USERNAME"],
@@ -82,8 +81,8 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :ssl                    => true,
       :tls => true
+      #TLSv1.2
   }
-
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
