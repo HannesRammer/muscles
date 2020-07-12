@@ -44,7 +44,7 @@ Rails.application.configure do
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
        :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
-      :address              => 'mail.muscles.a2hosted.com',
+      :address              => 'az1-ss26.a2hosting.com',
       :port                 => 465,
       :user_name            => ENV["MAIL_USERNAME"],
       :password             => ENV["MAIL_PASSWORD"],
