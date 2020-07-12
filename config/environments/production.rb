@@ -70,13 +70,16 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :address              => "mail.muscles.a2hosted.com",
-      :port                 => 7822,
+      :address              => 'mail.muscles.a2hosted.com',
+      :port                 => '7822',
+      :domain               => 'free-workouts.com',
       :user_name            => ENV["MAIL_USERNAME"],
       :password             => ENV["MAIL_PASSWORD"],
       :authentication       => "plain",
-      :enable_starttls_auto => true
+      :enable_starttls_auto => true,
+      :ssl                    => true
   }
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
