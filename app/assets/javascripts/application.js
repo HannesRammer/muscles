@@ -215,7 +215,7 @@ function setExerciseActive(trainingsplanPosition) {
 }
 
 function resize_trainingsplans_exercise_video() {
-
+/*
     let currentWidth = document.documentElement.clientWidth;
     let currentHeight = document.documentElement.clientHeight;
 
@@ -225,6 +225,8 @@ function resize_trainingsplans_exercise_video() {
 
     $("body").css("left", 15 - left);
     $("body").css("top", 15 - top);
+
+ */
 }
 
 function set_exercise_unit(e_id, unit) {

@@ -1,14 +1,14 @@
 <div id="navilinks">
-  <%= link_to t('layouts.navi.start'), start_path %> |
-  <%= link_to t('layouts.navi.advanced_search'), index_path %> |
+  <%= link_to t('layouts.navi.start'), start_path %>
+  <%= link_to t('layouts.navi.advanced_search'), index_path %>
 
-  <%= link_to t('layouts.navi.all_trainingsplans'), trainingsplans_path %> |
-  <%= link_to t('layouts.navi.my_trainingsplans'), user_trainingsplans_path if current_user %> |
+  <%= link_to t('layouts.navi.all_trainingsplans'), trainingsplans_path %>
+  <%= link_to t('layouts.navi.my_trainingsplans'), user_trainingsplans_path if current_user %>
 
-  <%= link_to t('layouts.navi.all_exerccises'), exercises_all_path if current_user %> |
-  <%= link_to t('layouts.navi.my_exercises'), user_exercises_path if current_user %> |
+  <%= link_to t('layouts.navi.all_exerccises'), exercises_all_path if current_user %>
+  <%= link_to t('layouts.navi.my_exercises'), user_exercises_path if current_user %>
 
-  <%= link_to t('layouts.navi.my_videos'), user_videos_path if current_user %> |
+  <%= link_to t('layouts.navi.my_videos'), user_videos_path if current_user %>
 
 
   <div id="login_box">

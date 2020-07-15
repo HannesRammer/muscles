@@ -21,77 +21,87 @@
 </div>
 
 
-<div style="">
+<div class="grid_parent">
   <%= render :partial => "main/body_area" %>
-  <div id="exercises" class="nice_outer_tab">
-    <%= render :partial => "main/exercise" %>
-  </div>
-  <%= image_tag("muskelman.svg", :class => "multi_pic") %>
-  <% if logged_in? %>
+  <div class="grid_child2">
 
 
-    <div id="hide_training" class="open_training show" onclick="toggleTraining()" ><%= t(".hidePlan") %></div>
-    <div id="open_training" class="open_training hide" onclick="toggleTraining()" ><%= t(".showPlan") %></div>
-  <% end %>
-  <div id="main" class="">
-    <div id="show_training" class="show_training <%= "exercise_border_blue" if logged_in? %>">
-      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} if @current_user %>
-
-<script>
-    $('select#trainingsplan_id').on('change', function (event) {
-        let selected_resource_id = $(this).val();
-        //let selected_muscle = $("#body_part_text_selected")[0].innerText;
-        let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
-        $.ajax({
-
-            type: "POST",
-            url: urlString,
-            dataType: "script",
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-            }
-        });
-        return false;
-    });
-</script>
+    <% if logged_in? %>
 
 
-      <div id="user_selected" class="show">
-        <%= render "main/user_selected" %>
+      <div id="hide_training" class="open_training show" onclick="toggleTraining()"><%= t(".hidePlan") %></div>
+      <div id="open_training" class="open_training hide" onclick="toggleTraining()"><%= t(".showPlan") %></div>
+    <% end %>
+    <div id="main" class="">
+      <%= image_tag("muskelman.svg", :class => "multi_pic") %>
+
+      <div id="show_training" class="show_training <%= "exercise_border_blue" if logged_in? %>">
+        <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} if @current_user %>
+
+        <script>
+            $('select#trainingsplan_id').on('change', function (event) {
+                let selected_resource_id = $(this).val();
+                //let selected_muscle = $("#body_part_text_selected")[0].innerText;
+                let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
+                $.ajax({
+
+                    type: "POST",
+                    url: urlString,
+                    dataType: "script",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                    }
+                });
+                return false;
+            });
+        </script>
+
+
+        <div id="user_selected" class="show">
+          <%= render "main/user_selected" %>
+        </div>
       </div>
-    </div>
-  </div>
-  <div id="muscle_text_hover_div">
-    <div id="muscle_text_hover">
+
+      <div id="body_part_selected">
+        <%= render :partial => "main/body_part_selected" %>
+      </div>
+
+
+      <div id="muscle_selected">
+        <%= render partial: "main/muscle_selected" %>
+      </div>
+      <div id="exercise_selected">
+        <%= render :partial => "main/exercise_selected" %>
+      </div>
+      <div id="hover"></div>
+      <%= image_tag("blank.webp", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
+      <div id="muscle_text_hover_div">
+        <div id="muscle_text_hover">
+
+        </div>
+      </div>
 
     </div>
+
+
+
+  </div>
+  <div class="grid_child">
+    <div id="exercises" class="nice_outer_tab">
+      <%= render :partial => "main/exercise" %>
+    </div>
   </div>
 
-  <div id="body_part_selected">
-    <%= render :partial => "main/body_part_selected" %>
+
+  <div class="grid_child3">
+
+    <div id="exercise" class="show_exercise"></div>
+    <div id="muscles" class="nice_outer_tab">
+      <%= render :partial => "main/muscle" %>
+    </div>
   </div>
-
-
-  <div id="muscle_selected">
-    <%= render partial: "main/muscle_selected" %>
-  </div>
-  <div id="exercise_selected">
-    <%= render :partial => "main/exercise_selected" %>
-  </div>
-  <div id="hover"></div>
-
-  <%= image_tag("blank.webp", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
-
-
-  <div id="exercise" class="show_exercise"></div>
-  <div id="muscles" class="nice_outer_tab">
-    <%= render :partial => "main/muscle" %>
-  </div>
-
 
 <%#= render :partial => "main/muscle_hover" %>
-
-
 
 
 </div>
