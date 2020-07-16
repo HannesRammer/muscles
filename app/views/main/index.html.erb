@@ -25,17 +25,18 @@
   <%= render :partial => "main/body_area" %>
   <div class="grid_child2">
 
-
+<div class="nice_inner_tab_js_hover exercise_border_blue">
     <% if logged_in? %>
 
 
-      <div id="hide_training" class="open_training show" onclick="toggleTraining()"><%= t(".hidePlan") %></div>
-      <div id="open_training" class="open_training hide" onclick="toggleTraining()"><%= t(".showPlan") %></div>
+      <a id="hide_training" class="open_training show" onclick="toggleTraining()"><%= t(".hidePlan") %></a>
+      <a id="open_training" class="open_training hide" onclick="toggleTraining()"><%= t(".showPlan") %></a>
     <% end %>
+</div>
     <div id="main" class="">
       <%= image_tag("muskelman.svg", :class => "multi_pic") %>
 
-      <div id="show_training" class="show_training <%= "exercise_border_blue" if logged_in? %>">
+      <div id="show_training" class="show_training">
         <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} if @current_user %>
 
         <script>
@@ -95,7 +96,9 @@
 
   <div class="grid_child3">
 
-    <div id="exercise" class="show_exercise"></div>
+    <div id="exercise" class="show_exercise">
+      <%= render :partial => "exercises/display" %>
+    </div>
     <div id="muscles" class="nice_outer_tab">
       <%= render :partial => "main/muscle" %>
     </div>

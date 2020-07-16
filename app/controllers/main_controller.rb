@@ -101,7 +101,7 @@ class MainController < ApplicationController
       tpte.pause = 120
       tpte.unit = "reps"
       if tpte.save
-        flash[:notice] = "Exercise added to Trainingsplan: #{@trainingsplan.name}."
+        flash[:notice] = "Exercise added to Workout: #{@trainingsplan.name}."
       else
         flash[:notice] = "some error while saving ExerciseToTrainingsplan t_id:#{trainingsplan_id} e_id #{exercise_id}"
       end

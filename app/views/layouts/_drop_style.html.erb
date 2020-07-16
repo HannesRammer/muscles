@@ -4,9 +4,9 @@
   <div onClick="back_style();" style="cursor: pointer"> back</div>
   <label>
     <SELECT name="style_options">
-        <% @style_vars.each do |style| %>
-        <OPTION <%= "SELECTED" if cookies["style"] == style[0] %> value="<%= style[0]%>" style="background-color:<%= style[1]%>;"><%=style[0]%> </OPTION>
-        <% end %>
+        <%# @style_vars.each do |style| %>
+        <OPTION <%#= "SELECTED" if cookies["style"] == style[0] %> value="<%#= style[0]%>" style="background-color:<%#= style[1]%>;"><%#=style[0]%> </OPTION>
+        <%# end %>
     </SELECT>
   </label>
   <INPUT type="button" name="ok" value="Ok!" onClick="change_style();" style="cursor: pointer">

@@ -3,7 +3,7 @@
 
     <a onclick="toggleEditTP()" style="cursor: pointer;"><%= t("edit_repetition_duration_or_videos") %></a>
     <div id="trainingsplan_view_exercise" style="display: block">
-      Trainingsplan:
+
       <%= @trainingsplan.name %>
       <%= link_to "start_Training", trainingsplan_path(@trainingsplan) ,:style => ""%>
 
@@ -30,7 +30,7 @@
           <div class="exercise_list_rep">
             <% repschecked = is_unit_reps(ettp.unit) %>
             <% if repschecked %>
-              Wiederholungen: <%= ettp.reps %>
+              <%=t('reps') %>: <%= ettp.reps %>
             <% end %>
           </div>
           <div class="exercise_list_duration">
@@ -39,14 +39,12 @@
               <%#= label :autolyse, "duration", :value => "duration" %>
               <%#= radio_button_tag 'unit', 'duration', durationchecked %>
               <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
-              <div>Dauer: <%= ettp.duration %></div>
+              <%=t('dur') %>: <%= ettp.duration %>
             <% end %>
           </div>
           <div class="exercise_list_pause">
 
-            <div style="font-size: 13px;  width: 100%;">
-              Pause: <%= ettp.pause %>
-            </div>
+            <%=t('pause') %>: <%= ettp.pause %>
           </div>
         </div>
 
@@ -85,7 +83,7 @@
 
 
             <div class="exercise_list_rep">
-              <%= label :autolyse, "reps", :value => "wiederholungen" %>
+              <%= label :autolyse, "reps", :value => t('reps') %>
               <% repschecked = is_unit_reps(ettp.unit) %>
               <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][reps]", repschecked, onclick: "set_exercise_unit(#{exercise.id},'reps')" %>
               <%= text_field_tag("exercise[#{exercise.id}][reps]", value = ettp.reps, options = {placeholder: 'reps'}) %>
@@ -94,7 +92,7 @@
 
             <div class="exercise_list_duration">
 
-              <%= label :autolyse, "time", :value => "dauer" %>
+              <%= label :autolyse, "time", :value => t('dur') %>
               <% durationchecked = is_unit_duration(ettp.unit) %>
               <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][duration]", durationchecked, onclick: "set_exercise_unit(#{exercise.id},'duration')" %>
               <%= text_field_tag("exercise[#{exercise.id}][duration]", value = ettp.duration, options = {placeholder: 'sekunden'}) %>

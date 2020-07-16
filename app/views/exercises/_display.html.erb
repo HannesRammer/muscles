@@ -1,9 +1,9 @@
 <div id="ex">
   <%#= link_to("Schließen", :url=>{:controller=>"main", :action=>"hide_exercise"}, :remote=>true) %>
-  <%= link_to t('edit'), edit_exercise_path(@exercise) %>
-  <div id="x_title">
 
-    <%= h @exercise.name %>
+  <div id="x_title" class="nice_inner_tab_js_hover">
+
+    <%= h @exercise ? @exercise.name : "Exercise" %>
   </div>
   <!--div id="x_exercise_type">
     <strong>exercise_type:</strong>
@@ -12,9 +12,9 @@
   <div style="position:relative;">
 
     <div id="exercises_show">
-      <%= render "videos/video", :video => @video, :view => "preload" %>
+      <%= render "videos/video", :video => @video, :view => "preload"  if @video%>
     </div>
-
+    <%= link_to t('edit'), edit_exercise_path(@exercise) if @exercise %>
     <!--div id="x_how_to">
       <div id="ex_title">Was tun:</div>
 
