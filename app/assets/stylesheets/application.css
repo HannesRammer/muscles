@@ -257,7 +257,7 @@ input {
 }
 
 #exercises {
-    width: 250px;
+    width: 300px;
     /*position: relative;
     top: 0;
     float: left;
@@ -337,12 +337,13 @@ table {
 
 .exercises_text_div {
     box-sizing: border-box;
-    width: 231px;
+    width: 100%;
     border-bottom: 1px solid #0000001f;
     height: 53px;
     text-align: center;
     vertical-align: middle;
     padding: 5px;
+    font-size: 0.9rem;
 }
 
 
@@ -714,10 +715,7 @@ pre {
 a {
     /*color: var(--light-green-color) !important;*/
     color: white;
-    text-shadow: 1px 1px 1px black,
-    1px -1px 1px black,
-    -1px 1px 1px black,
-    -1px -1px 1px black;
+
 }
 
 #navilinks a {
@@ -743,10 +741,7 @@ a:hover {
 a:hover {
     /*color: var(--green-color) !important;*/
     color: rgba(249, 105, 14, 1) !important;
-    text-shadow: 1px 1px 1px black,
-    1px -1px 1px black,
-    -1px 1px 1px black,
-    -1px -1px 1px black;
+
 }
 
 .fieldWithErrors {
