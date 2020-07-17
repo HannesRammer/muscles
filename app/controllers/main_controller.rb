@@ -14,6 +14,9 @@ class MainController < ApplicationController
     @s_muscles = []
     @a_muscles = []
     # @muscle = @muscles.first
+    @exercise = @exercises.first
+    @video = @exercise.selected_video(nil)
+
     @primary = []
     @secondary = []
     @antagonist = []

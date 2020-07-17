@@ -223,8 +223,8 @@ function scale_for_landscape() {
     let left = $("#body_tag").position().left;
     let top = $("#body_tag").position().top;
 
-    $("body").css("left", 15 - left);
-    $("body").css("top", 15 - top);
+    $("body").css("left", 0 - left);
+    $("body").css("top", 0 - top);
 
 }
 
