@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
 <%#= javascript_include_tag "modernizr-1.6.min" %>
-<body id="body" class="theme_3a3a3a" onresize="resize_trainingsplans_exercise_video();">
+<body id="body" class="theme_3a3a3a" onresize="to_scale_or_not_to_scale();">
 <div id="body_tag">
   <%= render "layouts/navi" %>
   <script>
@@ -34,10 +34,12 @@
 
       //    $( document ).ready( readyFn );
       // or:
-      //$( window ).on( "load", resize_trainingsplans_exercise_video);
-      $(document).ready(resize_trainingsplans_exercise_video);
+      //$( window ).on( "load", scale_for_landscape);
+      $(document).ready(to_scale_or_not_to_scale());
 
-
+      window.addEventListener("orientationchange", function(event) {
+          to_scale_or_not_to_scale();
+      });
 
 
   </script>

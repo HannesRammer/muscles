@@ -31,9 +31,9 @@ function setClass(elem, className1) {
 
 
 function toggleTraining() {
-        let a = $("#user_selected");
-        a.toggleClass("hide");
-        a.toggleClass("show");
+    let a = $("#user_selected");
+    a.toggleClass("hide");
+    a.toggleClass("show");
     let b = $("#hide_training");
     b.toggleClass("hide");
     b.toggleClass("show");
@@ -90,7 +90,6 @@ function new_style(x) {
     document.cookie = "style=" + color + "; path=/; expires=" + exp.toGMTString();
 
 }
-
 
 
 function set_level(percent, id, way) {             //called
@@ -214,19 +213,39 @@ function setExerciseActive(trainingsplanPosition) {
     }
 }
 
-function resize_trainingsplans_exercise_video() {
-/*
+function scale_for_landscape() {
+
     let currentWidth = document.documentElement.clientWidth;
     let currentHeight = document.documentElement.clientHeight;
-
+    $("#body_tag").css("width", "1859px");
     $("#body_tag").css("transform", "scale(" + (currentWidth / 1900) + ")");
+
     let left = $("#body_tag").position().left;
     let top = $("#body_tag").position().top;
 
     $("body").css("left", 15 - left);
     $("body").css("top", 15 - top);
 
- */
+}
+
+function remove_scale() {
+    $("#body_tag").css("width", "");
+    $("#body_tag").css("transform", "");
+
+    $("body").css("left", 0);
+    $("body").css("top", 0);
+
+
+}
+
+function to_scale_or_not_to_scale() {
+    if (window.innerHeight > window.innerWidth) {
+        console.log("resize for horizontal view");
+        remove_scale();
+    } else {
+        console.log("remove scale for vertical");
+        scale_for_landscape();
+    }
 }
 
 function set_exercise_unit(e_id, unit) {
