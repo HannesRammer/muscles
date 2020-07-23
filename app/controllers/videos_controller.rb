@@ -2,7 +2,6 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :login_required#, :except => [:index, :muscle, :body_part, :exercise, :hide_exercise, :search_string, :impressum]
   before_action :admin_required
-
   # GET /videos
   # GET /videos.json
   def index
