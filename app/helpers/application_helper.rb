@@ -36,7 +36,12 @@ module ApplicationHelper
   end
 
   def clean_name(name)
-    name.downcase.gsub("ß", "ss").gsub(" ", "_").gsub("ä", "ae").gsub("ö", "oe").gsub("ü", "ue").gsub("Ä", "ae")
+    if name == nil
+      ""
+    else
+      name.downcase.gsub("ß", "ss").gsub(" ", "_").gsub("ä", "ae").gsub("ö", "oe").gsub("ü", "ue").gsub("Ä", "ae")
+    end
+
   end
 
   def normal_name(name)

@@ -11,7 +11,13 @@ class Muscle < ApplicationRecord
   scope :sort_by_name , -> { order "name asc" }
 
   def clean_name
-    self.name.downcase.gsub("ß","ss").gsub(" ","_").gsub("Ä","ae").gsub("ä","ae").gsub("ö","oe").gsub("ü","ue").gsub("Ü","ue").gsub("Ö","oe")
+    if self.en_name == nil
+      ""
+
+      else
+        self.en_name.downcase.gsub("ß","ss").gsub(" ","_").gsub("Ä","ae").gsub("ä","ae").gsub("ö","oe").gsub("ü","ue").gsub("Ü","ue").gsub("Ö","oe")
+    end
+
   end
 
   def self.all_with_pic

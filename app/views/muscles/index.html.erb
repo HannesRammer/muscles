@@ -17,7 +17,7 @@
 <%# @muscles.each do |muscle| %>
   <% Muscle.sort_by_name.each do |muscle| %>
       <tr>
-        <td><%= h muscle.name %></td>
+        <td><%= h muscle.en_name %></td>
         <td><%= link_to t('view'), muscle %></td>
         <td><%= link_to t('edit'), edit_muscle_path(muscle) %></td>
         <td><%= link_to "Destroy", muscle, :confirm => "Are you sure?", :method => :delete %></td>

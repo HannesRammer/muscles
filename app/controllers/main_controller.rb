@@ -35,7 +35,7 @@ class MainController < ApplicationController
     #p "##################################"
     @name = params["name"]
     #p @name
-    @muscles = Muscle.where("name = ?", @name).to_a.uniq
+    @muscles = Muscle.where("en_name = ?", @name).to_a.uniq
     @muscles_selected = @muscles
     @muscle = @muscles.first
     #@exercises = @primary_exercises.exercises

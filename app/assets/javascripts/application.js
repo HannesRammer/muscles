@@ -144,7 +144,7 @@ function hover(name) {
         let s = p.toLowerCase();
 
         if (last_hover !== "" && document.querySelector("#" + last_hover + "_hover")) {
-            setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_tirpic");
+            setClass(document.querySelector("#" + last_hover + "_hover"), "hidden_muscle_pic");
         }
         if (document.querySelector("#" + s + "_hover")) {
             setClass(document.querySelector("#" + s + "_hover"), "multi_pic");

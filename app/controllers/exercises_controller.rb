@@ -29,7 +29,7 @@ class ExercisesController < ApplicationController
     end
 
     if exercise_to_muscle == nil
-      @exercise_to_muscle = ExerciseToMuscle.new(:muscle_id => muscle_id, :muscle_type => muscle_type, :exercise_id => exercise_id, :body_part => body_part)
+      @exercise_to_muscle = ExerciseToMuscle.new(:muscle_id => muscle_id, :muscle_type => muscle_type, :exercise_id => exercise_id, :body_part_id => body_part.id)
       if @exercise_to_muscle.save
         @exercise = Exercise.find_by_id(params[:eid])
       else

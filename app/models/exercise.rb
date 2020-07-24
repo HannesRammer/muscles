@@ -9,6 +9,9 @@ class Exercise < ApplicationRecord
   has_many :exercise_to_trainingsplans, -> { order("id asc") }
   has_many :trainingsplans, :through => :exercise_to_trainingsplans
 
+  has_many :tag_to_exercises, -> { order("id") }
+  has_many :tags, :through => :tag_to_exercises
+
   # has_one_attached :video
   scope :visible_exercises, -> { where(visible: true) }
 
@@ -53,7 +56,7 @@ class Exercise < ApplicationRecord
   def primary_muscle_names
     list = []
     self.x_muscles("primary").each do |muscle|
-      list.append(muscle.name)
+      list.append(muscle.en_name)
 
     end
     list.join(",")
@@ -62,7 +65,7 @@ class Exercise < ApplicationRecord
   def secondary_muscle_names
     list = []
     self.x_muscles("secondary").each do |muscle|
-      list.append(muscle.name)
+      list.append(muscle.en_name)
 
     end
     list.join(",")
