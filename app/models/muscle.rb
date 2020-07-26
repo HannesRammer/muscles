@@ -40,7 +40,7 @@ class Muscle < ApplicationRecord
 
   def x_exercises(muscle_type)
     e= ExerciseToMuscle.where("muscle_type = ? and muscle_id = ?",muscle_type, self.id ).collect{|x| x.exercise_id }.to_a.uniq.compact#.uniq.sort!{|t1,t2|t1.name <=> t2.name}
-    Exercise.where("id in (?)",e).where(visible:true).order("name asc")
+    Exercise.where("id in (?)",e).where(visible:true).order("name asc").to_a
   end
 
   def sort_by_clean_name

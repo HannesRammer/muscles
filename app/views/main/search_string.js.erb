@@ -1,5 +1,6 @@
 document.querySelector("#exercise_selected").innerHTML = '';
 document.querySelector("#exercises_text_header").innerHTML = '<%=j @name %>';
 document.querySelector("#exercises_text").innerHTML = '<%=j render 'main/exercises_text' , exercises: @exercises  %>';
-document.querySelector("#exercises_text_header").innerHTML = 'Übungen mit <%=@name %>';
+document.querySelector("#tags").innerHTML = '<%=j render 'main/tags'  %>';
+document.querySelector("#exercises_text_header").innerHTML = '<%= @exercises.length%> Ex. <%=params[:muscle_selected] %>';
 //alert("yes");

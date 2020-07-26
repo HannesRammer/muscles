@@ -109,7 +109,7 @@ class Exercise < ApplicationRecord
     elsif name == "Freigewicht"
       @exercises = Exercise.free_exercise
     else
-      @exercises = Exercise.where("name LIKE ? or name LIKE ?", "%#{name}%", "%#{name.downcase}%").where(visible: true).to_a.uniq
+      @exercises = Exercise.where("name LIKE ? or name LIKE ?", "%#{name}%", "%#{name.downcase}%").where(visible: true).to_a
     end
     @exercises
   end

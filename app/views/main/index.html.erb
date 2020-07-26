@@ -7,16 +7,25 @@
   </div>
   <%#= link_to("Alle", {:controller => "main", :action => "body_part", :name => "Alle"}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
   <%# @body_parts.each do |part| %>
-  <%#= link_to(part.name, {:controller => "main", :action => "body_part", :name => part.name}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
+    <%#= link_to(part.name, {:controller => "main", :action => "body_part", :name => part.name}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
 
   <%# end %>
 
-  <!--Oder wähle ein Stichwort.
+  <!--Oder wähle ein Stichwort.-->
   <%# %w{Liegen Sitzen Bank Gerät Kurzhantel Langhantel Freigewicht}.each do |part| %>
-    <%#= link_to(part, {:controller => "main", :action => "search_string", :name => part}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
+  <%#= link_to(part, {:controller => "main", :action => "search_string", :name => part}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
 
-  <%# end %> | Oder k
-  -->
+  <%# end %>
+
+
+  <%= form_tag main_search_string_path, remote: true, :authenticity_token => true, method: :post do %>
+    <div id="tags">
+      <%= render :partial => "main/tags" %>
+    </div>
+    <%= hidden_field_tag "muscle_selected"%>
+    <%= text_field_tag :name, params[:name], onkeyup: "if(this.value.length >2){$('#submit_search_string').click();}" %>
+    <%= submit_tag "", {id: "submit_search_string", style: "visibility:hidden;"} %>
+  <% end %>
   <%= t(".howTo") %>
 </div>
 
@@ -25,14 +34,14 @@
   <%= render :partial => "main/body_area" %>
   <div class="grid_child2">
 
-<div class="nice_inner_tab_js_hover exercise_border_blue">
-    <% if logged_in? %>
+    <div class="nice_inner_tab_js_hover exercise_border_blue">
+      <% if logged_in? %>
 
 
-      <a id="hide_training" class="open_training show" onclick="toggleTraining()"><%= t(".hidePlan") %></a>
-      <a id="open_training" class="open_training hide" onclick="toggleTraining()"><%= t(".showPlan") %></a>
-    <% end %>
-</div>
+        <a id="hide_training" class="open_training show" onclick="toggleTraining()"><%= t(".hidePlan") %></a>
+        <a id="open_training" class="open_training hide" onclick="toggleTraining()"><%= t(".showPlan") %></a>
+      <% end %>
+    </div>
     <div id="main" class="">
       <%= image_tag("muskelman.svg", :class => "multi_pic") %>
 
@@ -83,7 +92,6 @@
       </div>
 
     </div>
-
 
 
   </div>

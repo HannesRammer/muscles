@@ -16,7 +16,7 @@ class MainController < ApplicationController
     # @muscle = @muscles.first
     @exercise = @exercises.first
     @video = @exercise.selected_video(nil)
-
+    @tags = Tag.all
     @primary = []
     @secondary = []
     @antagonist = []
@@ -41,7 +41,7 @@ class MainController < ApplicationController
     #@exercises = @primary_exercises.exercises
     @primary = @muscle.primary_exercises
     @secondary = @muscle.secondary_exercises
-    @antagonist = @muscle.antagonist_exercises
+
     respond_to :js
   end
 
@@ -65,7 +65,69 @@ class MainController < ApplicationController
 
   def search_string
     @name = params[:name]
-    @exercises = Exercise.load_exercises(@name)
+    @selected_tag_ids = params[:tag_ids]
+
+    muscle_exercises = []
+    if params[:muscle_selected].length > 0
+      muscle = Muscle.where(en_name: params[:muscle_selected]).to_a.first
+      muscle_exercises.concat(muscle.primary_exercises)
+      muscle_exercises.concat(muscle.secondary_exercises)
+    end
+    #exercise_ids = TagToExercise.select(:exercise_id).where(tag_id: @selected_tag_ids).map(&:exercise_id).to_a
+
+    exercise_ids = []
+    exercise_ids_for_first_tag = []
+    if @selected_tag_ids
+      @selected_tag_ids.each_with_index do |id, i|
+        if i == 0
+          exercise_ids_for_first_tag = TagToExercise.select(:exercise_id).where(tag_id: id).map(&:exercise_id).to_a
+        else
+
+        end
+      end
+      @exercises = Exercise.where(id: exercise_ids_for_first_tag).to_a
+      @exercises.concat(muscle_exercises)
+
+
+      final_exercises = []
+      @exercises.each do |exercise|
+        counter = @selected_tag_ids.length
+        tags = exercise.tags
+
+        tags.each do |tag|
+          if @selected_tag_ids.include?(tag.id.to_s)
+            counter = counter - 1
+          end
+        end
+
+        if counter == 0
+          final_exercises << exercise
+          exercise_ids << exercise.id
+        end
+      end
+    else
+      @exercises = muscle_exercises
+      @exercises.each do |exercise|
+          exercise_ids << exercise.id
+
+      end
+    end
+
+
+    #@exercises = Exercise.load_exercises(@name)
+    if exercise_ids.length > 0 && @name.length > 0
+      @exercises = Exercise.where("name LIKE ? or name LIKE ?", "%#{@name}%", "%#{@name.downcase}%").where(visible: true, id: exercise_ids).to_a
+    elsif exercise_ids.length == 0 && @name.length > 0
+      @exercises = Exercise.where("name LIKE ? or name LIKE ?", "%#{@name}%", "%#{@name.downcase}%").where(visible: true).to_a
+    elsif exercise_ids.length > 0 && @name.length == 0
+      @exercises = Exercise.where(visible: true, id: exercise_ids).to_a
+    end
+    exercise_ids_with_name = @exercises.map(&:id)
+
+    new_tag_ids = TagToExercise.select(:tag_id).where(exercise_id: exercise_ids_with_name).map(&:tag_id).to_a
+
+    @tags = Tag.where(id: new_tag_ids)
+
     respond_to :js
   end
 

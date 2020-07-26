@@ -15,6 +15,15 @@
       </div>
     <% end %>
   </div>
+
+  <% @exercise.tags.each do |tag| %>
+    <div class="exercise_tags">
+      <%= tag.name%>
+
+    </div>
+
+
+  <% end %>
   <!--div id="m_antagonistic">
     <h3>antagonistic muscles</h3>
     <%# @a_muscles.each do |muscle| %>

@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   post 'exercise/:eid/muscle/:name/:muscle_type',to: 'exercises#toggle_muscle', format: 'js',as: :exercises_toggle_muscle
 
   post 'main/body_part/:name', to: 'main#body_part', format: 'js', as: :main_body_part
-  post 'main/search_string/:name', to: 'main#search_string', format: 'js', as: :main_search_string
+  #post 'main/search_string/:name', to: 'main#search_string', format: 'js', as: :main_search_string
+  post 'main/search_string', to: 'main#search_string', format: 'js', as: :main_search_string
   post 'main/exercise/:name', to: 'main#exercise', format: 'js', as: :main_exercise
 
   post 'trainingsplans/:id/exercise/:name', to: 'trainingsplans#exercise', format: 'js', as: :trainingsplans_exercise

@@ -51,7 +51,7 @@
 
       <tr>
 
-        <td height="100"><%= h @exercise.description && @exercise.description[0..30] %></td>
+        <td height="100"><%= link_to @exercise.description ,@exercise.description, target:"_blank" %></td>
         <td height="100"><%= h @exercise.how_to %></td>
 
         <td height="100"><%= h @exercise.how_not_to && @exercise.how_not_to[0..30] %></td>
