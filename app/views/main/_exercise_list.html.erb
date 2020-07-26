@@ -5,7 +5,7 @@
     <div id="trainingsplan_view_exercise" style="display: block">
 
       <%= @trainingsplan.name %>
-      <%= link_to "start_Training", trainingsplan_path(@trainingsplan) ,:style => ""%>
+      <%= link_to "start_Training", trainingsplan_path(@trainingsplan), :style => "" %>
 
 
       <% @ettps.each_with_index do |ettp, i| %>
@@ -30,7 +30,7 @@
           <div class="exercise_list_rep">
             <% repschecked = is_unit_reps(ettp.unit) %>
             <% if repschecked %>
-              <%=t('reps') %>: <%= ettp.reps %>
+              <%= t('reps') %>: <%= ettp.reps %>
             <% end %>
           </div>
           <div class="exercise_list_duration">
@@ -39,12 +39,12 @@
               <%#= label :autolyse, "duration", :value => "duration" %>
               <%#= radio_button_tag 'unit', 'duration', durationchecked %>
               <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
-              <%=t('dur') %>: <%= ettp.duration %>
+              <%= t('dur') %>: <%= ettp.duration %>
             <% end %>
           </div>
           <div class="exercise_list_pause">
 
-            <%=t('pause') %>: <%= ettp.pause %>
+            <%= t('pause') %>: <%= ettp.pause %>
           </div>
         </div>
 
@@ -73,45 +73,47 @@
         <% @ettps.each_with_index do |ettp| %>
 
           <% exercise = ettp.exercise %>
-          <div class="exercise_border_red">
-            <div class="main_exercises_text">
-              <%= exercise.name %>
+          <% if exercise %>
+            <div class="exercise_border_red">
+              <div class="main_exercises_text">
+                <%= exercise.name %>
+              </div>
+              <% video = exercise.selected_video(ettp.trainingsplan_id) %>
+
+              <%= render "videos/video", :video => video, :view => "preload" %>
+
+
+              <div class="exercise_list_rep">
+                <%= label :autolyse, "reps", :value => t('reps') %>
+                <% repschecked = is_unit_reps(ettp.unit) %>
+                <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][reps]", repschecked, onclick: "set_exercise_unit(#{exercise.id},'reps')" %>
+                <%= text_field_tag("exercise[#{exercise.id}][reps]", value = ettp.reps, options = {placeholder: 'reps'}) %>
+                <%= hidden_field_tag "exercise[#{exercise.id}][unit]", ettp.unit %>
+              </div>
+
+              <div class="exercise_list_duration">
+
+                <%= label :autolyse, "time", :value => t('dur') %>
+                <% durationchecked = is_unit_duration(ettp.unit) %>
+                <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][duration]", durationchecked, onclick: "set_exercise_unit(#{exercise.id},'duration')" %>
+                <%= text_field_tag("exercise[#{exercise.id}][duration]", value = ettp.duration, options = {placeholder: 'sekunden'}) %>
+              </div>
+              <div class="exercise_list_pause">
+
+                Pause <%= text_field_tag("exercise[#{exercise.id}][pause]", value = ettp.pause, options = {placeholder: 'pause', :style => "margin-left: 19px;"}) %>
+
+
+              </div>
+              <div class="exercise_list_select">
+                <% if video && video.video.attached? %>
+                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ettp.trainingsplan_id).id).html_safe, {:multiple => false} %>
+                <% else %>
+                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false} %>
+                <% end %>
+              </div>
             </div>
-            <% video = exercise.selected_video(ettp.trainingsplan_id) %>
 
-            <%= render "videos/video", :video => video, :view => "preload" %>
-
-
-            <div class="exercise_list_rep">
-              <%= label :autolyse, "reps", :value => t('reps') %>
-              <% repschecked = is_unit_reps(ettp.unit) %>
-              <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][reps]", repschecked, onclick: "set_exercise_unit(#{exercise.id},'reps')" %>
-              <%= text_field_tag("exercise[#{exercise.id}][reps]", value = ettp.reps, options = {placeholder: 'reps'}) %>
-              <%= hidden_field_tag "exercise[#{exercise.id}][unit]", ettp.unit %>
-            </div>
-
-            <div class="exercise_list_duration">
-
-              <%= label :autolyse, "time", :value => t('dur') %>
-              <% durationchecked = is_unit_duration(ettp.unit) %>
-              <%= radio_button_tag "unit#{exercise.id}", "exercise[#{exercise.id}][duration]", durationchecked, onclick: "set_exercise_unit(#{exercise.id},'duration')" %>
-              <%= text_field_tag("exercise[#{exercise.id}][duration]", value = ettp.duration, options = {placeholder: 'sekunden'}) %>
-            </div>
-            <div class="exercise_list_pause">
-
-              Pause <%= text_field_tag("exercise[#{exercise.id}][pause]", value = ettp.pause, options = {placeholder: 'pause',:style=>"margin-left: 19px;"}) %>
-
-
-            </div>
-            <div class="exercise_list_select">
-              <% if video && video.video.attached? %>
-                <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ettp.trainingsplan_id).id).html_safe, {:multiple => false} %>
-              <% else %>
-                <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false} %>
-              <% end %>
-            </div>
-          </div>
-
+          <% end %>
         <% end %>
         <div class="actions">
           <%= form.submit "Speichern" %>
