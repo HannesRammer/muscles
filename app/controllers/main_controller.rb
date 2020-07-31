@@ -16,7 +16,7 @@ class MainController < ApplicationController
     # @muscle = @muscles.first
     @exercise = @exercises.first
     @video = @exercise.selected_video(nil)
-    @tags = Tag.all
+    @tags = Tag.order(:group,:name)
     @primary = []
     @secondary = []
     @antagonist = []
@@ -126,7 +126,7 @@ class MainController < ApplicationController
 
     new_tag_ids = TagToExercise.select(:tag_id).where(exercise_id: exercise_ids_with_name).map(&:tag_id).to_a
 
-    @tags = Tag.where(id: new_tag_ids)
+    @tags = Tag.where(id: new_tag_ids).order(:group,:name)
 
     respond_to :js
   end

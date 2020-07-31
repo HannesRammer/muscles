@@ -1,27 +1,29 @@
-<% t('forgot_pw') %>
+<div id="reset_pw">
+  <% t('reset_new_pw') %>
 
 
 
-<%= form_with(url: "/passwords/reset", method: "post") do |f|%>
+  <%= form_with(url: "/passwords/reset", method: "post") do |f| %>
 
-  <p>
-    change account password for     <%= params[:email]%>
-    <%#= f.label :username %>
-    <%#= f.text_field :username %>
-  </p>
-  <p>
+    <p>
+      change account password for     <%= params[:email] %>
+      <%#= f.label :username %>
+      <%#= f.text_field :username %>
+    </p>
+    <p>
 
-    <%= f.hidden_field :email  ,  :value => params[:email] %>
-  </p>
-  <p>
+      <%= f.hidden_field :email, :value => params[:email] %>
+    </p>
+    <p>
 
-    <%= f.hidden_field :token ,  :value => params[:token] %>
-  </p>
-  <p>
-    <%= f.label :password, "Chose new password" %>
-    <%= f.password_field :password %>
-  </p>
-  <p><%= f.submit t('reset_new_pw') %></p>
-<% end %>
+      <%= f.hidden_field :token, :value => params[:token] %>
+    </p>
+    <p>
+      <%= f.label :password, "Chose new password" %>
+      <%= f.password_field :password %>
+    </p>
+    <p><%= f.submit t('reset_new_pw') %></p>
+  <% end %>
 
 
+</div>

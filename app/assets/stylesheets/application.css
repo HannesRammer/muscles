@@ -23,7 +23,12 @@
     --green-color: #2cab85;
     --light-green-color: #b0eae0;
 }
-
+input{
+    font-size:1rem;
+}
+div#login *, div#signup *, div#forgot_pw *, div#reset_pw * {
+    font-size: 2rem;
+}
 body {
     text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
     font-family: 'Open Sans', Helvetica, Arial, Sans serif;
@@ -701,8 +706,8 @@ a:hover, a:active {
 
 body, p, ol, ul, td {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji !important;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 1rem;
+    line-height: 1rem;
 }
 
 pre {
@@ -728,7 +733,7 @@ a {
 }
 
 #navilinks {
-    font-size: 19px;
+    font-size: 1rem;
     padding-bottom: 10px;
     border-bottom: 1px solid antiquewhite;
 }
@@ -779,7 +784,7 @@ a:hover {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    font-size: 1rem;
     margin: -7px;
     background-color: #c00;
     color: #fff;
@@ -792,7 +797,7 @@ a:hover {
 }
 
 #errorExplanation ul li {
-    font-size: 12px;
+    font-size: 1rem;
     list-style: square;
 }
 
@@ -1011,13 +1016,13 @@ div#trainingsplan_edit_exercise input[type=text] {
 
 .trainingsplan_name {
     color: var(--blue-color);
-    font-size: 20px;
+    font-size: 1rem;
     padding: 5px;
 }
 
 .exercise_name {
     color: var(--red-color);
-    font-size: 19px;
+    font-size: 1rem;
     padding: 5px;
 }
 
@@ -1068,7 +1073,7 @@ td {
     position: absolute;
     top: -33px;
     left: 205px;
-    font-size: 17px;
+    font-size: 1rem;
     height: 32px;
     border-radius: 0;
     max-width: 620px;

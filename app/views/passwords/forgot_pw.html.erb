@@ -1,18 +1,20 @@
-<%="forgot password" %>
+<div id="forgot_pw">
+  <%= "forgot password" %>
 
-<p>Already have an account? <%= link_to t('login'), login_path %>.</p>
+  <p>Already have an account? <%= link_to t('login'), login_path %>.</p>
 
-<%= form_with(url: "/passwords/forgot", method: "post") do |f|%>
+  <%= form_with(url: "/passwords/forgot", method: "post") do |f| %>
 
-  <p>
-    <%#= f.label :username %>
-    <%#= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :email, "Email Address" %>
-    <%= f.text_field :email %>
-  </p>
-  <p><%= f.submit t('request_new_pw_link') %></p>
-<% end %>
+    <p>
+      <%#= f.label :username %>
+      <%#= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :email, "Email Address" %>
+      <%= f.text_field :email %>
+    </p>
+    <p><%= f.submit t('request_new_pw_link') %></p>
+  <% end %>
 
 
+</div>

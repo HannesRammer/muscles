@@ -12,7 +12,14 @@
   <div style="position:relative;">
 
     <div id="exercises_show">
-      <%= render "videos/video", :video => @video, :view => "preload"  if @video%>
+      <%if @video%>
+      <%= render "videos/video", :video => @video, :view => "preload"  %>
+        <%else %>
+        <a href='https://www.google.com/search?q=<%=@exercise.name.gsub(" ", "+") %>' title="<%=@exercise.name %> Suche" target="exercise"><%=@exercise.name%></a>
+        <iframe id="ytplayer" type="text/html" width="640" height="360"
+                src="http://www.youtube.com/embed?listType=search&list=<%=@exercise.name.gsub(" ", "+") %>&origin=http://free-workouts.com"
+                frameborder="0"></iframe>
+        <% end%>
       <%= link_to t('edit'), edit_exercise_path(@exercise), :style=>"z-index: 999;position: relative;" if @exercise %>
     </div>
     <!--div id="x_how_to">

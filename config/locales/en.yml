@@ -36,7 +36,7 @@ en:
   update: 'Update'
   delete: 'Delete'
   logout: 'log out'
-  login: 'log in |'
+  login: 'log in'
   signup: 'sign up'
   back: 'Back'
   selectedExercise: 'Selected exercise'
