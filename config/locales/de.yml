@@ -37,7 +37,7 @@ de:
   delete: 'Löschen'
   logout: 'Abmelden'
   login: 'Anmelden'
-  signup: 'Registrieren'
+  signup: 'Registrieren!'
   back: 'Zurück'
   selectedExercise: 'Ausgewählte Übung'
   allTrainingsplanExercises: ' des Trainingsplans'

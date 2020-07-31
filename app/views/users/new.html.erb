@@ -1,29 +1,45 @@
-<div id="signup">
-  <% t('signup') %>
+<div style="display: grid; place-items: center;">
+  <div id="signup">
+    <p><%= t('signup') %></p>
+    <div style="border: 1px solid black;width: 50rem;">
+      <%= form_for @user do |f| %>
+        <%= render "shared/error_messages", :target => @user %>
+        <table>
+          <tr>
+            <td>
+              <%= f.label :email, "Email Address" %>
 
-  <p>Already have an account? <%= link_to t('login'), login_path %>.</p>
+            </td>
+            <td>
+              <%= f.text_field :email %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.label :password %>
+            </td>
+            <td>
+              <%= f.password_field :password %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.label :password_confirmation, "Confirm Password" %>
+            </td>
+            <td>
+              <%= f.password_field :password_confirmation %>
+            </td>
+          </tr>
+        </table>
+        <p><%= f.submit t('signup') %></p>
+      <% end %>
+    </div>
+  </div>
 
-  <%= form_for @user do |f| %>
-    <%= render "shared/error_messages", :target => @user %>
-    <p>
-      <%#= f.label :username %>
-      <%#= f.text_field :username %>
-    </p>
-    <p>
-      <%= f.label :email, "Email Address" %>
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </p>
-    <p>
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
-    </p>
-    <p><%= f.submit t('signup') %></p>
-  <% end %>
 
+  <div class="small_links" style="font-size: 1rem !important;">
+    <p>Already have an account? <%= link_to t('login'), login_path %>.</p>
+    <p>Lost or forgot password? <%= link_to "request a new one!", forgot_pw_path %></p>
+  </div>
 
-  <p> <%= link_to "forgot password?", forgot_pw_path %></p>
 </div>

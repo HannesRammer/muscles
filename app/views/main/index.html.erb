@@ -1,4 +1,5 @@
 <div class="nav nice_outer_tab">
+  <%= t(".howTo") %>
   <!--Wähle den Körperbereich den du Trainieren willst.-->
   <div id="body_part_text_selected_div">
     <div id="body_part_text_selected">
@@ -26,7 +27,7 @@
     <%= text_field_tag :name, params[:name], onkeyup: "if(this.value.length >2){$('#submit_search_string').click();}" %>
     <%= submit_tag "", {id: "submit_search_string", style: "visibility:hidden;"} %>
   <% end %>
-  <%= t(".howTo") %>
+
 </div>
 
 

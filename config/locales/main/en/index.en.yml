@@ -1,6 +1,6 @@
 en:
   main:
     index:
-      howTo: 'Click on a muscle in the piture to display exercises for the muscle.'
+      howTo: 'Click on a muscle or tag or seach via textfield.'
       hidePlan: 'Hide Workoutdetails'
       showPlan: 'Show Workoutdetails'
