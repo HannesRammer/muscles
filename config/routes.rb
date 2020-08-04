@@ -32,8 +32,8 @@ Rails.application.routes.draw do
   #get 'workout/:id', to: 'trainingsplans#index', as: :trainingsplans
 
 
-  post 'trainingsplans/load_trainingsplans',to: 'trainingsplans#load_trainingsplans', format: 'js',as: :trainingsplans_load_trainingsplans
-  post 'trainingsplans/get_exercises/:trainingsplan_id',to: 'trainingsplans#get_exercises', format: 'js',as: :trainingsplans_get_exercises
+  post 'workouts/load_trainingsplans',to: 'trainingsplans#load_trainingsplans', format: 'js',as: :trainingsplans_load_trainingsplans
+  post 'workouts/get_exercises/:trainingsplan_id',to: 'trainingsplans#get_exercises', format: 'js',as: :trainingsplans_get_exercises
 
   post 'main/muscle/:name',to: 'main#muscle', format: 'js',as: :main_muscle
 
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   post 'main/search_string', to: 'main#search_string', format: 'js', as: :main_search_string
   post 'main/exercise/:name', to: 'main#exercise', format: 'js', as: :main_exercise
 
-  post 'trainingsplans/:id/exercise/:name', to: 'trainingsplans#exercise', format: 'js', as: :trainingsplans_exercise
+  post 'workouts/:id/exercise/:name', to: 'trainingsplans#exercise', format: 'js', as: :trainingsplans_exercise
 
   get 'exercises/all', to: 'exercises#all',  as: :exercises_all
 
@@ -52,8 +52,8 @@ Rails.application.routes.draw do
   post 'main/remove_exercise/:ettp_id', to: 'main#remove_exercise', format: 'js', as: :main_remove_exercise
   post 'main/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'main#switch_exercise', format: 'js', as: :main_switch_exercise
 
-  post 'trainingsplans/:id/remove_exercise/:ettp_id', to: 'trainingsplans#remove_exercise', format: 'js', as: :trainingsplans_remove_exercise
-  post 'trainingsplans/:id/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'trainingsplans#switch_exercise', format: 'js', as: :trainingsplans_switch_exercise
+  post 'workouts/:id/remove_exercise/:ettp_id', to: 'trainingsplans#remove_exercise', format: 'js', as: :trainingsplans_remove_exercise
+  post 'workouts/:id/switch_exercise/:ettp_id_1/:ettp_id_2', to: 'trainingsplans#switch_exercise', format: 'js', as: :trainingsplans_switch_exercise
 
   get 'main/impressum', to:'main#impressum', as: :impressum
 
