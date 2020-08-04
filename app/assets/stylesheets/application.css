@@ -18,14 +18,20 @@
 
 :root {
     --red-color: #d44b78;
+    --dark-red-color: #b31e4f;
     --blue-color: #64c6ef;
+    --dark-blue-color: #1eafec;
     --yellow-color: #cbc351;
-    --green-color: #2cab85;
+    --dark-yellow-color: #a09818;
     --light-green-color: #b0eae0;
+    --green-color: #2cab85;
+    --dark-green-color: #17a077;
 }
-input{
-    font-size:1rem;
+
+input {
+    font-size: 1rem;
 }
+
 div#login *, div#signup *, div#forgot_pw *, div#reset_pw * {
     font-size: 2rem;
 }
@@ -37,14 +43,14 @@ input[type="submit"] {
 }
 
 body {
-    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    /*text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
     font-family: 'Open Sans', Helvetica, Arial, Sans serif;
     font-size: 1rem !important;
 
     position: absolute;
-    background-color: #fff;
+    background-color: #ffffff;
     width: 99%;
-    color: #d5d8d7 !important;
+    color: #000000 !important;
     /*color: var(--light-green-color) !important;*/
 }
 
@@ -52,6 +58,7 @@ body {
 .nav {
     position: relative;
     /*padding: 10px;*/
+    background: var(--dark-green-color);
 }
 
 img {
@@ -135,7 +142,7 @@ img {
 #trainingsplan_text_selected {
     /*border: 1px solid var(--green-color);*/
     /*   border: 1px solid var(--blue-color);*/
-
+    background: var(--dark-blue-color);
 }
 
 #exercise_text_selected {
@@ -152,16 +159,9 @@ a {
 
 }
 
-a:hover {
 
-    color: rgba(249, 105, 14, 1) !important;
-    /*color: var(--blue-color);*/
-    text-decoration: none;
-    /*border-bottom: 1px solid rgba(249, 105, 14, 1) !important;*/
-}
-
-a:active {
-    color: var(--yellow-color);
+a, a:active {
+    /*color: var(--yellow-color) !important;*/
 }
 
 .bild1 {
@@ -242,12 +242,15 @@ div#trainingsplan_edit_exercise {
 input {
     border-radius: 0;
 }
-div#small_links *{
+
+div#small_links * {
     font-size: 1rem !important;
 }
-input[type="checkbox" i]{
+
+input[type="checkbox" i] {
     cursor: pointer;
 }
+
 .user_text {
     position: relative;
     padding-left: 570px;
@@ -701,12 +704,6 @@ div {
       border-radius: 8px 8px 7px 7px;*/
 }
 
-a {
-    /* -webkit-border-radius: 5px;
-     -khtml-border-radius: 5px;
-     -moz-border-radius: 5px;
-     border-radius: 5px;*/
-}
 
 a:link, a:visited {
     /*  -webkit-transition: all 0.25s ease;
@@ -716,6 +713,13 @@ a:link, a:visited {
 
 a:hover, a:active {
     /*  color: var(--red-color) !important;*/
+
+    /*color: rgba(249, 105, 14, 1) !important;*/
+    color: white !important;
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    /*color: var(--blue-color);*/
+    text-decoration: none;
+    /*border-bottom: 1px solid rgba(249, 105, 14, 1) !important;*/
 }
 
 
@@ -732,19 +736,22 @@ pre {
 }
 
 
-a {
-    /*color: var(--light-green-color) !important;*/
-    color: white;
-
-}
-
 #navilinks a {
     margin-right: 15px;
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    color: var(--yellow-color) !important;
+}
+
+#navilinks a:hover {
+    margin-right: 15px;
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    color: white !important;
 }
 
 #navilinks a:visited {
     /*color: var(--light-green-color);*/
-    color: white;
+    /*color: white;*/
+    /*text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
 }
 
 #navilinks {
@@ -753,16 +760,6 @@ a {
     border-bottom: 1px solid antiquewhite;
 }
 
-
-a:hover {
-    /* color: var(--yellow-color) !important;*/
-}
-
-a:hover {
-    /*color: var(--green-color) !important;*/
-    color: rgba(249, 105, 14, 1) !important;
-
-}
 
 .fieldWithErrors {
     padding: 2px;
@@ -1022,6 +1019,13 @@ div#trainingsplan_edit_exercise input[type=text] {
     box-sizing: border-box;
 }
 
+#edit_video_view .videos_folder {
+    position: relative !important;
+    width: 264px !important;
+    height: 200px !important;
+    box-sizing: border-box !important;
+}
+
 #exercise .videos_folder {
     position: absolute;
     width: 100%;
@@ -1173,6 +1177,7 @@ div#main {
     /*background: lightpink;*/
     /*font-size: 2rem;*/
     text-align: center;
+    background: var(--dark-yellow-color)
 }
 
 .grid_child2 {
@@ -1186,6 +1191,7 @@ div#main {
     /*background: #b6ffd3;*/
     /*font-size: 2rem;*/
     text-align: center;
+    /*background: var(--blue-color)*/
 }
 
 .grid_child3 {
@@ -1199,4 +1205,43 @@ div#main {
     /*background: #b6ddff;*/
     /*font-size: 2rem;*/
     text-align: center;
+    background: var(--dark-red-color)
+}
+
+
+.small_links a {
+    color: var(--yellow-color);
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+}
+
+#signup, #login, #forgot_pw, #reset_pw {
+    color: var(--red-color);
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+}
+
+#signup table, #login table, #forgot_pw table, #reset_pw table {
+    color: var(--green-color);
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+}
+
+
+
+.table_container{
+    border: 1px solid black;
+    width: 50rem;
+    padding: 20px;
+}
+
+
+input[type="text"], input[type="password"]{
+    background: #565656;
+    color: var(--green-color);
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    border-radius: 30px;
+    padding-left: 30px;
+}
+
+#signup input[type="submit"], #login input[type="submit"], #forgot_pw input[type="submit"], #reset_pw input[type="submit"] {
+    background: var(--blue-color);
+    /*text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
 }

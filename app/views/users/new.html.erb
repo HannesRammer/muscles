@@ -1,7 +1,7 @@
 <div style="display: grid; place-items: center;">
   <div id="signup">
     <p><%= t('signup') %></p>
-    <div style="border: 1px solid black;width: 50rem;">
+    <div class="table_container">
       <%= form_for @user do |f| %>
         <%= render "shared/error_messages", :target => @user %>
         <table>

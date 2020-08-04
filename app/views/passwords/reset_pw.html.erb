@@ -1,7 +1,7 @@
 <div style="display: grid; place-items: center;">
   <div id="reset_pw">
     <p><%= t('reset_new_pw') %></p>
-    <div style="border: 1px solid black;width: 50rem;">
+    <div class="table_container">
 
       <%= form_with(url: "/passwords/reset", method: "post") do |f| %>
         <table>
