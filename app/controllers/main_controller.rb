@@ -125,8 +125,13 @@ class MainController < ApplicationController
     exercise_ids_with_name = @exercises.map(&:id)
 
     new_tag_ids = TagToExercise.select(:tag_id).where(exercise_id: exercise_ids_with_name).map(&:tag_id).to_a
-
-    @tags = Tag.where(id: new_tag_ids).order(:group,:name)
+    @tags
+    if new_tag_ids.length == 0
+      @tags = Tag.order(:group,:name)
+      @exercises = Exercise.where(visible: true).order("name asc").all
+    else
+      @tags = Tag.where(id: new_tag_ids).order(:group,:name)
+    end
 
     respond_to :js
   end
