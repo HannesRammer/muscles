@@ -1246,3 +1246,7 @@ input[type="text"], input[type="password"]{
     background: var(--blue-color);
     /*text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
 }
+
+iframe{
+    max-width: 100%;
+}
