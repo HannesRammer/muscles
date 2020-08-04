@@ -143,6 +143,7 @@ img {
     /*border: 1px solid var(--green-color);*/
     /*   border: 1px solid var(--blue-color);*/
     background: var(--dark-blue-color);
+    height: 650px;
 }
 
 #exercise_text_selected {
