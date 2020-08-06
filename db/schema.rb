@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_28_105961) do
+ActiveRecord::Schema.define(version: 2020_06_28_105962) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -136,6 +136,9 @@ ActiveRecord::Schema.define(version: 2020_06_28_105961) do
   create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube_url"
+    t.string "start_time"
+    t.string "end_time"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
