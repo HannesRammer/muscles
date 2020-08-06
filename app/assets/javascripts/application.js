@@ -225,7 +225,16 @@ function scale_for_landscape() {
 
     $("body").css("left", 0 - left);
     $("body").css("top", 0 - top);
+    if ($(".user_text_vertical")[0]) {
+        $(".user_text_vertical").addClass("user_text_horizontal");
+        $(".user_text_vertical").removeClass("user_text_vertical");
+    }
+    if ($(".grid_child_vertical")[0]) {
 
+        $(".grid_child_vertical").addClass("grid_child_horizontal");
+        $(".grid_child_vertical").removeClass("grid_child_vertical");
+
+    }
 }
 
 function remove_scale() {
@@ -234,8 +243,17 @@ function remove_scale() {
 
     $("body").css("left", 0);
     $("body").css("top", 0);
+    if ($(".user_text_horizontal")[0]) {
 
 
+        $(".user_text_horizontal").addClass("user_text_vertical");
+        $(".user_text_horizontal").removeClass("user_text_horizontal");
+    }
+    if ($(".grid_child_horizontal")[0]) {
+
+        $(".grid_child_horizontal").addClass("grid_child_vertical");
+        $(".grid_child_horizontal").removeClass("grid_child_horizontal");
+    }
 }
 
 function to_scale_or_not_to_scale() {
@@ -284,7 +302,7 @@ function video_ended() {
                 }
 
             }
-        } else {
+        } else {/*duration*/
             current_duration = current_duration + parseInt($("video")[0].duration);
             $("#current_duration")[0].value = current_duration;
             $("#duration")[0].value = current_duration;
@@ -437,3 +455,18 @@ function myStopFunction() {
     let play_div = $("#play_div").css("display", "block");
 
 }
+
+
+let ui_render = {
+    show_filter: function () {
+        $("#search_filter").css("height", "100%");
+        $("#search_filter_down").css("display", "none");
+        $("#search_filter_up").css("display", "block");
+    },
+    hide_filter: function () {
+        $("#search_filter").css("height", "0");
+        $("#search_filter_up").css("display", "none");
+        $("#search_filter_down").css("display", "block");
+
+    },
+};

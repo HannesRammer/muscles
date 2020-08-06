@@ -1,5 +1,5 @@
 <div class="nav nice_outer_tab">
-  <%= t(".howTo") %>
+  <%#= t(".howTo") %>
   <!--Wähle den Körperbereich den du Trainieren willst.-->
   <div id="body_part_text_selected_div">
     <div id="body_part_text_selected">
@@ -8,7 +8,7 @@
   </div>
   <%#= link_to("Alle", {:controller => "main", :action => "body_part", :name => "Alle"}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
   <%# @body_parts.each do |part| %>
-    <%#= link_to(part.name, {:controller => "main", :action => "body_part", :name => part.name}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
+  <%#= link_to(part.name, {:controller => "main", :action => "body_part", :name => part.name}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
 
   <%# end %>
 
@@ -18,16 +18,21 @@
 
   <%# end %>
 
+  <i id="search_field_magnify" class="material-icons">search</i>
+  <i id="search_filter_down" class="material-icons" onclick="ui_render.show_filter();">arrow_drop_down</i>
+  <i id="search_filter_up" class="material-icons" onclick="ui_render.hide_filter();">arrow_drop_up</i>
+  <div id="search_filter" style="height: 0px;overflow: hidden;">
+    <%= form_tag main_search_string_path, remote: true, :authenticity_token => true, method: :post do %>
+      <%= hidden_field_tag "muscle_selected" %>
+      <%= text_field_tag :name, params[:name], onkeyup: "if(this.value.length >2){$('#submit_search_string').click();}",
+                         style: "position: absolute;font-size: 2rem;top: 5px;left: 81px;" %>
+      <div id="tags">
+        <%= render :partial => "main/tags" %>
+      </div>
 
-  <%= form_tag main_search_string_path, remote: true, :authenticity_token => true, method: :post do %>
-    <div id="tags">
-      <%= render :partial => "main/tags" %>
-    </div>
-    <%= hidden_field_tag "muscle_selected"%>
-    <%= text_field_tag :name, params[:name], onkeyup: "if(this.value.length >2){$('#submit_search_string').click();}" %>
-    <%= submit_tag "", {id: "submit_search_string", style: "visibility:hidden;"} %>
-  <% end %>
-
+      <%= submit_tag "", {id: "submit_search_string", style: "visibility:hidden;"} %>
+    <% end %>
+  </div>
 </div>
 
 
@@ -78,7 +83,7 @@
       </div>
 
 
-      <div id="muscle_selected">
+      <div id="muscle_selected_pic">
         <%= render partial: "main/muscle_selected" %>
       </div>
       <div id="exercise_selected">
@@ -96,7 +101,7 @@
 
 
   </div>
-  <div class="grid_child">
+  <div class="grid_child_horizontal">
     <div id="exercises" class="nice_outer_tab">
       <%= render :partial => "main/exercise" %>
     </div>

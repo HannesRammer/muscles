@@ -2,5 +2,7 @@ document.querySelector("#exercise_selected").innerHTML = '';
 document.querySelector("#exercises_text_header").innerHTML = '<%=j @name %>';
 document.querySelector("#exercises_text").innerHTML = '<%=j render 'main/exercises_text' , exercises: @exercises  %>';
 document.querySelector("#tags").innerHTML = '<%=j render 'main/tags'  %>';
-document.querySelector("#exercises_text_header").innerHTML = '<%= @exercises.length%> Ex. <%=params[:muscle_selected] %>';
+document.querySelector("#exercises_text_header").innerHTML = '<%= @exercises.length%> Ex. <%=params[:muscle_selected] %> <%= @selected_tag_names.to_s %>';
+document.querySelector("#muscle_selected_pic").innerHTML = '<%=j render partial: 'main/muscle_selected'%>';
+
 //alert("yes");

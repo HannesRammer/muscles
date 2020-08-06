@@ -1,20 +1,37 @@
 <div id="trainingsplans_folder">
-    <div id="rep_sec_pause">
+  <div id="rep_sec_pause">
     <%= render :partial => "trainingsplans/rep_sec_pause" %>
   </div>
+  <% if video&.youtube_url && video&.start_time && video&.end_time && video&.youtube_url.length > 0 && video&.start_time&.length > 0 && video&.end_time&.length > 0 %>
 
-  <% if video && video.video.attached? %>
-  <% if width %>
+    <!--    <iframe id="ytplayer" type="text/html" width="640" height="360"-->
+    <!--            src="https://www.youtube.com/embed/<%#= video.youtube_url %>?t=20"-->
+    <!--            frameborder="0" style="position:absolute;left:0;"></iframe>-->
+    <!--    <script>-->
+    <!--        // $('iframe#ytplayer').ready(function () {-->
+    <!--        //     autoCallInitOnVidLoadIfTrainingStarted()-->
+    <!--        // });-->
+
+    <!--    </script>-->
+
+    <div id="youtube_player"></div>
+
+    <%= video_tag("#{url_for(video.video)}", :controls => false, :oncanplay => "loadVideo('#{video.youtube_url}');", :onended => "video_ended();", :width => 300, preload: 'metadata') %>
 
 
-    <%#= video_tag("#{url_for(video.video)}.mp4", :controls => "false", :onended=>"video_ended();", :width=>300) %>
+<% elsif video && video.video.attached? %>
+    <%# if video && video.video.attached? %>
+    <% if width %>
+
+
+      <%#= video_tag("#{url_for(video.video)}.mp4", :controls => "false", :onended=>"video_ended();", :width=>300) %>
       <%= video_tag("#{url_for(video.video)}", :controls => false, :oncanplay => "autoCallInitOnVidLoadIfTrainingStarted();", :onended => "video_ended();", :width => width, preload: 'metadata') %>
+    <% else %>
+      <%= video_tag("#{url_for(video.video)}", :controls => false, :oncanplay => "autoCallInitOnVidLoadIfTrainingStarted();", :onended => "video_ended();", preload: 'metadata') %>
+    <% end %>
+
   <% else %>
-    <%= video_tag("#{url_for(video.video)}", :controls => false, :oncanplay => "autoCallInitOnVidLoadIfTrainingStarted();", :onended => "video_ended();", preload: 'metadata') %>
+
+    NO VIDEO
   <% end %>
-
-<% else %>
-
-  NO VIDEO
-<% end %>
 </div>

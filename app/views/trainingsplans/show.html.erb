@@ -77,3 +77,65 @@
 
 
 </div>
+
+
+
+<script>
+    // 2. This code loads the IFrame Player API code asynchronously.
+    let tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    let firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    let youtube_player;
+
+    function onYouTubeIframeAPIReady() {
+        debugger;
+        youtube_player = new YT.Player('youtube_player', {
+            height: '360',
+            width: '640',
+            videoId: 'M7lc1UVf-VE',
+            events: {
+                'onReady': onYoutubePlayerReady,
+                'onStateChange': onYoutubePlayerStateChange
+            }
+        });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onYoutubePlayerReady(event) {
+        event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    let done = false;
+
+    function onYoutubePlayerStateChange(event) {
+        debugger;
+
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(stopYoutubeVideo, 6000);
+            done = true;
+        }
+    }
+
+    function stopYoutubeVideo() {
+        youtube_player.stopVideo();
+    }
+
+    function loadVideo(youtube_id) {
+        debugger;
+        youtube_player.loadVideoById({
+            'videoId': youtube_id,
+            'startSeconds': 5,
+            'endSeconds': 60,
+            'suggestedQuality': 'large',
+        });
+    }
+
+</script>

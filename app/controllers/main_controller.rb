@@ -66,13 +66,16 @@ class MainController < ApplicationController
   def search_string
     @name = params[:name]
     @selected_tag_ids = params[:tag_ids]
-
+    @selected_tag_names = Tag.select(:name).where(id:@selected_tag_ids).collect { |x| x.name }
     muscle_exercises = []
+    @muscles_selected = []
     if params[:muscle_selected].length > 0
-      muscle = Muscle.where(en_name: params[:muscle_selected]).to_a.first
+      @muscles_selected = Muscle.where(en_name: params[:muscle_selected]).to_a
+      muscle = @muscles_selected.first
       muscle_exercises.concat(muscle.primary_exercises)
       muscle_exercises.concat(muscle.secondary_exercises)
     end
+
     #exercise_ids = TagToExercise.select(:exercise_id).where(tag_id: @selected_tag_ids).map(&:exercise_id).to_a
 
     exercise_ids = []

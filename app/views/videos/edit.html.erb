@@ -1,6 +1,45 @@
 <h1>Bearbeiten Video</h1>
+<div id="edit_video_view">
 
-<%= render 'form', video: @video %>
 
-<%= link_to t('view'), @video %> |
-<%= link_to t('back'), videos_path %>
+  <%= render 'form', video: @video %>
+
+  current Video:
+  <%= render "videos/video", :video => @video, :view => "preload_300" %>
+  <br>
+  <br>
+
+
+  or
+
+  <%= form_for(@video) do |form| %>
+    <% if @video.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+        <ul>
+          <% @video.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :youtube_url %>
+    <%= form.text_field :youtube_url %>
+
+    <%= form.label :start_time %>
+    <%= form.text_field :start_time %>
+
+    <%= form.label :end_time %>
+    <%= form.text_field :end_time %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+
+
+
+  <%= link_to t('view'), @video %> |
+  <%= link_to t('back'), videos_path %>
+</div>
