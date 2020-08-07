@@ -255,13 +255,29 @@ function remove_scale() {
 
     $("#body_tag").css("width", "");
     $("#body_tag").css("transform", "");
-    if ($(".blue_background.trainingsplan_grid.grid_child_vertical").css("height") == "360px") {
-        $("#trainingsplan_down").css("display", "none");
-        $("#trainingsplan_up").css("display", "block");
-    } else {
+    if (parseInt($(".blue_background.trainingsplan_grid.grid_child_vertical").css("height"))<100) {
         $("#trainingsplan_down").css("display", "block");
         $("#trainingsplan_up").css("display", "none");
+    } else {
+        $("#trainingsplan_down").css("display", "none");
+        $("#trainingsplan_up").css("display", "block");
     }
+
+    if (parseInt($(".grid_child3.red_background.exercise_grid").css("height"))<100) {
+        $("#exercise_down").css("display", "block");
+        $("#exercise_up").css("display", "none");
+    } else {
+        $("#exercise_down").css("display", "none");
+        $("#exercise_up").css("display", "block");
+    }
+    if (parseInt($(".grid_child_horizontal.yellow_background.exercises_grid").css("height"))<100) {
+        $("#exercises_down").css("display", "block");
+        $("#exercises_up").css("display", "none");
+    } else {
+        $("#exercises_down").css("display", "none");
+        $("#exercises_up").css("display", "block");
+    }
+
     $("body").css("left", 0);
     $("body").css("top", 0);
 }
@@ -490,6 +506,32 @@ let ui_render = {
         $(".blue_background.trainingsplan_grid.grid_child_vertical").css("height", "3rem");
         $("#trainingsplan_up").css("display", "none");
         $("#trainingsplan_down").css("display", "block");
+
+    },
+    show_exercise: function () {
+        $(".grid_child3.red_background.exercise_grid").css("height", "18rem");
+        $("#exercise_down").css("display", "none");
+        $("#exercise_up").css("display", "block");
+
+    },
+    hide_exercise: function () {
+
+        $(".grid_child3.red_background.exercise_grid").css("height", "3rem");
+        $("#exercise_up").css("display", "none");
+        $("#exercise_down").css("display", "block");
+
+    },
+    show_exercises: function () {
+        $(".grid_child_horizontal.yellow_background.exercises_grid").css("height", "18rem");
+        $("#exercises_down").css("display", "none");
+        $("#exercises_up").css("display", "block");
+
+    },
+    hide_exercises: function () {
+
+        $(".grid_child_horizontal.yellow_background.exercises_grid").css("height", "3rem");
+        $("#exercises_up").css("display", "none");
+        $("#exercises_down").css("display", "block");
 
     },
 };

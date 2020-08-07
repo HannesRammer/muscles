@@ -966,6 +966,7 @@ input {
 
 #exercises_show {
     position: relative;
+    height: 18rem;
 }
 
 #exercises_show video {
@@ -1025,9 +1026,9 @@ div#trainingsplan_edit_exercise input[type=text] {
 
 .exercise_border_red {
     border: var(--red-color) 1px solid;
-    padding: 5px;
+    padding: 0.5rem;
     position: relative;
-    height: 125px;
+    height: 14rem;
     margin-top: 5px;
     text-align: left;
 }
@@ -1046,8 +1047,8 @@ div#trainingsplan_edit_exercise input[type=text] {
 
 .videos_folder {
     position: absolute;
-    width: 192px;
-    height: 108px;
+    width: 16rem;
+    height: 9rem;
     box-sizing: border-box;
 }
 
@@ -1137,7 +1138,7 @@ td {
 }
 
 .main_exercises_text {
-    height: 21px;
+    height: 2rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -1150,24 +1151,26 @@ td {
 
 .exercise_list_rep {
     position: relative;
-    left: 195px;
+    left: 20rem;
     margin: 5px;
-    width: 143px;
+    width: 20rem;
+    height: 2rem;
 }
 
 .exercise_list_duration {
     position: relative;
-    left: 195px;
+    left: 20rem;
     margin: 5px;
-    width: 143px;
+    width: 20rem;
+    height: 2rem;
 }
 
 .exercise_list_pause {
     position: relative;
-    left: 195px;
-
+    left: 20rem;
     margin: 5px;
-    width: 143px;
+    width: 20rem;
+    height: 2rem;
 }
 
 .exercise_list_select {
@@ -1294,6 +1297,8 @@ input[type="text"], input[type="password"] {
 iframe {
     min-width: 100%;
     max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
 }
 
 #search_field_magnify {
@@ -1318,7 +1323,7 @@ iframe {
     cursor: pointer;
 }
 
-#trainingsplan_down {
+#trainingsplan_down,#exercises_down,#exercise_down {
     font-size: 3rem !important;
     position: absolute !important;
     right: 0;
@@ -1326,7 +1331,7 @@ iframe {
     cursor: pointer;
 }
 
-#trainingsplan_up {
+#trainingsplan_up,#exercises_up,#exercise_up {
     font-size: 3rem !important;
     position: absolute !important;
     right: 0;
@@ -1334,6 +1339,7 @@ iframe {
     display: none;
     cursor: pointer;
 }
+
 
 #search_filter {
     height: 0;
@@ -1346,9 +1352,13 @@ iframe {
     /* background: lightpink; */
     /* font-size: 2rem; */
     text-align: center;
+    position: relative;
 }
 
 .blue_background.trainingsplan_grid.grid_child_vertical {
     height: 3rem;
+    overflow: hidden;
+}
+.exercise_grid{
     overflow: hidden;
 }

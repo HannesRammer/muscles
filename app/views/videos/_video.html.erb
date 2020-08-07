@@ -6,7 +6,7 @@
             frameborder="0" style="position:absolute;left:0;max-width: 100%;"></iframe>
   <% elsif video && video.video.attached? %>
   <%# if video && video.video.attached? %>
-    <%= video.video.filename %>
+
     <% if view == "preload" %>
       <%#= video_tag("#{url_for(video.video)}.mp4", :controls => "false", :onended=>"video_ended();", :width=>300) %>
       <%= video_tag("#{url_for(video.video)}", :controls => true, preload: 'metadata') %>
@@ -17,7 +17,7 @@
       <%= video_tag("#{url_for(video.video)}", :controls => true, preload: 'none') %>
     <% end %>
   <%# elsif video && video.youtube_url.length > 0 && video.start_time.length > 0&& video.end_time.length > 0 %>
-
+    <%= video.video.filename %>
   <% else %>
 
     NO VIDEO
