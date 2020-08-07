@@ -1,0 +1,7 @@
+<% exercises = @trainingsplan.exercises %>
+
+<% exercises.each_with_index do |exercise, i| %>
+
+  <%= user_muscle_pics(exercise.primary_muscles, "selected", 5, "multi_pic") %>
+  <%= user_muscle_pics(exercise.secondary_muscles, "selected", 2, "multi_pic") %>
+<% end %>

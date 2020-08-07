@@ -25,25 +25,7 @@
 <body id="body" class="theme_3a3a3a" onresize="to_scale_or_not_to_scale();">
 <div id="body_tag">
   <%= render "layouts/navi" %>
-  <script>
-      $(document).on("mousemove", function (event) {
-          $("#mouseX").attr("value", event.pageX);
-          $("#mouseY").attr("value", event.pageY);
-          //$( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
-      });
 
-
-      //    $( document ).ready( readyFn );
-      // or:
-      //$( window ).on( "load", scale_for_landscape);
-      $(document).ready(to_scale_or_not_to_scale());
-
-      window.addEventListener("orientationchange", function(event) {
-          to_scale_or_not_to_scale();
-      });
-
-
-  </script>
 
   <input type="hidden" id="mouseX" value=""/>
   <input type="hidden" id="mouseY" value=""/>
@@ -95,5 +77,24 @@
   </tbody>
 </table-->
 </div>
+<script>
+    $(document).on("mousemove", function (event) {
+        $("#mouseX").attr("value", event.pageX);
+        $("#mouseY").attr("value", event.pageY);
+        //$( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+    });
+
+
+    //    $( document ).ready( readyFn );
+    // or:
+    //$( window ).on( "load", scale_for_landscape);
+    $(document).ready(to_scale_or_not_to_scale());
+
+    window.addEventListener("orientationchange", function(event) {
+        to_scale_or_not_to_scale();
+    });
+
+
+</script>
 </body>
 </html>

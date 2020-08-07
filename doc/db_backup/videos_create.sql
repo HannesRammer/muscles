@@ -1,1 +1,1 @@
-CREATE TABLE `videos` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `created_at` datetime NOT NULL,  `updated_at` datetime NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+CREATE TABLE `videos` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `created_at` datetime NOT NULL,  `updated_at` datetime NOT NULL,  `youtube_url` varchar(255) DEFAULT NULL,  `start_time` varchar(255) DEFAULT NULL,  `end_time` varchar(255) DEFAULT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;

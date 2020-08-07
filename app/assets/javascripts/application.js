@@ -220,11 +220,7 @@ function scale_for_landscape() {
     $("#body_tag").css("width", "1859px");
     $("#body_tag").css("transform", "scale(" + (currentWidth / 1900) + ")");
 
-    let left = $("#body_tag").position().left;
-    let top = $("#body_tag").position().top;
 
-    $("body").css("left", 0 - left);
-    $("body").css("top", 0 - top);
     if ($(".user_text_vertical")[0]) {
         $(".user_text_vertical").addClass("user_text_horizontal");
         $(".user_text_vertical").removeClass("user_text_vertical");
@@ -235,25 +231,39 @@ function scale_for_landscape() {
         $(".grid_child_vertical").removeClass("grid_child_vertical");
 
     }
+
+    let left = $("#body_tag").position().left;
+    let top = $("#body_tag").position().top;
+
+    $(".dropdown_icons").css("display", "none");
+
+    $("body").css("left", 0 - left);
+    $("body").css("top", 0 - top);
+
 }
 
 function remove_scale() {
-    $("#body_tag").css("width", "");
-    $("#body_tag").css("transform", "");
 
-    $("body").css("left", 0);
-    $("body").css("top", 0);
     if ($(".user_text_horizontal")[0]) {
-
-
         $(".user_text_horizontal").addClass("user_text_vertical");
         $(".user_text_horizontal").removeClass("user_text_horizontal");
     }
     if ($(".grid_child_horizontal")[0]) {
-
         $(".grid_child_horizontal").addClass("grid_child_vertical");
         $(".grid_child_horizontal").removeClass("grid_child_horizontal");
     }
+
+    $("#body_tag").css("width", "");
+    $("#body_tag").css("transform", "");
+    if ($(".blue_background.trainingsplan_grid.grid_child_vertical").css("height") == "360px") {
+        $("#trainingsplan_down").css("display", "none");
+        $("#trainingsplan_up").css("display", "block");
+    } else {
+        $("#trainingsplan_down").css("display", "block");
+        $("#trainingsplan_up").css("display", "none");
+    }
+    $("body").css("left", 0);
+    $("body").css("top", 0);
 }
 
 function to_scale_or_not_to_scale() {
@@ -467,6 +477,19 @@ let ui_render = {
         $("#search_filter").css("height", "0");
         $("#search_filter_up").css("display", "none");
         $("#search_filter_down").css("display", "block");
+
+    },
+    show_trainingsplan: function () {
+        $(".blue_background.trainingsplan_grid.grid_child_vertical").css("height", "18rem");
+        $("#trainingsplan_down").css("display", "none");
+        $("#trainingsplan_up").css("display", "block");
+
+    },
+    hide_trainingsplan: function () {
+
+        $(".blue_background.trainingsplan_grid.grid_child_vertical").css("height", "3rem");
+        $("#trainingsplan_up").css("display", "none");
+        $("#trainingsplan_down").css("display", "block");
 
     },
 };

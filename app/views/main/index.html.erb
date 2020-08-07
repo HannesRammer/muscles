@@ -38,7 +38,7 @@
 
 <div class="grid_parent">
   <%= render :partial => "main/body_area" %>
-  <div class="grid_child2">
+  <div class="grid_child_multi_pic">
 
     <div class="nice_inner_tab_js_hover exercise_border_blue">
       <% if logged_in? %>
@@ -48,41 +48,17 @@
         <a id="open_training" class="open_training hide" onclick="toggleTraining()"><%= t(".showPlan") %></a>
       <% end %>
     </div>
-    <div id="main" class="">
+    <div id="multi_pic_container" class="">
       <%= image_tag("muskelman.svg", :class => "multi_pic") %>
+      <% if @trainingsplan %>
 
-      <div id="show_training" class="show_training">
-        <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} if @current_user %>
-
-        <script>
-            $('select#trainingsplan_id').on('change', function (event) {
-                let selected_resource_id = $(this).val();
-                //let selected_muscle = $("#body_part_text_selected")[0].innerText;
-                let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
-                $.ajax({
-
-                    type: "POST",
-                    url: urlString,
-                    dataType: "script",
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-                    }
-                });
-                return false;
-            });
-        </script>
-
-
-        <div id="user_selected" class="show">
-          <%= render "main/user_selected" %>
+        <div id="trainingsplan_selected">
+          <%= render :partial => "main/trainingsplan_selected" %>
         </div>
-      </div>
-
+      <% end %>
       <div id="body_part_selected">
         <%= render :partial => "main/body_part_selected" %>
       </div>
-
-
       <div id="muscle_selected_pic">
         <%= render partial: "main/muscle_selected" %>
       </div>
@@ -96,19 +72,58 @@
 
         </div>
       </div>
+      <div id="muscle_text_selected_div">
+
+        <div id="muscle_text_selected">
+
+        </div>
+      </div>
+      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} if @current_user %>
 
     </div>
 
-
   </div>
-  <div class="grid_child_horizontal">
+  <% if @trainingsplan %>
+
+    <div class="grid_child_horizontal blue_background trainingsplan_grid">
+
+      <div class="nice_inner_tab_js_hover exercise_border_blue">
+        Trainingsplan
+        <i id="trainingsplan_down" class="material-icons dropdown_icons" onclick="ui_render.show_trainingsplan();">arrow_drop_down</i>
+        <i id="trainingsplan_up" class="material-icons dropdown_icons" onclick="ui_render.hide_trainingsplan();">arrow_drop_up</i>
+      </div>
+      <div id="show_training" class="show_training">
+        <div id="user_selected" class="show">
+          <%= render "main/user_selected" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <script>
+      $('select#trainingsplan_id').on('change', function (event) {
+          let selected_resource_id = $(this).val();
+          //let selected_muscle = $("#body_part_text_selected")[0].innerText;
+          let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
+          $.ajax({
+
+              type: "POST",
+              url: urlString,
+              dataType: "script",
+              beforeSend: function (xhr) {
+                  xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+              }
+          });
+          return false;
+      });
+  </script>
+  <div class="grid_child_horizontal yellow_background exercises_grid">
     <div id="exercises" class="nice_outer_tab">
       <%= render :partial => "main/exercise" %>
     </div>
   </div>
 
 
-  <div class="grid_child3">
+  <div class="grid_child3 red_background exercise_grid">
 
     <div id="exercise" class="show_exercise">
       <%= render :partial => "exercises/display" %>
