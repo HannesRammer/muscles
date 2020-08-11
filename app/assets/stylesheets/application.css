@@ -1214,7 +1214,7 @@ div#multi_pic_container {
 
 .yellow_background{
     background: var(--dark-yellow-color);
-
+    overflow: hidden;
 }
 .green_background{
     background: var(--dark-green-color);
@@ -1301,12 +1301,24 @@ iframe {
     max-height: 100%;
 }
 
-#search_field_magnify {
+.vertical #search_field_magnify {
+    font-size: 5rem !important;
+    top: 0 !important;
+}
+.horizontal #search_field_magnify {
     font-size: 3rem !important;
     top: 0 !important;
 }
 
-#search_filter_down {
+.vertical #search_filter_down {
+    font-size: 5rem !important;
+    position: absolute !important;
+    right: 0;
+    top: 0 !important;
+    cursor: pointer;
+}
+
+.horizontal #search_filter_down {
     font-size: 3rem !important;
     position: absolute !important;
     right: 0;
@@ -1323,7 +1335,7 @@ iframe {
     cursor: pointer;
 }
 
-#trainingsplan_down,#exercises_down,#exercise_down {
+.horizontal #trainingsplan_down,.horizontal #exercises_down,.horizontal #exercise_down {
     font-size: 3rem !important;
     position: absolute !important;
     right: 0;
@@ -1331,13 +1343,39 @@ iframe {
     cursor: pointer;
 }
 
-#trainingsplan_up,#exercises_up,#exercise_up {
+.vertical #trainingsplan_down,.vertical #exercises_down,.vertical #exercise_down {
+    font-size: 5rem !important;
+    position: absolute !important;
+    right: 0;
+    top: 0 !important;
+    cursor: pointer;
+}
+
+.horizontal #trainingsplan_up,.horizontal #exercises_up,.horizontal #exercise_up {
     font-size: 3rem !important;
     position: absolute !important;
     right: 0;
     top: 0 !important;
     display: none;
     cursor: pointer;
+}
+.vertical #trainingsplan_up,.vertical #exercises_up,.vertical #exercise_up {
+    font-size: 5rem !important;
+    position: absolute !important;
+    right: 0;
+    top: 0 !important;
+    display: none;
+    cursor: pointer;
+}
+.vertical .nice_inner_tab_js_hover{
+    height: 4rem !important;
+    font-size: 2rem;
+
+}
+.horizontal .nice_inner_tab_js_hover{
+    height: 2rem !important;
+    font-size: 1rem;
+
 }
 
 
@@ -1356,9 +1394,24 @@ iframe {
 }
 
 .blue_background.trainingsplan_grid.grid_child_vertical {
-    height: 3rem;
+    height: 5rem;
     overflow: hidden;
+    font-size: 4rem;
 }
 .exercise_grid{
     overflow: hidden;
+}
+
+.vertical #name{
+    position: absolute;
+    font-size: 3rem;
+    top: 0.6rem;
+    left: 5rem;
+}
+
+.horizontal #name{
+    position: absolute;
+    font-size: 2rem;
+    top: 0.3rem;
+    left: 3rem;
 }

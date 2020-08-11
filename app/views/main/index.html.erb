@@ -25,7 +25,7 @@
     <%= form_tag main_search_string_path, remote: true, :authenticity_token => true, method: :post do %>
       <%= hidden_field_tag "muscle_selected" %>
       <%= text_field_tag :name, params[:name], onkeyup: "if(this.value.length >2){$('#submit_search_string').click();}",
-                         style: "position: absolute;font-size: 2rem;top: 5px;left: 81px;" %>
+                         style: "" %>
       <div id="tags">
         <%= render :partial => "main/tags" %>
       </div>
