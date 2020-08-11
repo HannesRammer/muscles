@@ -1023,7 +1023,7 @@ input {
 .material-icons {
     top: 1px !important;
     position: relative !important;
-    font-size: 15px !important;
+    font-size: 2rem !important;
 }
 
 div#trainingsplan_edit_exercise input[type=text] {
