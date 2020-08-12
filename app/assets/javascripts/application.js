@@ -526,7 +526,7 @@ let ui_render = {
 
     },
     show_exercises: function () {
-        $(".grid_child_vertical.yellow_background.exercises_grid").css("height", "18rem");
+        $(".grid_child_vertical.yellow_background.exercises_grid").css("height", "25rem");
         $("#exercises_down").css("display", "none");
         $("#exercises_up").css("display", "block");
 

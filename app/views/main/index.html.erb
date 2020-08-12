@@ -78,7 +78,7 @@
 
         </div>
       </div>
-      <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} if @current_user %>
+
 
     </div>
 
@@ -89,7 +89,8 @@
 
       <div class="nice_inner_tab_js_hover exercise_border_blue">
         <a onclick="toggleEditTP()" style="cursor: pointer;"><%= t("edit_repetition_duration_or_videos") %></a>
-        Trainingsplan
+        Workout
+        <%= select_tag "trainingsplan_id", options_for_select(@current_user.trainingsplans.collect { |u| [u.name, u.id] }, @trainingsplan.id), {:multiple => false} if @current_user %>
         <i id="trainingsplan_down" class="material-icons dropdown_icons" onclick="ui_render.show_trainingsplan();">arrow_drop_down</i>
         <i id="trainingsplan_up" class="material-icons dropdown_icons" onclick="ui_render.hide_trainingsplan();">arrow_drop_up</i>
       </div>

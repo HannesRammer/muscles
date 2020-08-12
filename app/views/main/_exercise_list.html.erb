@@ -1,3 +1,4 @@
+
 <div class="user_text_horizontal">
   <div id="trainingsplan_text_selected">
 
@@ -108,9 +109,9 @@
               </div>
               <div class="exercise_list_select">
                 <% if video && video.video.attached? %>
-                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ettp.trainingsplan_id).id).html_safe, {:multiple => false} %>
+                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ettp.trainingsplan_id).id).html_safe, {:multiple => false, :style=>"font-size:1.5rem;"} %>
                 <% else %>
-                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false} %>
+                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false, :style=>"font-size:1.5rem;"} %>
                 <% end %>
               </div>
             </div>
@@ -143,5 +144,6 @@
 
 
     }
+
 </script>
 
