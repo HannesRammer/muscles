@@ -1,10 +1,11 @@
-
 <div class="user_text_horizontal">
   <div id="trainingsplan_text_selected">
 
     <div id="trainingsplan_view_exercise" style="display: block">
+      <div id="workout_name">
+        <%= @trainingsplan.name %>
 
-      <%= @trainingsplan.name %>
+      </div>
       <%= link_to "start_Training", trainingsplan_path(@trainingsplan), :style => "" %>
 
 
@@ -69,10 +70,11 @@
             </ul>
           </div>
         <% end %>
+        <div id="workout_name">
 
-        Trainingsplan Name:
-        <%= form.text_field :name, id: :trainingsplan_name, :style => "width:150px;" %>
-
+          Trainingsplan Name:
+          <%= form.text_field :name, id: :trainingsplan_name, :style => "width:150px;" %>
+        </div>
         <% @ettps.each_with_index do |ettp| %>
 
           <% exercise = ettp.exercise %>
@@ -109,9 +111,9 @@
               </div>
               <div class="exercise_list_select">
                 <% if video && video.video.attached? %>
-                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ettp.trainingsplan_id).id).html_safe, {:multiple => false, :style=>"font-size:1.5rem;"} %>
+                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, exercise.selected_video(ettp.trainingsplan_id).id).html_safe, {:multiple => false, :style => "font-size:1.5rem;"} %>
                 <% else %>
-                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false, :style=>"font-size:1.5rem;"} %>
+                  <%= select_tag "exercise[#{exercise.id}][video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }).html_safe, {:multiple => false, :style => "font-size:1.5rem;"} %>
                 <% end %>
               </div>
             </div>

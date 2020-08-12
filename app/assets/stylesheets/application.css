@@ -37,10 +37,16 @@ div#login *, div#signup *, div#forgot_pw *, div#reset_pw * {
     font-size: 2rem;
 }
 
-input[type="submit"] {
-    position: relative;
-    left: 75%;
-    top: 0;
+.horizontal input[type="submit"] {
+    position: absolute;
+    left: 325px;
+    top: -30px;
+}
+.vertical input[type="submit"] {
+    position: absolute;
+    right: 0px;
+    top: -3px;
+    font-size: 2rem;
 }
 
 body {
@@ -158,6 +164,7 @@ img {
 
 #trainingsplan_view_exercise {
     background: var(--dark-blue-color);
+    padding-top: 1rem;
 
 }
 
@@ -220,7 +227,7 @@ select {
 .vertical .multi_pic, .vertical #hover {
     left: 14rem;
     position: absolute;
-    top: 7rem;
+    top: 12rem;
     transform: scale(2);
 }
 
@@ -250,6 +257,7 @@ select {
 
 .vertical div#trainingsplan_edit_exercise {
     background: var(--dark-blue-color);
+    padding-top: 1rem;
 }
 
 
@@ -262,7 +270,7 @@ select {
 .vertical select {
     font-size: 2rem !important;
     position: relative;
-    top: 6rem;
+    top: 0rem;
 }
 .multi_pic3, #selected_exercise #hover {
     left: 70px;
@@ -592,7 +600,7 @@ table {
 
     position: relative;
     /*float: left;*/
-    height: 420px;
+    height: 30rem;
     /*border: 1px solid green;*/
 
 }
@@ -989,7 +997,7 @@ input {
 
 #exercises_show {
     position: relative;
-    height: 18rem;
+    height: 25rem;
 }
 
 #exercises_show video {
@@ -1049,8 +1057,15 @@ input {
     font-size: 1rem !important;
 }
 
-div#trainingsplan_edit_exercise input[type=text] {
+.vertical div#trainingsplan_edit_exercise input[type=text] {
     width: 30px;
+    height: 2rem;
+    top: 0;
+}
+
+.horizontal div#trainingsplan_edit_exercise input[type=text] {
+    width: 30px;
+    height: 18px;
 }
 
 .vertical .exercise_border_red {
@@ -1065,7 +1080,7 @@ div#trainingsplan_edit_exercise input[type=text] {
 
 .horizontal .exercise_border_red {
     border: var(--red-color) 1px solid;
-    padding: 0.5rem;
+    padding: 0.1rem;
     position: relative;
     height: 10rem;
     margin-top: 5px;
@@ -1253,7 +1268,7 @@ td {
 
 input#trainingsplan_name {
     width: 150px;
-    position: absolute;
+    position: relative;
 }
 
 .add_to_playlist {
@@ -1261,7 +1276,13 @@ input#trainingsplan_name {
 
 }
 
-div#multi_pic_container {
+.vertical div#multi_pic_container {
+    top: 0;
+    left: 0;
+    position: relative;
+    min-height: 48rem;
+}
+.horizontal div#multi_pic_container {
     top: 0;
     left: 0;
     position: relative;
@@ -1477,7 +1498,7 @@ iframe {
 
 .grid_child_vertical {
     flex: 1 1 697px;
-    height: 18rem;
+    height: 25rem;
     /* background: lightpink; */
     /* font-size: 2rem; */
     text-align: center;
@@ -1529,4 +1550,18 @@ iframe {
     border-radius: 0;
     /* max-width: 620px; */
     z-index: 99;
+}
+
+.vertical .grid_child3.red_background.exercise_grid{
+ height: 45rem;
+}
+
+.horizontal .grid_child3.red_background.exercise_grid{
+
+}
+.horizontal #workout_name{
+
+}
+ #workout_name{
+    text-align: left;
 }
