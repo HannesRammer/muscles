@@ -259,7 +259,7 @@ function remove_scale() {
 
     $("#body_tag").css("width", "");
     $("#body_tag").css("transform", "");
-    if (parseInt($(".blue_background.trainingsplan_grid.grid_child_vertical").css("height"))<=120) {
+    if (parseInt($(".blue_background.trainingsplan_grid.grid_child_vertical").css("height"))==100) {
         $("#trainingsplan_down").css("display", "block");
         $("#trainingsplan_up").css("display", "none");
     } else {
@@ -267,14 +267,14 @@ function remove_scale() {
         $("#trainingsplan_up").css("display", "block");
     }
 
-    if (parseInt($(".grid_child3.red_background.exercise_grid").css("height"))<=120) {
+    if (parseInt($(".grid_child3.red_background.exercise_grid").css("height"))==100) {
         $("#exercise_down").css("display", "block");
         $("#exercise_up").css("display", "none");
     } else {
         $("#exercise_down").css("display", "none");
         $("#exercise_up").css("display", "block");
     }
-    if (parseInt($(".grid_child_horizontal.yellow_background.exercises_grid").css("height"))<=120) {
+    if (parseInt($(".yellow_background.exercises_grid.grid_child_vertical").css("height"))==100) {
         $("#exercises_down").css("display", "block");
         $("#exercises_up").css("display", "none");
     } else {
