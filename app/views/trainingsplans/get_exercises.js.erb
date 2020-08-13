@@ -1,5 +1,6 @@
 document.querySelector("#user_selected").innerHTML = '<%=j render partial: 'main/user_selected' %>';
 document.querySelector("#exercises_text").innerHTML = '<%=j render 'main/exercises_text',  exercises: @all_exercises %>';
+document.querySelector("#trainingsplan_selected").innerHTML = '<%=j render :partial => "main/trainingsplan_selected" %>';
 //alert("yes");
 
 to_scale_or_not_to_scale();
