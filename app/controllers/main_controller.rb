@@ -191,8 +191,9 @@ class MainController < ApplicationController
 
 
     @trainingsplan = @ett.trainingsplan
-    user_id = Trainingsplan.user(@ett.id).id
-    if @current_user.id == user_id
+    user = @trainingsplan.user.first
+
+    if @current_user.id == user.id
       flash[:notice] = "Exercise removed"
       ExerciseToTrainingsplan.destroy(@ett.id)
 

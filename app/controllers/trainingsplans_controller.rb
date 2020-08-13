@@ -8,7 +8,7 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans.json
   def index
     trainingsplan_ids = ExerciseToTrainingsplan.select("trainingsplan_id").distinct.all
-    @trainingsplans = Trainingsplan.where("id in (?)",trainingsplan_ids).to_a
+    @trainingsplans = Trainingsplan.where("id in (?)", trainingsplan_ids).to_a
     @trainingsplans
   end
 
@@ -85,9 +85,17 @@ class TrainingsplansController < ApplicationController
     end
     @ett = ExerciseToTrainingsplan.find_by_id(params[:ettp_id])
     @trainingsplan = @ett.trainingsplan
-    user_id = Trainingsplan.user(@ett.id).id
+    user = @trainingsplan.user.first
     @exercises = @trainingsplan.exercises
-    ExerciseToTrainingsplan.destroy(@ett.id) if @current_user.id == user_id
+
+    if @current_user.id == user.id
+      flash[:notice] = "Exercise removed"
+      ExerciseToTrainingsplan.destroy(@ett.id)
+    else
+      flash[:notice] = "not your trainingsplan"
+
+    end
+
     respond_to :js
     #render :update do |page|
     #  page["user_selected"].replace :partial=>"main/user_selected"
@@ -120,8 +128,8 @@ class TrainingsplansController < ApplicationController
     #@muscle_exercises = Exercise.where(visible: true).order("name asc").all
 
     @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])
-    @exercises = Exercise.where(visible: true).order("name asc").all#@trainingsplan.exercises
-    @all_exercises = Exercise.where(visible: true).order("name asc").all#@trainingsplan.exercises
+    @exercises = Exercise.where(visible: true).order("name asc").all #@trainingsplan.exercises
+    @all_exercises = Exercise.where(visible: true).order("name asc").all #@trainingsplan.exercises
     respond_to :js
   end
 
@@ -191,7 +199,7 @@ class TrainingsplansController < ApplicationController
       if @trainingsplan.save
         @exercises = @trainingsplan.exercises
         #format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully updated." }
-        format.html { redirect_to index_path(trainingsplan_id:@trainingsplan.id), notice: "Trainingsplan was successfully updated." }
+        format.html { redirect_to index_path(trainingsplan_id: @trainingsplan.id), notice: "Trainingsplan was successfully updated." }
         #format.html { redirect_to @trainingsplan, notice: "Trainingsplan was successfully updated." }
         format.json { render :edit, status: :ok, location: @trainingsplan }
       else

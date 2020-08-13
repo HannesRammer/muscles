@@ -3,9 +3,13 @@ class ExerciseToTrainingsplan < ApplicationRecord
   belongs_to :exercise
 
   def self.switch_exercise(ettp_id_1, ettp_id_2, current_user_id)
-    one = ExerciseToTrainingsplan.find_by_id(ettp_id_1)
-    two = ExerciseToTrainingsplan.find_by_id(ettp_id_2)
-    return false unless current_user_id == Trainingsplan.user(ettp_id_1).id && current_user_id == Trainingsplan.user(ettp_id_2).id
+    list = ExerciseToTrainingsplan.where(id:[ettp_id_1,ettp_id_2]).to_a
+    one = list[0]
+    #one = ExerciseToTrainingsplan.find_by_id(ettp_id_1)
+    two = list[1]
+    #two = ExerciseToTrainingsplan.find_by_id(ettp_id_2)
+    return false unless Trainingsplan.same_user(ettp_id_1,ettp_id_2,current_user_id)
+    #return false unless current_user_id == Trainingsplan.user(ettp_id_1).id && current_user_id == Trainingsplan.user(ettp_id_2).id
     x = one.exercise_id
     xrep= one.reps
     xdur= one.duration
