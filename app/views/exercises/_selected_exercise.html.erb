@@ -1,5 +1,5 @@
 <%= render :partial => "exercises/body_area" %>
-<%= image_tag("muskelman.svg", :class => "multi_pic3") %>
+<%= image_tag("muscleman.svg", :class => "multi_pic3") %>
 <div id="exercises_muscle_text_hover_div">
   <div id="muscle_text_hover">
 
@@ -51,7 +51,7 @@
 
       <tr>
 
-        <td height="100"><%= link_to @exercise.description ,@exercise.description, target:"_blank" %></td>
+        <td height="100"><%= link_to @exercise.description, @exercise.description, target: "_blank" %></td>
         <td height="100"><%= h @exercise.how_to %></td>
 
         <td height="100"><%= h @exercise.how_not_to && @exercise.how_not_to[0..30] %></td>

@@ -11,7 +11,7 @@
 
           <% if @trainingsplan && @trainingsplan != nil %>
             <%#= @trainingsplan.name %>
-            <%= add_to_list_with_trainingsplan(exercise,@trainingsplan)%>
+            <%= add_to_list_with_trainingsplan(exercise, @trainingsplan) %>
           <% else %>
 
             <%= add_to_list_link(exercise) %>
@@ -19,7 +19,7 @@
 
           <%= link_to(exercise.name, {:controller => "main", :action => "exercise",
                                       :name => exercise.name, :title => "#{exercise.name} auswählen"},
-                      {:style=>"/*display: table-cell;width: 260px;height: 40px;vertical-align: middle;*/display:grid;",
+                      {:style => "/*display: table-cell;width: 260px;height: 40px;vertical-align: middle;*/display:grid;",
                        :remote => true, :method => :post}) %>
 
           <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>

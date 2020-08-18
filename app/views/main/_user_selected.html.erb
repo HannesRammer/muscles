@@ -1,11 +1,11 @@
 <% if @current_user && @trainingsplan != nil %>
-    <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
-    <%#= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: "post", remote: true, :style => "position: relative;top: -25px;left:125px;"}) do %>
-    <%#= submit_tag("select Trainingsplan") %>
-    <%# end %>
-    <div id="exercise_list">
-      <%= render("main/exercise_list") %>
-    </div>
+  <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
+  <%#= form_tag({:controller => "trainingsplans", :action => "get_exercises"}, {method: "post", remote: true, :style => "position: relative;top: -25px;left:125px;"}) do %>
+  <%#= submit_tag("select Trainingsplan") %>
+  <%# end %>
+  <div id="exercise_list">
+    <%= render("main/exercise_list") %>
+  </div>
 <% end %>
 
 

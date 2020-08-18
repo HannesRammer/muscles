@@ -14,12 +14,114 @@
 
     <!--    </script>-->
 
-    <div id="youtube_player"></div>
-
-    <%= video_tag("#{url_for(video.video)}", :controls => false, :oncanplay => "loadVideo('#{video.youtube_url}');", :onended => "video_ended();", :width => 300, preload: 'metadata') %>
+    <div id="youtube_placeholder_id"></div>
 
 
-<% elsif video && video.video.attached? %>
+    <%= video_tag("#{url_for(video.video)}", :controls => false, :oncanplay => "onYouTubeIframeAPIReady();", :onended => "video_ended();", :width => 10, preload: 'metadata') %>
+
+
+
+    <script>
+        // 2. This code loads the IFrame Player API code asynchronously.
+
+        let youtube_player;
+        <!--        function loaded(){-->
+        <!--            youtube_player = new YT.Player('youtube_placeholder_id', {-->
+        <!--                height: '360',-->
+        <!--                width: '640',-->
+        <!--                videoId: '<%#=video.youtube_url %>',-->
+        <!--                events: {-->
+        <!--                    'onReady': onYoutubePlayerReady,-->
+        <!--                    'onStateChange': onYoutubePlayerStateChange-->
+        <!--                }-->
+        <!--            });-->
+        <!--        }-->
+
+        function onYouTubeIframeAPIReady() {
+            youtube_player = new YT.Player('youtube_placeholder_id', {
+                height: '360',
+                width: '640',
+                videoId: '<%=video.youtube_url %>',
+                playerVars: {
+                    autoplay: 1,
+                    controls: 1,
+                    showinfo: 1,
+                    rel: 0,
+                    iv_load_policy: 3,
+                    cc_load_policy: 0,
+                    fs: 0,
+                    disabled: 1,
+                    start: '18',
+                    <!--                    start: '<%=video.start_time %>',-->
+                    <!--                    end: '<%=video.end_time %>',-->
+                    end: '22',
+                    suggestedQuality: 'large',
+                },
+                events: {
+                    onReady: function () {
+                        console("alert");
+                    },
+                    //onStateChange: onYoutubePlayerStateChange
+                }
+            });
+
+            youtube_player.addEventListener('onStateChange', function (e) {
+                console.log('State is:', e.data);
+            });
+
+
+            <!--            youtube_player.loadVideoById({-->
+            <!--                    'videoId': '
+
+
+            <%#=video.youtube_url %>',-->
+            <!--                    'startSeconds': 5,-->
+            <!--                    'endSeconds': 60,-->
+            <!--                'suggestedQuality': 'large',-->
+            <!--                });-->
+        }
+
+        // 4. The API will call this function when the video player is ready.
+        function onYoutubePlayerReady(event) {
+            event.target.playVideo();
+        }
+
+        function onReady() {
+            debugger;
+
+        }
+
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        let done = false;
+
+        function onYoutubePlayerStateChange(event) {
+            debugger;
+
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopYoutubeVideo, 6000);
+                done = true;
+            }
+        }
+
+        function stopYoutubeVideo() {
+            youtube_player.stopVideo();
+        }
+
+        function loadVideo(youtube_id) {
+            // debugger;
+            //
+            // youtube_player.loadVideoById({
+            //     'videoId': youtube_id,
+            //     'startSeconds': 5,
+            //     'endSeconds': 60,
+            //     'suggestedQuality': 'large',
+            // });
+        }
+
+    </script>
+  <% elsif video && video.video.attached? %>
     <%# if video && video.video.attached? %>
     <% if width %>
 

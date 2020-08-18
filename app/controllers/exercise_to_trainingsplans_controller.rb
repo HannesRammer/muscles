@@ -62,13 +62,14 @@ class ExerciseToTrainingsplansController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_exercise_to_trainingsplan
-      @exercise_to_trainingsplan = ExerciseToTrainingsplan.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def exercise_to_trainingsplan_params
-      params.fetch(:exercise_to_trainingsplan, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_exercise_to_trainingsplan
+    @exercise_to_trainingsplan = ExerciseToTrainingsplan.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def exercise_to_trainingsplan_params
+    params.fetch(:exercise_to_trainingsplan, {})
+  end
 end

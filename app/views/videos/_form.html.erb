@@ -4,9 +4,9 @@
       <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
 
       <ul>
-      <% video.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% video.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

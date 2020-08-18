@@ -1,25 +1,24 @@
-
 <h1>User To Exercises</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>User</th>
-      <th>Excercise</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>User</th>
+    <th>Excercise</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @user_to_exercises.each do |user_to_exercise| %>
-      <tr>
-        <td><%= user_to_exercise.user_id %></td>
-        <td><%= user_to_exercise.exercise_id %></td>
-        <td><%= link_to t('view'), user_to_exercise %></td>
-        <td><%= link_to t('edit'), edit_user_to_exercise_path(user_to_exercise) %></td>
-        <td><%= link_to "Destroy", user_to_exercise, method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
-    <% end %>
+  <% @user_to_exercises.each do |user_to_exercise| %>
+    <tr>
+      <td><%= user_to_exercise.user_id %></td>
+      <td><%= user_to_exercise.exercise_id %></td>
+      <td><%= link_to t('view'), user_to_exercise %></td>
+      <td><%= link_to t('edit'), edit_user_to_exercise_path(user_to_exercise) %></td>
+      <td><%= link_to "Destroy", user_to_exercise, method: :delete, data: {confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

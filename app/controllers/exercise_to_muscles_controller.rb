@@ -62,13 +62,14 @@ class ExerciseToMusclesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_exercise_to_muscle
-      @exercise_to_muscle = ExerciseToMuscle.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def exercise_to_muscle_params
-      params.require(:exercise_to_muscle).permit(:muscle_id, :exercise_id, :body_part_id, :muscle_type)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_exercise_to_muscle
+    @exercise_to_muscle = ExerciseToMuscle.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def exercise_to_muscle_params
+    params.require(:exercise_to_muscle).permit(:muscle_id, :exercise_id, :body_part_id, :muscle_type)
+  end
 end

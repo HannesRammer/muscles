@@ -11,11 +11,11 @@ class PasswordsController < ApplicationController
 
     respond_to do |format|
       if user.present?
-          user.generate_password_token! #generate pass token
-          # SlEND EMAIL HERE
-          ApplicationMailer.with(user: user).reset_pw_email(user.email).deliver_now
-          format.html { redirect_to login_path, notice: "Password reset email was send to #{user.email}" }
-          format.json { render :show, status: :created, location: @user }
+        user.generate_password_token! #generate pass token
+        # SlEND EMAIL HERE
+        ApplicationMailer.with(user: user).reset_pw_email(user.email).deliver_now
+        format.html { redirect_to login_path, notice: "Password reset email was send to #{user.email}" }
+        format.json { render :show, status: :created, location: @user }
       else
         format.html { redirect_to forgot_pw_path, notice: "pw link not send. pls try again!" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -47,11 +47,12 @@ class PasswordsController < ApplicationController
 
   def forgot_pw
 
-    x=0
+    x = 0
   end
+
   def reset_pw
 
-    x=0
+    x = 0
   end
 
 end

@@ -16,7 +16,7 @@ class MainController < ApplicationController
     # @muscle = @muscles.first
     @exercise = @exercises.first
     @video = @exercise.selected_video(nil)
-    @tags = Tag.order(:group,:name)
+    @tags = Tag.order(:group, :name)
     @primary = []
     @secondary = []
     @antagonist = []
@@ -66,7 +66,7 @@ class MainController < ApplicationController
   def search_string
     @name = params[:name]
     @selected_tag_ids = params[:tag_ids]
-    @selected_tag_names = Tag.select(:name).where(id:@selected_tag_ids).collect { |x| x.name }
+    @selected_tag_names = Tag.select(:name).where(id: @selected_tag_ids).collect { |x| x.name }
     muscle_exercises = []
     @muscles_selected = []
     if params[:muscle_selected].length > 0
@@ -111,7 +111,7 @@ class MainController < ApplicationController
     else
       @exercises = muscle_exercises
       @exercises.each do |exercise|
-          exercise_ids << exercise.id
+        exercise_ids << exercise.id
 
       end
     end
@@ -130,10 +130,10 @@ class MainController < ApplicationController
     new_tag_ids = TagToExercise.select(:tag_id).where(exercise_id: exercise_ids_with_name).map(&:tag_id).to_a
     @tags
     if new_tag_ids.length == 0
-      @tags = Tag.order(:group,:name)
+      @tags = Tag.order(:group, :name)
       @exercises = Exercise.where(visible: true).order("name asc").all
     else
-      @tags = Tag.where(id: new_tag_ids).order(:group,:name)
+      @tags = Tag.where(id: new_tag_ids).order(:group, :name)
     end
 
     respond_to :js

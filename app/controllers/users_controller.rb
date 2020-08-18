@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   ##before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :login_required, :except => [:new,:create]
+  before_action :login_required, :except => [:new, :create]
   before_action :admin_required, :only => :destroy
   helper :all
   # GET /users
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     @exercises = @current_user.exercises
 
   end
+
   def videos
     @videos = @current_user.videos
 
@@ -47,6 +48,7 @@ class UsersController < ApplicationController
     @trainingsplans = @current_user.trainingsplans
     respond_to :js
   end
+
   # POST /users
   # POST /users.json
   def create
@@ -58,7 +60,7 @@ class UsersController < ApplicationController
         trainingsplan.name = "Erster Trainingsplan"
         trainingsplan.save
         @user.trainingsplans << trainingsplan
-        ApplicationMailer.with(user: @user).welcome_email(email:@user.email).deliver_now
+        ApplicationMailer.with(user: @user).welcome_email(email: @user.email).deliver_now
 
         format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
@@ -95,13 +97,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end

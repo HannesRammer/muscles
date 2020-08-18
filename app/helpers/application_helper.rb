@@ -2,18 +2,17 @@
 module ApplicationHelper
 
 
-
   def muscle_pics(muscles, effect, strength = 2)
-    x=[]
+    x = []
     muscles.each do |muscle|
       x << "<div class='multi_pic #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.1 * strength};position:absolute;'></div>"
     end
-  x.join.html_safe
+    x.join.html_safe
   end
 
-  def user_muscle_pics(muscles, effect, strength = 2,class_name)
+  def user_muscle_pics(muscles, effect, strength = 2, class_name)
 
-    x=[]
+    x = []
     muscles.each do |muscle|
       x << "<div class='#{class_name} #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}' style='opacity:#{0.1 * strength};position:absolute;'></div>"
     end
@@ -23,7 +22,7 @@ module ApplicationHelper
 
   def user_muscle_pics_trainingsplan_list(muscles, effect, strength = 2)
 
-    x=[]
+    x = []
     muscles.each do |muscle|
 
       #x << tag("div", class: "multi_pic2 #{muscle.clean_name}#{"_#{effect}" unless effect.blank?}", style:"opacity:#{0.25 * strength};position:absolute;")
@@ -45,7 +44,7 @@ module ApplicationHelper
   end
 
   def normal_name(name)
-    name.downcase.gsub("ss", "ß").gsub("_", " ").gsub("ae", "ä").gsub("oe", "ö").gsub("ue", "ü").gsub("ae","Ä")
+    name.downcase.gsub("ss", "ß").gsub("_", " ").gsub("ae", "ä").gsub("oe", "ö").gsub("ue", "ü").gsub("ae", "Ä")
   end
 
   def vertical_text(text)
@@ -72,12 +71,12 @@ module ApplicationHelper
     y = (c * 16) + d
     z = (e * 16) + f
 
-    [x,y,z]
+    [x, y, z]
 
   end
 
   def rgba_to_list(rgba)
-     rgba.split("(")[1].split(")")[0].split(",")
+    rgba.split("(")[1].split(")")[0].split(",")
   end
 
   def give_dec(hex)
@@ -99,7 +98,6 @@ module ApplicationHelper
     end
     value
   end
-
 
 
   def current_user
@@ -140,7 +138,7 @@ module ApplicationHelper
   end
 
   def creator_of_trainingsplan
-    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id:params[:trainingsplan_id],user_id:@current_user.id)
+    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id: params[:trainingsplan_id], user_id: @current_user.id)
 
   end
 

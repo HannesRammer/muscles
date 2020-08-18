@@ -1,12 +1,13 @@
 class BackendController < ApplicationController
   before_action :admin_required
+
   def load
     @body_parts = BodyPart.all
-    @muscles = Muscle.all.sort!{|t1,t2|t1.name <=> t2.name}
+    @muscles = Muscle.all.sort! { |t1, t2| t1.name <=> t2.name }
     @exercises = Exercise.where(visible: true).order("id asc").all
-    exercise_types = [["Please select",nil]]
+    exercise_types = [["Please select", nil]]
     @exercises.each do |x|
-      exercise_types  << [x.exercise_type,x.exercise_type]
+      exercise_types << [x.exercise_type, x.exercise_type]
     end
     @exercise_types = exercise_types.uniq
   end
@@ -23,7 +24,7 @@ class BackendController < ApplicationController
         @ex.info = i[:info] unless i[:info].blank?
         ext = nil
         if i[:exercise_type] != "" || i[:exercise_type1] != ""
-           i[:exercise_type] != "" ? ext = i[:exercise_type] : ext = i[:exercise_type1]
+          i[:exercise_type] != "" ? ext = i[:exercise_type] : ext = i[:exercise_type1]
         end
         @ex.exercise_type = ext if ext
         @ex.save
@@ -44,7 +45,7 @@ class BackendController < ApplicationController
         tm = get_or_save(type, "Muscle", (i + 1))
         if @ex && tm && @bp
           ExerciseToMuscle.find_by_exercise_id_and_body_part_id_and_muscle_id_and_muscle_type(@ex.id, @bp.id, tm.id, type) ||
-                  ExerciseToMuscle.create(:exercise_id => @ex.id, :body_part_id => @bp.id, :muscle_id=>tm.id, :muscle_type=>type)
+              ExerciseToMuscle.create(:exercise_id => @ex.id, :body_part_id => @bp.id, :muscle_id => tm.id, :muscle_type => type)
         end
       end
     end
@@ -52,7 +53,7 @@ class BackendController < ApplicationController
   end
 
   def add_muscle_select
-    @muscles = Muscle.all.sort!{|t1,t2|t1.name <=> t2.name}
+    @muscles = Muscle.all.sort! { |t1, t2| t1.name <=> t2.name }
     type = params[:muscle_type]
     id = params[:select_id].to_i
     render :update do |page|
@@ -70,15 +71,15 @@ class BackendController < ApplicationController
     model = model.constantize
     (
     !new_id.blank? &&
-            model.find_by_id(new_id)
-    )||
+        model.find_by_id(new_id)
+    ) ||
+        (
+        !new_name.blank? &&
             (
-            !new_name.blank? &&
-                    (
-                    model.find_by_name(new_name) ||
-                            model.create(:name=>new_name)
-                    )
+            model.find_by_name(new_name) ||
+                model.create(:name => new_name)
             )
+        )
   end
 
 end

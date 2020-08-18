@@ -1,15 +1,14 @@
-
-  <strong>Deine Traingspläne:</strong>
+<strong>Deine Traingspläne:</strong>
 <div onclick="this.parentElement.style.display='none';">close</div>
-  <table>
+<table>
   <% @trainingsplans.each do |trainingsplan| %>
 
-  <tr>
-    <td><%= trainingsplan.name %>
-      <%= link_to("<i class='material-icons'>add_circle_outline</i>".html_safe,{:controller=>"main", :action=>"add_exercise", :exercise=>@exercise_id, :trainingsplan_id=>trainingsplan.id}, {:remote=>true, :method=>:post} ) %>
-    </td>
+    <tr>
+      <td><%= trainingsplan.name %>
+        <%= link_to("<i class='material-icons'>add_circle_outline</i>".html_safe, {:controller => "main", :action => "add_exercise", :exercise => @exercise_id, :trainingsplan_id => trainingsplan.id}, {:remote => true, :method => :post}) %>
+      </td>
 
-  </tr>
+    </tr>
   <% end %>
-  </table>
+</table>
 

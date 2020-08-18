@@ -5,7 +5,7 @@
 
 
 <div style="left:0;top:15px;position:relative">
-  <%=t(".question") %>
+  <%= t(".question") %>
 </div>
 
 <div class="mainborder">
@@ -27,11 +27,11 @@
   <div style="margin:15px;">
 
     <% if current_user %>
-      <%= link_to t(".searchMuscleExercise") + t( ".optimizePlan"), index_path %>
+      <%= link_to t(".searchMuscleExercise") + t(".optimizePlan"), index_path %>
     <% else %>
       <%= link_to t(".searchMuscleExercise"), index_path %>
 
-      <%=t(".loginToOptimizePlan") %>
+      <%= t(".loginToOptimizePlan") %>
     <% end %>
 
   </div>

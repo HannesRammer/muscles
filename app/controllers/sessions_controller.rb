@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
   def new
   end
+
   def index
 
   end
+
   def create
-    user =  User.where(:email => params[:email]).first
+    user = User.where(:email => params[:email]).first
     #user = User.authenticate(params[:login], params[:password])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -15,7 +17,7 @@ class SessionsController < ApplicationController
       render "new"
     end
   end
-  
+
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "You have been logged out."

@@ -62,13 +62,14 @@ class BodyPartsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_body_part
-      @body_part = BodyPart.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def body_part_params
-      params.require(:body_part).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_body_part
+    @body_part = BodyPart.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def body_part_params
+    params.require(:body_part).permit(:name)
+  end
 end

@@ -42,6 +42,7 @@ div#login *, div#signup *, div#forgot_pw *, div#reset_pw * {
     left: 325px;
     top: -30px;
 }
+
 .vertical input[type="submit"] {
     position: absolute;
     right: 0px;
@@ -131,6 +132,7 @@ img {
     left: 15rem;
     height: 1rem;
 }
+
 #muscle_text_selected {
     border: 1px solid var(--yellow-color);
 
@@ -224,6 +226,7 @@ select {
     top: 4rem;
     transform: scale(1.2);
 }
+
 .vertical .multi_pic, .vertical #hover {
     left: 14rem;
     position: absolute;
@@ -261,7 +264,7 @@ select {
 }
 
 
-.horizontal select{
+.horizontal select {
     font-size: 18px !important;
     position: relative;
     width: 403px;
@@ -272,6 +275,7 @@ select {
     position: relative;
     top: 0rem;
 }
+
 .multi_pic3, #selected_exercise #hover {
     left: 70px;
     position: absolute;
@@ -1183,7 +1187,6 @@ td {
 }
 
 
-
 .exercise_border_red div.main_exercises_text {
     /*border-bottom: 1px solid var(--red-color);*/
     /*padding-bottom: 55px;*/
@@ -1195,6 +1198,7 @@ td {
     font-size: 18px;
     box-sizing: border-box;
 }
+
 .vertical .main_exercises_text {
     height: 3rem;
     width: 100%;
@@ -1233,6 +1237,7 @@ td {
     height: 2rem;
     padding: 0.5rem;
 }
+
 .horizontal .exercise_list_rep {
     position: relative;
     left: 10rem;
@@ -1282,6 +1287,7 @@ input#trainingsplan_name {
     position: relative;
     min-height: 48rem;
 }
+
 .horizontal div#multi_pic_container {
     top: 0;
     left: 0;
@@ -1304,6 +1310,7 @@ input#trainingsplan_name {
     flex: 1 1 220px;
     text-align: center;
 }
+
 .exercises_grid {
     flex: 0 1 14rem;
     text-align: center;
@@ -1315,22 +1322,26 @@ input#trainingsplan_name {
     /*text-align: center;*/
 }
 
-.yellow_background{
+.yellow_background {
     background: var(--dark-yellow-color);
     overflow: hidden;
 }
-.green_background{
+
+.green_background {
     background: var(--dark-green-color);
 
 }
-.red_background{
+
+.red_background {
     background: var(--dark-red-color);
 
 }
-.blue_background{
+
+.blue_background {
     background: var(--dark-blue-color);
 
 }
+
 .grid_child_multi_pic {
     /* flex: none | [ < 'flex-grow' > < 'flex-shrink' > ? | | < 'flex-basis' > ]
     // If we don 't want the items to stretch: */
@@ -1408,6 +1419,7 @@ iframe {
     font-size: 5rem !important;
     top: 0 !important;
 }
+
 .horizontal #search_field_magnify {
     font-size: 2rem !important;
     top: 0 !important;
@@ -1447,7 +1459,7 @@ iframe {
     cursor: pointer;
 }
 
-.horizontal #trainingsplan_down,.horizontal #exercises_down,.horizontal #exercise_down {
+.horizontal #trainingsplan_down, .horizontal #exercises_down, .horizontal #exercise_down {
     font-size: 3rem !important;
     position: absolute !important;
     right: 0;
@@ -1455,7 +1467,7 @@ iframe {
     cursor: pointer;
 }
 
-.vertical #trainingsplan_down,.vertical #exercises_down,.vertical #exercise_down {
+.vertical #trainingsplan_down, .vertical #exercises_down, .vertical #exercise_down {
     font-size: 5rem !important;
     position: absolute !important;
     right: 0;
@@ -1463,7 +1475,7 @@ iframe {
     cursor: pointer;
 }
 
-.horizontal #trainingsplan_up,.horizontal #exercises_up,.horizontal #exercise_up {
+.horizontal #trainingsplan_up, .horizontal #exercises_up, .horizontal #exercise_up {
     font-size: 3rem !important;
     position: absolute !important;
     right: 0;
@@ -1471,7 +1483,8 @@ iframe {
     display: none;
     cursor: pointer;
 }
-.vertical #trainingsplan_up,.vertical #exercises_up,.vertical #exercise_up {
+
+.vertical #trainingsplan_up, .vertical #exercises_up, .vertical #exercise_up {
     font-size: 5rem !important;
     position: absolute !important;
     right: 0;
@@ -1479,12 +1492,14 @@ iframe {
     display: none;
     cursor: pointer;
 }
-.vertical .nice_inner_tab_js_hover{
+
+.vertical .nice_inner_tab_js_hover {
     height: 3rem !important;
     font-size: 2rem;
 
 }
-.horizontal .nice_inner_tab_js_hover{
+
+.horizontal .nice_inner_tab_js_hover {
     height: 1rem !important;
     font-size: 1rem;
 
@@ -1494,6 +1509,7 @@ iframe {
 #search_filter {
     height: 0;
     overflow: hidden;
+    padding: 0 1rem 1rem 1rem;
 }
 
 .grid_child_vertical {
@@ -1510,25 +1526,27 @@ iframe {
     overflow: hidden;
     font-size: 4rem;
 }
-.exercise_grid{
+
+.exercise_grid {
     overflow: hidden;
 }
 
-.vertical #name{
+.vertical #name {
     position: absolute;
     font-size: 3rem;
     top: 0.6rem;
     left: 5rem;
 }
 
-.horizontal #name{
+.horizontal #name {
     position: absolute;
     font-size: 1rem;
     top: 0.3rem;
     left: 3rem;
 }
-.video_name{
-    width:190%;
+
+.video_name {
+    width: 190%;
 }
 
 .vertical #trainingsplan_id {
@@ -1541,6 +1559,7 @@ iframe {
     /* max-width: 620px; */
     z-index: 99;
 }
+
 .horizontal #trainingsplan_id {
     position: relative;
     top: 0;
@@ -1552,16 +1571,54 @@ iframe {
     z-index: 99;
 }
 
-.vertical .grid_child3.red_background.exercise_grid{
- height: 45rem;
+.vertical .grid_child3.red_background.exercise_grid {
+    height: 45rem;
 }
 
-.horizontal .grid_child3.red_background.exercise_grid{
+.horizontal .grid_child3.red_background.exercise_grid {
 
 }
-.horizontal #workout_name{
+
+.horizontal #workout_name {
 
 }
- #workout_name{
+
+#workout_name {
     text-align: left;
+}
+
+.horizontal .beta {
+    position: absolute;
+    width: 7rem;
+    top: 1rem;
+    left: 12rem;
+}
+
+.vertical .beta {
+    position: absolute;
+    width: 10rem;
+    top: 1rem;
+    left: 20rem;
+}
+
+label {
+    cursor: pointer;
+}
+
+.horizontal label {
+    font-size: 1rem;
+}
+
+.vertical label {
+    font-size: 2rem;
+}
+
+.vertical input[type="checkbox" i] {
+    height: 1rem;
+    width: 1rem;
+}
+
+.vertical input[type="checkbox" i] {
+    height: 1.5rem;
+    width: 1.5rem;
 }

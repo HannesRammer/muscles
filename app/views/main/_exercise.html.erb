@@ -4,16 +4,16 @@
 
   </div>
 </div>
-  <div id="exercises_text_header" class="nice_inner_tab_js_hover">
-    <%= @exercises.length %>
-    <%= t("allMusleExercises") %>
-    <i id="exercises_down" class="material-icons dropdown_icons" onclick="ui_render.show_exercises();">arrow_drop_down</i>
-    <i id="exercises_up" class="material-icons dropdown_icons" onclick="ui_render.hide_exercises();">arrow_drop_up</i>
+<div id="exercises_text_header" class="nice_inner_tab_js_hover">
+  <%= @exercises.length %>
+  <%= t("allMusleExercises") %>
+  <i id="exercises_down" class="material-icons dropdown_icons" onclick="ui_render.show_exercises();">arrow_drop_down</i>
+  <i id="exercises_up" class="material-icons dropdown_icons" onclick="ui_render.hide_exercises();">arrow_drop_up</i>
 
 
-  </div>
-  <div id="exercises_text">
-    <%= render "main/exercises_text" ,  exercises: @exercises  %>
-  </div>
+</div>
+<div id="exercises_text">
+  <%= render "main/exercises_text", exercises: @exercises %>
+</div>
 
 

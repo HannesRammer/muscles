@@ -15,10 +15,10 @@
 
   <% @exercises.each do |exercise| %>
     <tr>
-      <td  class="exercise_name"><%= h exercise.name %></td>
+      <td class="exercise_name"><%= h exercise.name %></td>
       <td><%#= h exercise.description && exercise.description[0..30] %>
         <% if exercise %>
-          <%= image_tag("muskelman.svg", :class => "users_exercise_muscle_pic2") %>
+          <%= image_tag("muscleman.svg", :class => "users_exercise_muscle_pic2") %>
 
           <div class="users_exercise_muscles" style="">
 
@@ -44,7 +44,7 @@
       <td>
         <% @video = exercise.video %>
         <% if @video && @video.video.attached? %>
-          <%= render "videos/video", :video => @video, :view => "preload_300"%>
+          <%= render "videos/video", :video => @video, :view => "preload_300" %>
         <% end %></td>
 
 

@@ -31,7 +31,7 @@ class Exercise < ApplicationRecord
     else
       video_id = self.default_video_id
     end
-      Video.find_by_id(video_id)
+    Video.find_by_id(video_id)
   end
 
   def primary_muscle_ids

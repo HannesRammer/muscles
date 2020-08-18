@@ -3,7 +3,7 @@
 
 <div id="exercise_muscles" style="position: absolute;
     top: 55px;left:0px;">
-  <%= image_tag("muskelman.svg", :class => "multi_pic2") %>
+  <%= image_tag("muscleman.svg", :class => "multi_pic2") %>
   <div id="muscle_text_hover_div">
     <div id="muscle_text_hover">
 
@@ -79,12 +79,13 @@ position: absolute;
             <%= f.label :how_not_to %>
             <%= f.text_area :how_not_to %>
           </p>
-        </td><td>
-        <p>
-          <%= f.label :info %>
-          <%= f.text_area :info %>
-        </p>
-      </td>
+        </td>
+        <td>
+          <p>
+            <%= f.label :info %>
+            <%= f.text_area :info %>
+          </p>
+        </td>
       </tr>
       <tr>
 
@@ -106,7 +107,7 @@ position: absolute;
             <%#= f.file_field :video %>
 
             <% if @video && @video.video.attached? %>
-              <%= select_tag "exercise[default_video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] },@exercise.selected_video(nil).id), {:multiple => false} %>
+              <%= select_tag "exercise[default_video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }, @exercise.selected_video(nil).id), {:multiple => false} %>
 
             <% else %>
               <%= select_tag "exercise[default_video_id]", '<option value="0">default video</option>'.html_safe << options_for_select(@current_user.videos.collect { |u| [u.video.filename, u.id] }), {:multiple => false} %>

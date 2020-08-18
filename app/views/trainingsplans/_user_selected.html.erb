@@ -1,11 +1,11 @@
-<div id="user_selected" >
+<div id="user_selected">
   <% exercises = @trainingsplan.exercises %>
   <% @ettps = @trainingsplan.exercise_to_trainingsplans %>
 
   <% exercises.each_with_index do |exercise, i| %>
 
-    <%= user_muscle_pics(exercise.primary_muscles, "selected", 5,"trainingsplan_exercise_multi_pic_exercise") %>
-    <%= user_muscle_pics(exercise.secondary_muscles, "selected", 2,"trainingsplan_exercise_multi_pic_exercise") %>
+    <%= user_muscle_pics(exercise.primary_muscles, "selected", 5, "trainingsplan_exercise_multi_pic_exercise") %>
+    <%= user_muscle_pics(exercise.secondary_muscles, "selected", 2, "trainingsplan_exercise_multi_pic_exercise") %>
   <% end %>
 
 </div>

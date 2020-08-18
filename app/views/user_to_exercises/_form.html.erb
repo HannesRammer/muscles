@@ -1,12 +1,13 @@
 <%= form_with(model: user_to_exercise, local: true) do |form| %>
   <% if user_to_exercise.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user_to_exercise.errors.count, "error") %> prohibited this user_to_exercise from being saved:</h2>
+      <h2><%= pluralize(user_to_exercise.errors.count, "error") %> prohibited this user_to_exercise from being
+        saved:</h2>
 
       <ul>
-      <% user_to_exercise.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% user_to_exercise.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

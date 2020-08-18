@@ -11,7 +11,7 @@ class Trainingsplan < ApplicationRecord
     same_user = false
     ettps = ExerciseToTrainingsplan.select(:trainingsplan_id).where(id: [ettp_id1, ettp_id2]).collect { |x| x.trainingsplan_id }.to_a
     if ettps[0] == ettps[1] #if same trainingsplan
-      ttu = TrainingsplanToUser.where(trainingsplan_id: ettps[0], user_id:user_id).to_a
+      ttu = TrainingsplanToUser.where(trainingsplan_id: ettps[0], user_id: user_id).to_a
       if ttu
         same_user = true
       end

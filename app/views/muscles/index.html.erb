@@ -16,18 +16,18 @@
 
 <%# @muscles.each do |muscle| %>
   <% Muscle.sort_by_name.each do |muscle| %>
-      <tr>
-        <td><%= h muscle.en_name %></td>
-        <td><%= link_to t('view'), muscle %></td>
-        <td><%= link_to t('edit'), edit_muscle_path(muscle) %></td>
-        <td><%= link_to "Destroy", muscle, :confirm => "Are you sure?", :method => :delete %></td>
-        <td><%= muscle.picture_id %></td>
-        <td><%#= muscle.exercises.length %></td>
-        <td><%#= if muscle.exercises.length == 1
+    <tr>
+      <td><%= h muscle.en_name %></td>
+      <td><%= link_to t('view'), muscle %></td>
+      <td><%= link_to t('edit'), edit_muscle_path(muscle) %></td>
+      <td><%= link_to "Destroy", muscle, :confirm => "Are you sure?", :method => :delete %></td>
+      <td><%= muscle.picture_id %></td>
+      <td><%#= muscle.exercises.length %></td>
+      <td><%#= if muscle.exercises.length == 1
                     muscle.exercises.first.name
                 end
-        %></td>
-        <td><%#
+          %></td>
+      <td><%#
             text = ""
             if muscle.exercises.length < 6
                     muscle.exercises.each do |s|
@@ -36,10 +36,10 @@
 
                     end
                 end%>
-                <%#= text %>
-        </td>
-        <td><%= "<div class='#{muscle.clean_name}'> </div>" unless muscle.picture_id.blank? %></td>
-      </tr>
+        <%#= text %>
+      </td>
+      <td><%= "<div class='#{muscle.clean_name}'> </div>" unless muscle.picture_id.blank? %></td>
+    </tr>
   <% end %>
 </table>
 

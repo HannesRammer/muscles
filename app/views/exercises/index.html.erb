@@ -23,7 +23,7 @@
       <td>
         <% @video = exercise.video %>
         <% if @video && @video.video.attached? %>
-          <%= render "videos/video", :video => @video, :view => "preload_300"%>
+          <%= render "videos/video", :video => @video, :view => "preload_300" %>
         <% end %></td>
 
 
@@ -33,9 +33,9 @@
       <td><%= h exercise.info && exercise.info[0..150] %></td>
       <td><%= h exercise.exercise_type %></td>
       <td><%= h exercise.visible %>
-      <%= link_to t('view'), exercise %>
-      <%= link_to t('edit'), edit_exercise_path(exercise) if is_exercise_owner_for(exercise.id) %>
-      <%= link_to "Destroy", exercise, :confirm => "Are you sure?", :method => :delete %></td>
+        <%= link_to t('view'), exercise %>
+        <%= link_to t('edit'), edit_exercise_path(exercise) if is_exercise_owner_for(exercise.id) %>
+        <%= link_to "Destroy", exercise, :confirm => "Are you sure?", :method => :delete %></td>
     </tr>
   <% end %>
 </table>

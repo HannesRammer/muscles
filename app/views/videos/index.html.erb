@@ -1,22 +1,21 @@
-
 <h1>Videos</h1>
 
 <table>
   <thead>
-    <tr>
-      <th colspan="4"></th>
-    </tr>
+  <tr>
+    <th colspan="4"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @videos.each do |video| %>
-      <tr>
-        <td> <%= render "videos/video", :video => video, :view => "preload_300" %></td>
-        <td><%= link_to t('view'), video %></td>
-        <td><%= link_to t('edit'), edit_video_path(video) %></td>
-        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @videos.each do |video| %>
+    <tr>
+      <td> <%= render "videos/video", :video => video, :view => "preload_300" %></td>
+      <td><%= link_to t('view'), video %></td>
+      <td><%= link_to t('edit'), edit_video_path(video) %></td>
+      <td><%= link_to 'Destroy', video, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

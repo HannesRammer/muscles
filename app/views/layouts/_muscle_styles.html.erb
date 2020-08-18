@@ -1,27 +1,25 @@
 <style type="text/css">
 
 
-<%muscles = Muscle.all_with_pic%>
-<%length = muscles.length%>
-<%muscles.each do |m|%>
-<%#pure awesomeness: gets the picture id and finds the position going from top left  to right %>
-        <% i = m.picture_id - 1
-        x = ((i % 10) )
-        y = 0
-        if i >= 9
-        y = ((i / 10) )
-        end
-        %>
-<%= ".#{clean_name(m.en_name)}{ height: 460px;width: 463px;background: url(#{image_url "muscles.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
-<%#= ".#{clean_name(m.name)}_hover{ height: 460px;width: 463px;background: url(#{image_url "muscles_hover.svg"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
-<%= ".#{clean_name(m.en_name)}_hover{ height: 460px;width: 463px;background: url(#{image_url "muscles_hover.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
-<%= ".#{clean_name(m.en_name)}_selected{ height: 460px;width: 463px;background: url(#{image_url "muscles_selected.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
-<%#= ".#{clean_name(m.name)}_yellow{ height: 460px;width: 463px;background: url(#{image_url "muscles_yellow.svg"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
-<%= ".#{clean_name(m.en_name)}_yellow{ height: 460px;width: 463px;background: url(#{image_url "muscles_yellow.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
+  <%muscles = Muscle.all_with_pic%>
+  <%length = muscles.length%>
+  <%muscles.each do |m|%>
+  <%#pure awesomeness: gets the picture id and finds the position going from top left  to right %>
+  <% i = m.picture_id - 1
+  x = ((i % 10) )
+  y = 0
+  if i >= 9
+  y = ((i / 10) )
+  end
+  %>
+  <%= ".#{clean_name(m.en_name)}{ height: 460px;width: 463px;background: url(#{image_url "muscles.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
+  <%#= ".#{clean_name(m.name)}_hover{ height: 460px;width: 463px;background: url(#{image_url "muscles_hover.svg"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
+  <%= ".#{clean_name(m.en_name)}_hover{ height: 460px;width: 463px;background: url(#{image_url "muscles_hover.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
+  <%= ".#{clean_name(m.en_name)}_selected{ height: 460px;width: 463px;background: url(#{image_url "muscles_selected.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
+  <%#= ".#{clean_name(m.name)}_yellow{ height: 460px;width: 463px;background: url(#{image_url "muscles_yellow.svg"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
+  <%= ".#{clean_name(m.en_name)}_yellow{ height: 460px;width: 463px;background: url(#{image_url "muscles_yellow.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
 
-<%end%>
-
-
+  <%end%>
 
 
 </style>

@@ -62,13 +62,14 @@ class UserToExercisesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_to_exercise
-      @user_to_exercise = UserToExercise.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_to_exercise_params
-      params.require(:user_to_exercise).permit(:user_id, :exercise_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_to_exercise
+    @user_to_exercise = UserToExercise.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_to_exercise_params
+    params.require(:user_to_exercise).permit(:user_id, :exercise_id)
+  end
 end

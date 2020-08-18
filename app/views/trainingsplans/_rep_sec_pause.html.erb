@@ -20,7 +20,9 @@
       <%#= text_field_tag("duration", value = @ett.duration, options = {placeholder: 'duration'}) %>
       <div style="position: absolute;">
         <div id="unit_duration"></div>
-        <div id="dur_current">-6</div><div id="dur_max"> / <%= @ett.duration %></div><div><%= t("dur") %></div>
+        <div id="dur_current">-6</div>
+        <div id="dur_max"> / <%= @ett.duration %></div>
+        <div><%= t("dur") %></div>
       </div>
       <meter id="duration" value="-6" min="-6" max="<%= @ett.duration %>"></meter>
     <% end %>
@@ -31,7 +33,9 @@
     <%#= text_field_tag("pause", value = @ett.pause, options = {placeholder: 'pause'}) %>
     <div style="position: absolute;top: 15px;left: 44%;">
       <div id="pause_span"></div>
-      <div id="pause_current">0</div><div id="pause_max"> / <%= @ett.pause %></div><div><%= t("dur") %></div>
+      <div id="pause_current">0</div>
+      <div id="pause_max"> / <%= @ett.pause %></div>
+      <div><%= t("dur") %></div>
     </div>
     <meter id="pause" value="0" min="0" max="<%= @ett.pause %>"></meter>
   </div>
