@@ -245,9 +245,9 @@ select {
 }
 
 .vertical .multi_pic, .vertical #hover {
-    left: 14rem;
+    left: 250px;
     position: absolute;
-    top: 14rem;
+    top: 250px;
     transform: scale(2);
 }
 
