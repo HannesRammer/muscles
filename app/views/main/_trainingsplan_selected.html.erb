@@ -5,3 +5,4 @@
   <%= user_muscle_pics(exercise.primary_muscles, "selected", 5, "multi_pic") %>
   <%= user_muscle_pics(exercise.secondary_muscles, "selected", 2, "multi_pic") %>
 <% end %>
+<%= render "users/tag_list" ,exercises: @trainingsplan.exercises %>

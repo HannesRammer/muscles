@@ -247,7 +247,7 @@ select {
 .vertical .multi_pic, .vertical #hover {
     left: 14rem;
     position: absolute;
-    top: 12rem;
+    top: 14rem;
     transform: scale(2);
 }
 
@@ -484,6 +484,8 @@ table {
 #notice {
     border: 1px solid #ff5656;
     width: 550px;
+    /*transition: opacity 3s ease-in-out;*/
+    /*opacity: 0;*/
 }
 
 #ex {
@@ -1344,6 +1346,7 @@ input#trainingsplan_name {
     left: 0;
     position: relative;
     min-height: 48rem;
+    height: 52rem;
 }
 
 .horizontal div#multi_pic_container {
@@ -1679,4 +1682,17 @@ label {
 .vertical input[type="checkbox" i] {
     height: 1.5rem;
     width: 1.5rem;
+}
+.horizontal .grid_parent .user_tag_list{
+    position: absolute;
+    top: 15.5rem;
+    left: 11rem;
+    transform: scale(0.7);
+}
+
+.vertical .grid_parent .user_tag_list {
+    position: absolute;
+    top: 24.5rem;
+    left: 21rem;
+    transform: scale(0.7);
 }

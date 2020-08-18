@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def trainingsplans
     @trainingsplan = Trainingsplan.new
-    @trainingsplans = @current_user.trainingsplans
+    @trainingsplans = @current_user.trainingsplans.to_a
 
   end
 

@@ -1,13 +1,29 @@
 <% @trainingsplans.each do |trainingsplan| %>
   <div class="trainingsplan_item">
+    <%= trainingsplan.user.first.email %>
     <div class="trainingsplan_name"><%= trainingsplan.name %></div>
     <div style="position: relative;height: 470px;margin: 15px;">
       <%= image_tag("muscleman.svg", :class => "multi_pic_ini") %>
-      <% trainingsplan.exercises.each_with_index do |exercise, i| %>
+      <% exercises = trainingsplan.exercises.to_a %>
+      <% exercises.each_with_index do |exercise, i| %>
 
         <%= user_muscle_pics_trainingsplan_list(exercise.primary_muscles, "", 5) %>
         <%= user_muscle_pics_trainingsplan_list(exercise.secondary_muscles, "", 2) %>
       <% end %>
+
+
+    </div>
+    <div style="position: absolute;top: 1rem;left: 23rem;">
+      <div class="trainingsplan_name">Exercises</div>
+      <br>
+      <% exercises.each_with_index do |exercise, i| %>
+
+        <%= exercise.name %>
+        <!--        <br><br>-->
+        <br>
+      <% end %>
+
+      <%= render "users/tag_list" ,exercises: exercises %>
 
 
     </div>

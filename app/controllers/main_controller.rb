@@ -64,6 +64,8 @@ class MainController < ApplicationController
   end
 
   def search_string
+    @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])
+
     @name = params[:name]
     @selected_tag_ids = params[:tag_ids]
     @selected_tag_names = Tag.select(:name).where(id: @selected_tag_ids).collect { |x| x.name }

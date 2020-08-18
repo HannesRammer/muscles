@@ -62,6 +62,7 @@ class TrainingsplansController < ApplicationController
     @name = params["name"]
     @exercise = Exercise.find_by_name(@name)
     trainingsplan_id = params["id"]
+    @trainingsplan = Trainingsplan.find_by_id(trainingsplan_id)
     @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id, exercise_id: @exercise.id)
     @video = @exercise.selected_video(trainingsplan_id)
     @p_muscles = @exercise.primary_muscles

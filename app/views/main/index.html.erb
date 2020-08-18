@@ -24,6 +24,17 @@
   <div id="search_filter" style="height: 0px;overflow: hidden;">
     <%= form_tag main_search_string_path, remote: true, :authenticity_token => true, method: :post do %>
       <%= hidden_field_tag "muscle_selected" %>
+
+      <% if current_user %>
+        <% if @trainingsplan %>
+          <%= hidden_field_tag "trainingsplan_id", @trainingsplan.id %>
+        <% else %>
+          <%= hidden_field_tag "trainingsplan_id", current_user.trainingsplans.first.id %>
+        <% end %>
+      <% else %>
+        <%= hidden_field_tag "trainingsplan_id" %>
+      <% end %>
+
       <%= text_field_tag :name, params[:name], onkeyup: "if(this.value.length >2){$('#submit_search_string').click();}",
                          style: "" %>
       <div id="tags">
@@ -48,6 +59,7 @@
     <!--        <a id="open_training" class="open_training hide" onclick="toggleTraining()"><%#= t(".showPlan") %></a>-->
     <%# end %>
     <!--    </div>-->
+
     <div id="multi_pic_container" class="">
       <%= image_tag("muscleman.svg", :class => "multi_pic") %>
       <%= image_tag("beta.webp", :class => "beta") %>
@@ -55,21 +67,23 @@
       <% if @trainingsplan %>
 
         <div id="trainingsplan_selected">
-          <%= render :partial => "main/trainingsplan_selected" %>
+          <%= render "main/trainingsplan_selected" %>
         </div>
+
+
       <% end %>
       <div id="body_part_selected">
-        <%= render :partial => "main/body_part_selected" %>
+        <%= render "main/body_part_selected" %>
       </div>
       <div id="muscle_selected_pic">
-        <%= render partial: "main/muscle_selected" %>
+        <%= render "main/muscle_selected" %>
       </div>
       <div id="exercise_selected">
-        <%= render :partial => "main/exercise_selected" %>
+        <%= render "main/exercise_selected" %>
       </div>
       <div id="hover"></div>
       <%= image_tag("blank.webp", :class => "multi_pic", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
-      <!--div id="muscle_text_hover_div">
+      <div id="muscle_text_hover_div">
         <div id="muscle_text_hover">
 
         </div>
@@ -79,7 +93,7 @@
         <div id="muscle_text_selected">
 
         </div>
-      </div-->
+      </div>
 
 
     </div>
@@ -106,6 +120,7 @@
   <script>
       $('select#trainingsplan_id').on('change', function (event) {
           let selected_resource_id = $(this).val();
+          $("#trainingsplan_id").val(selected_resource_id);
           //let selected_muscle = $("#body_part_text_selected")[0].innerText;
           let urlString = "<%= trainingsplans_get_exercises_url("") %>" + selected_resource_id;
           $.ajax({
@@ -141,8 +156,6 @@
 
 
 </div>
-
-
 
 
 <input type="hidden" value="" id="selected_value">
