@@ -36,14 +36,14 @@
 
   </div>
   <div style="margin:15px">
-    <%= link_to t(".allExercises"), exercises_all_path if current_user %>
+    <%= link_to t(".allExercises"), exercises_all_path if current_user && is_admin?%>
   </div>
   <div style="margin:15px;">
 
     <% if current_user %>
-      <%= link_to t(".ownExercises"), exercises_path if current_user %>
+      <%= link_to t(".ownExercises"), exercises_path if current_user && is_admin?%>
     <% else %>
-      <%= t(".loginForOwnExercises") %>
+      <%= t(".loginForOwnExercises") if is_admin? %>
     <% end %>
   </div>
 
