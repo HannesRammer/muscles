@@ -1,16 +1,16 @@
-<h1>Neuer Trainingsplan</h1>
+<h1>Create Workout</h1>
 
 
 <%#= form_tag(user_save_trainingsplan_url, :id => "trainingsplan_form", method: "post", remote: true) do %>
 <%= form_with(url: user_save_trainingsplan_url, :id => "trainingsplan_form", method: "post", remote: true) do %>
   <div class="field">
-    Name
+    Workout Name
     <%= text_field :trainingsplan, :name %>
   </div>
-  <%= submit_tag "Erstellen" %>
+  <%= submit_tag "create new workout" %>
 <% end %>
 
-<strong>Deine Traingspläne:</strong>
+<strong>Your Workouts</strong>
 <div id="trainingsplan_list">
 
   <%= render "users/trainingsplanlist" %>

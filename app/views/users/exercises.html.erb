@@ -1,66 +1,37 @@
-<h1><%= t("users.exercises.header") %></h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Beschreibung</th>
-    <!--th>pic1</th-->
-    <th>Video</th>
-    <th>Was tun</th>
-    <th>Was nicht tun</th>
-    <th>Info</th>
-    <th>Type</th>
-    <th>Sichtbar</th>
-  </tr>
+<div id="user_exercises">
+  <h1><%= t("users.exercises.header") %></h1>
 
   <% @exercises.each do |exercise| %>
-    <tr>
-      <td class="exercise_name"><%= h exercise.name %></td>
-      <td><%#= h exercise.description && exercise.description[0..30] %>
-        <% if exercise %>
-          <%= image_tag("muscleman.svg", :class => "users_exercise_muscle_pic2") %>
+    <div class="user_exercise" style="">
 
-          <div class="users_exercise_muscles" style="">
-
-            <%= user_muscle_pics(exercise.primary_muscles, "", 5, "users_exercise_muscle_pic2") %>
-            <%= user_muscle_pics(exercise.secondary_muscles, "", 2, "users_exercise_muscle_pic2") %>
-            <div id="hover" style="position:absolute;top: 0;left: 0;"></div>
-            <%= image_tag("blank.webp", :class => "multi_pic2", :usemap => "#body_area", :style => "width:463px;height:460px;") %>
-            <div style="width: 230px;
-                position: absolute;
-                left: 500px;">
-            </div>
-
-
-          </div>
-
-
-        <% end %>
-
-      </td>
-
-      <!--td><%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}.jpg" ,:size => "100x100") %>
-      <%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td-->
-      <td>
+      <% if exercise %>
+        <%= image_tag("muscleman.svg", :class => "user_exercise_muscleman") %>
+        <div class="user_exercise_muscles" style="">
+          <%= user_muscle_pics(exercise.primary_muscles, "", 5, "user_exercise_muscle_pics") %>
+          <%= user_muscle_pics(exercise.secondary_muscles, "", 2, "user_exercise_muscle_pics") %>
+        </div>
+        <div class="exercise_name"><%= h exercise.name %></div>
         <% @video = exercise.video %>
         <% if @video && @video.video.attached? %>
           <%= render "videos/video", :video => @video, :view => "preload_300" %>
-        <% end %></td>
+        <% end %>
+        <div class="exercise_info">
+          <%= h exercise.visible %>
 
-
-      <td><%= h exercise.how_to && exercise.how_to[0..150] %></td>
-
-      <td><%= h exercise.how_not_to && exercise.how_not_to[0..150] %></td>
-      <td><%= h exercise.info && exercise.info[0..150] %></td>
-      <td><%= h exercise.exercise_type %></td>
-      <td><%= h exercise.visible %>
-        <%= link_to t('view'), exercise %>
-        <%= link_to t('edit'), edit_exercise_path(exercise) if is_exercise_owner_for(exercise.id) %>
-        <%= link_to "Destroy", exercise, :confirm => "Are you sure?", :method => :delete %></td>
-    </tr>
+          <%= link_to t('view'), exercise %>
+          <%= link_to t('edit'), edit_exercise_path(exercise) if is_exercise_owner_for(exercise.id) %>
+          <%= link_to "Destroy", exercise, :confirm => "Are you sure?", :method => :delete %>
+        </div>
+      <% end %>
+      <!--td><%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}.jpg" ,:size => "100x100") %>
+      <%#= image_tag("exercises/#{clean_name(exercise.name).capitalize}1.jpg" ,:size => "100x100") %> </td-->
+      <!--        <td><%#= h exercise.how_to && exercise.how_to[0..150] %></td>-->
+      <!--        <td><%#= h exercise.how_not_to && exercise.how_not_to[0..150] %></td>-->
+      <!--        <td><%#= h exercise.info && exercise.info[0..150] %></td>-->
+      <!--        <td><%#= h exercise.exercise_type %></td>-->
+    </div>
   <% end %>
-</table>
 
+  <%= link_to "New exercise", new_exercise_path %>
 
-
-<%= link_to "New exercise", new_exercise_path %>
+</div>

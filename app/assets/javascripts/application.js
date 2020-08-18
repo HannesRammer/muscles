@@ -287,11 +287,17 @@ function remove_scale() {
 }
 
 function to_scale_or_not_to_scale() {
-    if (window.innerHeight > window.innerWidth) {
-        console.log("resize for horizontal view");
-        remove_scale();
-    } else {
-        console.log("remove scale for vertical");
+
+    if(document.querySelector(".grid_parent") !== null ){
+        if (window.innerHeight > window.innerWidth) {
+            console.log("resize for horizontal view");
+            remove_scale();
+        } else {
+            console.log("remove scale for vertical");
+            scale_for_landscape();
+        }
+    }else{
+        console.log("scale, not grid");
         scale_for_landscape();
     }
 }

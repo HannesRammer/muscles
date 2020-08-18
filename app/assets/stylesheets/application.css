@@ -17,7 +17,7 @@
 @import "scaffold.css";
 
 :root {
-    --red-color: #d44b78;
+    --red-color: #ff0000;
     --dark-red-color: #bd4444;
     --dark-magenta-color: #b31e4f;
     --blue-color: #64c6ef;
@@ -27,6 +27,7 @@
     --light-green-color: #b0eae0;
     --green-color: #2cab85;
     --dark-green-color: #17a077;
+    --orange-color: #C85112;
 }
 
 input {
@@ -37,13 +38,13 @@ div#login *, div#signup *, div#forgot_pw *, div#reset_pw * {
     font-size: 2rem;
 }
 
-.horizontal input[type="submit"] {
+.horizontal .blue_background input[type="submit"] {
     position: absolute;
     left: 325px;
     top: -30px;
 }
 
-.vertical input[type="submit"] {
+.vertical .blue_background input[type="submit"] {
     position: absolute;
     right: 0px;
     top: -3px;
@@ -58,7 +59,9 @@ body {
     position: absolute;
     background-color: #ffffff;
     width: 99%;
-    color: #000000 !important;
+    /*color: #000000 !important;*/
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    color: white !important;
     /*color: var(--light-green-color) !important;*/
 }
 
@@ -102,16 +105,32 @@ img {
     /*left: -220px;*/
 }
 
-#users_exercise_muscles {
-    transform: scale(0.7);
+.user_exercise {
+    position: relative;
+    height: 27rem;
+    width: 40rem;
+    padding: 1rem;
+    border: 1px solid #373131;
+    box-sizing: border-box;
+    margin: 1rem;
+    float: left;
+}
+
+.user_exercise_muscles {
     height: 300px;
     left: 0;
     position: absolute;
 }
 
-.users_exercise_muscle_pic2 {
+.user_exercise_muscleman {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+}
+
+.user_exercise_muscle_pics {
     position: relative;
-    top: 0;
+    top: 2rem;
     left: 0;
 }
 
@@ -177,8 +196,6 @@ img {
 }
 
 a {
-
-    color: #000000;
     text-decoration: none;
     /*border-bottom: 1px solid rgba(249, 105, 14, 1) !important;*/
 
@@ -814,6 +831,33 @@ pre {
     color: var(--yellow-color) !important;
 }
 
+
+#user_videos a, #user_exercises a {
+    margin-right: 15px;
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    color: var(--yellow-color) !important;
+    /*color: var(--orange-color) !important;*/
+}
+
+#user_videos a:hover, #user_exercises a:hover {
+    margin-right: 15px;
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    color: white !important;
+    /*color: var(--green-color) !important;*/
+    /*color: var(--orange-color) !important;*/
+}
+
+a:hover {
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+    color: white !important;
+    /*color: var(--green-color) !important;*/
+    /*color: var(--orange-color) !important;*/
+}
+
+a:visited {
+
+}
+
 #navilinks a:hover {
     margin-right: 15px;
     text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
@@ -964,7 +1008,7 @@ input {
     /*float: left;*/
 }
 
-#users_exercise_video {
+#user_exercise_video {
     position: absolute;
     left: 900px;
 }
@@ -1111,7 +1155,7 @@ input {
 }
 
 .horizontal .videos_folder {
-    position: absolute;
+    position: relative;
     width: 50%;
     height: 7rem;
     box-sizing: border-box;
@@ -1131,16 +1175,30 @@ input {
     box-sizing: border-box;
 }
 
+.user_exercise .videos_folder {
+    position: absolute;
+    left: 23rem;
+    height: 105px;
+    box-sizing: border-box;
+    top: 2rem;
+}
+
 .trainingsplan_name {
     color: var(--blue-color);
     font-size: 1rem;
     padding: 5px;
 }
 
+.exercise_info {
+    position: absolute;
+    top: 20rem;
+    left: 25rem;
+}
 .exercise_name {
-    color: var(--red-color);
+    color: white;
     font-size: 1rem;
     padding: 5px;
+    width: 150px;
 }
 
 #exercises_text_header {

@@ -2,27 +2,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta name="google-site-verification" content="f_Wp2h92NSmgS0w3zNJwH_j5KnV6B_fnLrD5J3UnD4c"/>
-  <script data-ad-client="ca-pub-5196890855321116" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!--script data-ad-client="ca-pub-5196890855321116" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <title>free-workouts.com <%#= params[:controller] %>/<%= controller.action_name %></title>
   <%= favicon_link_tag asset_path('Logo.webp') %>
-</head>
-<%= csrf_meta_tags %>
-<%= csp_meta_tag %>
 
-<%#= stylesheet_link_tag :application %>
+  <%#= stylesheet_link_tag :application %>
 <%#= stylesheet_link_tag("main.scss") %>
 
 <%#= stylesheet_link_tag "dev/screen", :media => "all" %>
-<%= render "layouts/muscle_styles" %>
+  <%= render "layouts/muscle_styles" %>
 <%#= javascript_include_tag :application  %>
-<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-<%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
 
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+  <script src="https://www.youtube.com/iframe_api"></script>
+
 <%#= javascript_include_tag "modernizr-1.6.min" %>
+
+</head>
 <body id="body" class="theme_3a3a3a" onresize="to_scale_or_not_to_scale();">
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+
+
 <div id="body_tag">
   <%= render "layouts/navi" %>
 
@@ -91,11 +96,51 @@
         to_scale_or_not_to_scale();
     });
 
-    let tag = document.createElement('script');
+    // let tag = document.createElement('script');
+    //
+    // tag.src = "https://www.youtube.com/iframe_api";
+    // let firstScriptTag = document.getElementsByTagName('script')[0];
+    // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    tag.src = "https://www.youtube.com/iframe_api";
-    let firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    function load_youtube_player(url, start, end) {
+        if (document.querySelector("div#youtube_placeholder_id") !== null) {
+
+
+            youtube_player = new YT.Player('youtube_placeholder_id', {
+                height: '360',
+                width: '640',
+                videoId: url,
+                playerVars: {
+                    autoplay: 1,
+                    controls: 1,
+                    showinfo: 1,
+                    rel: 0,
+                    iv_load_policy: 3,
+                    cc_load_policy: 0,
+                    fs: 0,
+                    disabled: 1,
+                    start: '18',
+                    <!--                    start: '<%#=video.start_time %>',-->
+                    <!--                    end: '<%#=video.end_time %>',-->
+                    end: '22',
+                    suggestedQuality: 'large',
+                },
+                events: {
+                    onReady: function () {
+                        console.log("alert");
+                    },
+                    //onStateChange: onYoutubePlayerStateChange
+                }
+            });
+        }
+        youtube_player.addEventListener('onStateChange', function (e) {
+            console.log('State is:', e.data);
+        });
+
+
+
+    }
+
 
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.

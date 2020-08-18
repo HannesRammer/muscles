@@ -1,24 +1,14 @@
-<h1>Videos</h1>
+<div id="user_videos">
+  <h1>Videos</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th colspan="4"></th>
-  </tr>
-  </thead>
-
-  <tbody>
   <% @videos.each do |video| %>
-    <tr>
-      <td> <%= render "videos/video", :video => video, :view => "preload_300" %></td>
-      <td><%= link_to t('view'), video %></td>
-      <td><%= link_to t('edit'), edit_video_path(video) %></td>
-      <td><%= link_to 'Destroy', video, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-    </tr>
+    <div style="height: 12rem;display: inline-block;">
+      <div style="height: 9rem;width:16rem;color:white;"> <%= render "videos/video", :video => video, :view => "" %></div>
+      <br>
+      <div><%= link_to t('view'), video %>
+        <%= link_to t('edit'), edit_video_path(video) %>
+        <%= link_to 'Destroy', video, method: :delete, data: {confirm: 'Are you sure?'} %></div>
+    </div>
   <% end %>
-  </tbody>
-</table>
-
-
-
-<%= link_to 'New Video', new_video_path %>
+  <%= link_to 'New Video', new_video_path %>
+</div>
