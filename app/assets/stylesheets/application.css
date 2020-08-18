@@ -1345,8 +1345,8 @@ input#trainingsplan_name {
     top: 0;
     left: 0;
     position: relative;
-    min-height: 48rem;
-    height: 52rem;
+    height: 1000px;
+
 }
 
 .horizontal div#multi_pic_container {
@@ -1657,9 +1657,9 @@ iframe {
 
 .vertical .beta {
     position: absolute;
-    width: 10rem;
-    top: 1rem;
-    left: 20rem;
+    width: 230px;
+    top: 20px;
+    left: 375px;
 }
 
 label {

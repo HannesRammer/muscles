@@ -1,8 +1,8 @@
 <% current_group = -1 %>
 <% @tags.each do |tag| %>
   <% if current_group < tag.group %>
-    <hr>
     <% current_group = tag.group %>
+    <hr>
   <% end %>
   <%#= link_to(tag.name, {:controller => "main", :action => "search_string", :name => part}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
   <% selected = @selected_tag_ids && @selected_tag_ids.include?(tag.id.to_s) %>
