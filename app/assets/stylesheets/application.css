@@ -982,17 +982,17 @@ div.trainingsplans_exercises_text.active_exercise {
 }
 
 .trainingsplan_item {
-    width: 800px;
+    width: 740px;
     float: left;
     border: 2px solid #5f5c5c;
-    padding: 5px;
     box-sizing: border-box;
     transform: scale(0.7);
     position: relative;
     margin-top: -77px;
-    margin-left: -230px;
+    margin-left: -203px;
     margin-bottom: -77px;
     left: 130px;
+    padding: 5px;
 }
 
 .exercise_selection_link {
@@ -1188,7 +1188,6 @@ input {
 .trainingsplan_name {
     color: var(--blue-color);
     font-size: 1rem;
-    padding: 5px;
 }
 
 .exercise_info {
