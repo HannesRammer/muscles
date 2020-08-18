@@ -1,7 +1,5 @@
 <div class="user_tag_list">
 
-  <div class="trainingsplan_name">Tags</div>
-  <br>
   <% done_tag_list = [] %>
   <% tag_map_list_0 = [] %>
   <% tag_map_list_1 = [] %>
@@ -23,36 +21,43 @@
 
     <% end %>
   <% end %>
-  <% tag_lists = [tag_map_list_0, tag_map_list_1] %>
-  <% tag_lists.each do |tag_list| %>
+  <% if tag_map_list_0.length > 0 || tag_map_list_1.length > 0 || tag_map_list_2.length > 0 || tag_map_list_3.length > 0 %>
 
-    <% tag_length = exercises.length %>
-    <% tag_list.each do |tag_name| %>
-      <% if done_tag_list.count(tag_name) == 0 %>
+    <div class="trainingsplan_name">Tags</div>
+    <br>
 
-        <%= "#{(100 / tag_length) * tag_list.count(tag_name)}%" %>
-        <%= tag_name %>
-        <% done_tag_list << tag_name %>
-        <br>
+    <% tag_lists = [tag_map_list_0, tag_map_list_1] %>
+    <% tag_lists.each do |tag_list| %>
 
+      <% tag_length = exercises.length %>
+      <% tag_list.each do |tag_name| %>
+        <% if done_tag_list.count(tag_name) == 0 %>
+
+          <%= "#{(100 / tag_length) * tag_list.count(tag_name)}%" %>
+          <%= tag_name %>
+          <% done_tag_list << tag_name %>
+          <br>
+
+        <% end %>
       <% end %>
+      <hr>
+
     <% end %>
-    <hr>
+    <% tag_lists = [tag_map_list_2, tag_map_list_3] %>
+    <% tag_lists.each do |tag_list| %>
 
-  <% end %>
-  <% tag_lists = [tag_map_list_2, tag_map_list_3] %>
-  <% tag_lists.each do |tag_list| %>
+      <% tag_length = tag_list.length %>
+      <% tag_list.each do |tag_name| %>
+        <% if done_tag_list.count(tag_name) == 0 %>
 
-    <% tag_length = tag_list.length %>
-    <% tag_list.each do |tag_name| %>
-      <% if done_tag_list.count(tag_name) == 0 %>
+          <%= tag_name %>
+          <% done_tag_list << tag_name %>
+          <br>
 
-        <%= tag_name %>
-        <% done_tag_list << tag_name %>
-        <br>
-
+        <% end %>
       <% end %>
-    <% end %>
 
+    <% end %>
   <% end %>
+
 </div>

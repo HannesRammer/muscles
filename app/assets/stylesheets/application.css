@@ -1570,7 +1570,7 @@ iframe {
 #search_filter {
     height: 0;
     overflow: hidden;
-    padding: 0 1rem 1rem 1rem;
+    margin: 0 1rem 1rem 1rem;
 }
 
 .grid_child_vertical {
@@ -1692,7 +1692,7 @@ label {
 
 .vertical .grid_parent .user_tag_list {
     position: absolute;
-    top: 545px;
-    left: 435px;
+    top: 520px;
+    left: 400px;
     transform: scale(0.7);
 }
