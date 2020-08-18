@@ -1692,7 +1692,7 @@ label {
 
 .vertical .grid_parent .user_tag_list {
     position: absolute;
-    top: 24.5rem;
-    left: 21rem;
+    top: 545px;
+    left: 435px;
     transform: scale(0.7);
 }
