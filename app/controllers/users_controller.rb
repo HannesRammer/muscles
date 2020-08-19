@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         trainingsplan = Trainingsplan.new
-        trainingsplan.name = "Erster Trainingsplan"
+        trainingsplan.name = "User #{@user.id}'s first workout"
         trainingsplan.save
         @user.trainingsplans << trainingsplan
         ApplicationMailer.with(user: @user).welcome_email(email: @user.email).deliver_now

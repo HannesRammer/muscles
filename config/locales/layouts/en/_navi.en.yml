@@ -3,9 +3,9 @@ en:
     navi:
       start: "Start"
       advanced_search: "Advanced Search"
-      all_trainingsplans: "All trainingsplans"
-      my_trainingsplans: "My trainingsplans"
-      all_exerccises: "All exercises"
-      my_exercises: "My exercises"
+      all_trainingsplans: "All Workouts"
+      my_trainingsplans: "My Workouts"
+      all_exerccises: "All Exercises"
+      my_exercises: "My Exercises"
       my_videos: "My Videos"
 

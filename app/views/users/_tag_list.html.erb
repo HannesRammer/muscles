@@ -23,11 +23,11 @@
   <% end %>
   <% if tag_map_list_0.length > 0 || tag_map_list_1.length > 0 || tag_map_list_2.length > 0 || tag_map_list_3.length > 0 %>
 
-    <div class="trainingsplan_name">Tags</div>
-    <br>
+    <!--div class="trainingsplan_name">Tags</div-->
 
     <% tag_lists = [tag_map_list_0, tag_map_list_1] %>
     <% tag_lists.each do |tag_list| %>
+      <hr>
 
       <% tag_length = exercises.length %>
       <% tag_list.each do |tag_name| %>
@@ -40,21 +40,21 @@
 
         <% end %>
       <% end %>
-      <hr>
 
     <% end %>
     <% tag_lists = [tag_map_list_2, tag_map_list_3] %>
     <% tag_lists.each do |tag_list| %>
+      <hr>
 
       <% tag_length = tag_list.length %>
       <% tag_list.each do |tag_name| %>
         <% if done_tag_list.count(tag_name) == 0 %>
 
-          <%= tag_name %>
+          <%= tag_name %>,
           <% done_tag_list << tag_name %>
-          <br>
 
         <% end %>
+
       <% end %>
 
     <% end %>

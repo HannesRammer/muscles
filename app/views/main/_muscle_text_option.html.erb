@@ -15,21 +15,18 @@
       </div>
     <% end %>
   </div>
-
-  <% @exercise.tags.each do |tag| %>
-    <div class="exercise_tags">
-      <%= tag.name %>
-
-    </div>
-
-
-  <% end %>
-  <!--div id="m_antagonistic">
-    <h3>antagonistic muscles</h3>
-    <%# @a_muscles.each do |muscle| %>
-      <div class="muscle_text_option" onmouseover="hover('<%#=muscle.en_name%>');">
-        <%#= link_to(muscle.en_name, {:controller => "main", :action => "muscle", :name => muscle.en_name, :title => "#{muscle.en_name} auswählen"}, {:remote => true, :method => :post}) %>
+  <div id="m_antagonistic">
+    <h3>tags</h3>
+    <% @exercise.tags.each do |tag| %>
+      <div class="exercise_tags">
+        <%= tag.name %>
       </div>
+    <% end %>
+    <!--    <h3>antagonistic muscles</h3>-->
+    <%# @a_muscles.each do |muscle| %>
+    <!--      <div class="muscle_text_option" onmouseover="hover('<%#=muscle.en_name%>');">-->
+    <%#= link_to(muscle.en_name, {:controller => "main", :action => "muscle", :name => muscle.en_name, :title => "#{muscle.en_name} auswählen"}, {:remote => true, :method => :post}) %>
+    <!--      </div>-->
     <%# end %>
-  </div-->
+  </div>
 </div>
