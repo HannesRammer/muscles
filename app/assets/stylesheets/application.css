@@ -1754,3 +1754,7 @@ label {
 .user_tag_list{
     color: white !important;
 }
+
+.category-select{
+    float: left;
+}

@@ -2,15 +2,18 @@
 <% @tags.each do |tag| %>
   <% if current_group < tag.group %>
     <% current_group = tag.group %>
-    <hr>
+    <hr style="float: right;width: 100%;">
+
   <% end %>
   <%#= link_to(tag.name, {:controller => "main", :action => "search_string", :name => part}, {:class => "nice_inset_tab", :remote => true, :method => :post}) %>
   <% selected = @selected_tag_ids && @selected_tag_ids.include?(tag.id.to_s) %>
 
 
-  <label class="category-select">
-    <%= check_box_tag 'tag_ids[]', tag.id, selected, :onclick => "$('#submit_search_string').click();" -%>
-    <%= h tag.name %>
+  <label class="category-select" style="">
+    <div class="<%= clean_name(tag.name) %>" title="<%= tag.name.downcase %>" style="color: white !important;display: table">
+      <%= check_box_tag 'tag_ids[]', tag.id, selected, :onclick => "$('#submit_search_string').click();" -%>
+      <%= h tag.name %>
+    </div>
   </label>
 
 <% end %>

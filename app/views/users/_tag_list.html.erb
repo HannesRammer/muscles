@@ -27,36 +27,38 @@
 
     <% tag_lists = [tag_map_list_0, tag_map_list_1] %>
     <% tag_lists.each do |tag_list| %>
-      <hr>
-
       <% tag_length = exercises.length %>
       <% tag_list.each do |tag_name| %>
         <% if done_tag_list.count(tag_name) == 0 %>
-              <div class="<%= tag_name.downcase %>" title="<%= tag_name.downcase %>" style="color: white !important;">
-                <%= "#{(100 / tag_length) * tag_list.count(tag_name)}% #{tag_name}" %>
-              </div>
+          <div class="<%= clean_name(tag_name) %>" title="<%= tag_name.downcase %>" style="color: white !important;">
+            <%= "#{(100 / tag_length) * tag_list.count(tag_name)}% #{tag_name}" %>
+          </div>
 
 
 
-            <% done_tag_list << tag_name %>
-        <% end %>
-      <% end %>
-
-    <% end %>
-    <% tag_lists = [tag_map_list_2, tag_map_list_3] %>
-    <% tag_lists.each do |tag_list| %>
-      <hr>
-
-      <% tag_length = tag_list.length %>
-      <% tag_list.each do |tag_name| %>
-        <% if done_tag_list.count(tag_name) == 0 %>
-
-          <%= tag_name %>,
           <% done_tag_list << tag_name %>
 
         <% end %>
 
       <% end %>
+      <hr style="float: right;width: 100%;">
+
+    <% end %>
+    <% tag_lists = [tag_map_list_2, tag_map_list_3] %>
+    <% tag_lists.each do |tag_list| %>
+
+      <% tag_length = tag_list.length %>
+      <% tag_list.each do |tag_name| %>
+        <% if done_tag_list.count(tag_name) == 0 %>
+          <div class="<%= clean_name(tag_name) %>" title="<%= tag_name.downcase %>" style="color: white !important;">
+
+            <%= tag_name %>,
+            <% done_tag_list << tag_name %>
+          </div>
+
+        <% end %>
+      <% end %>
+      <hr style="float: right;width: 100%;">
 
     <% end %>
   <% end %>
