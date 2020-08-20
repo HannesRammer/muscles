@@ -7,6 +7,8 @@
 
     <% @exercises.each do |exercise| %>
       <div class="exercises_text_div">
+        <%#=user_muscle_pics(exercise.primary_muscles,nil,2,"") %>
+        <%#=user_muscle_pics(exercise.secondary_muscles,nil,1,"") %>
         <div class="main_exercises_text">
 
           <% if @trainingsplan && @trainingsplan != nil %>

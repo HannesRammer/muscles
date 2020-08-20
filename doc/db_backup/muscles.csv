@@ -1,67 +1,67 @@
-"id";"name";"picture_id";"en_name"
-1;"Großer Brustmuskel";0;""
-2;"Trizeps";52;"Triceps"
-3;"Vorderer Deltamuskel";47;"Front Shoulders"
-4;"Hakenarmmuskel";15;""
-5;"Vorderer Sägemuskel";48;"Serratus Anterior"
-6;"Unterschulterblattmuskel";45;""
-7;"Großer Rückenmuskel";13;"Lats"
-9;"Hinterer Deltamuskel";19;"Rear Shoulders"
-10;"Mittlerer Deltamuskel";27;"Side Shoulders"
-11;"Kleiner Brustmuskel";23;"Pec Minor"
-12;"Oberer Trapezmuskel";32;"Traps"
-13;"Großer Rautenmuskel";12;"Rhomboids"
-14;"Kleiner Rundmuskel";25;""
-16;"Gerader Bauchmuskel";9;"Upper Abs"
-17;"Innerer schräger Bauchmuskel";22;"Transversus Abdominis"
-18;"Äußerer schräger Bauchmuskel";2;"Obliques"
-19;"Oberer Brustmuskel";31;"Upper Chest"
-21;"Untergrätenmuskel";43;""
-22;"Hinterer Sägemuskel";20;""
-23;"Unterer Brustmuskel";10;"Lower Chest"
-24;"Großer Rundmuskel";14;"Teres Major"
-25;"Kleiner Rautenmuskel";24;"Rhomboids"
-26;"Unterer Trapezmuskel";42;"Traps"
-27;"Mittlerer Trapezmuskel";28;"Traps"
-28;"Armbeuger";3;""
-29;"Oberarmspeichenmuskel";30;"Elbow Flexors"
-30;"Lendenmuskeln";0;""
-31;"Bizeps kurzer Kopf";5;"Biceps"
-32;"Äußerer Brustmuskel";1;"Middle Chest"
-33;"Trizeps langer Kopf";40;""
-34;"Bizeps langer Kopf";6;"Biceps"
-35;"Trizeps innerer Kopf";39;""
-36;"Trizeps seitlicher Kopf";41;""
-37;"Paravertebrale Muskeln";0;""
-38;"Obergrätenmuskel";33;""
-39;"Schulterblattheber";37;"Levator Scapula"
-42;"Riemenmuskeln";34;"Neck Extensors"
-52;"Treppenmuskeln";0;""
-56;"Kopfwender";26;"Neck Flexors"
-57;"Innerer Brustmuskel";21;"Middle Chest"
-58;"Auswärtsdreher";4;"Supinator"
-59;"Einwärtsdreher";7;"Wrist Flexors"
-60;"Fingerbeuger";8;"Pronators"
-61;"Großer Gesäßmuskel";11;"Glute Max"
-62;"Halb U Plattsehnenmuskel";16;"Hamstrings"
-63;"Handbeuger";17;""
-64;"Handstrecker";18;"Wrist Extensors"
-65;"Mittlerer u kleiner Gesäßmuskel";29;"Abductors"
-66;"Schenkelanzieher";35;"Adductors"
-67;"Schollenmuskel";36;"Calves"
-68;"Streckmuskel D Wirbelsäule";38;"Lower Back"
-69;"Unterschlueßelbeinmuskel";44;""
-70;"Vierköpfiger Schenkelmuskel";46;"Quads"
-71;"Vorderer Schienbeinmuskel";49;"Dorsiflexors"
-72;"Zweiköpfiger Schenkelbeuger";50;"Hamstrings"
-73;"Zwillingswadenmuskel";51;"Calves"
-266;"";0;"Piriformis"
-265;"";0;"Rotator Cuff"
-264;"";0;"Back Extensors"
-263;"";0;"Knee Flexors"
-262;"";0;"Plantar Flexors"
-261;"";0;"Right Obliques"
-260;"";0;"Left Obliques"
-259;"";0;"Lower Abs"
-258;"";0;"Transverse Abdominis"
-257;"";0;"Hip Flexors"
+"id";"name";"picture_id";"en_name";"body_part_id"
+1;"Großer Brustmuskel";0;"";0
+2;"Trizeps";52;"Triceps";5
+3;"Vorderer Deltamuskel";47;"Front Shoulders";4
+4;"Hakenarmmuskel";15;"";0
+5;"Vorderer Sägemuskel";48;"Serratus Anterior";1
+6;"Unterschulterblattmuskel";45;"";0
+7;"Großer Rückenmuskel";13;"Lats";2
+9;"Hinterer Deltamuskel";19;"Rear Shoulders";4
+10;"Mittlerer Deltamuskel";27;"Side Shoulders";4
+11;"Kleiner Brustmuskel";23;"Pec Minor";1
+12;"Oberer Trapezmuskel";32;"Traps";2
+13;"Großer Rautenmuskel";12;"Rhomboids";2
+14;"Kleiner Rundmuskel";25;"";0
+16;"Gerader Bauchmuskel";9;"Upper Abs";7
+17;"Innerer schräger Bauchmuskel";22;"Transversus Abdominis";7
+18;"Äußerer schräger Bauchmuskel";2;"Obliques";7
+19;"Oberer Brustmuskel";31;"Upper Chest";1
+21;"Untergrätenmuskel";43;"";0
+22;"Hinterer Sägemuskel";20;"";0
+23;"Unterer Brustmuskel";10;"Lower Chest";1
+24;"Großer Rundmuskel";14;"Teres Major";2
+25;"Kleiner Rautenmuskel";24;"Rhomboids";2
+26;"Unterer Trapezmuskel";42;"Traps";2
+27;"Mittlerer Trapezmuskel";28;"Traps";2
+28;"Armbeuger";3;"";0
+29;"Oberarmspeichenmuskel";30;"Elbow Flexors";5
+30;"Lendenmuskeln";0;"";0
+31;"Bizeps kurzer Kopf";5;"Biceps";5
+32;"Äußerer Brustmuskel";1;"Middle Chest";1
+33;"Trizeps langer Kopf";40;"";0
+34;"Bizeps langer Kopf";6;"Biceps";5
+35;"Trizeps innerer Kopf";39;"";0
+36;"Trizeps seitlicher Kopf";41;"";0
+37;"Paravertebrale Muskeln";0;"";0
+38;"Obergrätenmuskel";33;"";0
+39;"Schulterblattheber";37;"Levator Scapula";3
+42;"Riemenmuskeln";34;"Neck Extensors";3
+52;"Treppenmuskeln";0;"";0
+56;"Kopfwender";26;"Neck Flexors";3
+57;"Innerer Brustmuskel";21;"Middle Chest";1
+58;"Auswärtsdreher";4;"Supinator";5
+59;"Einwärtsdreher";7;"Wrist Flexors";5
+60;"Fingerbeuger";8;"Pronators";5
+61;"Großer Gesäßmuskel";11;"Glute Max";6
+62;"Halb U Plattsehnenmuskel";16;"Hamstrings";6
+63;"Handbeuger";17;"";0
+64;"Handstrecker";18;"Wrist Extensors";5
+65;"Mittlerer u kleiner Gesäßmuskel";29;"Abductors";6
+66;"Schenkelanzieher";35;"Adductors";6
+67;"Schollenmuskel";36;"Calves";6
+68;"Streckmuskel D Wirbelsäule";38;"Lower Back";2
+69;"Unterschlueßelbeinmuskel";44;"";0
+70;"Vierköpfiger Schenkelmuskel";46;"Quads";6
+71;"Vorderer Schienbeinmuskel";49;"Dorsiflexors";6
+72;"Zweiköpfiger Schenkelbeuger";50;"Hamstrings";6
+73;"Zwillingswadenmuskel";51;"Calves";6
+266;"";0;"Piriformis";6
+265;"";0;"Rotator Cuff";4
+264;"";0;"Back Extensors";2
+263;"";0;"Knee Flexors";6
+262;"";0;"Plantar Flexors";6
+261;"";0;"Right Obliques";7
+260;"";0;"Left Obliques";7
+259;"";0;"Lower Abs";7
+258;"";0;"Transverse Abdominis";7
+257;"";0;"Hip Flexors";6
