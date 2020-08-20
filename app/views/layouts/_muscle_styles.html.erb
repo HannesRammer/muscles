@@ -2,6 +2,7 @@
 
 
   <%muscles = Muscle.all_with_pic%>
+
   <%length = muscles.length%>
   <%muscles.each do |m|%>
   <%#pure awesomeness: gets the picture id and finds the position going from top left  to right %>
@@ -21,5 +22,10 @@
 
   <%end%>
 
+  <%tags = Tag.all%>
+  <%tags.each do |tag|%>
+  <%= ".#{clean_name(tag.name)}{ height: 2rem;width: 100%;background: url(#{image_url "#{tag.name.downcase}.svg" })  #{0}px #{0}px no-repeat;background-size: 2rem;display: grid;padding:0.5rem 0 0 2rem;}"%>
+
+  <%end%>
 
 </style>

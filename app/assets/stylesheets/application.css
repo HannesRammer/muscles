@@ -1751,3 +1751,6 @@ label {
     display: none;
 }
 
+.user_tag_list{
+    color: white !important;
+}
