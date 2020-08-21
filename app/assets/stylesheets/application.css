@@ -449,22 +449,25 @@ table {
     box-sizing: border-box;
     width: 100%;
     border-bottom: 1px solid #0000001f;
-    height: 53px;
+    height: 165px;
     text-align: center;
     vertical-align: middle;
     padding: 5px;
     font-size: 1rem;
+    position: relative;
 }
 
 .grid_child_vertical .exercises_text_div {
     box-sizing: border-box;
     width: 100%;
     border-bottom: 1px solid #0000001f;
-    height: 4rem;
+    height: 10rem;
     text-align: center;
     vertical-align: middle;
     padding: 1rem;
     font-size: 2rem;
+    position: relative;
+
 }
 
 #container {
@@ -1278,16 +1281,17 @@ td {
 }
 
 .horizontal .main_exercises_text {
-    height: 33px;
+    height: 100%;
     width: 100%;
     font-size: 18px;
     box-sizing: border-box;
 }
 
 .vertical .main_exercises_text {
-    height: 3rem;
-    width: 100%;
+    width: 40rem;
     box-sizing: border-box;
+    padding-left: 9rem;
+    height: 8rem;
 }
 
 #exercise_list {
@@ -1709,18 +1713,33 @@ label {
     width: 1.5rem;
 }
 
-.horizontal .grid_parent .user_tag_list {
+.horizontal .grid_child_multi_pic .user_tag_list {
     position: absolute;
     top: 15.5rem;
     left: 11rem;
     transform: scale(0.7);
 }
 
-.vertical .grid_parent .user_tag_list {
+.horizontal .red_background .user_tag_list {
+    position: relative;
+    top: -1rem;
+    left: -1rem;
+    transform: scale(0.7);
+    width: 200px;
+    color: black;
+
+}
+
+.vertical .grid_child_multi_pic .user_tag_list {
     position: absolute;
     top: 545px;
     left: 409px;
     transform: scale(0.9);
+}
+.vertical .red_background .user_tag_list {
+    position: relative;
+    transform: scale(0.9);
+    color: black;
 }
 
 .vertical.small_screen #best_experience {
@@ -1757,4 +1776,17 @@ label {
 
 .category-select{
     float: left;
+}
+.horizontal .exercise_text_multi_pic{
+    transform: scale(0.2);
+    position: absolute;
+    left: 10px;
+    top: 35px;
+}
+
+.vertical .exercise_text_multi_pic{
+    transform: scale(0.2);
+    position: absolute;
+    left: 10px;
+    top: 0px;
 }

@@ -17,11 +17,7 @@
   </div>
   <div id="m_antagonistic">
     <h3>tags</h3>
-    <% @exercise.tags.each do |tag| %>
-      <div class="exercise_tags">
-        <%= tag.name %>
-      </div>
-    <% end %>
+    <%= render "users/tag_list" ,exercises: [@exercise] %>
     <!--    <h3>antagonistic muscles</h3>-->
     <%# @a_muscles.each do |muscle| %>
     <!--      <div class="muscle_text_option" onmouseover="hover('<%#=muscle.en_name%>');">-->

@@ -1,0 +1,9 @@
+<div class="user_tag_list">
+  <% exercise.tags.each do |tag| %>
+
+    <div class="<%= clean_name(tag.name) %>" title="<%= tag.name.downcase %>" style="float: left;">
+      <%#= tag_name %>
+    </div>
+
+  <% end %>
+</div>

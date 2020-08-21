@@ -10,7 +10,7 @@ class MainController < ApplicationController
     @muscles_selected = []
     @body_parts = BodyPart.all.to_a
     @p_muscles = [] #@muscles
-    @exercises = Exercise.where(visible: true).order("name asc").all
+    @exercises = Exercise.includes(:tags).where(visible: true).order("name asc").all
     @s_muscles = []
     @a_muscles = []
     # @muscle = @muscles.first
@@ -64,7 +64,7 @@ class MainController < ApplicationController
   end
 
   def search_string
-    @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])
+    @trainingsplan = Trainingsplan.includes(:exercises).find_by_id(params[:trainingsplan_id])
 
     @name = params[:name]
     @selected_tag_ids = params[:tag_ids]
@@ -144,10 +144,10 @@ class MainController < ApplicationController
   def exercise
     @name = params["name"]
     trainingsplan_id = params["trainingsplan_id"]
-    @exercise = Exercise.find_by_name(@name)
+    @exercise = Exercise.includes(:tags).find_by_name(@name)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
-    @a_muscles = @exercise.antagonist_muscles
+    # @a_muscles = @exercise.antagonist_muscles
     @video = @exercise.selected_video(trainingsplan_id)
     respond_to :js
   end
@@ -161,7 +161,7 @@ class MainController < ApplicationController
     trainingsplan_id = params[:trainingsplan_id]
     exercise_id = params[:exercise]
     tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id, exercise_id: exercise_id)
-    @trainingsplan = Trainingsplan.find_by_id(trainingsplan_id)
+    @trainingsplan = Trainingsplan.includes(:exercises).find_by_id(trainingsplan_id)
     if tpte
       flash[:notice] = "Exercise already in your trainingslan."
 

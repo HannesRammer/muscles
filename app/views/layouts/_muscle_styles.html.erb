@@ -21,6 +21,8 @@
   <%= ".#{clean_name(m.en_name)}_yellow{ height: 460px;width: 463px;background: url(#{image_url "muscles_yellow.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
 
   <%end%>
+  <%= ".yellow_background .muscleman{ height: 460px;width: 463px;background: url(#{image_url "muscleman.svg"})  0px 0px no-repeat;top: -135px;
+    left: -180px;}"%>
 
   <%tags = Tag.all%>
   <%tags.each do |tag|%>

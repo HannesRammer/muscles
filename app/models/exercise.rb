@@ -33,25 +33,25 @@ class Exercise < ApplicationRecord
     end
     Video.find_by_id(video_id)
   end
-
-  def primary_muscle_ids
-    list = []
-    self.x_muscles("primary").each do |muscle|
-      list.append(muscle.id)
-
-    end
-    list.join(",")
-  end
-
-  def secondary_muscle_ids
-    list = []
-    self.x_muscles("secondary").each do |muscle|
-      list.append(muscle.id)
-
-    end
-    list.join(",")
-
-  end
+  ##not used anymore since ids where saved in table columns to save requests
+  # def primary_muscle_ids
+  #   list = []
+  #   self.x_muscles("primary").each do |muscle|
+  #     list.append(muscle.id)
+  #
+  #   end
+  #   list.join(",")
+  # end
+  #
+  # def secondary_muscle_ids
+  #   list = []
+  #   self.x_muscles("secondary").each do |muscle|
+  #     list.append(muscle.id)
+  #
+  #   end
+  #   list.join(",")
+  #
+  # end
 
   def primary_muscle_names
     list = []
@@ -73,15 +73,14 @@ class Exercise < ApplicationRecord
   end
 
   def primary_muscles
-    self.x_muscles("primary")
+    Muscle.where(id:[self.primary_muscle_ids])
+     # self.x_muscles("primary")
   end
 
   def secondary_muscles
-    self.x_muscles("secondary")
-  end
+    Muscle.where(id:[self.secondary_muscle_ids])
 
-  def antagonist_muscles
-    self.x_muscles("antagonistic")
+     # self.x_muscles("secondary")
   end
 
   def sorted_muscles

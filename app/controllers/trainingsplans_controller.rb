@@ -8,7 +8,7 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans.json
   def index
     trainingsplan_ids = ExerciseToTrainingsplan.select("trainingsplan_id").distinct.all
-    @trainingsplans = Trainingsplan.where("id in (?)", trainingsplan_ids).to_a
+    @trainingsplans = Trainingsplan.includes(:exercises).where("id in (?)", trainingsplan_ids).to_a
     @trainingsplans
   end
 
@@ -16,7 +16,7 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans/1.json
   def show
     @current_user = current_user
-    @trainingsplan = Trainingsplan.find_by_id(params[:id])
+    @trainingsplan = Trainingsplan.includes(:exercises).find_by_id(params[:id])
     @exercises = @trainingsplan.exercises
 
     if @exercises.first
@@ -48,7 +48,7 @@ class TrainingsplansController < ApplicationController
 
   # GET /trainingsplans/1/edit
   def edit
-    @trainingsplan = Trainingsplan.find_by_id(params[:id])
+    @trainingsplan = Trainingsplan.includes(:exercises).find_by_id(params[:id])
 
     @etts = @trainingsplan.exercise_to_trainingsplans #ExerciseToTrainingsplan.where(:trainingsplan_id=>@trainingsplan.id).order("id asc")
 
@@ -62,12 +62,12 @@ class TrainingsplansController < ApplicationController
     @name = params["name"]
     @exercise = Exercise.find_by_name(@name)
     trainingsplan_id = params["id"]
-    @trainingsplan = Trainingsplan.find_by_id(trainingsplan_id)
+    @trainingsplan = Trainingsplan.includes(:exercises).find_by_id(trainingsplan_id)
     @ett = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id, exercise_id: @exercise.id)
     @video = @exercise.selected_video(trainingsplan_id)
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
-    @a_muscles = @exercise.antagonist_muscles
+    # @a_muscles = @exercise.antagonist_muscles
     respond_to :js
 
 
@@ -128,7 +128,7 @@ class TrainingsplansController < ApplicationController
     end
     #@muscle_exercises = Exercise.where(visible: true).order("name asc").all
 
-    @trainingsplan = Trainingsplan.find_by_id(params[:trainingsplan_id])
+    @trainingsplan = Trainingsplan.includes(:exercises).find_by_id(params[:trainingsplan_id])
     @exercises = Exercise.where(visible: true).order("name asc").all #@trainingsplan.exercises
     @all_exercises = Exercise.where(visible: true).order("name asc").all #@trainingsplan.exercises
     respond_to :js
@@ -232,7 +232,7 @@ class TrainingsplansController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_trainingsplan
-    @trainingsplan = Trainingsplan.find(params[:id])
+    @trainingsplan = Trainingsplan.includes(:exercises).find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

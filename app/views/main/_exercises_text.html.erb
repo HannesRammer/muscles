@@ -7,8 +7,15 @@
 
     <% @exercises.each do |exercise| %>
       <div class="exercises_text_div">
-        <%#=user_muscle_pics(exercise.primary_muscles,nil,2,"") %>
-        <%#=user_muscle_pics(exercise.secondary_muscles,nil,1,"") %>
+        <div class="exercise_text_multi_pic">
+          <%#= image_tag("muscleman.svg", :class => "multi_pic") %>
+
+<!--         ############-->
+<!--          <div class="multi_pic muscleman"></div>-->
+
+          <%#=user_muscle_pics(exercise.primary_muscles,nil,10,"multi_pic") %>
+        <%#=user_muscle_pics(exercise.secondary_muscles,nil,5,"multi_pic") %>
+        </div>
         <div class="main_exercises_text">
 
           <% if @trainingsplan && @trainingsplan != nil %>
@@ -21,8 +28,10 @@
 
           <%= link_to(exercise.name, {:controller => "main", :action => "exercise",
                                       :name => exercise.name, :title => "#{exercise.name} auswählen"},
-                      {:style => "color:black;display:grid;",
+                      {:style => "color:black;",
                        :remote => true, :method => :post}) %>
+          <%#= render "users/tag_icons" ,exercise: exercise %>
+
 
           <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
         </div>
