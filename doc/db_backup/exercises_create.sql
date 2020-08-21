@@ -11,5 +11,7 @@ CREATE TABLE `exercises` (
   `exercise_type` varchar(255) DEFAULT NULL,
   `visible` tinyint(1) DEFAULT '1',
   `default_video_id` int(11) DEFAULT NULL,
+  `primary_muscle_ids` varchar(255) DEFAULT NULL,
+  `secondary_muscle_ids` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2903 DEFAULT CHARSET=utf8;
