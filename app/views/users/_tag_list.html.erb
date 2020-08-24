@@ -1,6 +1,7 @@
 <div class="user_tag_list">
 
   <% done_tag_list = [] %>
+  <% total_tag_list = [] %>
   <% tag_map_list_0 = [] %>
   <% tag_map_list_1 = [] %>
   <% tag_map_list_2 = [] %>
@@ -19,34 +20,54 @@
         <% tag_map_list_3 << tag.name %>
       <% end %>
     <% end %>
+    <% total_tag_list = tag_map_list_0  %>
   <% end %>
   <% if tag_map_list_0.length > 0 || tag_map_list_1.length > 0 || tag_map_list_2.length > 0 || tag_map_list_3.length > 0 %>
     <!--div class="trainingsplan_name">Tags</div-->
     <% tag_lists = [tag_map_list_0, tag_map_list_1] %>
-    <% tag_lists.each do |tag_list| %>
+    <% uniq_tag_list = total_tag_list.uniq %>
+
+    <% uniq_tag_list.each_with_index do |tag_name, i| %>
       <% tag_length = exercises.length %>
-      <% tag_list.each do |tag_name| %>
-        <% if done_tag_list.count(tag_name) == 0 %>
-          <div class="<%= clean_name(tag_name) %>" title="<%= tag_name.downcase %>" style="color: white !important;">
-            <%= "#{(100 / tag_length) * tag_list.count(tag_name)}% #{tag_name}" %>
-          </div>
-          <% done_tag_list << tag_name %>
-        <% end %>
+      <%# uniq_tag_list.each_with_index do |tag_name,i| %>
+      <%# if done_tag_list.count(tag_name) == 0 %>
+      <% if (i + 1).even? %>
+        <div class="<%= clean_name(tag_name) %> right" title="<%= tag_name.downcase %>" style="color: white !important;top:-<%=i*30 %>px;">
+          <%= "#{(100 / tag_length) * total_tag_list.count(tag_name)}% #{tag_name}" %>
+        </div>
+      <% else %>
+        <div class="<%= clean_name(tag_name) %> left" title="<%= tag_name.downcase %>" style="color: white !important;top:-<%=i*30 %>px;">
+          <%= "#{(100 / tag_length) * total_tag_list.count(tag_name)}% #{tag_name}" %>
+        </div>
       <% end %>
-      <hr style="float: right;width: 100%;">
+
+      <%# done_tag_list << tag_name %>
+      <%# end %>
+      <%# end %>
     <% end %>
-    <% tag_lists = [tag_map_list_2, tag_map_list_3] %>
-    <% tag_lists.each do |tag_list| %>
-      <% tag_length = tag_list.length %>
-      <% tag_list.each do |tag_name| %>
-        <% if done_tag_list.count(tag_name) == 0 %>
-          <div class="<%= clean_name(tag_name) %>" title="<%= tag_name.downcase %>" style="color: white !important;">
-            <%= tag_name %>,
-            <% done_tag_list << tag_name %>
-          </div>
-        <% end %>
+    <hr>
+    <% tag_lists = [tag_map_list_1, tag_map_list_2, tag_map_list_3] %>
+    <% tag_lists.each_with_index do |tag_list| %>
+      <% uniq_tag_list = tag_list.uniq %>
+      <% tag_length = exercises.length %>
+      <% uniq_tag_list.each_with_index do |tag_name, i| %>
+        <%if clean_name(tag_name) != "no_equipment" && clean_name(tag_name) != "home_equipment" && clean_name(tag_name) != "home_equipment"%>
+        <%# if done_tag_list.count(tag_name) == 0 %>
+        <%# if (i+1).even? %>
+        <!--            <div class="<%#= clean_name(tag_name) %> right" title="<%#= tag_name.downcase %>" style="color: white !important;top:-<%#=i*30 %>px;">-->
+        <!--              <%#= tag_name %>,-->
+        <!--            </div>-->
+        <%# else %>
+        <span class="<%= clean_name(tag_name) %>" title="<%= tag_name.downcase %>" style="color: white !important;top:-<%=i*30 %>px;float:left;height:2rem;">
+          <%#= tag_name %>
+        </span>
+        <%# end %>
+        <%end %>
+
+        <%# done_tag_list << tag_name %>
       <% end %>
-      <hr style="float: right;width: 100%;">
+      <%# end %>
+      <!--      <hr style="float: right;width: 100%;">-->
     <% end %>
   <% end %>
 </div>

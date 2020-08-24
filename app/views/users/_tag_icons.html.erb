@@ -1,9 +1,14 @@
 <div class="user_tag_list">
-  <% exercise.tags.each do |tag| %>
+  <% exercise.tags.each_with_index do |tag, i| %>
 
-    <div class="<%= clean_name(tag.name) %>" title="<%= tag.name.downcase %>" style="float: left;">
-      <%#= tag_name %>
-    </div>
-
+    <% if i.even? %>
+      <div class="<%= clean_name(tag.name) %> right" title="<%= tag.name.downcase %>" style="float: left;">
+        <%#= tag_name %>
+      </div>
+    <% else %>
+      <div class="<%= clean_name(tag.name) %> left" title="<%= tag.name.downcase %>" style="float: left;">
+        <%#= tag_name %>
+      </div>
+    <% end %>
   <% end %>
 </div>

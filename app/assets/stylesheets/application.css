@@ -49,15 +49,15 @@ div#login *, div#signup *, div#forgot_pw *, div#reset_pw * {
 
 .horizontal .blue_background input[type="submit"] {
     position: absolute;
-    left: 325px;
-    top: -30px;
+    right: 0;
+    top: 0;
 }
 
 .vertical .blue_background input[type="submit"] {
     position: absolute;
     right: 0px;
     top: -3px;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 body {
@@ -194,7 +194,6 @@ img {
 
 #trainingsplan_view_exercise {
     background: var(--dark-blue-color);
-    padding-top: 1rem;
 
 }
 
@@ -1113,6 +1112,7 @@ input {
     display: grid;
     border: 1px solid black;
     background: #434343;
+    margin: 8px;
 }
 
 .horizontal .videos_folder {
@@ -1126,6 +1126,7 @@ input {
     display: grid;
     border: 1px solid black;
     background: #434343;
+    margin: 8px;
 }
 
 #edit_video_view .videos_folder {
@@ -1264,7 +1265,7 @@ td {
 .horizontal .exercise_list_rep {
     position: relative;
     left: 10rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
     width: 9rem;
     height: 1.5rem;
     padding: 5px;
@@ -1273,7 +1274,7 @@ td {
 .horizontal .exercise_list_duration {
     position: relative;
     left: 10rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
     width: 9rem;
     height: 1.5rem;
     padding: 5px;
@@ -1282,7 +1283,7 @@ td {
 .horizontal .exercise_list_pause {
     position: relative;
     left: 10rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
     width: 9rem;
     height: 1.5rem;
     padding: 5px;
@@ -1567,24 +1568,23 @@ iframe {
 }
 
 .vertical #trainingsplan_id {
-    position: relative;
+    position: absolute;
     top: 0;
-    /* left: 205px; */
-    font-size: 1rem;
-    height: 3rem;
+    left: 0;
+    font-size: 2rem !important;
+    height: 5rem;
     border-radius: 0;
-    /* max-width: 620px; */
     z-index: 99;
+    width: 280px;
 }
 
 .horizontal #trainingsplan_id {
-    position: relative;
+    position: absolute;
     top: 0;
-    /* left: 205px; */
-    font-size: 18px;
-    height: 1rem;
+    left: 0px;
+    width: 174px;
+    height: 2rem;
     border-radius: 0;
-    /* max-width: 620px; */
     z-index: 99;
 }
 
@@ -1646,13 +1646,15 @@ label {
     position: relative;
     font-size: 1px;
     vertical-align: middle;
+    margin: 0 15px 0 10px
 }
 
 .horizontal .grid_child_multi_pic .user_tag_list {
     position: absolute;
-    top: 285px;
-    left: 190px;
+    top: 340px;
+    left: 200px;
     transform: scale(0.7);
+    width: 230px;
 }
 
 .horizontal .red_background .user_tag_list {
@@ -1668,8 +1670,9 @@ label {
 .vertical .grid_child_multi_pic .user_tag_list {
     position: absolute;
     top: 570px;
-    left: 370px;
+    left: 335px;
     transform: scale(0.9);
+    width: 315px;
 }
 
 .vertical .red_background .user_tag_list {
@@ -1757,4 +1760,32 @@ label {
     font-size: 4rem !important;
     color: var(--blue-color) !important;
     text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
+}
+
+.vertical .start_workout{
+    position: absolute;
+    padding: 2rem;
+    top: -30px;
+    right: 100px;
+}
+
+.horizontal .start_workout{
+    position: absolute;
+    padding: 10px;
+    top: -29px;
+    right: 2px;
+}
+.horizontal .edit_workout{
+    position: absolute;
+    padding: 10px;
+    background: coral;
+    left: 176px;
+}
+.vertical .edit_workout{
+    position: absolute;
+    padding: 29px;
+    background: coral;
+    left: 285px;
+    height: 2rem;
+    top: 0;
 }

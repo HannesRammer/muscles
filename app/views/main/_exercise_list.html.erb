@@ -6,7 +6,6 @@
         <%= @trainingsplan.name %>
 
       </div>
-      <%= link_to "start_Training", trainingsplan_path(@trainingsplan), :style => "" %>
 
 
       <% @ettps.each_with_index do |ettp, i| %>
@@ -121,7 +120,7 @@
           <% end %>
         <% end %>
         <div class="actions">
-          <%= form.submit "Speichern" %>
+          <%= form.submit "Save" %>
         </div>
 
       <% end %>

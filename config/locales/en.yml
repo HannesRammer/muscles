@@ -44,9 +44,9 @@ en:
   allMuscleExercises: 'All muscle exercises'
   add_or_remove_exercises: 'add/remove exercise'
   edit_repetition_duration_or_videos: 'Edit Details'
-  reps: 'repetitions'
-  dur: 'seconds'
-  pause: 'pause'
+  reps: 'Reps'
+  dur: 'Seconds'
+  pause: 'Pause'
   reset_new_pw: 'change pw'
   request_new_pw_link: 'request link'
   allExercises: ""
