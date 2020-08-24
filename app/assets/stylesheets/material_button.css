@@ -1,13 +1,13 @@
 .vertical .pure-material-button-contained {
-
     position: relative;
     display: inline-block;
     /* box-sizing: border-box; */
     border: none;
     border-radius: 4px;
-    padding: 0 16px;
+    padding: 20px;
+
     /* max-width: 150px; */
-    max-height: 136px;
+    /* max-height: 136px; */
     vertical-align: middle;
     text-align: center;
     text-overflow: ellipsis;
@@ -18,7 +18,7 @@
     font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 2rem;
     font-weight: 500;
-    line-height: 115px;
+    line-height: 70px;
     /* overflow: hidden; */
     outline: none;
     cursor: pointer;
@@ -32,7 +32,6 @@
     /* box-sizing: border-box; */
     border: none;
     border-radius: 4px;
-    padding: 0 16px;
     max-height: 136px;
     vertical-align: middle;
     text-align: center;
@@ -44,7 +43,7 @@
     font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 1rem;
     font-weight: 500;
-    line-height: 36px;
+    line-height: 22px;
     /* overflow: hidden; */
     outline: none;
     cursor: pointer;

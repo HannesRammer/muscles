@@ -1293,7 +1293,8 @@ input#trainingsplan_name {
 
 .add_to_playlist {
     float: right;
-
+    top: 5px;
+    position: relative;
 }
 
 .vertical div#multi_pic_container {
@@ -1641,8 +1642,8 @@ label {
 
 .horizontal .grid_child_multi_pic .user_tag_list {
     position: absolute;
-    top: 15.5rem;
-    left: 11rem;
+    top: 330px;
+    left: 190px;
     transform: scale(0.7);
 }
 
@@ -1658,8 +1659,8 @@ label {
 
 .vertical .grid_child_multi_pic .user_tag_list {
     position: absolute;
-    top: 545px;
-    left: 409px;
+    top: 570px;
+    left: 370px;
     transform: scale(0.9);
 }
 
