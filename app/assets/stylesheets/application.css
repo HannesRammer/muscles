@@ -15,6 +15,7 @@
  */
 
 @import "scaffold.css";
+@import "material_button.css";
 
 :root {
     --red-color: #ff0000;
@@ -28,6 +29,14 @@
     --green-color: #2cab85;
     --dark-green-color: #17a077;
     --orange-color: #C85112;
+}
+
+.dark_magenta_background {
+    background: var(--dark-magenta-color);
+}
+
+.dark_red_background {
+    background: var(--dark-red-color) !important;
 }
 
 input {
@@ -52,23 +61,18 @@ div#login *, div#signup *, div#forgot_pw *, div#reset_pw * {
 }
 
 body {
-    /*text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
     font-family: 'Open Sans', Helvetica, Arial, Sans serif;
     font-size: 1rem !important;
-
     position: absolute;
     background-color: #ffffff;
     width: 99%;
-    /*color: #000000 !important;*/
     text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
     color: white !important;
-    /*color: var(--light-green-color) !important;*/
 }
 
 
 .nav {
     position: relative;
-    /*padding: 10px;*/
     background: var(--dark-green-color);
 }
 
@@ -110,7 +114,6 @@ img {
     height: 300px;
     position: relative;
     top: 527px;
-    /*left: -220px;*/
 }
 
 .user_exercise {
@@ -175,7 +178,6 @@ img {
 #muscle_text_hover {
     border: 1px solid var(--green-color);
     height: 1rem;
-    /*border: 1px solid var(--blue-color);*/
 }
 
 #body_part_text_selected {
@@ -185,8 +187,6 @@ img {
 }
 
 #trainingsplan_text_selected {
-    /*border: 1px solid var(--green-color);*/
-    /*   border: 1px solid var(--blue-color);*/
     height: 1rem;
 
 }
@@ -198,20 +198,12 @@ img {
 }
 
 #exercise_text_selected {
-    /*border: 1px solid rgba(255, 153, 153, 0.5);*/
     border: 1px solid var(--red-color);
 
 }
 
 a {
     text-decoration: none;
-    /*border-bottom: 1px solid rgba(249, 105, 14, 1) !important;*/
-
-}
-
-
-a, a:active {
-    /*color: var(--yellow-color) !important;*/
 }
 
 .bild1 {
@@ -239,12 +231,6 @@ select {
     border-radius: 0;
 }
 
-/*.multi_pic, #hover {*/
-/*    left: 75px;*/
-/*    position: absolute;*/
-/*    top: 90px;*/
-/*    transform: scale(1.3);*/
-/*}*/
 .horizontal .multi_pic, .horizontal #hover {
     left: 4rem;
     position: absolute;
@@ -343,7 +329,7 @@ input[type="checkbox" i] {
     position: relative;
     font-size: 2rem;
     width: 100%;
-    height: 20rem;
+    height: 510px;
     overflow: hidden auto;
     /* float: left; */
 }
@@ -449,7 +435,6 @@ table {
     box-sizing: border-box;
     width: 100%;
     border-bottom: 1px solid #0000001f;
-    height: 165px;
     text-align: center;
     vertical-align: middle;
     padding: 5px;
@@ -458,10 +443,9 @@ table {
 }
 
 .grid_child_vertical .exercises_text_div {
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     width: 100%;
     border-bottom: 1px solid #0000001f;
-    height: 10rem;
     text-align: center;
     vertical-align: middle;
     padding: 1rem;
@@ -472,19 +456,14 @@ table {
 
 #container {
     margin: 0 auto;
-    /*width: 1300px;*/
     min-height: 700px;
     position: relative;
-
-    /*min-width: 1850px;*/
     max-width: 100%;
-    /*border: 1px solid var(--green-color);*/
-    /*padding: 30px;*/
+
 }
 
 #user_trainingsplans_container {
     margin: 0 auto;
-
     min-height: 700px;
     position: relative;
     top: 15px;
@@ -495,15 +474,10 @@ table {
 #notice {
     border: 1px solid #ff5656;
     width: 550px;
-    /*transition: opacity 3s ease-in-out;*/
-    /*opacity: 0;*/
 }
 
 #ex {
-    /* background-color: #333333;*/
-
     position: relative;
-
 }
 
 #ex_title {
@@ -511,15 +485,11 @@ table {
 }
 
 #x_title {
-
     border: 1px solid var(--red-color);
-
 }
 
 #x_description {
-
     position: relative;
-
     padding: 1px 20px 20px 20px;
     box-shadow: 8px 10px 26px var(--blue-color) inset;
     -moz-box-shadow: 8px 10px 26px var(--blue-color) inset;
@@ -527,7 +497,6 @@ table {
 }
 
 #x_how_to {
-
     padding: 1px 20px 20px 20px;
     box-shadow: 8px 10px 26px var(--green-color) inset;
     -moz-box-shadow: 8px 10px 26px var(--green-color) inset;
@@ -535,14 +504,11 @@ table {
 }
 
 #x_how_not_to {
-
     padding: 1px 20px 20px;
-
     box-shadow: 8px 10px 26px var(--red-color) inset;
 }
 
 #x_info {
-
     padding: 1px 20px 20px;
     box-shadow: 8px 10px 26px var(--yellow-color) inset;
 }
@@ -583,25 +549,19 @@ table {
 }
 
 .open_training {
-    /*background-color: var(--blue-color);*/
-    /* height: 34px; */
     overflow: hidden;
     position: relative;
     left: 0;
     width: 190px;
     z-index: 9;
-    /* top: 5px; */
     text-align: center;
-    /* padding-top: 6px; */
     box-sizing: border-box;
     cursor: pointer;
 }
 
 #trainingsplans_show_view .open_training {
     background-color: var(--blue-color);
-    /*background-color: var(--green-color);*/
     color: #fff;
-    /* border: 1px solid #ffffff;*/
     height: 20px;
     overflow: hidden;
     position: absolute;
@@ -614,7 +574,6 @@ table {
 
 .close_training {
     background-color: var(--blue-color);
-    /*background-color: var(--green-color);*/
     border-top: 1px solid #FFFFFF;
     border-left: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
@@ -631,12 +590,8 @@ table {
 }
 
 .show_exercise {
-
     position: relative;
-    /*float: left;*/
     height: 30rem;
-    /*border: 1px solid green;*/
-
 }
 
 .hidden_exercise {
@@ -694,15 +649,10 @@ li {
 
 #training_text {
     font-size: xx-large;
-
 }
 
 #login_box {
     float: right;
-    /*
-    position: absolute;
-    right: 200px;
-*/
 }
 
 .hide {
@@ -736,14 +686,12 @@ li {
     left: 0;
     position: absolute;
     top: 0;
-    /*  z-index: 1;*/
 }
 
 #muscle_selected {
     left: 0;
     position: absolute;
     top: 0;
-    /*z-index: 1;*/
 }
 
 
@@ -800,29 +748,17 @@ li {
 }
 
 div {
-    /*  -webkit-border-radius: 8px 8px 7px 7px;
-
-      -moz-border-radius: 8px 8px 7px 7px;
-      border-radius: 8px 8px 7px 7px;*/
 }
 
 
 a:link, a:visited {
-    /*  -webkit-transition: all 0.25s ease;
-      transition: all 0.25s ease;*/
-
 }
 
-a:hover, a:active {
-    /*  color: var(--red-color) !important;*/
-
-    /*color: rgba(249, 105, 14, 1) !important;*/
-    color: white !important;
-    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
-    /*color: var(--blue-color);*/
-    text-decoration: none;
-    /*border-bottom: 1px solid rgba(249, 105, 14, 1) !important;*/
-}
+/*a:hover, a:active {*/
+/*    color: white !important;*/
+/*    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
+/*    text-decoration: none;*/
+/*}*/
 
 
 body, p, ol, ul, td {
@@ -850,9 +786,6 @@ pre {
 }
 
 .grid_parent a {
-    text-decoration: underline;
-    /*text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
-    /*color: var(--yellow-color) !important;*/
 }
 
 .small_screen .exercise_tags, .small_screen .muscle_text_option {
@@ -866,22 +799,15 @@ pre {
     margin-right: 15px;
     text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
     color: var(--yellow-color) !important;
-    /*color: var(--orange-color) !important;*/
 }
 
 #user_videos a:hover, #user_exercises a:hover {
     margin-right: 15px;
     text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
     color: white !important;
-    /*color: var(--green-color) !important;*/
-    /*color: var(--orange-color) !important;*/
 }
 
 a:hover {
-    /*text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
-    /*color: white !important;*/
-    /*color: var(--green-color) !important;*/
-    /*color: var(--orange-color) !important;*/
 }
 
 a:visited {
@@ -895,9 +821,6 @@ a:visited {
 }
 
 #navilinks a:visited {
-    /*color: var(--light-green-color);*/
-    /*color: white;*/
-    /*text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;*/
 }
 
 #navilinks {
@@ -1035,7 +958,6 @@ div.trainingsplans_exercises_text.active_exercise {
 }
 
 input {
-    /*float: left;*/
 }
 
 #user_exercise_video {
@@ -1093,7 +1015,6 @@ input {
 }
 
 #start_exercise {
-    /*left: 295px;*/
     position: absolute;
     top: -15px;
     float: left;
@@ -1102,7 +1023,6 @@ input {
 }
 
 #pause_exercise {
-    /*left: 295px;*/
     float: left;
     cursor: pointer;
     display: none;
@@ -1123,11 +1043,11 @@ input {
     margin: 40px;
 }
 
-.vertical .material-icons {
-    top: 1px !important;
-    position: relative !important;
-    font-size: 2rem !important;
-}
+/*.vertical .material-icons {*/
+/*    top: 1px !important;*/
+/*    position: relative !important;*/
+/*    font-size: 2rem !important;*/
+/*}*/
 
 .horizontal .material-icons {
     top: 1px !important;
@@ -1181,14 +1101,26 @@ input {
     position: absolute;
     width: 50%;
     height: 10rem;
+    color: white !important;
+    text-align: center;
+    vertical-align: middle;
     box-sizing: border-box;
+    display: grid;
+    border: 1px solid black;
+    background: #434343;
 }
 
 .horizontal .videos_folder {
     position: absolute;
     width: 50%;
     height: 7rem;
+    color: white !important;
+    text-align: center;
+    vertical-align: middle;
     box-sizing: border-box;
+    display: grid;
+    border: 1px solid black;
+    background: #434343;
 }
 
 #edit_video_view .videos_folder {
@@ -1265,7 +1197,6 @@ meter {
 }
 
 #body_tag {
-    /*position: absolute;*/
     box-sizing: border-box;
 }
 
@@ -1276,12 +1207,9 @@ td {
 
 
 .exercise_border_red div.main_exercises_text {
-    /*border-bottom: 1px solid var(--red-color);*/
-    /*padding-bottom: 55px;*/
 }
 
 .horizontal .main_exercises_text {
-    height: 100%;
     width: 100%;
     font-size: 18px;
     box-sizing: border-box;
@@ -1290,8 +1218,6 @@ td {
 .vertical .main_exercises_text {
     width: 40rem;
     box-sizing: border-box;
-    padding-left: 9rem;
-    height: 8rem;
 }
 
 #exercise_list {
@@ -1433,17 +1359,9 @@ input#trainingsplan_name {
 }
 
 .grid_child_multi_pic {
-    /* flex: none | [ < 'flex-grow' > < 'flex-shrink' > ? | | < 'flex-basis' > ]
-    // If we don 't want the items to stretch: */
     flex: 1 1 400px;
 
-    /* If we do want the items to stretch:*/
-
-    /* etc . border: 1 px solid red;*/
-    /*background: #b6ffd3;*/
-    /*font-size: 2rem;*/
     text-align: center;
-    /*background: var(--blue-color)*/
 }
 
 .grid_child3 {
@@ -1701,6 +1619,10 @@ label {
 
 .vertical label {
     font-size: 2rem;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .vertical input[type="checkbox" i] {
@@ -1709,8 +1631,12 @@ label {
 }
 
 .vertical input[type="checkbox" i] {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 3rem;
+    width: 1rem;
+    left: 17px;
+    position: relative;
+    font-size: 1px;
+    vertical-align: middle;
 }
 
 .horizontal .grid_child_multi_pic .user_tag_list {
@@ -1736,6 +1662,7 @@ label {
     left: 409px;
     transform: scale(0.9);
 }
+
 .vertical .red_background .user_tag_list {
     position: relative;
     transform: scale(0.9);
@@ -1770,23 +1697,55 @@ label {
     display: none;
 }
 
-.user_tag_list{
+.user_tag_list {
     color: white !important;
 }
 
-.category-select{
+.category-select {
     float: left;
 }
-.horizontal .exercise_text_multi_pic{
+
+.horizontal .exercise_text_multi_pic {
     transform: scale(0.2);
     position: absolute;
     left: 10px;
     top: 35px;
 }
 
-.vertical .exercise_text_multi_pic{
+.vertical .exercise_text_multi_pic {
     transform: scale(0.2);
     position: absolute;
     left: 10px;
     top: 0px;
+}
+
+/*buttons*/
+.btn {
+    position: relative;
+
+    display: block;
+    margin: 30px auto;
+    padding: 0;
+
+    overflow: hidden;
+
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+    background-color: #2ecc71;
+    color: #ecf0f1;
+
+    transition: background-color .3s;
+}
+
+/*buttons end*/
+
+.vertical_icon {
+    top: 6px !important;
+    position: absolute !important;
+    font-size: 4rem !important;
+    color: var(--blue-color) !important;
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black !important;
 }
