@@ -10,7 +10,7 @@ class MainController < ApplicationController
     @muscles_selected = []
     @body_parts = BodyPart.all.to_a
     @p_muscles = [] #@muscles
-    @exercises = Exercise.includes(:tags).where(visible: true).order("name asc").all
+    @exercises = Exercise.includes(:tags).where(visible: true).order("name asc").all.limit(100)
     @s_muscles = []
     @a_muscles = []
     # @muscle = @muscles.first
@@ -133,7 +133,7 @@ class MainController < ApplicationController
     @tags
     if new_tag_ids.length == 0
       @tags = Tag.order(:group, :name)
-      @exercises = Exercise.where(visible: true).order("name asc").all
+      @exercises = Exercise.where(visible: true).order("name asc").all.limit(100)
     else
       @tags = Tag.where(id: new_tag_ids).order(:group, :name)
     end

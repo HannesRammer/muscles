@@ -1,8 +1,8 @@
 document.querySelector("#muscles").innerHTML = '<%=j render partial: "main/muscle"%>';
 document.querySelector("#muscle_selected_pic").innerHTML = '<%=j render partial: "main/body_part_selected"%>';
 document.querySelector("#body_part_text_selected").innerHTML = '<%=j @name %>';
-document.querySelector("#muscle_text_header").innerHTML = 'Muskeln <%=@name %>übungen';
-document.querySelector("#exercises_text_header").innerHTML = 'Übungen <%=@name %>muskeln';
+document.querySelector("#muscle_text_header").innerHTML = 'Muskeln <%=@name %>exercises';
+document.querySelector("#exercises_text_header").innerHTML = '<%= @exercises.length%>/1412 Ex. <%=params[:muscle_selected] %> <%= @selected_tag_names.to_s %>';
 //$("#muscle_selected").innerHTML = '");
 
 //$("#exercise_selected").innerHTML = 'Alle <%#=@name %>übungen");

@@ -1,5 +1,5 @@
 document.querySelector("#muscle_selected_pic").innerHTML = '<%=j render partial: 'main/muscle_selected'%>';
-document.querySelector("#exercises_text_header").innerHTML = '<%=j "#{t('allMuscleExercises')} #{@name}" %>';
+document.querySelector("#exercises_text_header").innerHTML = '<%=j @exercises.length%>/1412 Ex. <%=jparams[:muscle_selected] %> <%=j @selected_tag_names.to_s %>';
 document.querySelector("#body_part_text_selected").innerHTML = '<%=j @name %>';
 document.querySelector("#exercise_selected").innerHTML = '';
 document.querySelector("#exercises_text").innerHTML = '<%=j render  'main/exercises_text',exercises: @exercises   %>';
