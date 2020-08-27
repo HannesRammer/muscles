@@ -75,7 +75,7 @@ class MainController < ApplicationController
       @muscles_selected = Muscle.where(en_name: params[:muscle_selected]).to_a
       muscle = @muscles_selected.first
       muscle_exercises.concat(muscle.primary_exercises)
-      muscle_exercises.concat(muscle.secondary_exercises)
+       muscle_exercises.concat(muscle.secondary_exercises)
     end
 
     #exercise_ids = TagToExercise.select(:exercise_id).where(tag_id: @selected_tag_ids).map(&:exercise_id).to_a
@@ -91,7 +91,7 @@ class MainController < ApplicationController
         end
       end
       @exercises = Exercise.where(id: exercise_ids_for_first_tag).to_a
-      @exercises.concat(muscle_exercises)
+      @exercises = @exercises & muscle_exercises
 
 
       final_exercises = []
@@ -133,7 +133,7 @@ class MainController < ApplicationController
     @tags
     if new_tag_ids.length == 0
       @tags = Tag.order(:group, :name)
-      @exercises = Exercise.where(visible: true).order("name asc").all.limit(100)
+      @exercises = []# Exercise.where(visible: true).order("name asc").all.limit(100)
     else
       @tags = Tag.where(id: new_tag_ids).order(:group, :name)
     end

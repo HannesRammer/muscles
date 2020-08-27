@@ -51,7 +51,7 @@
       <% uniq_tag_list = tag_list.uniq %>
       <% tag_length = exercises.length %>
       <% uniq_tag_list.each_with_index do |tag_name, i| %>
-        <%if clean_name(tag_name) != "no_equipment" && clean_name(tag_name) != "home_equipment" && clean_name(tag_name) != "home_equipment"%>
+        <%#if clean_name(tag_name) != "no_equipment" && clean_name(tag_name) != "home_equipment" && clean_name(tag_name) != "home_equipment"%>
         <%# if done_tag_list.count(tag_name) == 0 %>
         <%# if (i+1).even? %>
         <!--            <div class="<%#= clean_name(tag_name) %> right" title="<%#= tag_name.downcase %>" style="color: white !important;top:-<%#=i*30 %>px;">-->
@@ -62,7 +62,7 @@
           <%#= tag_name %>
         </span>
         <%# end %>
-        <%end %>
+        <%#end %>
 
         <%# done_tag_list << tag_name %>
       <% end %>

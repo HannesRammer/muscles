@@ -73,12 +73,12 @@ class Exercise < ApplicationRecord
   end
 
   def primary_muscles
-    Muscle.where(id:[self.primary_muscle_ids])
+    Muscle.where(id:self.primary_muscle_ids.split(','))
      # self.x_muscles("primary")
   end
 
   def secondary_muscles
-    Muscle.where(id:[self.secondary_muscle_ids])
+    Muscle.where(id:self.secondary_muscle_ids.split(','))
 
      # self.x_muscles("secondary")
   end
