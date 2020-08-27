@@ -1,6 +1,6 @@
 <% @trainingsplans.each do |trainingsplan| %>
   <div class="trainingsplan_item">
-    <%= trainingsplan.user.first.email %>
+    <%= trainingsplan.user.first.username %>
     <div class="trainingsplan_name"><%= trainingsplan.name %></div>
     <div style="position: relative;height: 470px;margin: 15px;">
       <%= image_tag("muscleman.svg", :class => "multi_pic_ini") %>
