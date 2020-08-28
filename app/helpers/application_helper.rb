@@ -158,6 +158,15 @@ module ApplicationHelper
     end
   end
 
+  def follow_button (user)
+    if current_user.following?(user)
+      button_to "Unfollow", unfollow_user_path
+
+    else
+      button_to "Follow", follow_user_path
+    end
+  end
+
   private
 
   def store_target_location

@@ -17,12 +17,6 @@
   </div>
   <div id="m_antagonistic">
     <h3>tags</h3>
-    <%= render "users/tag_list" ,exercises: [@exercise] %>
-    <!--    <h3>antagonistic muscles</h3>-->
-    <%# @a_muscles.each do |muscle| %>
-    <!--      <div class="muscle_text_option" onmouseover="hover('<%#=muscle.en_name%>');">-->
-    <%#= link_to(muscle.en_name, {:controller => "main", :action => "muscle", :name => muscle.en_name, :title => "#{muscle.en_name} auswählen"}, {:remote => true, :method => :post}) %>
-    <!--      </div>-->
-    <%# end %>
+    <%= render "users/tag_list" ,exercises: [@exercise] if @exercise%>
   </div>
 </div>

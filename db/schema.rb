@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_28_105964) do
+ActiveRecord::Schema.define(version: 2020_06_28_105965) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 2020_06_28_105964) do
     t.string "secondary_muscle_ids"
   end
 
+  create_table "following_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "follower_id"
+    t.bigint "followed_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_user_id"], name: "index_following_relationships_on_followed_user_id"
+    t.index ["follower_id"], name: "index_following_relationships_on_follower_id"
+  end
+
   create_table "muscles", id: :integer, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name", limit: 16777215
     t.integer "picture_id"
@@ -108,6 +117,10 @@ ActiveRecord::Schema.define(version: 2020_06_28_105964) do
     t.integer "copied_from_trainingsplan_id"
     t.integer "creator_id"
     t.integer "sets"
+    t.boolean "public"
+    t.text "tags"
+    t.decimal "duration", precision: 10
+    t.decimal "played", precision: 10
   end
 
   create_table "user_to_exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -142,6 +155,8 @@ ActiveRecord::Schema.define(version: 2020_06_28_105964) do
     t.string "youtube_url"
     t.string "start_time"
     t.string "end_time"
+    t.decimal "duration", precision: 10
+    t.decimal "name", precision: 10
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

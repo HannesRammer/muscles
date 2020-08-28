@@ -68,7 +68,13 @@ Rails.application.routes.draw do
   post 'passwords/forgot', to: 'passwords#forgot' ,as: :forgot
   post 'passwords/reset', to: 'passwords#reset',as: :reset
   resources :exercises
-  resources :users
+  resources :users  do
+    member do
+      post "follow" => "followed_users#create"
+      post "unfollow" => "followed_users#destroy"
+    end
+  end
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

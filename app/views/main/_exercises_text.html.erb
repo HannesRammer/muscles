@@ -1,9 +1,4 @@
-<%# p_exercises = @muscles.blank? ? [] : @muscles[0].primary_exercises %>
-<%# s_exercises = @muscles.blank? ? [] : @muscles[0].secondary_exercises %>
-<%# a_exercises = @muscles.blank? ? [] : @muscles[0].antagonist_exercises %>
-
-<% if @exercises %>
-  <div>
+<% if @exercises&.length > 0 %>
 
     <% @exercises.each do |exercise| %>
       <div class="exercises_text_div">
@@ -39,7 +34,9 @@
 
       </div>
     <% end %>
-  </div>
+<% elsif @exercises&.length==0 %>
+  No Exercises selected
+  To search for exercises, 1.click a muscle on the image, select a search tag or enter at least 3 characters
 <% else %>
 
 
@@ -77,21 +74,5 @@
       <% end %>
     </div>
   <% end %>
-  <% if @antagonist %>
 
-    <div>
-      <h3>antagonist</h3>
-      <% @antagonist.each do |exercise| %>
-        <div class="exercises_text_div">
-          <div class="main_exercises_text">
-            <%= add_to_list_link(exercise) %>
-
-            <%= link_to(exercise.name, {:controller => "main", :action => "exercise", :name => exercise.name, :title => "#{exercise.name} auswählen"}, {:remote => true, :method => :post}) %>
-
-            <%#= link_to("show", :url=>{:controller=>"main", :action=>"show_exercise", :exercise=>s.id}, :remote=>true) %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
 <% end %>

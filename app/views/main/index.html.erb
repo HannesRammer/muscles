@@ -21,7 +21,7 @@
   <i id="search_field_magnify" class="material-icons">search</i>
   <i id="search_filter_down" class="material-icons" onclick="ui_render.show_filter();">arrow_drop_down</i>
   <i id="search_filter_up" class="material-icons" onclick="ui_render.hide_filter();">arrow_drop_up</i>
-  <div id="search_filter" style="height: 0px;overflow: hidden;">
+  <div id="search_filter" style="height: 0;overflow: hidden;">
     <%= form_tag main_search_string_path, remote: true, :authenticity_token => true, method: :post do %>
       <%= hidden_field_tag "muscle_selected" %>
 

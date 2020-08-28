@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :user_to_videos, -> { order "id asc" }, :dependent => :destroy
   has_many :videos, :through => :user_to_videos
 
+  has_many :following_relationship, foreign_key: :follower_id
+  has_many :followed_user, through: :following_relationship
+
 
   validates_presence_of :email
   validates_uniqueness_of :email
@@ -29,6 +32,15 @@ class User < ApplicationRecord
     self.reset_password_token = nil
     self.password = password
     save!
+  end
+  def follow(user)
+    followed_user << user
+  end
+  def unfollow(user)
+    followed_user.delete(user)
+  end
+  def following?(user)
+    followed_user_ids.include?(user.id)
   end
 
   private

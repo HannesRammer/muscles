@@ -10,12 +10,12 @@ class MainController < ApplicationController
     @muscles_selected = []
     @body_parts = BodyPart.all.to_a
     @p_muscles = [] #@muscles
-    @exercises = Exercise.includes(:tags).where(visible: true).order("name asc").all.limit(20)
+    @exercises = []# Exercise.includes(:tags).where(visible: true).order("name asc").all.limit(20)
     @s_muscles = []
     @a_muscles = []
     # @muscle = @muscles.first
     @exercise = @exercises.first
-    @video = @exercise.selected_video(nil)
+    @video = @exercise&.selected_video(nil)
     @tags = Tag.order(:group, :name)
     @primary = []
     @secondary = []
