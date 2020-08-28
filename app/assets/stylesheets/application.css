@@ -55,7 +55,7 @@ div#login *, div#signup *, div#forgot_pw *, div#reset_pw * {
 
 .vertical .blue_background input[type="submit"] {
     position: absolute;
-    right: 0px;
+    right: 0;
     top: -3px;
     font-size: 3rem;
 }
@@ -206,19 +206,6 @@ a {
     text-decoration: none;
 }
 
-.bild1 {
-    position: fixed;
-    top: 120px;
-    left: 900px;
-
-}
-
-.bild2 {
-    position: fixed;
-    top: 120px;
-    left: 40px;
-}
-
 h3 {
     padding-top: 0 !important;
     margin-bottom: 5px;
@@ -243,12 +230,6 @@ select {
     position: absolute;
     top: 250px;
     transform: scale(2);
-}
-
-.multi_pic_relative {
-    position: relative;
-    top: 190px;
-    transform: scale(1.7);
 }
 
 .trainingsplan_exercise_multi_pic_base {
@@ -284,17 +265,13 @@ select {
 .vertical select {
     font-size: 2rem !important;
     position: relative;
-    top: 0rem;
+    top: 0;
 }
 
 .multi_pic3, #selected_exercise #hover {
     left: 70px;
     position: absolute;
     top: 80px;
-}
-
-.multi_pic_mini {
-    width: 200px;
 }
 
 .multi_pic2 {
@@ -490,33 +467,9 @@ table {
 
 }
 
-#x_description {
-    position: relative;
-    padding: 1px 20px 20px 20px;
-    box-shadow: 8px 10px 26px var(--blue-color) inset;
-    -moz-box-shadow: 8px 10px 26px var(--blue-color) inset;
-    -webkit-box-shadow: 8px 10px 26px var(--blue-color) inset;
-}
-
-#x_how_to {
-    padding: 1px 20px 20px 20px;
-    box-shadow: 8px 10px 26px var(--green-color) inset;
-    -moz-box-shadow: 8px 10px 26px var(--green-color) inset;
-    -webkit-box-shadow: 8px 10px 26px var(--green-color) inset;
-}
-
 #x_how_not_to {
     padding: 1px 20px 20px;
     box-shadow: 8px 10px 26px var(--red-color) inset;
-}
-
-#x_info {
-    padding: 1px 20px 20px;
-    box-shadow: 8px 10px 26px var(--yellow-color) inset;
-}
-
-#x_exercise_type {
-
 }
 
 .open_exercise {
@@ -574,34 +527,9 @@ table {
     text-align: center;
 }
 
-.close_training {
-    background-color: var(--blue-color);
-    border-top: 1px solid #FFFFFF;
-    border-left: 1px solid #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
-    float: right;
-    height: 200px;
-    position: relative;
-    right: -118px;
-    top: 25px;
-    width: 20px;
-    box-shadow: 8px 10px 26px rgba(0, 0, 0, 0.4) inset;
-    -moz-box-shadow: 8px 10px 26px rgba(0, 0, 0, 0.4) inset;
-    -webkit-box-shadow: 8px 10px 26px rgba(0, 0, 0, 0.4) inset;
-    z-index: 9;
-}
-
 .show_exercise {
     position: relative;
     height: 30rem;
-}
-
-.hidden_exercise {
-    height: 0;
-    position: absolute;
-    left: 1105px;
-    width: 0;
-    overflow: hidden;
 }
 
 
@@ -709,14 +637,6 @@ li {
     text-shadow: 0 0 24px var(--green-color), 0 0 4px var(--green-color), 1px 1px 2px #333;
 }
 
-.yellow_glow {
-    text-shadow: 0 0 24px var(--yellow-color), 0 0 4px var(--yellow-color), 1px 1px 2px #333;
-}
-
-.blue_glow {
-    text-shadow: 0 0 24px var(--blue-color), 0 0 4px var(--blue-color), 1px 1px 2px #333;
-}
-
 .red_shadow {
     text-shadow: 0 3px 11px var(--red-color);
 }
@@ -725,28 +645,12 @@ li {
     text-shadow: 0 3px 11px var(--green-color);
 }
 
-.yellow_shadow {
-    text-shadow: 0 3px 11px var(--yellow-color);
-}
-
 .blue_shadow {
     text-shadow: 0 3px 11px var(--blue-color);
 }
 
 .red_glow_for_same_color_text {
     text-shadow: 0 0 11px var(--red-color);
-}
-
-.green_glow_for_same_color_text {
-    text-shadow: 0 0 11px var(--green-color);
-}
-
-.yellow_glow_for_same_color_text {
-    text-shadow: 0 0 11px var(--yellow-color);
-}
-
-.blue_glow_for_same_color_text {
-    text-shadow: 0 0 11px var(--blue-color);
 }
 
 div {
@@ -939,32 +843,24 @@ div.trainingsplans_exercises_text.active_exercise {
     float: left;
     border: 2px solid #5f5c5c;
     box-sizing: border-box;
-    transform: scale(0.7);
     position: relative;
-    margin-top: -77px;
-    margin-left: -203px;
-    margin-bottom: -77px;
-    left: 130px;
-    padding: 5px;
+    margin: 10px;
+    flex: 1 1 620px;
+    padding: 10px;
 }
 
 .exercise_selection_link {
     position: absolute;
     width: 290px;
     height: 45px;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     text-align: center;
     vertical-align: middle;
     padding: 25px;
 }
 
 input {
-}
-
-#user_exercise_video {
-    position: absolute;
-    left: 900px;
 }
 
 #trainingsplans_exercise_video_show {
@@ -980,11 +876,6 @@ input {
 #exercise_video_show {
     position: absolute;
     left: 1060px;
-}
-
-#exercises__exercise_video {
-    position: absolute;
-    left: 900px;
 }
 
 #rep_sec_pause {
@@ -1292,7 +1183,7 @@ td {
 .exercise_list_select {
     top: 20px;
     position: relative;
-    left: 0px;
+    left: 0;
 }
 
 input#trainingsplan_name {
@@ -1581,7 +1472,7 @@ iframe {
 .horizontal #trainingsplan_id {
     position: absolute;
     top: 0;
-    left: 0px;
+    left: 0;
     width: 174px;
     height: 2rem;
     border-radius: 0;
@@ -1728,7 +1619,7 @@ label {
     transform: scale(0.2);
     position: absolute;
     left: 10px;
-    top: 0px;
+    top: 0;
 }
 
 /*buttons*/

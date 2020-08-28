@@ -3,7 +3,7 @@
     <%= trainingsplan.user.first.username %>
     <div class="trainingsplan_name"><%= trainingsplan.name %></div>
     <div style="position: relative;height: 470px;margin: 15px;">
-      <%= image_tag("muscleman.svg", :class => "multi_pic_ini") %>
+      <%= image_tag("muscleman.webp", :class => "multi_pic_ini") %>
       <% exercises = trainingsplan.exercises.to_a %>
       <% exercises.each_with_index do |exercise, i| %>
 

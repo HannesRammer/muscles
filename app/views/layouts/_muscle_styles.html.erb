@@ -14,24 +14,24 @@
   end
   %>
   <%= ".#{clean_name(m.en_name)}{ height: 460px;width: 463px;background: url(#{image_url "muscles.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
-  <%#= ".#{clean_name(m.name)}_hover{ height: 460px;width: 463px;background: url(#{image_url "muscles_hover.svg"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
+  <%#= ".#{clean_name(m.name)}_hover{ height: 460px;width: 463px;background: url(#{image_url "muscles_hover.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
   <%= ".#{clean_name(m.en_name)}_hover{ height: 460px;width: 463px;background: url(#{image_url "muscles_hover.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
   <%= ".#{clean_name(m.en_name)}_selected{ height: 460px;width: 463px;background: url(#{image_url "muscles_selected.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
-  <%#= ".#{clean_name(m.name)}_yellow{ height: 460px;width: 463px;background: url(#{image_url "muscles_yellow.svg"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
+  <%#= ".#{clean_name(m.name)}_yellow{ height: 460px;width: 463px;background: url(#{image_url "muscles_yellow.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
   <%= ".#{clean_name(m.en_name)}_yellow{ height: 460px;width: 463px;background: url(#{image_url "muscles_yellow.webp"})  #{x * -463}px #{y * -460}px no-repeat;}"%>
 
   <%end%>
-  <%= ".yellow_background .muscleman{ height: 460px;width: 463px;background: url(#{image_url "muscleman.svg"})  0px 0px no-repeat;top: -135px;
+  <%= ".yellow_background .muscleman{ height: 460px;width: 463px;background: url(#{image_url "muscleman.webp"})  0px 0px no-repeat;top: -135px;
     left: -180px;}"%>
 
   <%tags = Tag.all%>
   <%tags.each do |tag|%>
-  <%= ".horizontal .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.svg" })  #{0}px #{0}px no-repeat;background-size: 2rem;display: grid;padding:10px 15px 15px 40px;}"%>
-  <%= ".vertical .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.svg" })  #{0}px #{0}px no-repeat;background-size: 3rem;display: grid;padding:1rem 2rem 1rem 2rem;}"%>
+  <%= ".horizontal .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;background-size: 2rem;display: grid;padding:10px 15px 15px 40px;}"%>
+  <%= ".vertical .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;background-size: 3rem;display: grid;padding:1rem 2rem 1rem 2rem;}"%>
 
-  <%= ".vertical .left.#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.svg" })  #{0}px #{0}px no-repeat;
+  <%= ".vertical .left.#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;
   background-size: 3rem;display: grid;padding:1rem 2rem 1rem 2rem;position:relative;}"%>
-  <%= ".vertical .right.#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.svg" })  260px #{0}px no-repeat;
+  <%= ".vertical .right.#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  260px #{0}px no-repeat;
   background-size: 3rem;display: grid;padding:1rem 2rem 1rem 2rem;position:relative;}"%>
 
   <%end%>

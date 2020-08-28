@@ -9,7 +9,6 @@ class TrainingsplansController < ApplicationController
   def index
     trainingsplan_ids = ExerciseToTrainingsplan.select("trainingsplan_id").distinct.all
     @trainingsplans = Trainingsplan.includes(:exercises).where("id in (?)", trainingsplan_ids).to_a
-    @trainingsplans
   end
 
   # GET /trainingsplans/1

@@ -89,8 +89,7 @@ class Exercise < ApplicationRecord
 
   def x_muscles(m_type)
     muscleIds = ExerciseToMuscle.find_all_by_exercise_id_and_muscle_type(self.id, m_type).collect { |x| x.muscle_id }
-    muscles = Muscle.where("id in (?)", muscleIds)
-    muscles
+    Muscle.where("id in (?)", muscleIds)
   end
 
   def self.free_exercise

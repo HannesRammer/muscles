@@ -1,36 +1,31 @@
-<h1>Trainingsplans</h1>
+<h1>All Workouts</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th><%= t('view') %></th>
-    <th><%= t('edit') %></th>
-    <th><%= t('delete') %></th>
-  </tr>
-  </thead>
+<!--<table>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>Name</th>-->
+<!--    <th><%#= t('view') %></th>-->
+<!--    <th><%#= t('edit') %></th>-->
+<!--    <th><%#= t('delete') %></th>-->
+<!--  </tr>-->
+<!--  </thead>-->
 
-  <tbody>
-  <% @trainingsplans.each do |trainingsplan| %>
-    <tr>
-      <td class="trainingsplan_name"><%= trainingsplan.name %>
-        <%#= image_tag("muscleman.svg", :class => "multi_pic") %>
+<!--  <tbody>-->
+  <%# @trainingsplans.each do |trainingsplan| %>
+<!--    <tr>-->
+<!--      <td class="trainingsplan_name"><%#= trainingsplan.name %>-->
+        <%#= image_tag("muscleman.webp", :class => "multi_pic") %>
 
-      </td>
-      <td><%= link_to t('view'), trainingsplan %></td>
-      <td><%#= link_to t('edit'), edit_trainingsplan_path(trainingsplan) %></td>
-      <td><%= link_to "Destroy", trainingsplan, method: :delete, data: {confirm: "Are you sure?"} if creator_of_trainingsplan %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<!--      </td>-->
+<!--      <td><%#= link_to t('view'), trainingsplan %></td>-->
+<!--      <td><%##= link_to t('edit'), edit_trainingsplan_path(trainingsplan) %></td>-->
+<!--      <td><%#= link_to "Destroy", trainingsplan, method: :delete, data: {confirm: "Are you sure?"} if creator_of_trainingsplan %></td>-->
+<!--    </tr>-->
+  <%# end %>
+<!--  </tbody>-->
+<!--</table>-->
 
-
-
-<%= link_to "New Trainingsplan", new_trainingsplan_path %>
-
-<strong>Alle Traingspläne:</strong>
-<div id="trainingsplan_list">
+<div id="trainingsplan_list" class="grid_parent">
 
   <%= render "users/trainingsplanlist" %>
 </div>
