@@ -27,11 +27,13 @@
   <%tags = Tag.all%>
   <%tags.each do |tag|%>
   <%= ".horizontal .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;background-size: 2rem;display: grid;padding:10px 15px 15px 40px;}"%>
-  <%= ".vertical .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;background-size: 3rem;display: grid;padding:1rem 2rem 1rem 2rem;}"%>
+  <%= ".vertical .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;background-size: 3rem;display: grid;padding:1rem 2rem 1rem 4rem;}"%>
+  <%= ".vertical #tags .#{clean_name(tag.name)},.vertical .user_tag_list .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;background-size: 3rem;display: grid;padding:0rem 2rem 1rem 2rem;}"%>
+  <%= ".vertical #trainingsplan_list .user_tag_list .#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;background-size: 3rem;display: grid;padding:1rem 0rem 1rem 4rem;}"%>
 
-  <%= ".vertical .left.#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;
+  <%= ".vertical .grid_child_multi_pic .left.#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  #{0}px #{0}px no-repeat;
   background-size: 3rem;display: grid;padding:1rem 2rem 1rem 2rem;position:relative;}"%>
-  <%= ".vertical .right.#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  260px #{0}px no-repeat;
+  <%= ".vertical .grid_child_multi_pic .right.#{clean_name(tag.name)}{ background: url(#{image_url "#{clean_name(tag.name)}.webp" })  260px #{0}px no-repeat;
   background-size: 3rem;display: grid;padding:1rem 2rem 1rem 2rem;position:relative;}"%>
 
   <%end%>

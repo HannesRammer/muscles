@@ -91,7 +91,10 @@ class MainController < ApplicationController
         end
       end
       @exercises = Exercise.where(id: exercise_ids_for_first_tag).to_a
-      @exercises = @exercises & muscle_exercises
+      if params[:muscle_selected].length > 0
+        @exercises = @exercises & muscle_exercises
+
+      end
 
 
       final_exercises = []
