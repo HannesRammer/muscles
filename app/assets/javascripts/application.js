@@ -12,13 +12,13 @@
 //
 
 
+//= require jquery-3.5.1.min
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
 
-////= require jquery
 
 
 function toggleClass(elem, className1, className2) {
@@ -42,92 +42,7 @@ function toggleTraining() {
     c.toggleClass("show");
 }
 
-function change_style() {
-    drop_down = document.style_form.style_options;
-    color = drop_down.options[drop_down.selectedIndex].value;
-    setClass(document.querySelector("body"), "theme_" + color);
 
-    let exp = new Date();
-    let numdays = 7;
-    exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * numdays));
-    document.cookie = "style=" + color + "; path=/; expires=" + exp.toGMTString();
-
-}
-
-function back_style() {
-    new_style("-");
-}
-
-function next_style() {
-    new_style("+");
-}
-
-function new_style(x) {
-
-    let drop_down = document.style_form.style_options;
-    let new_index, color;
-    if (x === "+") {
-        new_index = drop_down.selectedIndex + 1;
-    } else if (x === "-") {
-        new_index = drop_down.selectedIndex - 1;
-    }
-    if (new_index >= 0 && drop_down.options[new_index]) {
-
-    } else {
-        if (x === "+") {
-            new_index = 0;
-        } else if (x === "-") {
-            new_index = drop_down.length - 1;
-        }
-    }
-    color = drop_down.options[new_index].value;
-    drop_down.selectedIndex = new_index;
-    setClass(document.querySelector("body"), "theme_" + color);
-
-    var exp = new Date();
-    var numdays = 7;
-    exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * numdays));
-    document.cookie = "style=" + color + "; path=/; expires=" + exp.toGMTString();
-
-}
-
-
-function set_level(percent, id, way) {             //called
-    if (way === "down") {
-        document.querySelector("#" + id + "_e").style.height = (100 - percent) + "px";
-        document.querySelector("#" + id + "_f").style.height = percent + "px";
-    }
-    if (way === "left") {
-        document.querySelector("#" + id + "_f").style.width = (100 - percent) + "px";
-
-    }
-}
-
-//set_level id to 100%
-function full(id) {               //inject
-    set_level(100, id, "left");
-}
-
-function fill(id, perc) {               //inject
-    set_level(perc, id, "left");
-}
-
-//calles set_level function with max val and current val
-function drown_to_null(counter_max, counter, id) {             //called
-    var percent = ((100 / counter_max) * counter);
-    if (percent > 0) {
-        set_level(percent, id, "left")
-    }
-}
-
-function set_timeline(counter_max, counter) {             //called
-    var usertime_percent = ((100 / counter_max) * counter);
-    duration = document.querySelector("#htmlPlayer").duration;
-    x = (duration / 100) * usertime_percent;
-    document.querySelector("#htmlPlayer").currentTime = duration - x;
-    document.querySelector("#vid").value = (duration - x) / 60;
-
-}
 
 
 /*---*/
