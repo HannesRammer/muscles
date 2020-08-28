@@ -9,6 +9,6 @@
 </p>
 
 
-<%= follow_button @user if @user != @current_user %>
+<%= follow_button @user%>
 <%= link_to t('edit'), edit_user_path(@user) if @user == @current_user %>
 <%#= link_to t('back'), users_path %>
