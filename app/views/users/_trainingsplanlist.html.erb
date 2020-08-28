@@ -1,6 +1,8 @@
 <% @trainingsplans.each do |trainingsplan| %>
   <div class="trainingsplan_item">
-    <%= trainingsplan.user.first.username %>
+    <% user = trainingsplan.user.to_a.first %>
+    <%= link_to user.username, user %>
+    <%= follow_button user if user != current_user %>
     <div class="trainingsplan_name"><%= trainingsplan.name %></div>
     <div style="position: relative;height: 470px;margin: 15px;">
       <%= image_tag("muscleman.webp", :class => "multi_pic_ini") %>

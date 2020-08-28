@@ -160,10 +160,10 @@ module ApplicationHelper
 
   def follow_button (user)
     if current_user.following?(user)
-      button_to "Unfollow", unfollow_user_path
+      button_to "Unfollow", unfollow_user_path(id:user.id)
 
     else
-      button_to "Follow", follow_user_path
+      button_to "Follow", follow_user_path(id:user.id)
     end
   end
 

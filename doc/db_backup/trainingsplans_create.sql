@@ -6,5 +6,9 @@ CREATE TABLE `trainingsplans` (
   `copied_from_trainingsplan_id` int(11) DEFAULT NULL,
   `creator_id` int(11) DEFAULT NULL,
   `sets` int(11) DEFAULT NULL,
+  `public` tinyint(1) DEFAULT NULL,
+  `tags` text,
+  `duration` decimal(10,0) DEFAULT NULL,
+  `played` decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;

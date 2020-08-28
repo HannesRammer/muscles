@@ -14,9 +14,14 @@ class User < ApplicationRecord
   has_many :followed_user, through: :following_relationship
 
 
-  validates_presence_of :email
-  validates_uniqueness_of :email
-  validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}
+  validates_uniqueness_of :email, :username
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
+
+  validates :username, presence: true, length: { minimum: 3, maximum: 25 }
+  validates :password, presence: true, length: { minimum: 6, maximum: 255 }
+  validates :email, presence: true, length: { minimum: 10, maximum: 255 },format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
+
 
   def generate_password_token!
     self.reset_password_token = generate_token
