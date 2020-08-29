@@ -1604,8 +1604,14 @@ label {
     color: white !important;
 }
 
-.category-select {
+.horizontal .category-select {
     float: left;
+    width: 260px;
+}
+
+.vertical .category-select {
+    float: left;
+    width: 50%;
 }
 
 .horizontal .exercise_text_multi_pic {
@@ -1622,6 +1628,21 @@ label {
     top: 0;
 }
 
+.vertical .search_instructions{
+    font-size: 2rem;
+    text-align: left;
+    position: relative;
+    line-height: 2rem;
+    margin: 1rem 10rem;background: coral;
+}
+.horizontal .search_instructions{
+    font-size: 1rem;
+    text-align: left;
+    position: relative;
+    line-height: 2rem;
+    margin: 15px;
+    background: coral;
+}
 /*buttons*/
 .btn {
     position: relative;
