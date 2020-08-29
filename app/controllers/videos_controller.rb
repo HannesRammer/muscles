@@ -46,6 +46,12 @@ class VideosController < ApplicationController
     end
   end
 
+  def update_duration
+    video = Video.find_by_id(params[:id])
+    video.duration = params[:duration].gsub(",",".")
+    video.save()
+
+  end
   # PATCH/PUT /videos/1
   # PATCH/PUT /videos/1.json
   def update

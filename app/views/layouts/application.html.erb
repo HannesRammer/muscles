@@ -90,11 +90,11 @@
     //    $( document ).ready( readyFn );
     // or:
     //$( window ).on( "load", scale_for_landscape);
-    // $(document).ready(to_scale_or_not_to_scale());
+    $(document).ready(to_scale_or_not_to_scale());
     //
-    // window.addEventListener("orientationchange", function (event) {
-    //     to_scale_or_not_to_scale();
-    // });
+    window.addEventListener("orientationchange", function (event) {
+        to_scale_or_not_to_scale();
+    });
 
     // let tag = document.createElement('script');
     //

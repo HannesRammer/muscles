@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(version: 2020_06_28_105965) do
     t.integer "sets"
     t.boolean "public"
     t.text "tags"
-    t.decimal "duration", precision: 10
-    t.decimal "played", precision: 10
+    t.string "duration"
+    t.string "played"
   end
 
   create_table "user_to_exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -155,8 +155,8 @@ ActiveRecord::Schema.define(version: 2020_06_28_105965) do
     t.string "youtube_url"
     t.string "start_time"
     t.string "end_time"
-    t.decimal "duration", precision: 10
-    t.decimal "name", precision: 10
+    t.string "duration"
+    t.string "name"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

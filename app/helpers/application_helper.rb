@@ -137,8 +137,8 @@ module ApplicationHelper
     session[:return_to] = nil
   end
 
-  def creator_of_trainingsplan
-    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id: params[:trainingsplan_id], user_id: @current_user.id)
+  def creator_of_trainingsplan(trainingsplan_id)
+    ttu = current_user && TrainingsplanToUser.find_by(trainingsplan_id: trainingsplan_id, user_id: @current_user.id)
 
   end
 
@@ -167,6 +167,11 @@ module ApplicationHelper
         button_to "Follow", follow_user_path(id: user.id)
       end
     end
+  end
+
+  def exercise_workout_duration (trainingsplan_id,exercise_id )
+    ett = ExerciseToTrainingsplan.find_by(:trainingsplan_id => trainingsplan_id, :exercise_id => exercise_id  )
+    ett
   end
 
   private

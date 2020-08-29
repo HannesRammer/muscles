@@ -838,6 +838,9 @@ div.trainingsplans_exercises_text.active_exercise {
     border: 2px solid var(--red-color);
 }
 
+.trainingsplan_item * {
+    color: white !important;
+}
 .trainingsplan_item {
     width: 740px;
     float: left;
@@ -847,6 +850,7 @@ div.trainingsplans_exercises_text.active_exercise {
     margin: 10px;
     flex: 1 1 620px;
     padding: 10px;
+
 }
 
 .exercise_selection_link {
@@ -952,11 +956,13 @@ input {
     width: 30px;
     height: 2rem;
     top: 0;
+    color: white !important;
 }
 
 .horizontal div#trainingsplan_edit_exercise input[type=text] {
     width: 30px;
     height: 18px;
+    color: white !important;
 }
 
 .vertical .exercise_border_red {

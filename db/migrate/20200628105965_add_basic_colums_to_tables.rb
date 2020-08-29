@@ -6,12 +6,12 @@ class AddBasicColumsToTables < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_column :videos, :duration, :decimal #in seconds
-    add_column :videos, :name, :decimal #in seconds
+    add_column :videos, :duration, :string#:decimal , precision: 10, scale: 2#in seconds
+    add_column :videos, :name,:string# :text #in seconds
     add_column :trainingsplans, :public, :boolean
     add_column :trainingsplans, :tags, :text
-    add_column :trainingsplans, :duration, :decimal
-    add_column :trainingsplans, :played, :decimal
+    add_column :trainingsplans, :duration, :string#:decimal, precision: 10, scale: 2
+    add_column :trainingsplans, :played, :string#:decimal, precision: 10, scale: 2
   end
 
 end

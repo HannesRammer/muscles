@@ -8,7 +8,7 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans.json
   def index
     trainingsplan_ids = ExerciseToTrainingsplan.select("trainingsplan_id").distinct.all
-    @trainingsplans = Trainingsplan.includes(:exercises).where("id in (?)", trainingsplan_ids).to_a
+    @trainingsplans = Trainingsplan.includes(:user,:exercise_to_trainingsplans, exercises:[:tags] ).where("id in (?)", trainingsplan_ids).to_a
   end
 
   # GET /trainingsplans/1

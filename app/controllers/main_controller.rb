@@ -156,7 +156,7 @@ class MainController < ApplicationController
   end
 
   def add_exercise
-    unless creator_of_trainingsplan
+    unless creator_of_trainingsplan(params[:trainingsplan_id])
       redirect_to root_path
       flash[:notice] = "not your exercise."
 

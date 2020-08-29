@@ -2,7 +2,7 @@
   <div class="trainingsplan_item">
     <% user = trainingsplan.user.to_a.first %>
     <%= link_to user.username, user %>
-    <%= follow_button user  %>
+    <%= follow_button user %>
     <div class="trainingsplan_name"><%= trainingsplan.name %></div>
     <div style="position: relative;height: 470px;margin: 15px;">
       <%= image_tag("muscleman.webp", :class => "multi_pic_ini") %>
@@ -16,16 +16,45 @@
 
     </div>
     <div style="position: absolute;top: 20px;left: 470px;">
-<!--      <div class="trainingsplan_name">Exercises</div>-->
-<!--      <br>-->
-      <%# exercises.each_with_index do |exercise, i| %>
+      <!--      <div class="trainingsplan_name">Exercises</div>-->
+      <!--      <br>-->
+      <% total_dur = 0 %>
 
-        <%#= exercise.name %>
-<!-- <br><br>-->
-<!--        <br>-->
-      <%# end %>
+      <% exercises.each_with_index do |exercise, i| %>
 
-      <%= render "users/tag_list" ,exercises: exercises %>
+        <%= exercise.name %>
+        <% ewd_object = exercise_workout_duration(trainingsplan.id, exercise.id) %>
+        <% unit = ewd_object.unit %>
+        <% if unit == "reps" %>
+          <% video = exercise.selected_video(trainingsplan.id) %>
+          <% if video %>
+            <% video_duration = video.duration %>
+
+            <% duration = ewd_object.reps.to_f * video_duration.to_f %>
+            <% total_dur += duration %>
+<!--            <%#= duration.round(2) %> seconds-->
+          <% else %>
+            select a video
+          <% end %>
+
+
+        <% else %>
+          <% unit = ewd_object.unit %>
+          <% duration = ewd_object.duration.round(2) %>
+          <% total_dur += duration %>
+
+<!--          <%#= ewd_object.duration.round(2) %> seconds-->
+
+        <% end %>
+
+        <!-- <br><br>-->
+        <br>
+      <% end %>
+      <br>
+
+      Total Time ~ <%= distance_of_time_in_words(total_dur.round(2)) %>
+
+      <%= render "users/tag_list", exercises: exercises %>
 
 
     </div>

@@ -26,7 +26,9 @@ class UsersController < ApplicationController
 
   def trainingsplans
     @trainingsplan = Trainingsplan.new
-    @trainingsplans = @current_user.trainingsplans.to_a
+
+
+    @trainingsplans = @current_user.trainingsplans.includes(:exercise_to_trainingsplans, exercises:[:tags] ).to_a
 
   end
 

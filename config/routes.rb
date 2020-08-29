@@ -67,6 +67,9 @@ Rails.application.routes.draw do
   get 'reset_pw', to: 'passwords#reset_pw' ,as: :reset_pw
   post 'passwords/forgot', to: 'passwords#forgot' ,as: :forgot
   post 'passwords/reset', to: 'passwords#reset',as: :reset
+
+  post 'videos/:id/update_duration/:duration', to: 'videos#update_duration',as: :video_update_duration
+
   resources :exercises
   resources :users  do
     member do

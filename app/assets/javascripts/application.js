@@ -415,6 +415,21 @@ function myStopFunction() {
 
 }
 
+function update_duration(urlString) {
+    let duration = document.querySelector("video").duration.toString().replace(".",",");
+    urlString = urlString.split("/0")[0]+"/"+duration;
+
+    $.ajax({
+
+        type: "POST",
+        url: urlString,
+        dataType: "script",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+        }
+    });
+    return false;
+}
 
 let ui_render = {
     show_filter: function () {

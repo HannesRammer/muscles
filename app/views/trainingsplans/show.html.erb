@@ -52,8 +52,8 @@
       </script>
     </div>
     <div style="position: relative;">
-      <%= link_to t('add_or_remove_exercises'), index_path(trainingsplan_id: @trainingsplan.id) if creator_of_trainingsplan %>
-      <%#= link_to t('edit_repetition_duration_or_videos'), edit_trainingsplan_path(@trainingsplan) if creator_of_trainingsplan %>
+      <%= link_to t('add_or_remove_exercises'), root_path(trainingsplan_id: @trainingsplan.id) if creator_of_trainingsplan(@trainingsplan.id) %>
+      <%#= link_to t('edit_repetition_duration_or_videos'), edit_trainingsplan_path(@trainingsplan) if creator_of_trainingsplan(@trainingsplan.id) %>
       <%#= link_to t('back'), user_trainingsplans_path %>
     </div>
 
