@@ -29,7 +29,12 @@
                     {:controller => "trainingsplans", :action => "switch_exercise", :ettp_id_1 => ettp.id, :ettp_id_2 => ettps[i + 1].id},
                     {:remote => true, :method => :post, :class => 'move_exercise_down', :title => "Move Down"}) %>
       <% end %>
-
+      <div id="tags">
+        <%@tags = exercise.tags%>
+        <%#= render :partial => "main/tags" %>
+        <br>
+        <%= render "users/tag_icons" ,exercise: exercise %>
+      </div>
     </div>
 
 

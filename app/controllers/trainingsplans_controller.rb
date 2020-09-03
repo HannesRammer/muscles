@@ -15,7 +15,7 @@ class TrainingsplansController < ApplicationController
   # GET /trainingsplans/1.json
   def show
     @current_user = current_user
-    @trainingsplan = Trainingsplan.includes(:exercises).find_by_id(params[:id])
+    @trainingsplan = Trainingsplan.includes(:user,:exercise_to_trainingsplans, exercises:[:tags] ).find_by_id(params[:id])
     @exercises = @trainingsplan.exercises
 
     if @exercises.first
@@ -127,9 +127,9 @@ class TrainingsplansController < ApplicationController
     end
     #@muscle_exercises = Exercise.where(visible: true).order("name asc").all
 
-    @trainingsplan = Trainingsplan.includes(:exercises).find_by_id(params[:trainingsplan_id])
-    @exercises = Exercise.where(visible: true).order("name asc").all #@trainingsplan.exercises
-    @all_exercises = Exercise.where(visible: true).order("name asc").all #@trainingsplan.exercises
+    @trainingsplan = Trainingsplan.includes(exercises:[:tags]).find_by_id(params[:trainingsplan_id])
+    #@exercises = Exercise.where(visible: true).order("name asc").all #@trainingsplan.exercises
+    #@all_exercises = Exercise.where(visible: true).order("name asc").all #@trainingsplan.exercises
     respond_to :js
   end
 

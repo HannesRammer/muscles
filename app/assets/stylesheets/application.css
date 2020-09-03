@@ -822,7 +822,7 @@ div.trainingsplans_exercises_text {
 }
 
 div.trainingsplans_exercises_text {
-    height: 60px;
+    height: 100px;
     width: 310px;
     position: relative;
     font-weight: bold;

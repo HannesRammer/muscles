@@ -1,5 +1,7 @@
 document.querySelector("#user_selected").innerHTML = '<%=j render partial: 'main/user_selected' %>';
-document.querySelector("#exercises_text").innerHTML = '<%=j render 'main/exercises_text',  exercises: @all_exercises %>';
+//document.querySelector("#exercises_text").innerHTML = '<%#=j render 'main/exercises_text',  exercises: @all_exercises %>';
+//document.querySelector("#exercises_text_header").innerHTML = '<%#= @all_exercises.length%>/1412 Ex. <%#= params[:muscle_selected] %> <%#= @selected_tag_names.to_s %>';
+
 document.querySelector("#trainingsplan_selected").innerHTML = '<%=j render :partial => "main/trainingsplan_selected" %>';
 //alert("yes");
 
