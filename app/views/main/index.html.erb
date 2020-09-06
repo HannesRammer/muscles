@@ -71,8 +71,8 @@
       </div>
 
     </div>
-
-    <%= form_tag main_search_string_path, remote: true, :authenticity_token => true, method: :post do %>
+<hr>
+    <%= form_tag main_search_string_path, remote: true, :id=>"search_form", :authenticity_token => true, method: :post do %>
       <%= hidden_field_tag "muscle_selected" %>
 
       <% if current_user %>

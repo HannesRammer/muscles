@@ -1427,18 +1427,26 @@ iframe {
     font-size: 1rem;
 
 }
+.vertical #search_form{
+    height: 430px;
+    overflow: scroll;
+    background: #208b6b;
+}
 
+.horizontal #search_form{
+
+}
 
 .vertical #search_filter {
     /*height: 590px;*/
     overflow: hidden;
-    margin: 0 1rem 1rem 1rem;
+    /*margin: 0 1rem 1rem 1rem;*/
     width: 100%;
 }
 .horizontal #search_filter {
     height: 590px;
     overflow: hidden;
-    margin: 0 1rem 1rem 1rem;
+    /*margin: 0 1rem 1rem 1rem;*/
     width: 1320px;
     padding-left: 500px;
 }
@@ -1628,13 +1636,13 @@ label {
 
 .horizontal .category-select {
     float: left;
-    width: 190px;
+    width: 188px;
     height: 60px;
 }
 
 .vertical .category-select {
     float: left;
-    width: 33%;
+    width: 50%;
 }
 .vertical .tag_name{
     position: absolute;
