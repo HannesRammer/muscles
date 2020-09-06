@@ -12,7 +12,7 @@
   <label class="category-select" style="">
     <div class="<%= clean_name(tag.name) %>" title="<%= tag.name.downcase %>" style="color: white !important;display: table">
       <%= check_box_tag 'tag_ids[]', tag.id, selected, :onclick => "$('#submit_search_string').click();" -%>
-      <%= h tag.name %>
+      <div class="tag_name"><%= h tag.name %></div>
     </div>
   </label>
 
