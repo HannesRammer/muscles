@@ -85,6 +85,8 @@
         <%= hidden_field_tag "trainingsplan_id" %>
       <% end %>
 
+      click on a muscle in the image left, select a search tag below or enter at least 3 characters in the textfield
+
       <%= text_field_tag :name, params[:name], onkeyup: "if(this.value.length >2){$('#submit_search_string').click();}",
                          style: "" %>
       <div id="tags">

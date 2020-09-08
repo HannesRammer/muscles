@@ -73,7 +73,7 @@ body {
 
 .nav {
     position: relative;
-    background: var(--dark-green-color);
+    /*background: var(--dark-green-color);*/
 }
 
 img {
@@ -219,10 +219,10 @@ select {
 }
 
 .horizontal .multi_pic, .horizontal #hover {
-    left: 4rem;
+    left: 2rem;
     position: absolute;
-    top: 4rem;
-    transform: scale(1.2);
+    top: 1rem;
+    transform: scale(1);
 }
 
 .vertical .multi_pic, .vertical #hover {
@@ -298,7 +298,7 @@ input[type="checkbox" i] {
 
 .user_text_horizontal {
     font-size: 1rem;
-    height: 898px;
+    height: 358px;
     overflow: hidden auto;
 }
 
@@ -383,12 +383,13 @@ div#exercise_edit {
 }
 
 #muscles {
-    width: 100%;
+    width: 50%;
     max-height: 640px;
     overflow: hidden auto;
     float: left;
-    position: relative;
-    /* top: 0;*/
+    position: absolute;
+    top: 150px;
+    left: 45%;
 }
 
 textarea {
@@ -752,7 +753,7 @@ a:visited {
 
 .show_training {
     min-width: 350px;
-    min-height: 898px;
+   /* min-height: 898px;*/
     border: 1px solid rgba(58, 58, 58, 0.6);
 }
 
@@ -1035,9 +1036,10 @@ input {
 
 #exercise .videos_folder {
     position: absolute;
-    width: 100%;
+    width: 43%;
     height: 105px;
     box-sizing: border-box;
+    text-align: left;
 }
 
 .user_exercise .videos_folder {
@@ -1248,21 +1250,23 @@ input#trainingsplan_name {
 .yellow_background {
     background: var(--dark-yellow-color);
     overflow: hidden;
+    height: 400px;
 }
 
 .green_background {
     background: var(--dark-green-color);
-
+    height: 400px;
 }
 
 .red_background {
     background: var(--dark-red-color);
-
+height: 400px;
+    position: relative;
 }
 
 .blue_background {
     background: var(--dark-blue-color);
-
+    height: 400px;
 }
 
 .vertical .grid_child_multi_pic {
@@ -1332,10 +1336,11 @@ input[type="text"], input[type="password"] {
 /* end of login signup */
 
 iframe {
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
+
+    min-width: 24%;
+    /* max-width: 100%; */
+    height: 345px;
+    /* max-height: 100%;*/
 }
 
 .vertical #search_field_magnify {
@@ -1444,7 +1449,7 @@ iframe {
     width: 100%;
 }
 .horizontal #search_filter {
-    height: 590px;
+    height: 488px;
     overflow: hidden;
     /*margin: 0 1rem 1rem 1rem;*/
     width: 1320px;
@@ -1527,9 +1532,9 @@ iframe {
 
 .horizontal .beta {
     position: absolute;
-    width: 7rem;
+    width: 6rem;
     top: 1rem;
-    left: 12rem;
+    left: 11rem;
 }
 
 .vertical .beta {
@@ -1572,10 +1577,10 @@ label {
 
 .horizontal .grid_child_multi_pic .user_tag_list {
     position: absolute;
-    top: 340px;
-    left: 200px;
+    top: 284px;
+    left: 177px;
     transform: scale(0.7);
-    width: 230px;
+    width: 200px;
 }
 
 .horizontal .red_background .user_tag_list {
@@ -1637,7 +1642,7 @@ label {
 .horizontal .category-select {
     float: left;
     width: 188px;
-    height: 60px;
+    height: 44px;
 }
 
 .vertical .category-select {
