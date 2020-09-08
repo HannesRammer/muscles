@@ -4,4 +4,11 @@ document.querySelector("#tags").innerHTML = '<%=j render 'main/tags'  %>';
 document.querySelector("#exercises_text_header").innerHTML = '<%= @exercises.length%>/1412 Ex. <%= params[:muscle_selected] %> <%= @selected_tag_names.to_s %>';
 document.querySelector("#muscle_selected_pic").innerHTML = '<%=j render partial: 'main/muscle_selected'%>';
 
+if($("#mouse_cursor").css("display")==="block"){
+
+    mouse_animation.go_to_dom_element("#exercises_text a.dark_red_background");
+
+    setTimeout(function(){$("#mouse_cursor").css("display","none")},1200);
+}
+
 //alert("yes");

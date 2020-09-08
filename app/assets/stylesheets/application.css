@@ -948,7 +948,6 @@ input {
 /*}*/
 
 .horizontal .material-icons {
-    top: 1px !important;
     position: relative !important;
     font-size: 1rem !important;
 }
@@ -1515,7 +1514,7 @@ iframe {
 }
 
 .vertical .grid_child3.red_background.exercise_grid {
-    height: 45rem;
+    height: 26rem;
 }
 
 .horizontal .grid_child3.red_background.exercise_grid {
@@ -1750,4 +1749,14 @@ label {
     left: 285px;
     height: 2rem;
     top: 0;
+}
+
+#mouse_cursor{
+
+    transition: all 0.5s ease-out;
+    position: fixed !important;
+    top: 50% ;
+    left: 12%;
+    z-index: 9999999;
+
 }

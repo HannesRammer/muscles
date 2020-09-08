@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta name="google-site-verification" content="f_Wp2h92NSmgS0w3zNJwH_j5KnV6B_fnLrD5J3UnD4c"/>
-  <script data-ad-client="ca-pub-5196890855321116" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!--script data-ad-client="ca-pub-5196890855321116" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <title>free-workouts.com <%#= params[:controller] %>/<%= controller.action_name %></title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
   <%= favicon_link_tag asset_path('Logo_icon.webp') %>
-
+  <i id="mouse_cursor" class="material-icons">navigation</i>
   <%#= stylesheet_link_tag :application %>
 <%#= stylesheet_link_tag("main.scss") %>
 
@@ -23,7 +23,7 @@
 <%#= javascript_include_tag "modernizr-1.6.min" %>
 
 </head>
-<body id="body" class="theme_3a3a3a" onresize="to_scale_or_not_to_scale();" onload="to_scale_or_not_to_scale();">
+<body id="body" class="theme_3a3a3a" onresize="to_scale_or_not_to_scale();" onload="to_scale_or_not_to_scale();mouse_animation.start();">
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
 
@@ -37,7 +37,7 @@
   <div style="position: absolute;z-index: 9;">
     <%= render "layouts/drop_style" %>
   </div>
-
+<a href="#" onclick="mouse_animation.start();" >start_animation</a>
   <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
   <div id="outer_container" class="nice_outer_tab">
     <div id="container">
