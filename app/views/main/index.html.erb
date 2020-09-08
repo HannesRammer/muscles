@@ -71,7 +71,6 @@
       </div>
 
     </div>
-<hr>
     <%= form_tag main_search_string_path, remote: true, :id=>"search_form", :authenticity_token => true, method: :post do %>
       <%= hidden_field_tag "muscle_selected" %>
 
@@ -85,7 +84,7 @@
         <%= hidden_field_tag "trainingsplan_id" %>
       <% end %>
 
-      click on a muscle in the image left, select a search tag below or enter at least 3 characters in the textfield
+      to search for an exercise, click on a muscle in the image left, select a search tag below or enter at least 3 chars in the textfield
 
       <%= text_field_tag :name, params[:name], onkeyup: "if(this.value.length >2){$('#submit_search_string').click();}",
                          style: "" %>

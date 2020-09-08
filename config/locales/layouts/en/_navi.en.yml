@@ -2,7 +2,7 @@ en:
   layouts:
     navi:
       start: "Start"
-      advanced_search: "Advanced Search"
+      advanced_search: "Search"
       all_trainingsplans: "All Workouts"
       my_trainingsplans: "My Workouts"
       all_exerccises: "All Exercises"
