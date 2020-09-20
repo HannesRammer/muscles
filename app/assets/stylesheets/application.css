@@ -247,7 +247,7 @@ select {
 
 .horizontal div#trainingsplan_edit_exercise {
     background: var(--dark-blue-color);
-    max-width: 436px;
+    max-width: 100%;
 }
 
 .vertical div#trainingsplan_edit_exercise {
@@ -928,8 +928,9 @@ input {
     top: -15px;
 }
 
-#exercise_video_show video, #trainingsplans_exercise_video_show video {
-    max-height: 800px;
+#exercise_video_show video, #trainingsplans_exercise_video_show video, #trainingsplans_exercise_video_show #ytplayer {
+    height: 720px !important;
+    width: 1280px !important;
 }
 
 .mainborder {
@@ -979,7 +980,7 @@ input {
     border: var(--red-color) 1px solid;
     padding: 0.1rem;
     position: relative;
-    height: 10rem;
+    height: 12rem;
     margin-top: 5px;
     text-align: left;
 }
@@ -992,10 +993,10 @@ input {
 }
 
 .exercise_border_red video {
-    width: 100%;
+    width: 300px;
     overflow: hidden;
     position: relative;
-    /*height: 100%;*/
+    height: 168px;
 }
 
 .vertical .videos_folder {
@@ -1014,8 +1015,8 @@ input {
 
 .horizontal .videos_folder {
     position: absolute;
-    width: 50%;
-    height: 7rem;
+    width: 300px;
+    height: 168px;
     color: white !important;
     text-align: center;
     vertical-align: middle;
@@ -1047,6 +1048,11 @@ input {
     height: 105px;
     box-sizing: border-box;
     top: 2rem;
+}
+
+#user_videos .videos_folder  video{
+    width:300px !important;
+    height: 168px !important;
 }
 
 .trainingsplan_name {
@@ -1162,7 +1168,7 @@ td {
 
 .horizontal .exercise_list_rep {
     position: relative;
-    left: 10rem;
+    left: 320px;
     margin-left: 2rem;
     width: 9rem;
     height: 1.5rem;
@@ -1171,7 +1177,7 @@ td {
 
 .horizontal .exercise_list_duration {
     position: relative;
-    left: 10rem;
+    left: 320px;
     margin-left: 2rem;
     width: 9rem;
     height: 1.5rem;
@@ -1180,7 +1186,7 @@ td {
 
 .horizontal .exercise_list_pause {
     position: relative;
-    left: 10rem;
+    left: 320px;
     margin-left: 2rem;
     width: 9rem;
     height: 1.5rem;
@@ -1188,7 +1194,7 @@ td {
 }
 
 .exercise_list_select {
-    top: 20px;
+    top: 70px;
     position: relative;
     left: 0;
 }
@@ -1489,7 +1495,11 @@ iframe {
 }
 
 .video_name {
-    width: 190%;
+    width: 100%;
+    position: absolute;
+    /*top: 220px;*/
+    left: 0;
+    text-align: left;
 }
 
 .vertical #trainingsplan_id {

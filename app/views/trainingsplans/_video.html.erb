@@ -4,20 +4,20 @@
   </div>
   <% if video&.youtube_url && video&.start_time && video&.end_time && video&.youtube_url.length > 0 && video&.start_time&.length > 0 && video&.end_time&.length > 0 %>
 
-    <!--    <iframe id="ytplayer" type="text/html" width="640" height="360"-->
-    <!--            src="https://www.youtube.com/embed/<%#= video.youtube_url %>?t=20"-->
-    <!--            frameborder="0" style="position:absolute;left:0;"></iframe>-->
-    <!--    <script>-->
-    <!--        // $('iframe#ytplayer').ready(function () {-->
-    <!--        //     autoCallInitOnVidLoadIfTrainingStarted()-->
-    <!--        // });-->
+        <iframe id="ytplayer" type="text/html" width="640" height="360"
+                src="https://www.youtube.com/embed/<%= video.youtube_url %>"
+                frameborder="0" style="position:absolute;left:0;"></iframe>
+<!--        <script>-->
+            // $('iframe#ytplayer').ready(function () {
+            //     autoCallInitOnVidLoadIfTrainingStarted()
+            // });
 
-    <!--    </script>-->
+<!--        // </script>-->
 
 <!--    <div id="youtube_placeholder_id"></div>-->
 
 
-    <%= video_tag("#{url_for(video.video)}", :controls => false, :oncanplay => "load_youtube_player('#{video.youtube_url.to_s}','16','18');", :onended => "video_ended();", :width => 10, preload: 'metadata') %>
+    <%#= video_tag("#{url_for(video.video)}", :controls => false, :oncanplay => "load_youtube_player('#{video.youtube_url.to_s}','16','18');", :onended => "video_ended();", :width => 10, preload: 'metadata') %>
 
 
 
@@ -122,7 +122,8 @@
     <% end %>
 
   <% else %>
-
+    Here is a List of exercise Videos from Youtube
+    <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed?listType=search&list=<%= @exercise.name.gsub(" ", "+") %>&origin=http://free-workouts.com" frameborder="0" style="position:absolute;left:0;width: 300px;height: 168px;"></iframe>
     edit Workout and select a video
 
 <% end %>
