@@ -8,6 +8,7 @@
   <% ettps = @trainingsplan.exercise_to_trainingsplans %>
   <% ettps.each_with_index do |ettp, i| %>
     <% exercise = ettp.exercise %>
+    <% if exercise %>
     <div id="trainingsplan_exercise_<%= exercise.id %>" class="trainingsplans_exercises_text nice_outer_tab" title="<%= exercise.name %> anzeigen" onclick="setExerciseActive(<%= i %>);">
       <%= i + 1 %>
       <%# @x << "#{clean_name(exercise.name).capitalize}" %>
@@ -36,8 +37,9 @@
         <%= render "users/tag_icons" ,exercise: exercise %>
       </div>
     </div>
-
-
+<%else %>
+no exercise
+  <% end %>
   <% end %>
 
 
