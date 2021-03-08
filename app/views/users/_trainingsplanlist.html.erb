@@ -32,7 +32,7 @@
 
             <% duration = ewd_object.reps.to_f * video_duration.to_f %>
             <% total_dur += duration %>
-<!--            <%#= duration.round(2) %> seconds-->
+            <!--            <%#= duration.round(2) %> seconds-->
           <% else %>
             select a video
           <% end %>
@@ -43,7 +43,7 @@
           <% duration = ewd_object.duration.round(2) %>
           <% total_dur += duration %>
 
-<!--          <%#= ewd_object.duration.round(2) %> seconds-->
+          <!--          <%#= ewd_object.duration.round(2) %> seconds-->
 
         <% end %>
         <% total_dur += ewd_object.pause %>

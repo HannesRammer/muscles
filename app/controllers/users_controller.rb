@@ -60,6 +60,12 @@ class UsersController < ApplicationController
       if @user.save
         trainingsplan = Trainingsplan.new
         trainingsplan.name = "User #{@user.id}'s first workout"
+        trainingsplan.duration=0
+        trainingsplan.creator_id=@user.id
+        trainingsplan.copied_from_trainingsplan_id = 0
+        trainingsplan.sets= 0
+        trainingsplan.public= 0
+        trainingsplan.played= 0
         trainingsplan.save
         @user.trainingsplans << trainingsplan
         ApplicationMailer.with(user: @user).welcome_email(email: @user.email).deliver_now
