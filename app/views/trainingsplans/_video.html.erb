@@ -124,7 +124,7 @@
   <% else %>
     <%if @exercise %>
     Here is a List of exercise Videos from Youtube
-    <iframe id="ytplayer" type="text/html" width="640" height="360" src="http://www.youtube.com/embed?listType=search&list=<%= @exercise.name.gsub(" ", "+") %>&origin=http://free-workouts.com" frameborder="0" style="position:absolute;left:0;width: 300px;height: 168px;"></iframe>
+    <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed?listType=search&list=<%= @exercise.name.gsub(" ", "+") %>&origin=http://free-workouts.com" frameborder="0" style="position:absolute;left:0;width: 300px;height: 168px;"></iframe>
       <%end %>
     edit Workout and select a video
 

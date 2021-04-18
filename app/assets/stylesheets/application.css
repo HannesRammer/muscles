@@ -93,9 +93,9 @@ img {
 .horizontal #muscle_text_hover_div {
     position: absolute;
     width: 300px;
-    top: -10px;
+    top: 1px;
     text-align: center;
-    left: 160px;
+    left: 125px;
 }
 
 .vertical #muscle_text_hover_div {
@@ -1740,7 +1740,8 @@ label {
     /*border-radius: 2px;*/
     /*box-shadow: 0 1px 4px rgba(0, 0, 0, .6);*/
 
-    background-color: #2ecc71;
+    background-color: #2864bd;
+    /*background-color: #2ecc71;*/
     color: #ecf0f1;
 
     transition: background-color .3s;
@@ -1774,13 +1775,14 @@ label {
 .horizontal .edit_workout{
     position: absolute;
     padding: 10px;
-    background: coral;
+    background: #2a7fff;
+    /*background: coral;*/
     left: 176px;
 }
 .vertical .edit_workout{
     position: absolute;
     padding: 29px;
-    background: coral;
+    background: #2a7fff;
     left: 285px;
     height: 2rem;
     top: 0;
