@@ -2,6 +2,7 @@ class MainController < ApplicationController
   before_action :login_required, :except => [:index, :muscle, :body_part, :exercise, :search_string, :impressum]
   include ApplicationHelper
   #respond_to :html, :js
+  require 'net/http'
 
   def index
     @liste = []
@@ -10,7 +11,7 @@ class MainController < ApplicationController
     @muscles_selected = []
     @body_parts = BodyPart.all.to_a
     @p_muscles = [] #@muscles
-    @exercises = []# Exercise.includes(:tags).where(visible: true).order("name asc").all.limit(20)
+    @exercises = [] # Exercise.includes(:tags).where(visible: true).order("name asc").all.limit(20)
     @s_muscles = []
     @a_muscles = []
     # @muscle = @muscles.first
@@ -29,7 +30,6 @@ class MainController < ApplicationController
       @trainingsplan = @trainingsplans.first if @trainingsplans
     end
   end
-
 
   def muscle
     #p "##################################"
@@ -75,7 +75,7 @@ class MainController < ApplicationController
       @muscles_selected = Muscle.where(en_name: params[:muscle_selected]).to_a
       muscle = @muscles_selected.first
       muscle_exercises.concat(muscle.primary_exercises)
-       muscle_exercises.concat(muscle.secondary_exercises)
+      muscle_exercises.concat(muscle.secondary_exercises)
     end
 
     #exercise_ids = TagToExercise.select(:exercise_id).where(tag_id: @selected_tag_ids).map(&:exercise_id).to_a
@@ -95,7 +95,6 @@ class MainController < ApplicationController
         @exercises = @exercises & muscle_exercises
 
       end
-
 
       final_exercises = []
       @exercises.each do |exercise|
@@ -121,7 +120,6 @@ class MainController < ApplicationController
       end
     end
 
-
     #@exercises = Exercise.load_exercises(@name)
     if exercise_ids.length > 0 && @name.length > 0
       @exercises = Exercise.where("name LIKE ? or name LIKE ?", "%#{@name}%", "%#{@name.downcase}%").where(visible: true, id: exercise_ids).to_a
@@ -136,7 +134,7 @@ class MainController < ApplicationController
     @tags
     if new_tag_ids.length == 0
       @tags = Tag.order(:group, :name)
-      @exercises = []# Exercise.where(visible: true).order("name asc").all.limit(100)
+      @exercises = [] # Exercise.where(visible: true).order("name asc").all.limit(100)
     else
       @tags = Tag.where(id: new_tag_ids).order(:group, :name)
     end
@@ -148,6 +146,17 @@ class MainController < ApplicationController
     @name = params["name"]
     trainingsplan_id = params["trainingsplan_id"]
     @exercise = Exercise.includes(:tags).find_by_name(@name)
+    list = []
+    uri = URI("https://youtube.googleapis.com/youtube/v3/search?q=#{@exercise.name.gsub(' ','+')}&key=AIzaSyCaDPTHC0qgbwGiIOxdzQHCYlpB7LSM27c&output=embed")
+
+    res = Net::HTTP.get_response(uri)
+    JSON.parse(res.body)["items"].each do |item|
+      list.push(item["id"]["videoId"])
+    end
+    @ids = list.join(",")
+
+
+    # Body
     @p_muscles = @exercise.primary_muscles
     @s_muscles = @exercise.secondary_muscles
     # @a_muscles = @exercise.antagonist_muscles
@@ -168,9 +177,7 @@ class MainController < ApplicationController
     if tpte
       flash[:notice] = "Exercise already in your trainingslan."
 
-
     else
-
 
       @trainingsplan.exercises << Exercise.find_by_id(exercise_id)
       tpte = ExerciseToTrainingsplan.find_by(trainingsplan_id: trainingsplan_id, exercise_id: exercise_id)
@@ -193,7 +200,6 @@ class MainController < ApplicationController
 
   def remove_exercise
     @ett = ExerciseToTrainingsplan.find_by_id(params[:ettp_id])
-
 
     @trainingsplan = @ett.trainingsplan
     user = @trainingsplan.user.first
@@ -219,4 +225,5 @@ class MainController < ApplicationController
   def impressum
 
   end
+
 end
